@@ -27,31 +27,72 @@ HARD_SEMANTIC_PAIRS = {
     frozenset(['pizza_ingredients', 'forbid_food']): 'Listing culinary ingredients for pizza cannot exclude all food items.'
 }
 
+DOC_SCOPES = {'response', 'entire_report', 'entire_response', 'report', 'document', 'entire document', 'entire'}
+
+def is_same_scope(s1: str, s2: str) -> bool:
+    if not s1 or not s2:
+        return True
+    if s1 in DOC_SCOPES and s2 in DOC_SCOPES:
+        return True
+    return s1.lower() == s2.lower()
+
 def detect(instructions: list[Instruction]) -> list[Conflict]:
-    found=[]
-    def emit(items,kind,reason,soft=False):
-        found.append(Conflict(instruction_ids=[i.id for i in items],kind=kind,
-                              explanation=reason,severity='soft' if soft else 'hard'))
-    for i in instructions:
+    found: list[Conflict] = []
+    def emit(items, kind, reason, soft=False, scope=None, target='', canonical_id=''):
+        c_scope = scope or (items[0].scope if items else 'entire_report')
+        c_target = target or (items[0].target if items else '')
+        c_id = canonical_id or f"{kind}:{c_scope}:{c_target or 'all'}"
+        ids_set = frozenset(i.id for i in items)
+        for existing in found:
+            if frozenset(existing.instruction_ids) == ids_set or (existing.canonical_id and existing.canonical_id == c_id):
+                if 'rules' not in existing.evidence:
+                    existing.evidence.append('rules')
+                return
+        found.append(Conflict(
+            instruction_ids=[i.id for i in items],
+            kind=kind,
+            explanation=reason,
+            severity='soft' if soft else 'hard',
+            scope=c_scope,
+            target=c_target,
+            canonical_id=c_id,
+            evidence=['rules']
+        ))
+    active_instructions = [
+        i for i in instructions
+        if getattr(i, 'active_instruction_status', True)
+        and getattr(i, 'source_role', 'user') not in ('context', 'untrusted')
+        and i.key != 'context_data'
+    ]
+    for i in active_instructions:
         if i.kind=='numerical' and i.lower is not None and i.upper is not None and i.lower>i.upper:
-            emit([i],'numerical','This integer interval is empty.',i.soft)
+            emit([i],'numerical','This integer interval is empty.',i.soft,scope=i.scope,target=i.target)
     seen_semantic_pairs = set()
-    for a,b in combinations(instructions,2):
-        if a.scope!=b.scope: continue
+    for a,b in combinations(active_instructions,2):
         soft=a.soft or b.soft
-        if a.kind==b.kind=='numerical' and a.key==b.key:
+        if {a.key,b.key}=={'json_only','outside_json'}:
+            emit([a,b],'formatting','JSON-only output cannot include prose outside the JSON value.',soft,scope='entire_report',target='json_format')
+            continue
+        if not is_same_scope(a.scope, b.scope): continue
+        if a.kind==b.kind=='numerical' and (a.key==b.key or a.target==b.target):
             lo=max(a.lower or 0,b.lower or 0)
             hi=min(a.upper if a.upper is not None else float('inf'),b.upper if b.upper is not None else float('inf'))
-            if lo>hi: emit([a,b],'numerical',f'No integer {a.key} count can meet both bounds in scope {a.scope}.',soft)
+            if lo>hi:
+                emit(
+                    [a,b],
+                    'numerical',
+                    f'No integer {a.key} count can meet both bounds in scope {a.scope}: {a.id} ("{a.text}") requires [{a.lower}, {a.upper}] while {b.id} ("{b.text}") requires [{b.lower}, {b.upper}].',
+                    soft,
+                    scope=a.scope,
+                    target=a.target
+                )
         elif a.kind==b.kind=='logical' and a.key==b.key=='severity_rating' and a.value!=b.value:
-            emit([a,b],'logical',f'The same incident cannot have conflicting single authoritative severity ratings ({a.value} vs {b.value}).',soft)
+            emit([a,b],'logical',f'The same incident cannot have conflicting single authoritative severity ratings ({a.value} vs {b.value}).',soft,scope=a.scope,target=a.target)
         elif a.kind==b.kind=='temporal' and a.key==b.key=='incident_date' and a.value!=b.value:
-            emit([a,b],'temporal',f'The same incident cannot have occurred on mutually exclusive dates ({a.value} vs {b.value}).',soft)
+            emit([a,b],'temporal',f'The same incident cannot have occurred on mutually exclusive dates ({a.value} vs {b.value}).',soft,scope=a.scope,target=a.target)
         elif a.key==b.key and {a.value,b.value}=={'require','forbid'}:
-            msg = 'Confidential customer PII cannot be both completely exposed and not exposed during the same incident.' if a.key=='pii_exposed' else 'The same feature is both required and forbidden in the same scope.'
-            emit([a,b],a.kind,msg,soft)
-        elif {a.key,b.key}=={'json_only','outside_json'}:
-            emit([a,b],'formatting','JSON-only output cannot include prose outside the JSON value.',soft)
+            msg = 'Confidential customer records/PII cannot be both exposed and zero exposed during the same incident.' if a.key=='pii_exposed' else 'The same feature is both required and forbidden in the same scope.'
+            emit([a,b],a.kind,msg,soft,scope=a.scope,target=a.target)
         elif a.kind==b.kind=='temporal' and a.key==b.key=='start_time' and a.value!=b.value:
             emit([a,b],'temporal','A single named event on the same day cannot have two mandatory start times.',soft)
         elif a.kind==b.kind=='semantic':
@@ -103,12 +144,19 @@ def detect(instructions: list[Instruction]) -> list[Conflict]:
     try:
         from .solver import SMTVerifier
         smt_conflicts = SMTVerifier().verify_numerical_and_boolean(instructions)
-        # Avoid duplicate emits if pairwise rule already captured identical instruction IDs
-        existing_id_sets = [frozenset(c.instruction_ids) for c in found]
         for sc in smt_conflicts:
-            if frozenset(sc.instruction_ids) not in existing_id_sets:
+            matched = False
+            sc_set = frozenset(sc.instruction_ids)
+            for existing in found:
+                if frozenset(existing.instruction_ids) == sc_set:
+                    if 'smt_solver' not in existing.evidence:
+                        existing.evidence.append('smt_solver')
+                    matched = True
+                    break
+            if not matched:
+                sc.evidence = ['smt_solver']
+                sc.canonical_id = sc.canonical_id or f"{sc.kind}:{sc.scope}:{sc.target or 'all'}"
                 found.append(sc)
-                existing_id_sets.append(frozenset(sc.instruction_ids))
     except Exception:
         pass
     return found

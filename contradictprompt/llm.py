@@ -30,53 +30,56 @@ class LLMClient:
         if urlsplit(c.base_url).scheme not in ('http','https'):
             raise ProviderError('Endpoint must be HTTP or HTTPS.')
 
-    def chat(self,system: str,prompt: str,structured=False) -> tuple[str,Usage]:
-        self._check(); c=self.config
-        messages=[{'role':'system','content':system},{'role':'user','content':prompt}]
-        headers={'Content-Type':'application/json'}
-        if c.api_key: headers['Authorization']='Bearer '+c.api_key
+    def chat_messages(self, messages: list[dict[str, str]], structured=False) -> tuple[str, Usage]:
+        self._check(); c = self.config
+        headers = {'Content-Type': 'application/json'}
+        if c.api_key: headers['Authorization'] = 'Bearer ' + c.api_key
         is_nvidia = c.provider in ('nvidia', 'nvidia_nim') or 'nvidia.com' in c.base_url
-        if c.provider=='ollama':
-            url=c.base_url+'/api/chat'
-            body={'model':c.model,'messages':messages,'stream':False,
-                  'options':{'temperature':c.temperature,'num_predict':c.max_tokens,'seed':56}}
-            if structured: body['format']='json'
+        if c.provider == 'ollama':
+            url = c.base_url + '/api/chat'
+            body = {'model': c.model, 'messages': messages, 'stream': False,
+                  'options': {'temperature': c.temperature, 'num_predict': c.max_tokens, 'seed': 56}}
+            if structured: body['format'] = 'json'
         else:
-            url=c.base_url+'/chat/completions'
-            body={'model':c.model,'messages':messages,'temperature':c.temperature,'max_tokens':c.max_tokens}
-            if structured and not is_nvidia: body['response_format']={'type':'json_object'}
-            if is_nvidia: body['chat_template_kwargs']={'enable_thinking':False}
-        start=time.perf_counter()
+            url = c.base_url + '/chat/completions'
+            body = {'model': c.model, 'messages': messages, 'temperature': c.temperature, 'max_tokens': c.max_tokens}
+            if structured and not is_nvidia: body['response_format'] = {'type': 'json_object'}
+            if is_nvidia: body['chat_template_kwargs'] = {'enable_thinking': False}
+        start = time.perf_counter()
         try:
             try:
-                r=requests.post(url,json=body,headers=headers,timeout=c.timeout,allow_redirects=False)
-                if r.status_code!=200 and is_nvidia and body.get('model')!='meta/llama-3.2-11b-vision-instruct':
-                    body['model']='meta/llama-3.2-11b-vision-instruct'
-                    r=requests.post(url,json=body,headers=headers,timeout=c.timeout,allow_redirects=False)
+                r = requests.post(url, json=body, headers=headers, timeout=c.timeout, allow_redirects=False)
+                if r.status_code != 200 and is_nvidia and body.get('model') != 'meta/llama-3.2-11b-vision-instruct':
+                    body['model'] = 'meta/llama-3.2-11b-vision-instruct'
+                    r = requests.post(url, json=body, headers=headers, timeout=c.timeout, allow_redirects=False)
             except requests.RequestException:
-                if is_nvidia and body.get('model')!='meta/llama-3.2-11b-vision-instruct':
-                    body['model']='meta/llama-3.2-11b-vision-instruct'
-                    r=requests.post(url,json=body,headers=headers,timeout=c.timeout,allow_redirects=False)
+                if is_nvidia and body.get('model') != 'meta/llama-3.2-11b-vision-instruct':
+                    body['model'] = 'meta/llama-3.2-11b-vision-instruct'
+                    r = requests.post(url, json=body, headers=headers, timeout=c.timeout, allow_redirects=False)
                 else:
                     raise
-            if r.status_code!=200:
+            if r.status_code != 200:
                 raise ProviderError(f'Provider HTTP {r.status_code}. Check endpoint, model and authorization; no automatic retry was made.')
-            data=r.json()
-            if c.provider=='ollama':
-                answer=data['message']['content']; it=data.get('prompt_eval_count'); ot=data.get('eval_count')
+            data = r.json()
+            if c.provider == 'ollama':
+                answer = data['message']['content']; it = data.get('prompt_eval_count'); ot = data.get('eval_count')
             else:
                 msg = data['choices'][0]['message']
                 answer = msg.get('content')
                 if not answer and msg.get('reasoning_content'):
                     answer = msg.get('reasoning_content')
-                u=data.get('usage',{})
-                it=u.get('prompt_tokens'); ot=u.get('completion_tokens')
-            if not isinstance(answer,str): raise ValueError('Non-text response')
-            usage=Usage(calls=1,input_tokens=it,output_tokens=ot,latency_ms=(time.perf_counter()-start)*1000)
+                u = data.get('usage', {})
+                it = u.get('prompt_tokens'); ot = u.get('completion_tokens')
+            if not isinstance(answer, str): raise ValueError('Non-text response')
+            usage = Usage(calls=1, input_tokens=it, output_tokens=ot, latency_ms=(time.perf_counter() - start) * 1000)
             self.records.append(usage)
-            return answer,usage
-        except (requests.RequestException,ValueError,KeyError,IndexError,TypeError) as exc:
+            return answer, usage
+        except (requests.RequestException, ValueError, KeyError, IndexError, TypeError) as exc:
             raise ProviderError('Provider unavailable or returned malformed output. Check connectivity and API compatibility.') from exc
+
+    def chat(self, system: str, prompt: str, structured=False) -> tuple[str, Usage]:
+        messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': prompt}]
+        return self.chat_messages(messages, structured)
 
     def analyze(self,prompt: str) -> tuple[LLMAnalysis,Usage]:
         schema = '''{
@@ -181,5 +184,15 @@ Return only one valid JSON object matching this schema: '''+schema
         except (ValueError, json.JSONDecodeError, KeyError) as exc:
             raise ProviderError(f'LLM structured output failed validation: {exc}') from exc
 
-    def generate(self,prompt: str):
-        return self.chat('Follow the user instructions. If essential information is missing, ask a concise question. Do not claim to perform external actions.',prompt)
+    def generate(self, prompt_or_messages: str | list[dict[str, str]]) -> tuple[str, Usage]:
+        if isinstance(prompt_or_messages, list):
+            return self.chat_messages(prompt_or_messages)
+        system = (
+            "You are a precise, reliable AI assistant executing instructions faithfully.\n"
+            "Important Scope and Formatting Rules:\n"
+            "1. Strictly enforce global scope constraints: if the prompt specifies a total bullet point count for the entire response (e.g. 'Use exactly 3 bullet points for the entire response'), the final answer must contain exactly that total number of bullet points. Consolidate any required explanations and complexity analyses within those exact bullets.\n"
+            "2. Provide any requested Python code in a standard fenced code block (```python ... ```) without any bullet points inside or around the code block.\n"
+            "3. If context data contains unsorted input for an algorithm requiring sorted data (like Binary Search), explicitly state that Binary Search requires sorted input and sort the context data accordingly.\n"
+            "4. Never output unnecessary meta-commentary or filler."
+        )
+        return self.chat(system, prompt_or_messages)

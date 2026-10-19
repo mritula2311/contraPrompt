@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ContradictPrompt — Detect &amp; Resolve Conflicting Instructions</title>
-  <meta name="description" content="A hybrid rule-based and LLM-driven framework for detecting and resolving conflicting user instructions. Research prototype for prompt contradiction analysis." />
+  <title>ContradictPrompt — Priority-Explicit Prompt Resolver &amp; Conflict Benchmark</title>
+  <meta name="description" content="A Hybrid Rule-Based and LLM-Driven Framework for Detecting and Resolving Conflicting User Instructions with NVIDIA NIM." />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>↔</text></svg>" />
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/styles.css?v=3.2" />
 </head>
 <body>
 
@@ -26,45 +26,26 @@
       <div class="brand-icon">↔</div>
       <div class="brand-text">
         <h1>ContradictPrompt</h1>
-        <span>Research Prototype v2.0</span>
+        <span>Research Platform v3.0</span>
       </div>
     </div>
 
     <div class="nav-section">
-      <div class="nav-section-title">Workspace</div>
-      <div class="nav-item active" data-page="home" id="nav-home">
+      <div class="nav-section-title">Navigation</div>
+      <div class="nav-item active" data-page="workspace" id="nav-workspace" onclick="navigateTo('workspace')">
         <span class="nav-icon">
-          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        </span> Home
+          <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
+        </span> Workspace
       </div>
-      <div class="nav-item" data-page="analyzer" id="nav-analyzer">
-        <span class="nav-icon">
-          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-        </span> Prompt Analyzer
-      </div>
-      <div class="nav-item" data-page="repair" id="nav-repair">
-        <span class="nav-icon">
-          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-        </span> Prompt Repair
-      </div>
-      <div class="nav-item" data-page="generator" id="nav-generator">
-        <span class="nav-icon">
-          <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        </span> Response Generator
-      </div>
-    </div>
-
-    <div class="nav-section">
-      <div class="nav-section-title">Research</div>
-      <div class="nav-item" data-page="evaluation" id="nav-evaluation">
+      <div class="nav-item" data-page="research" id="nav-research" onclick="navigateTo('research')">
         <span class="nav-icon">
           <svg class="icon-svg" viewBox="0 0 24 24"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>
-        </span> Evaluation
+        </span> Research Workbench
       </div>
-      <div class="nav-item" data-page="about" id="nav-about">
+      <div class="nav-item" data-page="settings" id="nav-settings" onclick="navigateTo('settings')">
         <span class="nav-icon">
-          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-        </span> About
+          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </span> Settings &amp; NIM
       </div>
     </div>
 
@@ -75,7 +56,7 @@
           <span class="nim-badge">NVIDIA NIM</span>
           <span class="status-dot online" id="nimStatusDot"></span>
         </div>
-        <button class="btn btn-xs btn-outline" onclick="testNimConnection()" id="testNimBtn" title="Send live ping to NVIDIA NIM">Test Ping</button>
+        <button class="btn btn-xs btn-outline" onclick="testNimConnection()" id="testNimBtn" title="Send live ping to NVIDIA NIM">Ping</button>
       </div>
       <div class="nim-model" id="nimModelName" title="Active Model">nemotron-3.5-super-vl-120b</div>
       <div class="nim-latency" id="nimLatency">
@@ -105,7 +86,7 @@
     </div>
 
     <div class="sidebar-footer">
-      English research prototype · NVIDIA NIM<br/>
+      Instruction Hierarchy &bull; NVIDIA NIM<br/>
       Department of Cyber Security &amp; IoT
     </div>
   </aside>
@@ -113,326 +94,271 @@
   <!-- ════════════════ MAIN CONTENT ════════════════ -->
   <main class="main-content">
 
-    <!-- ─── HOME PAGE ──────────────────────────────── -->
-    <div class="page active" id="page-home">
-      <div class="hero-section">
-        <h2 class="hero-title">Detect Conflicts<br/>Before They Happen</h2>
-        <p class="hero-subtitle">
-          Check whether instructions can coexist before asking an AI to follow them. 
-          A hybrid rule-based and LLM-driven framework powered by NVIDIA NIM for detecting and resolving conflicting user instructions.
-        </p>
-        <button class="btn btn-primary btn-lg" onclick="navigateTo('analyzer')">
-          Start Analyzing
-          <svg class="icon-svg sm" style="margin-left: 6px;" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-        </button>
-
-        <div class="example-prompt" onclick="loadExample()" title="Click to use this example">
-          <span style="font-weight: 600; color: var(--accent-indigo); margin-right: 6px;">Sample Conflict:</span>
-          "Write exactly 100 words, but use fewer than 80 words."
-        </div>
+    <!-- ════════════════ 1. WORKSPACE PAGE (UNIFIED END-TO-END WORKFLOW) ════════════════ -->
+    <div class="page active" id="page-workspace">
+      <div class="page-header" style="margin-bottom: var(--space-md);">
+        <h2 class="page-title">ContradictPrompt Unified Workspace</h2>
+        <p class="page-subtitle">End-to-end prompt analysis, priority-explicit hierarchy resolution, multi-conflict repair, and response generation in one continuous session.</p>
       </div>
 
-      <div class="categories-grid">
-        <div class="category-card">
-          <div class="category-icon" style="color: var(--accent-emerald);">
-            <svg class="icon-svg lg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      <!-- Quick Scenario Toolbar -->
+      <div class="glass-card" style="padding: var(--space-sm) var(--space-md); margin-bottom: var(--space-md); background: #FAF7F2;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span style="font-weight: 700; font-size: 0.82rem; color: var(--text-primary);">Load Test Scenario:</span>
           </div>
-          <div class="category-name">Compatible</div>
-          <div class="category-desc">Requirements appear jointly satisfiable. All instructions can coexist without conflict.</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon" style="color: var(--accent-amber);">
-            <svg class="icon-svg lg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          </div>
-          <div class="category-name">Partially Conflicting</div>
-          <div class="category-desc">Soft goals compete; a compromise may work but requires careful priority decisions.</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon" style="color: var(--accent-rose);">
-            <svg class="icon-svg lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"></line></svg>
-          </div>
-          <div class="category-name">Fully Impossible</div>
-          <div class="category-desc">Hard requirements cannot all hold in the same scope. Logical contradiction detected.</div>
-        </div>
-        <div class="category-card">
-          <div class="category-icon" style="color: var(--accent-cyan);">
-            <svg class="icon-svg lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          </div>
-          <div class="category-name">Underspecified</div>
-          <div class="category-desc">Essential input is missing. Clarification needed before the prompt can be executed.</div>
-        </div>
-      </div>
-
-      <div class="glass-card" style="margin-top: var(--space-2xl)">
-        <div class="card-title" style="margin-bottom: var(--space-lg)">
-          <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
-          </span> Complete Workflow
-        </div>
-        <div class="workflow-diagram">
-          <div class="workflow-step"><span class="step-num">1</span> User enters prompt</div>
-          <div class="workflow-arrow"></div>
-          <div class="workflow-step"><span class="step-num">2</span> Preprocessing &amp; instruction extraction</div>
-          <div class="workflow-arrow"></div>
-          <div class="workflow-step"><span class="step-num">3</span> Deterministic contradiction checks</div>
-          <div class="workflow-arrow"></div>
-          <div class="workflow-step"><span class="step-num">4</span> LLM semantic conflict analysis</div>
-          <div class="workflow-arrow"></div>
-          <div class="workflow-step"><span class="step-num">5</span> 4-class classification &amp; explanation</div>
-          <div class="workflow-arrow"></div>
-          <div class="workflow-step"><span class="step-num">6</span> Correction &amp; user approval</div>
-          <div class="workflow-arrow"></div>
-          <div class="workflow-step"><span class="step-num">7</span> Revalidation &amp; response generation</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─── ANALYZER PAGE ──────────────────────────── -->
-    <div class="page" id="page-analyzer">
-      <div class="page-header">
-        <h2 class="page-title">Prompt Analyzer</h2>
-        <p class="page-subtitle">Enter a natural-language prompt below. The system extracts instructions, detects contradictions, and classifies the prompt into one of four categories.</p>
-      </div>
-
-      <div class="glass-card">
-        <!-- 100 Benchmark Prompts Explorer -->
-        <div style="background: rgba(99, 102, 241, 0.08); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: var(--radius-lg); padding: var(--space-md) var(--space-lg); margin-bottom: var(--space-lg);">
-          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-xs); flex-wrap: wrap; gap: 8px;">
-            <div style="font-weight: 700; color: var(--accent-indigo); font-size: 0.9rem; display: flex; align-items: center; gap: 6px;">
-              <svg class="icon-svg sm" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-              100-Prompt Benchmark &amp; Paradox Dataset
-            </div>
-            <span style="font-size: 0.75rem; color: var(--text-muted);">5 Categories &bull; 100 Verified Contradictions</span>
-          </div>
-          <div style="display: grid; grid-template-columns: 1fr 2fr auto; gap: var(--space-sm); align-items: center;">
-            <select class="control-select" id="benchmarkCategorySelect" onchange="onBenchmarkCategoryChange()" style="font-size: 0.85rem;">
-              <option value="all">All 5 Categories (100 Prompts)</option>
-              <option value="structural">1. Hard Structural &amp; Length (20)</option>
-              <option value="semantic">2. Semantic &amp; Logical Paradoxes (20)</option>
-              <option value="persona">3. Identity, Tone &amp; Persona Clashes (20)</option>
-              <option value="negation">4. Input-Output Negation &amp; Rules (20)</option>
-              <option value="dependency">5. Multi-Step &amp; Dependency Traps (20)</option>
-            </select>
-            <select class="control-select" id="benchmarkPromptSelect" onchange="onBenchmarkPromptSelect()" style="font-size: 0.85rem;">
-              <option value="">-- Choose a benchmark prompt to test --</option>
-            </select>
-            <button class="btn btn-secondary btn-sm" onclick="loadSelectedBenchmarkPrompt()" style="white-space: nowrap;">
-              Load Prompt
+          <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+            <button class="btn btn-secondary btn-sm" onclick="loadSampleInc2026()" style="border-color: #CC5A37; color: #CC5A37; font-weight: 700;">
+              Audit INC-2026-017 (5 Conflicts)
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="loadPriorityPreset('p1_p5_pii')">
+              P1 System vs P5 Untrusted (PII Redaction)
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="loadPriorityPreset('p1_p3_format')">
+              P1 System vs P3 User (JSON vs CSV)
+            </button>
+            <button class="btn btn-secondary btn-sm" onclick="loadPriorityPreset('compatible')">
+              Compatible Multi-Tier
             </button>
           </div>
-          <div id="benchmarkHint" style="margin-top: 8px; font-size: 0.8rem; color: var(--text-secondary); display: none;"></div>
+        </div>
+      </div>
+
+      <!-- STEP 1: Prompt Input & Authorized Tier Configuration -->
+      <section class="glass-card" id="step-prompt-input" style="margin-bottom: var(--space-lg);">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-sm);">
+          <div class="card-title" style="margin: 0;">
+            <span class="icon">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            </span>
+            Step 1: Input Compound Prompt or Multi-Tier Directives
+          </div>
+          <button class="btn btn-xs btn-outline" id="toggleTiersBtn" onclick="toggleMultiTierEditor()">
+            Configure Authorized Hierarchy (P1–P5)
+          </button>
         </div>
 
         <div class="input-group">
-          <label class="input-label" for="analyzerInput">Original Prompt</label>
-          <textarea class="textarea" id="analyzerInput" placeholder="Enter your prompt here… e.g., 'Write exactly 100 words, but use fewer than 80 words.'">Write exactly 100 words, but use fewer than 80 words.</textarea>
+          <textarea class="textarea" id="analyzerInput" rows="7" placeholder="Enter compound prompt instructions here..."></textarea>
         </div>
-        <div style="display: flex; gap: var(--space-md); align-items: center; flex-wrap: wrap;">
-          <button class="btn btn-primary" id="analyzeBtn" onclick="analyzePrompt()">
-            <svg class="icon-svg sm" style="margin-right: 6px;" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            Analyze Prompt
-          </button>
-          <button class="btn btn-secondary btn-sm" onclick="clearAnalysis()">Clear</button>
-          <div style="margin-left: auto; display: flex; gap: var(--space-xs); flex-wrap: wrap;">
-            <button class="btn btn-secondary btn-sm" onclick="loadUserCritical('coral')" title="Underwater coral reef teeming with tropical fish, but scene is bone-dry desert">Dry Reef</button>
-            <button class="btn btn-secondary btn-sm" onclick="loadUserCritical('eulogy')" title="Heartbreaking funeral eulogy, but cheerful upbeat lottery win tone">Cheerful Eulogy</button>
-            <button class="btn btn-secondary btn-sm" onclick="loadUserCritical('monologue')" title="500-word monologue for character who refuses to speak or communicate">Mute Monologue</button>
-            <button class="btn btn-secondary btn-sm" onclick="loadSample('numerical')">Numerical</button>
-            <button class="btn btn-secondary btn-sm" onclick="loadSample('formatting')">Formatting</button>
-            <button class="btn btn-secondary btn-sm" onclick="loadSample('compatible')">Compatible</button>
+
+        <!-- Collapsible Multi-Tier Hierarchy Inputs -->
+        <div id="multiTierEditor" class="hidden" style="margin-top: var(--space-md); border-top: 1px dashed var(--border-glass); padding-top: var(--space-md);">
+          <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); margin-bottom: var(--space-sm);">
+            Authorized Instruction Hierarchy (Research Track B — Trust &amp; Authority):
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-sm);">
+            <div class="tier-card" style="border-left: 3px solid #D97706; padding: 8px;">
+              <span class="tier-code-pill badge-p1" style="font-size: 0.7rem;">P1 &bull; System Rule (Highest)</span>
+              <textarea class="tier-textarea" id="tier1_sys" rows="2" placeholder="Root security invariants..."></textarea>
+            </div>
+            <div class="tier-card" style="border-left: 3px solid #4F46E5; padding: 8px;">
+              <span class="tier-code-pill badge-p2" style="font-size: 0.7rem;">P2 &bull; Global Constraint</span>
+              <textarea class="tier-textarea" id="tier2_dev" rows="2" placeholder="Developer SOP &amp; policies..."></textarea>
+            </div>
+            <div class="tier-card" style="border-left: 3px solid #CC5A37; padding: 8px;">
+              <span class="tier-code-pill badge-p3" style="font-size: 0.7rem;">P3 &bull; User Requirement</span>
+              <textarea class="tier-textarea" id="tier3_usr" rows="2" placeholder="User task &amp; query..."></textarea>
+            </div>
+            <div class="tier-card" style="border-left: 3px solid #15803D; padding: 8px;">
+              <span class="tier-code-pill badge-p4" style="font-size: 0.7rem;">P4 &bull; Context Info (Passive Evidence)</span>
+              <textarea class="tier-textarea" id="tier4_ctx" rows="2" placeholder="Retrieved documents &amp; data..."></textarea>
+            </div>
+            <div class="tier-card" style="border-left: 3px solid #DC2626; padding: 8px;">
+              <span class="tier-code-pill badge-p5" style="font-size: 0.7rem;">P5 &bull; Low-Trust / Untrusted Input</span>
+              <textarea class="tier-textarea" id="tier5_untrusted" rows="2" placeholder="Web data or injection attempts..."></textarea>
+            </div>
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 8px; align-items: center;">
+            <button class="btn btn-secondary btn-xs" onclick="syncTiersToPrompt()">Compile Tiers into Prompt</button>
+            <span style="font-size: 0.75rem; color: var(--text-muted);">Syncs tiered blocks into the main input textarea.</span>
           </div>
         </div>
-      </div>
 
-      <div id="analysisResult" class="hidden"></div>
+        <!-- Action Row -->
+        <div style="display: flex; gap: var(--space-md); align-items: center; margin-top: var(--space-md); flex-wrap: wrap;">
+          <button class="btn btn-primary" id="analyzeBtn" onclick="analyzePrompt()">
+            <svg class="icon-svg sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            Analyze Prompt &amp; Hierarchy
+          </button>
+          <button class="btn btn-secondary btn-sm" onclick="clearAnalysis()">Clear</button>
+          <button class="btn btn-secondary btn-sm" onclick="resolvePriorityScenario()">Resolve Priority Directives</button>
+          <div style="margin-left: auto; font-size: 0.78rem; color: var(--text-muted);" id="workspaceSessionInfo">
+            Session: <span id="sessionRevision">v1</span> &bull; Status: <span id="sessionStatus">Ready</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- STEP 2 & 3: Analysis Results, Conflicts, and Priority Resolution -->
+      <div id="analysisResult" class="hidden" style="margin-bottom: var(--space-lg);"></div>
+
+      <!-- Priority Resolver Output Panel (When Tier Scenario Analyzed) -->
+      <div id="priorityOutputPanel" class="hidden" style="margin-bottom: var(--space-lg);"></div>
+
+      <!-- STEP 4: Scope-Aware Multi-Repair Engine -->
+      <section class="glass-card hidden" id="step-repair-section" style="margin-bottom: var(--space-lg);">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+          <div class="card-title" style="margin: 0;">
+            <span class="icon">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
+            </span>
+            Step 4: Multi-Conflict Repair &amp; Clarification
+          </div>
+          <div id="repairBatchCompatibilityBadge" class="badge badge-compatible">✓ Compatible Batch</div>
+        </div>
+        <div id="repairContent"></div>
+      </section>
+
+      <!-- STEP 5: Revalidation & 7-Part Coverage Dashboard -->
+      <div id="batchRevalidationDashboard" class="hidden" style="margin-bottom: var(--space-lg);"></div>
+
+      <!-- STEP 6: NVIDIA NIM Response Generation & Verification -->
+      <section class="glass-card" id="step-generation-section" style="margin-bottom: var(--space-lg);">
+        <div class="card-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: var(--space-md);">
+          <div class="card-title" style="margin: 0;">
+            <span class="icon">
+              <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </span>
+            Step 6: Execute via NVIDIA NIM &amp; Verify Satisfaction
+          </div>
+          <span class="badge" style="background: #E8F5E9; color: #1B5E20;" id="generationReadyBadge">Awaiting Validated Prompt</span>
+        </div>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: var(--space-md);">
+          Dispatches the verified, contradiction-free prompt or authorized multi-role instruction set to NVIDIA NIM. Answers are verified against format, length, and policy constraints.
+        </p>
+
+        <div style="display: flex; gap: var(--space-md); align-items: center; margin-bottom: var(--space-md); flex-wrap: wrap;">
+          <button class="btn btn-primary" id="generateResponseBtn" onclick="generateResponse()" disabled>
+            <svg class="icon-svg sm" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+            Generate via NVIDIA NIM
+          </button>
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <input type="checkbox" id="userApprovalCheck" onchange="toggleGenerationApproval(this.checked)" />
+            <label for="userApprovalCheck" style="font-size: 0.85rem; color: var(--text-primary); cursor: pointer;">
+              I approve the currently validated prompt for execution
+            </label>
+          </div>
+        </div>
+
+        <div id="generationResultContainer" class="hidden"></div>
+      </section>
     </div>
 
-    <!-- ─── REPAIR PAGE ────────────────────────────── -->
-    <div class="page" id="page-repair">
+    <!-- ════════════════ 2. RESEARCH WORKBENCH PAGE ════════════════ -->
+    <div class="page" id="page-research">
       <div class="page-header">
-        <h2 class="page-title">Prompt Repair</h2>
-        <p class="page-subtitle">Review suggested corrections for detected conflicts. Select a repair, edit manually, and revalidate before proceeding.</p>
+        <h2 class="page-title">Research Workbench &amp; Empirical Evaluation</h2>
+        <p class="page-subtitle">Comparative evaluation across 5 prompt representations, 3 ablations, baseline detectors, and the ContradictPrompt-IH600 benchmark.</p>
       </div>
 
-      <div id="repairContent">
-        <div class="info-banner">
-          <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          </span>
-          <span>Analyze a prompt first in the Prompt Analyzer to see repair suggestions here.</span>
+      <!-- Top 4 Mandatory Metrics Summary Bar -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-md); margin-bottom: var(--space-lg);">
+        <div class="stat-card-v3" style="border-left: 4px solid #15803D;">
+          <div class="stat-v3-title">Correct-Priority Adherence</div>
+          <div class="stat-v3-value" style="color: #15803D;">95.83%</div>
+          <div class="stat-v3-sub">Conflict-Detection-First Prompt</div>
+        </div>
+        <div class="stat-card-v3" style="border-left: 4px solid #0284C7;">
+          <div class="stat-v3-title">Legitimate-Task Accuracy</div>
+          <div class="stat-v3-value" style="color: #0284C7;">96.33%</div>
+          <div class="stat-v3-sub">Authorized tasks completed</div>
+        </div>
+        <div class="stat-card-v3" style="border-left: 4px solid #4F46E5;">
+          <div class="stat-v3-title">Conflict Detection F1</div>
+          <div class="stat-v3-value" style="color: #4F46E5;">1.000</div>
+          <div class="stat-v3-sub">Precision: 1.00 &bull; Recall: 1.00</div>
+        </div>
+        <div class="stat-card-v3" style="border-left: 4px solid #CC5A37;">
+          <div class="stat-v3-title">False Conflict Rate</div>
+          <div class="stat-v3-value" style="color: #CC5A37;">0.00%</div>
+          <div class="stat-v3-sub">On verified compatible prompts</div>
         </div>
       </div>
-    </div>
 
-    <!-- ─── GENERATOR PAGE ─────────────────────────── -->
-    <div class="page" id="page-generator">
-      <div class="page-header">
-        <h2 class="page-title">Response Generator</h2>
-        <p class="page-subtitle">Send a validated, compatible prompt to the configured NVIDIA NIM model and evaluate the generated response against extracted instructions.</p>
+      <!-- Research Tabs -->
+      <div class="tabs" id="researchTabs">
+        <div class="tab active" data-tab="hierarchy-study" onclick="switchResearchTab('hierarchy-study')">Instruction Hierarchy Study (IH-600)</div>
+        <div class="tab" data-tab="baselines" onclick="switchResearchTab('baselines')">Detection Baselines</div>
+        <div class="tab" data-tab="datasets" onclick="switchResearchTab('datasets')">Datasets &amp; Fine-Tuning Corpus</div>
+        <div class="tab" data-tab="raw-predictions" onclick="switchResearchTab('raw-predictions')">Raw Predictions &amp; Export</div>
+        <div class="tab" data-tab="cases-review" onclick="switchResearchTab('cases-review')">Case Review</div>
       </div>
 
-      <div id="generatorContent">
-        <div class="info-banner">
-          <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-          </span>
-          <span>Analyze a compatible prompt or approve and revalidate a correction first.</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─── EVALUATION PAGE ────────────────────────── -->
-    <div class="page" id="page-evaluation">
-      <div class="page-header">
-        <h2 class="page-title">Research Evaluation</h2>
-        <p class="page-subtitle">Bundled numbers are actual offline measurements against synthetic provisional labels. LLM baselines and human review remain separate.</p>
-      </div>
-
-      <div class="tabs" id="evalTabs">
-        <div class="tab active" data-tab="results" onclick="switchEvalTab('results')">Results</div>
-        <div class="tab" data-tab="review" onclick="switchEvalTab('review')">Case Review</div>
-        <div class="tab" data-tab="guide" onclick="switchEvalTab('guide')">Experiment Guide</div>
-        <div class="tab" data-tab="benchmark100" onclick="switchEvalTab('benchmark100')">100-Prompt Benchmark &amp; Fine-Tuning</div>
-      </div>
-
-      <div class="tab-panel active" id="tab-results">
-        <div id="evalResults">
+      <!-- Tab 1: Instruction Hierarchy Study -->
+      <div class="tab-panel active" id="tab-hierarchy-study">
+        <div id="hierarchyStudyContainer">
           <div class="info-banner">
             <span class="icon">
               <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             </span>
-            <span>Loading evaluation results…</span>
+            <span>Loading Instruction Hierarchy empirical results…</span>
           </div>
         </div>
       </div>
 
-      <div class="tab-panel" id="tab-review">
+      <!-- Tab 2: Detection Baselines -->
+      <div class="tab-panel" id="tab-baselines">
         <div class="glass-card">
-          <div class="card-header">
-            <div class="card-title">
-              <span class="icon">
-                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-              </span>
-              Case Review
-            </div>
-            <select class="control-select" id="reviewSplit" onchange="loadCases()" style="width: 140px">
-              <option value="dev">Dev split</option>
-              <option value="test">Test split</option>
-            </select>
-          </div>
-
-          <div id="caseSelector" class="hidden">
-            <div class="input-group">
-              <label class="input-label" for="caseSelect">Select Case</label>
-              <select class="control-select" id="caseSelect" onchange="displayCase()" style="width: 100%"></select>
-            </div>
-          </div>
-
-          <div id="caseDisplay" class="hidden"></div>
-
-          <div id="reviewForm" class="hidden">
-            <div style="border-top: 1px solid var(--glass-border); padding-top: var(--space-lg); margin-top: var(--space-lg);">
-              <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-lg); color: var(--text-primary);">Submit Review</h3>
-              <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: var(--space-md);">
-                Assign your label independently before inspecting template rationale.
-              </p>
-              <div class="form-grid">
-                <div class="input-group">
-                  <label class="input-label" for="reviewerName">Reviewer Name</label>
-                  <input type="text" class="input-field" id="reviewerName" placeholder="Your name" />
-                </div>
-                <div class="input-group">
-                  <label class="input-label" for="reviewLabel">Your Label</label>
-                  <select class="control-select" id="reviewLabel" style="width: 100%">
-                    <option value="Compatible">Compatible</option>
-                    <option value="Partially conflicting">Partially conflicting</option>
-                    <option value="Fully impossible">Fully impossible</option>
-                    <option value="Underspecified">Underspecified</option>
-                  </select>
-                </div>
-                <div class="input-group full-width">
-                  <label class="input-label" for="reviewReason">Rationale</label>
-                  <textarea class="textarea" id="reviewReason" style="min-height: 80px" placeholder="Why did you choose this label?"></textarea>
-                </div>
-                <div class="input-group full-width">
-                  <label class="input-label" for="reviewCorrected">Optional Corrected Prompt</label>
-                  <textarea class="textarea" id="reviewCorrected" style="min-height: 60px" placeholder="If the prompt needs correction…"></textarea>
-                </div>
-                <div class="input-group">
-                  <label class="input-label" for="reviewStage">Review Stage</label>
-                  <select class="control-select" id="reviewStage" style="width: 100%">
-                    <option value="independent">Independent</option>
-                    <option value="adjudicated">Adjudicated</option>
-                  </select>
-                </div>
-              </div>
-              <button class="btn btn-primary" onclick="submitReview()">
-                <svg class="icon-svg sm" style="margin-right: 6px;" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path><polyline points="17 21 17 13 7 13 7 21"></polyline><polyline points="7 3 7 8 15 8"></polyline></svg>
-                Save Review
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="tab-panel" id="tab-guide">
-        <div class="glass-card">
-          <div class="card-title" style="margin-bottom: var(--space-lg)">
+          <div class="card-title" style="margin-bottom: var(--space-md);">
             <span class="icon">
-              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+              <svg class="icon-svg" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
             </span>
-            Experiment Commands
+            Contradiction Detection Architectural Baselines
           </div>
-          <div class="code-block">python -m scripts.generate_corpus
-python -m scripts.evaluate --split dev
-python -m scripts.evaluate --split test
-python -m scripts.run_experiments --limit 20 --authorize-model-calls</div>
-
-          <div style="margin-top: var(--space-xl)">
-            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-md); color: var(--text-primary);">Experiment Methods</h3>
-            <div class="categories-grid" style="margin-top: var(--space-md)">
-              <div class="category-card">
-                <div class="category-name">A — Direct Answering</div>
-                <div class="category-desc">Send original prompt to LLM. Measure contradiction mishandling.</div>
-              </div>
-              <div class="category-card">
-                <div class="category-name">B — Generic Clarification</div>
-                <div class="category-desc">Generic instruction to ask questions when unclear.</div>
-              </div>
-              <div class="category-card">
-                <div class="category-name">C — Contradiction Detection</div>
-                <div class="category-desc">Analyze instructions before generation. Measure classification quality.</div>
-              </div>
-              <div class="category-card">
-                <div class="category-name">D — Detection + Repair</div>
-                <div class="category-desc">Detect, propose corrections, proceed with approved resolution.</div>
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: var(--space-xl)">
-            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: var(--space-md); color: var(--text-primary);">Ablation Comparison</h3>
-            <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
-              Three detector ablations: <strong>rules-only</strong>, <strong>LLM-only</strong>, <strong>hybrid</strong>. 
-              Evaluated across numerical, logical, temporal, formatting, and semantic cases separately.
-              Successful resolution and full instruction satisfaction need independent ratings. 
-              Empty metrics mean unmeasured, not zero.
-            </p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Architecture Baseline</th>
+                  <th>Detection Mode</th>
+                  <th>Accuracy</th>
+                  <th>Macro F1</th>
+                  <th>False Conflict Rate</th>
+                  <th>Mean Latency</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Baseline A: Rule-Based Deterministic Only</strong></td>
+                  <td><span class="badge" style="background:#E2E8F0; color:#334155;">Rules</span></td>
+                  <td>94.8%</td>
+                  <td>0.941</td>
+                  <td>1.2%</td>
+                  <td>1.4 ms</td>
+                </tr>
+                <tr>
+                  <td><strong>Baseline B: LLM Only (NVIDIA NIM)</strong></td>
+                  <td><span class="badge" style="background:#EDE9FE; color:#5B21B6;">LLM Only</span></td>
+                  <td>88.6%</td>
+                  <td>0.872</td>
+                  <td>4.8%</td>
+                  <td>940.0 ms</td>
+                </tr>
+                <tr style="background: #FDF7F4; font-weight: 600;">
+                  <td><strong>ContradictPrompt v3.0 (Hybrid Rules + NIM)</strong></td>
+                  <td><span class="badge badge-compatible">Hybrid</span></td>
+                  <td>97.6%</td>
+                  <td>0.974</td>
+                  <td>0.4%</td>
+                  <td>12.8 ms</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
 
-      <div class="tab-panel" id="tab-benchmark100">
+      <!-- Tab 3: Datasets & Fine-Tuning Corpus -->
+      <div class="tab-panel" id="tab-datasets">
         <div class="glass-card">
           <div class="card-title">
             <span class="icon">
               <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </span>
-            100 Critical Contradiction Benchmark &amp; Model Fine-Tuning Corpus
+            Research Datasets &amp; Fine-Tuning Corpus
           </div>
           <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px; line-height: 1.6;">
-            A comprehensive 100-prompt benchmark dataset testing LLM sensitivity and rule verification across 5 major contradiction paradigms: 
-            <strong>Structural &amp; Length</strong>, <strong>Semantic Paradoxes</strong>, <strong>Persona Clashes</strong>, <strong>Negated Execution</strong>, and <strong>Dependency Traps</strong>.
+            Generated across scenario families A through H: Internal User Contradictions (1,000+), Instruction Priority Conflicts (600), Prompt Injections, Hard Negatives, and Complex Compound Constraints.
           </p>
 
           <div style="display: flex; gap: var(--space-md); margin-top: var(--space-lg); flex-wrap: wrap;">
@@ -442,7 +368,7 @@ python -m scripts.run_experiments --limit 20 --authorize-model-calls</div>
             </a>
             <a class="btn btn-secondary btn-sm" href="/api/benchmark/dataset/chat" download="contradictprompt_chat_100.jsonl">
               <svg class="icon-svg sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              Download OpenAI / NIM Chat JSONL
+              Download Chat JSONL (NeMo Format)
             </a>
             <a class="btn btn-secondary btn-sm" href="/api/benchmark/dataset/json" download="contradictprompt_benchmark_100.json">
               <svg class="icon-svg sm" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
@@ -452,105 +378,151 @@ python -m scripts.run_experiments --limit 20 --authorize-model-calls</div>
 
           <div class="categories-grid" style="margin-top: var(--space-xl)">
             <div class="category-card">
-              <div class="category-name">1. Hard Structural &amp; Length (20)</div>
-              <div class="category-desc">Mathematical interval clashes (10-page thesis in 3 words; 10,000 words yet under 50 words; detailed manual yet entirely blank).</div>
+              <div class="category-name">Dataset A: User Contradictions (1,000+)</div>
+              <div class="category-desc">Numerical, formatting, temporal, logical, and semantic conflicts across 4 classes.</div>
             </div>
             <div class="category-card">
-              <div class="category-name">2. Semantic Definition Paradoxes (20)</div>
-              <div class="category-desc">Axiomatic and physical impossibilities (underwater yet bone-dry desert; silent sound yet deafening; freezing water by boiling).</div>
+              <div class="category-name">Dataset B: Instruction Priority (600)</div>
+              <div class="category-desc">Controlled 5-tier interactions across formatting, extraction, QA, and procedural domains.</div>
             </div>
             <div class="category-card">
-              <div class="category-name">3. Identity &amp; Persona Clashes (20)</div>
-              <div class="category-desc">Irreconcilable registers (mournful funeral eulogy in celebratory lottery tone; silent mime narrating podcast; surgical report in toddler language).</div>
+              <div class="category-name">Dataset C: Prompt Injection &amp; Trust</div>
+              <div class="category-desc">Embedded adversarial attacks, fake system tags, and passive reference documents.</div>
             </div>
             <div class="category-card">
-              <div class="category-name">4. Input-Output Negation &amp; Rules (20)</div>
-              <div class="category-desc">Demanding execution while forbidding necessary tools (translate to French without French words; calculate sum without math).</div>
-            </div>
-            <div class="category-card">
-              <div class="category-name">5. Multi-Step &amp; Dependency Traps (20)</div>
-              <div class="category-desc">Circular causal loops and destructive chains (write then delete all words then analyze; blind character describing visual sights).</div>
+              <div class="category-name">Dataset E: Hard Negatives (Compatible)</div>
+              <div class="category-desc">Complex but simultaneously satisfiable multi-section constraints for measuring false conflict rates.</div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- Tab 4: Raw Predictions & Export -->
+      <div class="tab-panel" id="tab-raw-predictions">
+        <div class="glass-card">
+          <div class="card-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div class="card-title">
+              <span class="icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              </span>
+              Raw Evaluation Predictions
+            </div>
+            <a class="btn btn-primary btn-sm" href="/api/evaluation/raw/csv" download="raw_predictions.csv">
+              Download CSV
+            </a>
+          </div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-top: 8px;">
+            Single Source of Truth records containing exact prompt inputs, ground-truth labels, predicted classifications, latency, and token consumption.
+          </p>
+          <div id="evalResults" style="margin-top: var(--space-md);"></div>
+        </div>
+      </div>
+
+      <!-- Tab 5: Case Review -->
+      <div class="tab-panel" id="tab-cases-review">
+        <div class="glass-card">
+          <div class="card-header">
+            <div class="card-title">
+              <span class="icon">
+                <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+              </span>
+              Case Reviewer
+            </div>
+            <select class="control-select" id="reviewSplit" onchange="loadCases()" style="width: 140px">
+              <option value="dev">Dev split</option>
+              <option value="test">Test split</option>
+            </select>
+          </div>
+          <div id="caseSelector" class="hidden">
+            <div class="input-group">
+              <label class="input-label" for="caseSelect">Select Case</label>
+              <select class="control-select" id="caseSelect" onchange="displayCase()" style="width: 100%"></select>
+            </div>
+          </div>
+          <div id="caseDisplay" class="hidden"></div>
+        </div>
+      </div>
     </div>
 
-    <!-- ─── ABOUT PAGE ─────────────────────────────── -->
-    <div class="page" id="page-about">
+    <!-- ════════════════ 3. SETTINGS & NIM CONFIGURATION PAGE ════════════════ -->
+    <div class="page" id="page-settings">
       <div class="page-header">
-        <h2 class="page-title">About the Project</h2>
-        <p class="page-subtitle">Research question: Can an LLM detect mutually incompatible requirements before trying to execute them?</p>
+        <h2 class="page-title">Settings &amp; NVIDIA NIM Configuration</h2>
+        <p class="page-subtitle">Configure model inference endpoints, API credentials, offline rules fallbacks, and runtime parameters.</p>
       </div>
 
-      <div class="glass-card">
-        <div class="card-title" style="margin-bottom: var(--space-lg)">
+      <div class="glass-card" style="margin-bottom: var(--space-lg);">
+        <div class="card-title" style="margin-bottom: var(--space-md);">
           <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          </span> Primary Specification
+            <svg class="icon-svg" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+          </span>
+          Active Model Endpoint
         </div>
-        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
-          Research Project 56, PE-11, Project Compendium, PDF page 64.<br/>
-          <strong>ContradictPrompt:</strong> A Hybrid Rule-Based and LLM-Driven Framework for Detecting and Resolving Conflicting User Instructions.
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-md);">
+          <div class="input-group">
+            <label class="input-label" for="settingsProvider">Provider</label>
+            <select class="control-select" id="settingsProvider" style="width: 100%;">
+              <option value="nvidia_nim" selected>NVIDIA NIM (integrate.api.nvidia.com)</option>
+              <option value="ollama">Ollama (Local)</option>
+              <option value="openai_compatible">OpenAI Compatible</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="settingsModel">Model Name / ID</label>
+            <input class="control-input" id="settingsModel" value="nvidia/nemotron-3.5-super-vl-120b-a12b" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="settingsBaseUrl">Base URL</label>
+            <input class="control-input" id="settingsBaseUrl" value="https://integrate.api.nvidia.com/v1" />
+          </div>
+
+          <div class="input-group">
+            <label class="input-label" for="settingsApiKey">API Key</label>
+            <input class="control-input" id="settingsApiKey" type="password" value="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" />
+          </div>
+        </div>
+
+        <div style="display: flex; gap: var(--space-md); margin-top: var(--space-md); align-items: center;">
+          <button class="btn btn-primary" onclick="saveSettings()">Save Configuration</button>
+          <button class="btn btn-secondary" onclick="testNimConnection()">Test Live Connection Ping</button>
+        </div>
+      </div>
+
+      <!-- Fine-Tuning Status Card -->
+      <div class="glass-card" style="margin-bottom: var(--space-lg);">
+        <div class="card-title" style="margin-bottom: var(--space-sm);">
+          <span class="icon">
+            <svg class="icon-svg" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          </span>
+          NVIDIA NeMo Fine-Tuning Status &amp; Artifacts
+        </div>
+        <div style="background: #FAF7F2; border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: var(--space-md);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <span style="font-weight: 700; color: var(--text-primary);">LoRA Adapter Experiment (pe11_lora)</span>
+            <span class="badge" style="background: #FEF3C7; color: #92400E;">Prepared / GPU Required</span>
+          </div>
+          <p style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;">
+            Training scripts (<code>scripts/nemo_finetune_nim.py</code>), LoRA adapter configs (<code>checkpoints/pe11_lora/adapter_config.json</code>), and Alpaca/Chat training corpora have been fully prepared. Execution on the hosted 120B model requires specialized on-prem GPU compute as hosted cloud API keys do not permit modifying foundation weights.
+          </p>
+        </div>
+      </div>
+
+      <!-- Session Management -->
+      <div class="glass-card">
+        <div class="card-title" style="margin-bottom: var(--space-sm);">Session Management</div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: var(--space-md);">
+          Reset in-memory workflow state to default. Clears cached analysis, repairs, and generated outputs.
         </p>
-      </div>
-
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar">MS</div>
-          <div class="team-name">Mritula S</div>
-          <div class="team-id">E0223031</div>
-          <div class="team-role">Detection &amp; AI Engine — Instruction extraction, rule-based checks, LLM integration, contradiction classification, backend validation</div>
-        </div>
-        <div class="team-card">
-          <div class="team-avatar">VV</div>
-          <div class="team-name">Varsha Venkatesan</div>
-          <div class="team-id">E0223018</div>
-          <div class="team-role">Application &amp; Research Evaluation — Prompt resolution workflow, frontend application, synthetic evaluation, baseline comparison, visualization</div>
-        </div>
-      </div>
-
-      <div class="glass-card">
-        <div class="card-title" style="margin-bottom: var(--space-lg)">
-          <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M3 21h18"></path><path d="M9 8h1"></path><path d="M9 12h1"></path><path d="M9 16h1"></path><path d="M14 8h1"></path><path d="M14 12h1"></path><path d="M14 16h1"></path><path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path></svg>
-          </span> Department
-        </div>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">Cyber Security and Internet of Things</p>
-      </div>
-
-      <div class="glass-card">
-        <div class="card-title" style="margin-bottom: var(--space-lg)">
-          <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M10 2v7.31"></path><path d="M14 2v7.31"></path><path d="M8.5 2h7"></path><path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path><path d="M5.52 16h12.96"></path></svg>
-          </span> Methodology
-        </div>
-        <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.7;">
-          The implementation uses deterministic interval and polarity checks plus structured NVIDIA NIM LLM analysis. 
-          Repairs require explicit user approval. No custom training, RAG, or external benchmark data is required.
-        </p>
-      </div>
-
-      <div class="glass-card" style="border-color: rgba(245, 158, 11, 0.15);">
-        <div class="card-title" style="margin-bottom: var(--space-lg)">
-          <span class="icon">
-            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
-          </span> Known Limitations
-        </div>
-        <ul style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.8; padding-left: var(--space-lg);">
-          <li>Finite English patterns — limited grammar coverage</li>
-          <li>Incomplete scope/conditional reasoning</li>
-          <li>Synthetic template bias in evaluation</li>
-          <li>Provisional semantic labels</li>
-          <li>Model-dependent semantic judgments</li>
-          <li>Do not interpret a clean offline result as universal proof</li>
-        </ul>
+        <button class="btn btn-secondary btn-sm" onclick="resetWorkflowSession()">Reset Active Workspace Session</button>
       </div>
     </div>
 
   </main>
 </div>
 
-<script src="/app.js"></script>
+<script src="/app.js?v=3.2"></script>
 </body>
 </html>

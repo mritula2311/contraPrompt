@@ -165,3 +165,28 @@ Predicted Totals             375       188          187              250    1,00
 | **Baseline E** | Fine-Tuned NeMo LoRA Adapter | **NOT EXECUTED** | *null* | *null* | *null* | No model weights exist in `checkpoints/pe11_lora/`. Simulated latencies deleted. |
 | **Baseline F** | Hybrid Rules + Fine-Tuned LoRA | **NOT EXECUTED** | *null* | *null* | *null* | Model weights absent. Simulated latencies deleted. |
 
+---
+
+## 9. Instruction Satisfaction Evaluation Protocol (v12)
+
+Automated post-generation satisfaction checking verifies whether the generated response strictly complies with applicable instructions and approved repairs:
+
+### 9.1 Deterministic Verification Suite
+1. **Bullet Counts & Scope Isolation:** Extracts markdown bullet points (`* `, `- `, `• `) while stripping code block contents to prevent code lines from inflating bullet counts. Asserts $[lower, upper]$ bounds against the declared scope (`entire_report` vs section).
+2. **Python Code Block & AST Syntax Validation:** Verifies the presence of a fenced code block (`python`) and executes `ast.parse()` to guarantee syntactically valid Python code.
+3. **Algorithmic Correctness & Time Complexities:** Validates directional time complexity assertions using regex patterns with sentence bounding:
+   - Best-Case: $O(1)$
+   - Average-Case: $O(\log n)$
+   - Worst-Case: $O(\log n)$
+4. **Sorted Input Handling:** Confirms that the response explicitly explains that Binary Search requires sorted array input when untrusted data contains unsorted arrays.
+5. **Repair Presence:** Validates that the selected repair string or bounds are accurately reflected in the generated output.
+
+### 9.2 Evaluated Population Accounting
+Never claims a test passed when it was unsupported or unexecuted:
+- **`PASS`**: Deterministic check ran and satisfied assertion.
+- **`FAIL`**: Deterministic check ran and violated assertion.
+- **`UNSUPPORTED`**: Constraint requires nuanced subjective evaluation not verified deterministically.
+- **`NOT_RUN`**: Check was skipped or superseded.
+- **Evaluated Ratio Metric:** Reports exact `numerator` and `denominator` (`pass_count / supported_count`, e.g. `7/7`), ensuring complete scientific transparency.
+
+

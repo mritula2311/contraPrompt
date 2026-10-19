@@ -19,13 +19,23 @@ from flask_cors import CORS
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
-from contradictprompt import analyze, Label
+from contradictprompt import analyze, Label, audit_prompt, evaluate_audit_satisfaction
 from contradictprompt.config import Config
 from contradictprompt.llm import LLMClient, ProviderError
 from contradictprompt.repair import suggestions, approve_and_revalidate, generate_validated
 from contradictprompt.satisfaction import check_response
 from contradictprompt.history import record, read
 from contradictprompt.review import submit_review, load_reviews
+from contradictprompt.hierarchy import (
+    PriorityTier,
+    PriorityScenario,
+    TierInstruction,
+    PromptRepresentation,
+    AblationCondition,
+    transform_scenario,
+    detect_priority_conflicts,
+    resolve_priority_scenario
+)
 
 app = Flask(__name__, static_folder='static', static_url_path='')
 CORS(app)
@@ -71,6 +81,8 @@ def index():
 
 @app.route('/<path:path>')
 def static_files(path):
+    if path.startswith('api/'):
+        return jsonify({'error': f'API route /{path} not found'}), 404
     static_dir = ROOT / 'static'
     if (static_dir / path).exists():
         return send_from_directory('static', path)
@@ -106,11 +118,52 @@ def api_analyze():
         return jsonify({'error': str(e)}), 400
 
 
+# ─── Audit Endpoint ───────────────────────────────────────────────────────────
+
+@app.route('/api/audit', methods=['POST'])
+def api_audit():
+    """Execute multidimensional audit, conflict localization, and simulation profiling."""
+    data = request.get_json() or {}
+    prompt = data.get('prompt', '').strip()
+    check_all = data.get('check_all_pairs', True)
+    selected_pairs = data.get('selected_pairs', None)
+
+    if not prompt:
+        return jsonify({'error': 'Please enter a non-empty prompt.'}), 400
+
+    try:
+        result = audit_prompt(prompt, check_all_pairs=check_all, selected_pairs=selected_pairs)
+        return jsonify(result.model_dump(mode='json'))
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
+# ─── Satisfaction Evaluation Endpoint ─────────────────────────────────────────
+
+@app.route('/api/satisfaction/evaluate', methods=['POST'])
+def api_satisfaction_evaluate():
+    """Evaluate response satisfaction against prompt requirements with domain evidence."""
+    data = request.get_json() or {}
+    prompt = data.get('prompt', '').strip()
+    answer = data.get('answer', '')
+    telemetry = data.get('hardware_telemetry', None)
+
+    if not prompt:
+        return jsonify({'error': 'Please provide a non-empty prompt.'}), 400
+
+    try:
+        audit_res = audit_prompt(prompt)
+        eval_res = evaluate_audit_satisfaction(audit_res, answer, hardware_telemetry=telemetry)
+        return jsonify(eval_res)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
 # ─── Repair Suggestions ──────────────────────────────────────────────────────
 
 @app.route('/api/repair/suggestions', methods=['POST'])
 def api_repair_suggestions():
-    """Get repair suggestions for an analyzed prompt."""
+    """Get legacy repair suggestions for an analyzed prompt."""
     data = request.get_json() or {}
     try:
         from contradictprompt.models import Assessment
@@ -122,7 +175,76 @@ def api_repair_suggestions():
         return jsonify({'error': str(e)}), 400
 
 
-# ─── Approve & Revalidate ────────────────────────────────────────────────────
+# ─── V3 Multi-Repair Endpoints ───────────────────────────────────────────────
+
+@app.route('/api/repair/groups', methods=['POST'])
+def api_repair_groups():
+    """Get structured, scope-aware repair groups for multi-selection repair."""
+    data = request.get_json() or {}
+    try:
+        from contradictprompt.models import Assessment
+        from contradictprompt.repair import generate_repair_groups
+        raw_asm = data.get('analysis') or data.get('assessment') or data
+        assessment = Assessment.model_validate(raw_asm)
+        groups = generate_repair_groups(assessment)
+        return jsonify([g.model_dump(mode='json') for g in groups])
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/api/repair/batch-preview', methods=['POST'])
+def api_repair_batch_preview():
+    """Preview batch repair selections with diff and compatibility verification."""
+    data = request.get_json() or {}
+    try:
+        from contradictprompt.models import Assessment, SelectedRepair
+        from contradictprompt.repair import preview_batch_repairs
+        raw_asm = data.get('analysis') or data.get('assessment') or {}
+        assessment = Assessment.model_validate(raw_asm)
+        raw_sels = data.get('selected_repairs', [])
+        selected_repairs = [SelectedRepair.model_validate(s) for s in raw_sels]
+
+        preview = preview_batch_repairs(assessment, selected_repairs)
+        return jsonify(preview.model_dump(mode='json'))
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/api/repair/batch-apply', methods=['POST'])
+def api_repair_batch_apply():
+    """Transactionally apply batch repairs, revalidate, and return before/after comparison."""
+    data = request.get_json() or {}
+    try:
+        from contradictprompt.models import Assessment, SelectedRepair
+        from contradictprompt.repair import apply_and_revalidate_batch
+        raw_asm = data.get('analysis') or data.get('assessment') or {}
+        assessment = Assessment.model_validate(raw_asm)
+        raw_sels = data.get('selected_repairs', [])
+        selected_repairs = [SelectedRepair.model_validate(s) for s in raw_sels]
+        approved = data.get('approved', False)
+        mode = data.get('mode', 'rules')
+
+        client = None
+        if mode in ('hybrid', 'llm'):
+            client = get_active_client()
+
+        result = apply_and_revalidate_batch(assessment, selected_repairs, approved=approved, mode=mode, client=client)
+        result_dict = result.model_dump(mode='json')
+
+        if data.get('save_history', False):
+            record(HISTORY_DB, 'batch_repair_applied', {
+                'original': assessment.original,
+                'revised': result.revised_prompt,
+                'resolved_conflicts': result.resolved_conflicts,
+                'revalidated_label': result.revalidated_label,
+            })
+
+        return jsonify(result_dict)
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
+# ─── Approve & Revalidate (Legacy Single Edit) ───────────────────────────────
 
 @app.route('/api/repair/revalidate', methods=['POST'])
 def api_repair_revalidate():
@@ -148,6 +270,110 @@ def api_repair_revalidate():
         return jsonify({'error': str(e)}), 400
 
 
+
+# ─── Shared Session State Management (Defect C & Workflow Integration) ───────
+
+GLOBAL_SESSION_STATE = {
+    'session_id': 'sess_default',
+    'prompt_revision': 1,
+    'original_prompt': '',
+    'current_prompt': '',
+    'trusted_role_messages': [],
+    'context_documents': [],
+    'current_assessment': None,
+    'priority_resolution': None,
+    'repair_groups': [],
+    'selected_repairs': [],
+    'batch_preview': None,
+    'batch_result': None,
+    'revalidated_prompt': '',
+    'response_generation_status': 'idle',
+    'generated_response': None,
+    'output_verification': None,
+    'is_stale': False
+}
+
+
+@app.route('/api/session/state', methods=['GET'])
+def api_session_state():
+    """Return the canonical, persistent workflow session state."""
+    return jsonify(GLOBAL_SESSION_STATE)
+
+
+@app.route('/api/session/update', methods=['POST'])
+def api_session_update():
+    """Update workflow session state, bumping revision and invalidating downstream state on prompt change."""
+    data = request.get_json() or {}
+    new_prompt = data.get('current_prompt')
+    if new_prompt is not None and new_prompt != GLOBAL_SESSION_STATE['current_prompt']:
+        GLOBAL_SESSION_STATE['prompt_revision'] += 1
+        GLOBAL_SESSION_STATE['current_prompt'] = new_prompt
+        # Invalidate downstream results on prompt edit
+        GLOBAL_SESSION_STATE['repair_groups'] = []
+        GLOBAL_SESSION_STATE['selected_repairs'] = []
+        GLOBAL_SESSION_STATE['batch_preview'] = None
+        GLOBAL_SESSION_STATE['batch_result'] = None
+        GLOBAL_SESSION_STATE['revalidated_prompt'] = ''
+        GLOBAL_SESSION_STATE['generated_response'] = None
+        GLOBAL_SESSION_STATE['output_verification'] = None
+        GLOBAL_SESSION_STATE['is_stale'] = True
+
+    if 'original_prompt' in data and not GLOBAL_SESSION_STATE['original_prompt']:
+        GLOBAL_SESSION_STATE['original_prompt'] = data['original_prompt']
+
+    if 'current_assessment' in data:
+        GLOBAL_SESSION_STATE['current_assessment'] = data['current_assessment']
+        GLOBAL_SESSION_STATE['is_stale'] = False
+
+    if 'priority_resolution' in data:
+        GLOBAL_SESSION_STATE['priority_resolution'] = data['priority_resolution']
+
+    if 'trusted_role_messages' in data:
+        GLOBAL_SESSION_STATE['trusted_role_messages'] = data['trusted_role_messages']
+
+    if 'repair_groups' in data:
+        GLOBAL_SESSION_STATE['repair_groups'] = data['repair_groups']
+
+    if 'selected_repairs' in data:
+        GLOBAL_SESSION_STATE['selected_repairs'] = data['selected_repairs']
+
+    if 'batch_preview' in data:
+        GLOBAL_SESSION_STATE['batch_preview'] = data['batch_preview']
+
+    if 'batch_result' in data:
+        GLOBAL_SESSION_STATE['batch_result'] = data['batch_result']
+        if data['batch_result'].get('revised_prompt'):
+            GLOBAL_SESSION_STATE['current_prompt'] = data['batch_result']['revised_prompt']
+            GLOBAL_SESSION_STATE['revalidated_prompt'] = data['batch_result']['revised_prompt']
+
+    return jsonify(GLOBAL_SESSION_STATE)
+
+
+@app.route('/api/session/reset', methods=['POST'])
+def api_session_reset():
+    """Reset session state to clean initial defaults."""
+    GLOBAL_SESSION_STATE.update({
+        'session_id': f"sess_{int(time.time())}",
+        'prompt_revision': 1,
+        'original_prompt': '',
+        'current_prompt': '',
+        'trusted_role_messages': [],
+        'context_documents': [],
+        'current_assessment': None,
+        'priority_resolution': None,
+        'repair_groups': [],
+        'selected_repairs': [],
+        'batch_preview': None,
+        'batch_result': None,
+        'revalidated_prompt': '',
+        'response_generation_status': 'idle',
+        'generated_response': None,
+        'output_verification': None,
+        'is_stale': False
+    })
+    return jsonify(GLOBAL_SESSION_STATE)
+
+
 # ─── Response Generation ─────────────────────────────────────────────────────
 
 @app.route('/api/generate', methods=['POST'])
@@ -155,6 +381,7 @@ def api_generate():
     """Generate a response using the validated prompt and active LLM."""
     data = request.get_json() or {}
     prompt = data.get('prompt', '').strip()
+    messages = data.get('messages')
     approved = data.get('approved', False)
 
     if not approved:
@@ -162,25 +389,50 @@ def api_generate():
 
     try:
         from contradictprompt.models import Assessment
-        analysis = Assessment.model_validate(data.get('analysis', {}))
+        raw_analysis = data.get('analysis')
+        target_prompt = prompt
 
-        if analysis.label != Label.COMPATIBLE:
-            return jsonify({'error': 'Resolve conflicts first, then revalidate.'}), 400
+        if raw_analysis:
+            analysis = Assessment.model_validate(raw_analysis)
+            target_prompt = analysis.original
+            if analysis.label != Label.COMPATIBLE:
+                return jsonify({'error': f'Resolve conflicts first, then revalidate. Current label: {analysis.label.value}'}), 400
+
+        if not target_prompt and not messages:
+            target_prompt = GLOBAL_SESSION_STATE.get('revalidated_prompt') or GLOBAL_SESSION_STATE.get('current_prompt', '')
+
+        if not target_prompt and not messages:
+            return jsonify({'error': 'No validated prompt or messages provided for generation.'}), 400
 
         client = get_active_client()
-        answer, usage = client.generate(analysis.original)
 
-        satisfaction = check_response(analysis.original, answer)
+        # Multi-role message support for authorized instruction hierarchy
+        if messages and isinstance(messages, list):
+            answer, usage = client.generate(messages)
+            prompt_for_check = " ".join(m.get('content', '') for m in messages if m.get('role') != 'system')
+        else:
+            answer, usage = client.generate(target_prompt)
+            prompt_for_check = target_prompt
+
+        satisfaction = check_response(prompt_for_check, answer)
 
         result = {
             'answer': answer,
             'usage': usage.model_dump(mode='json'),
             'satisfaction': satisfaction,
             'model': RUNTIME_LLM_CONFIG['model'],
-            'provider': RUNTIME_LLM_CONFIG['provider']
+            'provider': RUNTIME_LLM_CONFIG['provider'],
+            'verified_adherence': satisfaction.get('satisfied', True)
         }
+
+        # Update session state with generation outcome
+        GLOBAL_SESSION_STATE['generated_response'] = result
+        GLOBAL_SESSION_STATE['output_verification'] = satisfaction
+        GLOBAL_SESSION_STATE['response_generation_status'] = 'completed'
+
         return jsonify(result)
     except (ValueError, ProviderError) as e:
+        GLOBAL_SESSION_STATE['response_generation_status'] = 'failed'
         return jsonify({'error': str(e)}), 400
 
 
@@ -485,6 +737,81 @@ def api_health():
         'llm_available': RUNTIME_LLM_CONFIG['provider'] != 'disabled',
         'nvidia_nim_configured': RUNTIME_LLM_CONFIG['provider'] == 'nvidia_nim' and bool(RUNTIME_LLM_CONFIG['api_key'])
     })
+
+
+# ─── Instruction Hierarchy & Priority Resolver Endpoints ──────────────────────
+
+@app.route('/api/hierarchy/results', methods=['GET'])
+def api_hierarchy_results():
+    """Return the experimental evaluation results across 5 comparators and 3 ablations."""
+    results_path = ROOT / 'data' / 'hierarchy_eval_results.json'
+    if not results_path.exists():
+        results_path = ROOT / 'hierarchy_eval_results.json'
+    if results_path.exists():
+        return jsonify(json.loads(results_path.read_text(encoding='utf-8')))
+    return jsonify({'error': 'Hierarchy evaluation results not found.'}), 404
+
+
+@app.route('/api/hierarchy/benchmark', methods=['GET'])
+def api_hierarchy_benchmark():
+    """Return benchmark scenarios, optionally filtered by domain and limit."""
+    benchmark_path = ROOT / 'data' / 'hierarchy_benchmark_600.json'
+    if not benchmark_path.exists():
+        return jsonify({'error': 'Benchmark dataset not found.'}), 404
+    
+    domain = request.args.get('domain')
+    limit = int(request.args.get('limit', 20))
+    with open(benchmark_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    if domain and domain != 'all':
+        data = [c for c in data if c.get('task_domain') == domain]
+    
+    return jsonify(data[:limit])
+
+
+@app.route('/api/hierarchy/transform', methods=['POST'])
+def api_hierarchy_transform():
+    """Transform a multi-tier instruction scenario into a specific prompt representation."""
+    body = request.get_json() or {}
+    try:
+        scenario = PriorityScenario(**body.get('scenario', {}))
+        rep_str = body.get('representation', 'explicit_priority_numbers')
+        abl_str = body.get('ablation', 'none')
+        rep = PromptRepresentation(rep_str)
+        abl = AblationCondition(abl_str)
+        transformed = transform_scenario(scenario, rep, abl)
+        return jsonify({
+            'representation': rep.value,
+            'ablation': abl.value,
+            'transformed_prompt': transformed
+        })
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
+
+
+@app.route('/api/hierarchy/resolve', methods=['POST'])
+def api_hierarchy_resolve():
+    """Run the Prompt Priority Resolver on a multi-tier scenario."""
+    body = request.get_json() or {}
+    try:
+        scenario_data = body.get('scenario')
+        if not scenario_data:
+            instructions_data = body.get('instructions', [])
+            scenario_data = {
+                'scenario_id': body.get('scenario_id', 'custom_scenario'),
+                'task_domain': body.get('task_domain', 'general'),
+                'title': body.get('title', 'Custom Instruction Set'),
+                'description': body.get('description', ''),
+                'instructions': instructions_data,
+                'has_conflict': True,
+                'legitimate_task_goal': body.get('goal', '')
+            }
+        scenario = PriorityScenario(**scenario_data)
+        resolution = resolve_priority_scenario(scenario)
+        return jsonify(resolution.model_dump(mode='json'))
+    except Exception as e:
+        return jsonify({'error': str(e)}), 400
 
 
 if __name__ == '__main__':

@@ -35,6 +35,12 @@ curl http://localhost:5000/api/llm/status
 curl -X POST http://localhost:5000/api/llm/test -H "Content-Type: application/json"
 ```
 
+### D. Generation & Satisfaction Verification with NIM
+When a prompt is repaired and approved, generation can be executed directly via NVIDIA NIM:
+- Automatically formats user requests with multi-role message arrays (`system`, `user`).
+- Incorporates declared scope instructions (e.g., bullet limits across entire response).
+- Evaluates the generated output against deterministic satisfaction checks (AST syntax validation, $O(1)$ and $O(\log n)$ complexities, sorted input acknowledgement).
+
 ---
 
 ## 2. NVIDIA NeMo Parameter-Efficient Fine-Tuning (LoRA)

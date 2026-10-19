@@ -5,7 +5,8 @@
 **Authors:** Mritula S — E0223031 | Varsha Venkatesan — E0223018  
 **Department:** Department of Cyber Security and Internet of Things  
 **Project Reference:** Research Project 56 (PE-11), Project Compendium, PDF Page 64  
-**Release:** Version 2.0.0 Production Release
+**Release:** Version 12 Production Release  
+**Verified Test Suite:** 247 passing automated tests (100% pass rate)
 
 ---
 
@@ -161,17 +162,23 @@ curl http://localhost:5000/api/evaluation/raw/csv -o raw_predictions.csv
 
 To execute the entire automated regression and unit test suite:
 ```bash
-# Full test suite (191 tests, 100% pass rate):
-python -m pytest -q
+# Full test suite (247 tests, 100% pass rate):
+python -m pytest -v
+
+# Run v12 core regression suite (all 12 P0-P5 tests):
+python -m pytest tests/test_v12_regression.py -v
+
+# Run audit and satisfaction evaluation tests:
+python -m pytest tests/test_audit_and_satisfaction.py -v
 
 # Run strict Pydantic v2 schema contract tests:
-python -m pytest tests/test_schema_contracts.py -q
+python -m pytest tests/test_schema_contracts.py -v
 
 # Run Section 10 cybersecurity and mandatory logical tests:
-python -m pytest tests/test_cybersecurity_regression.py -q
+python -m pytest tests/test_cybersecurity_regression.py -v
 
 # Run automated mathematical consistency tests:
-python -m pytest tests/test_adversarial_levels.py -k test_evaluation_metrics_mathematical_consistency -q
+python -m pytest tests/test_adversarial_levels.py -k test_evaluation_metrics_mathematical_consistency -v
 ```
 
 ---

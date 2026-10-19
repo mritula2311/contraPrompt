@@ -39,9 +39,13 @@ class SMTVerifier:
         scoped_numeric: dict[tuple[str, str], list[Instruction]] = {}
         scoped_boolean: dict[tuple[str, str], list[Instruction]] = {}
 
+        doc_scopes = {'response', 'entire_report', 'entire_response', 'report', 'document', 'entire', None}
+
         for ins in instructions:
-            scope = ins.scope or 'response'
-            target = ins.key or ins.target or 'response'
+            raw_scope = ins.scope or 'entire_report'
+            scope = 'entire_report' if raw_scope in doc_scopes else raw_scope
+            raw_target = ins.target or ins.key or 'response'
+            target = 'word_count' if 'word' in raw_target else ('bullet_count' if 'bullet' in raw_target else raw_target)
 
             if ins.kind == 'numerical' and (ins.lower is not None or ins.upper is not None):
                 scoped_numeric.setdefault((scope, target), []).append(ins)
@@ -139,9 +143,10 @@ class SMTVerifier:
                     ))
 
         # 3. Cross-scope SMT check for total budget vs non-overlapping section minimums
-        section_scopes = {ins.scope for ins in instructions if ins.kind == 'numerical' and ins.key == 'word' and ins.scope not in ('response', 'entire', None)}
+        doc_scopes = {'response', 'entire_report', 'entire_response', 'report', 'document', 'entire', None}
+        section_scopes = {ins.scope for ins in instructions if ins.kind == 'numerical' and ins.key == 'word' and ins.scope not in doc_scopes}
         if len(section_scopes) >= 2:
-            total_ins = [ins for ins in instructions if ins.kind == 'numerical' and ins.key == 'word' and ins.scope in ('response', 'entire', None) and ins.upper is not None]
+            total_ins = [ins for ins in instructions if ins.kind == 'numerical' and ins.key == 'word' and ins.scope in doc_scopes and ins.upper is not None]
             for tot in total_ins:
                 s_cross = z3.Solver()
                 total_var = z3.Int("num_total_words")

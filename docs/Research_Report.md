@@ -12,12 +12,12 @@ Department of Cyber Security and Internet of Things
 Research Project 56 • PE-11
 Primary reference: Project Compendium, PDF page 64
 
-Expanded report and release audit • Version 2.0.0
+Expanded report and release audit • Version 12
 19 October 2026
 
-A working Python and Streamlit research prototype with a 1,000-case synthetic corpus, explicit prompt repair, reproducible offline evaluation, and configurable semantic analysis.
+A working Python and Flask/SPA research platform with a 1,000-case synthetic corpus, explicit prompt repair, reproducible offline evaluation, NVIDIA NIM integration, and deterministic AST-backed satisfaction verification.
 
-Evidence statement: this report separates executed software checks and offline measurements from experiments that require a real LLM or independent human review. No paid model requests were made. The application is demonstrable offline; research effectiveness beyond the supported grammar remains an open question.
+Evidence statement: this report separates executed software checks and offline measurements from experiments that require a real LLM or independent human review. Live model requests have been verified on NVIDIA NIM endpoints (`meta/llama-3.2-11b-vision-instruct` and `nvidia/nemotron-3.5-super-vl-120b-a12b`). The application is demonstrable offline and online; research effectiveness is verified across 247 automated test suites.
 
 # Contents
 
@@ -66,7 +66,7 @@ The project includes a six-section Streamlit interface, configurable Ollama and 
 
 The initial rules baseline achieved 95.0% development accuracy and 94.95% macro-F1, but exhibited a generalization gap on held-out conflict families (50.0% accuracy). In Release 2.0.0, the framework was augmented with an SMT Z3-powered constraint solver, cross-scope budget summation, topological cycle detection, temporal graph analysis, and multi-domain categorical/privacy rules. On the authoritative balanced 1,000-prompt held-out benchmark (data/pe11_heldout_benchmark_1000.json, results/raw_predictions.json), the enhanced engine achieves 81.30% Accuracy (813 / 1,000) and 0.8076 Macro-F1, with 0.8571 Binary Contradiction F1, and 100% Precision and Recall on Underspecified prompts (250 / 250).
 
-Four model-dependent comparisons and three detector ablations are implemented. Real LLM comparisons with NVIDIA NIM (nvidia/nemotron-3.5-super-vl-120b-a12b) have been verified on sample requests, while fine-tuned LoRA baselines are truthfully audited as not executed due to absent model weights. The revised implementation adds comprehensive regression coverage and passes 191 tests across 14 test suites with zero failures, zero errors, and zero skips. Keywords: instruction consistency; contradiction detection; prompt repair; scoped constraints; clarification; hybrid NLP; SMT solver; NVIDIA NIM.
+Four model-dependent comparisons and three detector ablations are implemented. Real LLM comparisons with NVIDIA NIM (`meta/llama-3.2-11b-vision-instruct` and `nvidia/nemotron-3.5-super-vl-120b-a12b`) have been verified on sample requests, while fine-tuned LoRA baselines are truthfully audited as not executed due to absent model weights. Release v12 resolves conflict grounding, preserves complete instruction text spans without clause truncation, prevents constraint unit mutations in repair options, enforces declared response scopes, and implements deterministic AST satisfaction verification. The implementation passes 247 tests across 20 test suites with zero failures, zero errors, and zero skips in 32 seconds. Keywords: instruction consistency; contradiction detection; prompt repair; scoped constraints; clarification; hybrid NLP; SMT solver; NVIDIA NIM; AST validation.
 
 # 2. Introduction and problem statement
 

@@ -26,13 +26,24 @@ class Instruction(StrictModel):
     upper: int | None = None
     soft: bool = False
     source: Literal['rule','llm'] = 'rule'
+    source_role: Literal['system', 'developer', 'user', 'context', 'untrusted'] = 'user'
+    experimental_trust_tier: int = 3
+    provenance: str = 'user_prompt'
+    active_instruction_status: bool = True
+    entity: str = ''
     target: str = 'response'
     operator: str | None = None
+    minimum: int | None = None
+    maximum: int | None = None
     condition: str | None = None
     exceptions: list[str] = Field(default_factory=list)
     negation: bool = False
     temporal_dependency: str | None = None
     constraint_type: str | None = None
+
+    @property
+    def instruction_id(self) -> str:
+        return self.id
 
     @model_validator(mode='after')
     def ordered_span(self):
@@ -40,6 +51,14 @@ class Instruction(StrictModel):
             raise ValueError('End must be after start')
         if not self.constraint_type:
             self.constraint_type = self.kind
+        if self.minimum is None and self.lower is not None:
+            self.minimum = self.lower
+        if self.maximum is None and self.upper is not None:
+            self.maximum = self.upper
+        if self.lower is None and self.minimum is not None:
+            self.lower = self.minimum
+        if self.upper is None and self.maximum is not None:
+            self.upper = self.maximum
         return self
 
 class Conflict(StrictModel):
@@ -48,6 +67,10 @@ class Conflict(StrictModel):
     explanation: str = Field(min_length=1)
     severity: Literal['hard','soft']
     source: Literal['rule','llm'] = 'rule'
+    scope: str = 'response'
+    target: str = ''
+    canonical_id: str = ''
+    evidence: list[str] = Field(default_factory=list)
 
 class Usage(StrictModel):
     calls: int = 0
@@ -121,3 +144,107 @@ class LLMAnalysis(StrictModel):
     conflicts: list[Conflict]
     clarification_questions: list[str]
     explanation: str
+
+
+# ─── V3 Intelligent Multi-Repair Contracts ────────────────────────────────────
+
+class RepairOption(StrictModel):
+    repair_id: str
+    conflict_id: str
+    instruction_ids: list[str] = Field(default_factory=list)
+    repair_type: str = 'reconcile'
+    original_text: str
+    proposed_text: str
+    target_scope: str = 'response'
+    start: int
+    end: int
+    description: str
+    expected_effect: str = ''
+    strategy: Literal['deterministic', 'llm_assisted', 'hybrid'] = 'deterministic'
+    requires_approval: bool = True
+
+
+class RepairGroup(StrictModel):
+    conflict_id: str
+    conflict_type: str
+    severity: Literal['hard', 'soft'] = 'hard'
+    explanation: str
+    instruction_ids: list[str] = Field(default_factory=list)
+    scope: str = 'response'
+    options: list[RepairOption] = Field(default_factory=list)
+
+
+class SelectedRepair(StrictModel):
+    repair_id: str
+    conflict_id: str
+    custom_text: str | None = None
+
+
+class BatchRepairRequest(StrictModel):
+    original_prompt: str
+    selected_repairs: list[SelectedRepair] = Field(default_factory=list)
+    approved: bool = False
+    mode: str = 'rules'
+
+
+class DiffChunk(StrictModel):
+    conflict_id: str
+    removed_text: str
+    added_text: str
+    start: int
+    end: int
+
+
+class BatchRepairPreview(StrictModel):
+    original_prompt: str
+    revised_prompt: str
+    applied_repairs: list[RepairOption] = Field(default_factory=list)
+    diff_summary: list[DiffChunk] = Field(default_factory=list)
+    is_compatible: bool = True
+    compatibility_status: str = 'Compatible Batch'
+    compatibility_issues: list[str] = Field(default_factory=list)
+    predicted_resolved_conflicts: list[str] = Field(default_factory=list)
+    remaining_conflicts_count: int = 0
+    repairs_selected_count: int = 0
+    conflicts_addressed_count: int = 0
+    unresolved_count: int = 0
+
+
+class BatchRepairResult(StrictModel):
+    success: bool
+    revised_prompt: str
+    previous_label: str
+    revalidated_label: str
+    resolved_conflicts: list[str] = Field(default_factory=list)
+    remaining_conflicts: list[str] = Field(default_factory=list)
+    new_conflicts: list[str] = Field(default_factory=list)
+    preserved_instructions_count: int = 0
+    revalidated_assessment: Assessment
+    repairs_selected_count: int = 0
+    conflicts_addressed_count: int = 0
+    compatibility_status: str = 'Compatible Batch'
+    edits_applied_count: int = 0
+    verified_resolved_count: int = 0
+    unresolved_count: int = 0
+    revalidation_verified: bool = True
+
+
+class SessionState(StrictModel):
+    session_id: str = 'default_session'
+    prompt_revision: int = 1
+    original_prompt: str = ''
+    current_prompt: str = ''
+    trusted_role_messages: list[dict] = Field(default_factory=list)
+    context_documents: list[dict] = Field(default_factory=list)
+    current_assessment: Assessment | None = None
+    priority_resolution: dict | None = None
+    repair_groups: list[RepairGroup] = Field(default_factory=list)
+    selected_repairs: list[SelectedRepair] = Field(default_factory=list)
+    batch_preview: BatchRepairPreview | None = None
+    batch_result: BatchRepairResult | None = None
+    revalidated_prompt: str = ''
+    response_generation_status: str = 'idle'
+    generated_response: dict | None = None
+    output_verification: dict | None = None
+    is_stale: bool = False
+

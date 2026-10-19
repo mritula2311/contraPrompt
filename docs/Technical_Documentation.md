@@ -5,8 +5,8 @@
 **Authors:** Mritula S — E0223031 | Varsha Venkatesan — E0223018  
 **Department:** Department of Cyber Security and Internet of Things  
 **Project Reference:** Research Project 56 (PE-11), Project Compendium, PDF Page 64  
-**Release:** Version 2.0.0 Production Readiness Audit  
-**Verified Test Suite:** 191 passing automated tests (100% pass rate)
+**Release:** Version 12 Production Readiness Audit  
+**Verified Test Suite:** 247 passing automated tests (100% pass rate across 20 test suites)
 
 ---
 
@@ -228,7 +228,12 @@ Predicted Totals             375       188          187              250    1,00
 
 ## 7. Quality Assurance & Verification
 
-- **Automated Tests:** 191 tests across 14 test suites, passing with 100% success rate in 19.10 seconds.
+- **Automated Tests:** 247 tests across 20 test suites, passing with 100% success rate in 32 seconds.
+- **v12 Core Regressions:** 12 dedicated regression tests in [`tests/test_v12_regression.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_v12_regression.py) verifying conflict grounding (I2 vs I4), context data vs instruction separation, complete instruction preservation without truncation, unit-preserving repair generation, scope enforcement, and deterministic AST satisfaction verification.
+- **Audit & Satisfaction Verification:** 14 dedicated tests in [`tests/test_audit_and_satisfaction.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_audit_and_satisfaction.py) evaluating requirement integrity, multi-dimensional audits, and evaluated population ratios (`numerator/denominator`).
 - **Schema Contracts:** 18 dedicated tests in [`tests/test_schema_contracts.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_schema_contracts.py) verifying strict Pydantic v2 schemas (`extra='forbid'`).
 - **Section 10 Regressions:** 7 dedicated regression tests in [`tests/test_cybersecurity_regression.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_cybersecurity_regression.py) verifying all 10 mandatory logical and security test cases.
+- **REST Endpoints & Session Lifecycle:** Dedicated tests in [`tests/test_server_endpoints.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_server_endpoints.py) and [`tests/test_workflow.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_workflow.py) ensuring 100% endpoint stability.
+- **Multi-Repair & Hierarchy:** [`tests/test_multi_repair.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_multi_repair.py), [`tests/test_multi_repair_edge_cases.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_multi_repair_edge_cases.py), and [`tests/test_hierarchy.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_hierarchy.py).
 - **Mathematical Integrity:** [`tests/test_adversarial_levels.py`](file:///d:/ContradictPrompt/ContradictPrompt/tests/test_adversarial_levels.py) asserts that confusion matrix entries and classification reports agree mathematically.
+

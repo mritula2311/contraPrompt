@@ -1,0 +1,280 @@
+{
+  "metadata": {
+    "benchmark_name": "ContradictPrompt-IH600",
+    "research_question": "Which prompt representation best helps an LLM resolve conflicts among system, developer, user, conversation and retrieved-context instructions?",
+    "sample_size": 600,
+    "domains": [
+      "formatting",
+      "information_extraction",
+      "qa",
+      "procedural"
+    ],
+    "priority_tiers": [
+      "P1: System Rule",
+      "P2: Global Constraint",
+      "P3: User Requirement",
+      "P4: Context Information",
+      "P5: Low-Trust Instruction"
+    ]
+  },
+  "comparators": [
+    {
+      "representation": "message_hierarchy_only",
+      "ablation": "none",
+      "metrics": {
+        "correct_priority_adherence": 71.25,
+        "legitimate_task_accuracy": 75.33,
+        "conflict_detection_f1": 0.684,
+        "false_conflict_rate": 8.33
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Message Hierarchy Only"
+    },
+    {
+      "representation": "explicit_priority_numbers",
+      "ablation": "none",
+      "metrics": {
+        "correct_priority_adherence": 89.17,
+        "legitimate_task_accuracy": 91.0,
+        "conflict_detection_f1": 0.895,
+        "false_conflict_rate": 2.5
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Explicit Priority Numbers"
+    },
+    {
+      "representation": "xml_tagged_trust",
+      "ablation": "none",
+      "metrics": {
+        "correct_priority_adherence": 92.5,
+        "legitimate_task_accuracy": 93.67,
+        "conflict_detection_f1": 0.915,
+        "false_conflict_rate": 1.67
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "XML-Tagged Trust Levels"
+    },
+    {
+      "representation": "rule_restatement",
+      "ablation": "none",
+      "metrics": {
+        "correct_priority_adherence": 86.46,
+        "legitimate_task_accuracy": 88.83,
+        "conflict_detection_f1": 0.872,
+        "false_conflict_rate": 3.33
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Rule Restatement"
+    },
+    {
+      "representation": "conflict_detection_first",
+      "ablation": "none",
+      "metrics": {
+        "correct_priority_adherence": 95.83,
+        "legitimate_task_accuracy": 96.33,
+        "conflict_detection_f1": 1.0,
+        "false_conflict_rate": 0.0
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Conflict-Detection-First Prompt"
+    }
+  ],
+  "ablations": [
+    {
+      "representation": "explicit_priority_numbers",
+      "ablation": "no_priority_labels",
+      "metrics": {
+        "correct_priority_adherence": 78.54,
+        "legitimate_task_accuracy": 82.5,
+        "conflict_detection_f1": 0.861,
+        "false_conflict_rate": 4.17
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Ablation: No Priority Labels"
+    },
+    {
+      "representation": "xml_tagged_trust",
+      "ablation": "no_trust_metadata",
+      "metrics": {
+        "correct_priority_adherence": 82.29,
+        "legitimate_task_accuracy": 85.5,
+        "conflict_detection_f1": 0.885,
+        "false_conflict_rate": 3.33
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Ablation: No Trust Metadata"
+    },
+    {
+      "representation": "conflict_detection_first",
+      "ablation": "no_detection_stage",
+      "metrics": {
+        "correct_priority_adherence": 83.33,
+        "legitimate_task_accuracy": 86.33,
+        "conflict_detection_f1": 0.742,
+        "false_conflict_rate": 5.83
+      },
+      "sample_size": 600,
+      "conflict_cases": 480,
+      "compatible_cases": 120,
+      "domain_breakdown": {
+        "formatting": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "information_extraction": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "qa": {
+          "total": 150,
+          "adherence": 100.0
+        },
+        "procedural": {
+          "total": 150,
+          "adherence": 100.0
+        }
+      },
+      "display_name": "Ablation: No Conflict-Detection Stage"
+    }
+  ]
+}
