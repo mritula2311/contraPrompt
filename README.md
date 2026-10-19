@@ -13,10 +13,6 @@
 ## Project Overview
 
 **ContradictPrompt** is an advanced NLP research platform and production pre-generation firewall designed to detect, analyze, explain, and resolve mutually incompatible instructions within complex user prompts *before* downstream language model generation occurs.
-
-- **Authors:** Mritula S (E0223031) & Varsha Venkatesan (E0223018)
-- **Department:** Department of Cyber Security and Internet of Things
-- **Project Reference:** Research Project 56 (PE-11), Project Compendium, PDF Page 64
 - **Core Research Tracks:**
   - **Research Track A (ContradictPrompt / PE-11):** Compound prompt contradiction detection across 4 classes (*Compatible*, *Partially conflicting*, *Fully impossible*, *Underspecified*) and 5 conflict types (*Numerical*, *Logical*, *Temporal*, *Formatting*, *Semantic*).
   - **Research Track B (PriorityPrompt / Instruction Hierarchy):** 5-tier instruction hierarchy (*P1 System Rule*, *P2 Global Constraint*, *P3 User Requirement*, *P4 Context Information*, *P5 Low-Trust Input*) evaluated across 5 prompt representations and 3 ablations.
