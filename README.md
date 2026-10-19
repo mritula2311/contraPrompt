@@ -2,9 +2,6 @@
 
 **A Hybrid Rule-Based and LLM-Driven Framework for Detecting and Resolving Conflicting User Instructions**
 
-Mritula S - E0223031 · Varsha Venkatesan - E0223018  
-Department of Cyber Security and Internet of Things
-
 Working research prototype based on Project 56 (PE-11), uploaded Project Compendium, PDF page 64. English prompts only. Python 3.11+. No training, GPU, external benchmark or API key is required for offline operation.
 
 ## Quick start
