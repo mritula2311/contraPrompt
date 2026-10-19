@@ -1,4 +1,4 @@
-# ContradictPrompt v12
+# ContradictPrompt 
 
 **A Hybrid Rule-Based and LLM-Driven Framework for Detecting and Resolving Conflicting User Instructions with Intelligent Priority Hierarchy, NVIDIA NIM & Automated Verification**
 
