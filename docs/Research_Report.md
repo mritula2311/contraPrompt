@@ -55,6 +55,31 @@ Evidence statement: this report separates executed software checks and offline m
 
 Reading guide: Sections 1–5 establish the research problem and architecture. Sections 6–15 describe the implemented application. Sections 16–22 explain the corpus, experiments, every requested metric and reproducibility. Sections 23–27 present measured results, software verification, installation and limitations. Section 28 lists verified references and the evidence files.
 
+### Standard Academic Project Compendium Structure Mapping
+
+For academic and institutional evaluations requiring the standard thesis structure:
+- **Chapter 3: SYSTEM ARCHITECTURE**
+  - **3.1 Proposed System/Methodology:** Sections 6, 8, 9, 10, 12 (Hybrid Rule + SMT + LLM Pipeline).
+  - **3.2 System Architecture Diagram:** Section 6 (Architecture and data flow; [`assets/architecture.svg`](file:///d:/ContradictPrompt/ContradictPrompt/assets/architecture.svg)).
+  - **3.3 Module Description:** Sections 7–15 (Extraction, Priority Hierarchy, Deterministic Rules, SMT Solver, Gated Repair, NIM Client, Router Firewall, Satisfaction Verifier).
+  - **3.4 Algorithms / Models Used:** Sections 9, 10, 11 (Interval Feasibility, SMT Cross-Scope Budget Summation, Tarjan Topological Deadlock Detection, LLaMA-3.2-11B / Nemotron-3.5-120B NIM).
+- **Chapter 4: SYSTEM IMPLEMENTATION**
+  - **4.1 Hardware and Software Specifications:** Section 22 (Environment, Python 3.12, Z3, CUDA/NIM).
+  - **4.2 Tools / Libraries Used:** Section 22 & Technical Documentation Section 4.2 (`z3-solver`, `networkx`, `pydantic`, `Flask`, `pytest`, `scikit-learn`).
+  - **4.3 Implementation Details:** Sections 11–14 (NeMo LoRA Fine-Tuning rank 16/alpha 32, Pre-Generation Router, AST Satisfaction Verifier).
+  - **4.4 Dataset Collection and Descriptions:** Section 16 (1,000-case PE-11 held-out benchmark, IH-600 hierarchy dataset, 3,000-case NeMo SFT corpus).
+  - **4.5 Code Snippets:** Technical Documentation Section 4.5 (Extraction, Rules, Solver, Router, AST Satisfaction).
+- **Chapter 5: RESULTS AND DISCUSSION**
+  - **5.1 Experimental Results:** Sections 19, 20, 23 (81.30% Accuracy, 0.8076 Macro-F1 on 1,000 cases; 95.83% priority adherence on IH-600).
+  - **5.2 Performance Comparison / Benchmarks:** Section 18 (4-mode ablation, 5 prompt representations, Baselines A–F).
+  - **5.3 Visualization of Results:** Sections 19, 23 (Confusion Matrix, Category Ablation Tables, Bar Charts).
+  - **5.4 Interpretation and Analysis:** Sections 24, 27 (Error taxonomy, conflict grounding, latency/token costs).
+- **Chapter 6: CONCLUSION AND FUTURE WORK**
+  - **6.1 Conclusion:** Section 27 (Summary of contributions, 247 passing tests, verified quality gates).
+  - **6.2 Future Work:** Section 27 (Multi-turn conversations, on-device TRT-LLM edge acceleration, RLFV).
+
+Detailed technical exposition of all these subsections is provided in [`docs/Technical_Documentation.md`](file:///d:/ContradictPrompt/ContradictPrompt/docs/Technical_Documentation.md).
+
 # 1. Abstract and evidence status
 
 
