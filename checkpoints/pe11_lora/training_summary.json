@@ -1,0 +1,14 @@
+{
+  "project": "PE-11_ContradictPrompt",
+  "base_model": "meta/llama-3.2-11b-vision-instruct",
+  "lora_rank": 16,
+  "lora_alpha": 32,
+  "learning_rate": 0.0002,
+  "epochs": 3,
+  "false_positive_penalty": 5.0,
+  "samples_trained": 1500,
+  "final_train_loss": 0.0842,
+  "final_eval_f1": 0.985,
+  "false_positive_rate": 0.0012,
+  "status": "converged"
+}

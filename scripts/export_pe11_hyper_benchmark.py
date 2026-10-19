@@ -1,0 +1,1401 @@
+"""Process and format the 100 PE-11 Hyper-Benchmark Prompts into dataset & benchmark files.
+"""
+
+import json
+from pathlib import Path
+
+HYPER_BENCHMARK_PROMPTS = [
+    # ─── 1. Numerical & Mathematical Scaling Cascades (20 Prompts) ───────────────
+    {
+        "id": "CP-NUM-001",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a five-chapter historical narrative where each chapter is exactly three times longer than the chapter immediately preceding it. The first chapter must contain exactly 100 words, and the total length of the entire five-chapter document must remain strictly below 400 words total.",
+        "conflict_types": ["numerical"],
+        "reasoning": "Chapter lengths are 100, 300, 900, 2700, and 8100 words, summing to 12,100 words. This directly contradicts the global constraint that the total length must remain strictly below 400 words.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "chapters", "value": "5", "bounds": "[5, 5]", "text": "five-chapter historical narrative"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "chapter_growth", "value": "3x preceding chapter", "bounds": "—", "text": "each chapter is exactly three times longer than the chapter immediately preceding it"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "chapter_1_words", "value": "100", "bounds": "[100, 100]", "text": "first chapter must contain exactly 100 words"},
+            {"id": "I4", "kind": "numerical", "scope": "response", "key": "total_words", "value": "<400", "bounds": "[0, 399]", "text": "total length of the entire five-chapter document must remain strictly below 400 words total"}
+        ],
+        "suggested_repair": "Write a five-chapter historical narrative where each chapter is three times longer than the previous (starting at 100 words), with a total document length appropriate for 12,100 words, OR keep the document under 400 words without the geometric chapter scaling."
+    },
+    {
+        "id": "CP-NUM-002",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a numbered list of exactly 15 unique prime numbers. The first 10 items must be strictly smaller than the number 20, and all 15 items must be completely divisible by the number 3 without leaving any remainders.",
+        "conflict_types": ["numerical", "logical"],
+        "reasoning": "By definition, the only prime number divisible by 3 is 3 itself. It is mathematically impossible to produce 15 unique primes that are all divisible by 3.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "count", "value": "15 unique primes", "bounds": "[15, 15]", "text": "numbered list of exactly 15 unique prime numbers"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "prime_bound", "value": "<20", "bounds": "[2, 19]", "text": "first 10 items must be strictly smaller than the number 20"},
+            {"id": "I3", "kind": "logical", "scope": "response", "key": "divisibility", "value": "divisible by 3", "bounds": "—", "text": "all 15 items must be completely divisible by the number 3 without leaving any remainders"}
+        ],
+        "suggested_repair": "Generate a numbered list of 15 unique prime numbers (the first 10 strictly under 20) without requiring divisibility by 3, OR generate 15 multiples of 3."
+    },
+    {
+        "id": "CP-NUM-003",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Draft a short corporate memo. The entire response must be at least 2,000 words long to satisfy comprehensive compliance standards, but your total output footprint must not exceed a maximum cap of 50 tokens.",
+        "conflict_types": ["numerical"],
+        "reasoning": "A 2,000-word text requires at least 2,500 to 3,000 tokens in standard language model tokenization; it is physically impossible to output 2,000 words within a 50-token cap.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "min_words", "value": ">=2000", "bounds": "[2000, inf)", "text": "must be at least 2,000 words long"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "max_tokens", "value": "<=50", "bounds": "[0, 50]", "text": "total output footprint must not exceed a maximum cap of 50 tokens"}
+        ],
+        "suggested_repair": "Draft a concise 50-token corporate memo summary, OR draft a comprehensive 2,000-word compliance memo without the 50-token restriction."
+    },
+    {
+        "id": "CP-NUM-004",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a matrix calculation walkthrough that lists exactly four distinct steps. Each step must introduce exactly five new variables, yet the final system must operate using a maximum aggregate total of seven unique variables across the entire text.",
+        "conflict_types": ["numerical"],
+        "reasoning": "Introducing 5 new variables across 4 distinct steps yields at least 4 * 5 = 20 unique variables, which directly exceeds the maximum cap of 7 unique variables.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "steps", "value": "4", "bounds": "[4, 4]", "text": "lists exactly four distinct steps"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "new_vars_per_step", "value": "5", "bounds": "[5, 5]", "text": "Each step must introduce exactly five new variables"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "total_vars", "value": "<=7", "bounds": "[0, 7]", "text": "maximum aggregate total of seven unique variables across the entire text"}
+        ],
+        "suggested_repair": "Create a matrix calculation walkthrough with 4 steps that introduces 5 new variables in Step 1 and reuses them, operating within 7 total unique variables."
+    },
+    {
+        "id": "CP-NUM-005",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a short story about an astronaut. The first half of the story must contain exactly 80% of the total words in the response, and the second half must contain exactly 40% of the total words.",
+        "conflict_types": ["numerical"],
+        "reasoning": "By definition, the sum of two disjoint halves must equal 100% of the text. Here 80% + 40% = 120%, which is a mathematical impossibility.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "part_1_ratio", "value": "80%", "bounds": "[80, 80]", "text": "first half of the story must contain exactly 80% of the total words"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "part_2_ratio", "value": "40%", "bounds": "[40, 40]", "text": "second half must contain exactly 40% of the total words"}
+        ],
+        "suggested_repair": "Write a short story about an astronaut divided into two sections where Section 1 contains 60% of the words and Section 2 contains 40%."
+    },
+    {
+        "id": "CP-NUM-006",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "List the top 10 tallest buildings in the world. You must include exactly 12 items in the list, and ensure that no two items share the same ranking or name.",
+        "conflict_types": ["numerical"],
+        "reasoning": "A top 10 list by definition contains exactly 10 distinct rankings. Mandating exactly 12 items without shared rankings is a direct cardinality collision.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "target_rank", "value": "top 10", "bounds": "[10, 10]", "text": "top 10 tallest buildings in the world"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "exact_count", "value": "12", "bounds": "[12, 12]", "text": "include exactly 12 items in the list"},
+            {"id": "I3", "kind": "logical", "scope": "response", "key": "uniqueness", "value": "unique ranks and names", "bounds": "—", "text": "no two items share the same ranking or name"}
+        ],
+        "suggested_repair": "List the top 12 tallest buildings in the world with unique rankings from 1 to 12."
+    },
+    {
+        "id": "CP-NUM-007",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a sequence of 10 numbers where every number is smaller than the one before it, but ensure the first number is exactly 0 and the final number is a positive integer greater than 50.",
+        "conflict_types": ["numerical", "logical"],
+        "reasoning": "A strictly decreasing sequence starting at 0 must contain strictly negative numbers for all subsequent elements; the 10th element can never be a positive integer greater than 50.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "sequence_len", "value": "10", "bounds": "[10, 10]", "text": "sequence of 10 numbers"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "monotonicity", "value": "strictly decreasing", "bounds": "—", "text": "every number is smaller than the one before it"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "start_val", "value": "0", "bounds": "[0, 0]", "text": "first number is exactly 0"},
+            {"id": "I4", "kind": "numerical", "scope": "response", "key": "end_val", "value": ">50", "bounds": "[51, inf)", "text": "final number is a positive integer greater than 50"}
+        ],
+        "suggested_repair": "Generate a sequence of 10 numbers starting at 100 and ending above 50 where every number is smaller than the one before it."
+    },
+    {
+        "id": "CP-NUM-008",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a 3-paragraph analysis of a stock market chart. The first paragraph must contain exactly 150 words, the second paragraph must contain exactly 200 words, and the entire response must be under 300 words total.",
+        "conflict_types": ["numerical"],
+        "reasoning": "Paragraph 1 (150 words) plus Paragraph 2 (200 words) equals 350 words, which already exceeds the global ceiling of 300 words even before considering Paragraph 3.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "paragraphs", "value": "3", "bounds": "[3, 3]", "text": "3-paragraph analysis"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "p1_words", "value": "150", "bounds": "[150, 150]", "text": "first paragraph must contain exactly 150 words"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "p2_words", "value": "200", "bounds": "[200, 200]", "text": "second paragraph must contain exactly 200 words"},
+            {"id": "I4", "kind": "numerical", "scope": "response", "key": "total_words", "value": "<300", "bounds": "[0, 299]", "text": "entire response must be under 300 words total"}
+        ],
+        "suggested_repair": "Write a 3-paragraph analysis of a stock market chart where paragraph 1 has 90 words, paragraph 2 has 100 words, and paragraph 3 has 90 words, keeping the total under 300 words."
+    },
+    {
+        "id": "CP-NUM-009",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a budget spreadsheet breakdown listing 5 items. The individual cost of each item must be greater than $500, but the total sum of all 5 items combined must be exactly $1,200.",
+        "conflict_types": ["numerical"],
+        "reasoning": "5 items each strictly greater than $500 must sum to strictly greater than $2,500. It is mathematically impossible for their sum to equal $1,200.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "items", "value": "5", "bounds": "[5, 5]", "text": "listing 5 items"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "min_cost", "value": ">500", "bounds": "[501, inf)", "text": "individual cost of each item must be greater than $500"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "total_sum", "value": "1200", "bounds": "[1200, 1200]", "text": "total sum of all 5 items combined must be exactly $1,200"}
+        ],
+        "suggested_repair": "Create a budget breakdown listing 5 items where each item costs greater than $200 and the total sum is exactly $1,200."
+    },
+    {
+        "id": "CP-NUM-010",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a mathematical proof for an equation. The proof must contain exactly zero digits, numbers, or mathematical symbols, but must explicitly list every single prime factor of 9,999.",
+        "conflict_types": ["numerical", "logical"],
+        "reasoning": "Listing mathematical factors requires numerical expressions or numerals; forbidding all digits, numbers, and mathematical symbols invalidates presenting prime factors.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "symbols", "value": "forbidden", "bounds": "—", "text": "contain exactly zero digits, numbers, or mathematical symbols"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "content", "value": "list prime factors of 9999", "bounds": "—", "text": "explicitly list every single prime factor of 9,999"}
+        ],
+        "suggested_repair": "Write a mathematical explanation identifying every prime factor of 9,999 using standard mathematical notation and written prose."
+    },
+    {
+        "id": "CP-NUM-011",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a recipe for a cake that serves exactly 4 people. The recipe must call for a minimum of 5 kilograms of flour per person, but the total weight of the finished cake must be exactly 500 grams.",
+        "conflict_types": ["numerical"],
+        "reasoning": "5 kg of flour per person for 4 people requires at least 20 kg of flour alone. The finished cake cannot weigh only 500 grams (0.5 kg).",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "servings", "value": "4", "bounds": "[4, 4]", "text": "serves exactly 4 people"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "flour_per_person", "value": ">=5kg", "bounds": "[5000, inf)", "text": "minimum of 5 kilograms of flour per person"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "finished_weight", "value": "500g", "bounds": "[500, 500]", "text": "total weight of the finished cake must be exactly 500 grams"}
+        ],
+        "suggested_repair": "Provide a recipe for a cake serving 4 people that calls for 100 grams of flour per person, with a finished cake weight of approximately 500 grams."
+    },
+    {
+        "id": "CP-NUM-012",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a countdown list starting at 10 and ending at 1. The list must contain exactly 25 lines, and each line must decrement the countdown by a value of exactly 2.",
+        "conflict_types": ["numerical"],
+        "reasoning": "Decrementing from 10 by steps of 2 produces 10, 8, 6, 4, 2, 0 (5 decrements). It cannot reach 1, nor can it span 25 lines while decrementing by 2.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "start", "value": "10", "bounds": "[10, 10]", "text": "starting at 10"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "end", "value": "1", "bounds": "[1, 1]", "text": "ending at 1"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "lines", "value": "25", "bounds": "[25, 25]", "text": "exactly 25 lines"},
+            {"id": "I4", "kind": "numerical", "scope": "response", "key": "step", "value": "-2", "bounds": "[-2, -2]", "text": "decrement the countdown by a value of exactly 2"}
+        ],
+        "suggested_repair": "Generate a countdown list starting at 50 and ending at 2 with exactly 25 lines, decrementing by 2 on each line."
+    },
+    {
+        "id": "CP-NUM-013",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a 4-line poem where each line contains an increasing number of syllables. Line 1 must have 10 syllables, and line 4 must have exactly 3 syllables total.",
+        "conflict_types": ["numerical", "logical"],
+        "reasoning": "If each line has an increasing number of syllables starting at 10, Line 4 must have at least 13 syllables. Requiring Line 4 to have exactly 3 syllables contradicts monotonicity.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "lines", "value": "4", "bounds": "[4, 4]", "text": "4-line poem"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "monotonicity", "value": "increasing syllables", "bounds": "—", "text": "increasing number of syllables"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "line1_syllables", "value": "10", "bounds": "[10, 10]", "text": "Line 1 must have 10 syllables"},
+            {"id": "I4", "kind": "numerical", "scope": "response", "key": "line4_syllables", "value": "3", "bounds": "[3, 3]", "text": "line 4 must have exactly 3 syllables total"}
+        ],
+        "suggested_repair": "Write a 4-line poem where each line contains an increasing number of syllables, starting with 3 syllables in Line 1 and ending with 10 syllables in Line 4."
+    },
+    {
+        "id": "CP-NUM-014",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "List 8 distinct geometric shapes. The first 5 shapes must have more than 6 sides each, and the total number of sides across all 8 shapes combined must be exactly 20.",
+        "conflict_types": ["numerical"],
+        "reasoning": "5 shapes with more than 6 sides each have at least 7 sides each, summing to at least 35 sides. The total across all 8 shapes cannot be 20.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "shape_count", "value": "8", "bounds": "[8, 8]", "text": "List 8 distinct geometric shapes"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "sides_first_5", "value": ">6", "bounds": "[7, inf)", "text": "first 5 shapes must have more than 6 sides each"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "total_sides", "value": "20", "bounds": "[20, 20]", "text": "total number of sides across all 8 shapes combined must be exactly 20"}
+        ],
+        "suggested_repair": "List 8 distinct geometric shapes whose total number of sides across all 8 shapes combined equals 40."
+    },
+    {
+        "id": "CP-NUM-015",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a software product review. Exactly 90% of the words must be verbs, exactly 20% of the words must be nouns, and the remaining text must consist of adjectives.",
+        "conflict_types": ["numerical"],
+        "reasoning": "90% verbs + 20% nouns already totals 110%, which exceeds the 100% total word budget without leaving room for adjectives.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "verbs_pct", "value": "90%", "bounds": "[90, 90]", "text": "Exactly 90% of the words must be verbs"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "nouns_pct", "value": "20%", "bounds": "[20, 20]", "text": "exactly 20% of the words must be nouns"}
+        ],
+        "suggested_repair": "Write a software product review where 50% of the words are verbs, 30% are nouns, and 20% are adjectives."
+    },
+    {
+        "id": "CP-NUM-016",
+        "category": "numerical",
+        "expected_classification": "compatible",
+        "prompt_text": "Generate a grid of numbers containing exactly 4 rows and 4 columns. Every single cell in the grid must contain a unique value, but the sum of every row must be exactly 0.",
+        "conflict_types": [],
+        "reasoning": "This is mathematically satisfiable. For example, Row 1: [-3, -1, 1, 3], Row 2: [-6, -2, 2, 6], Row 3: [-9, -4, 4, 9], Row 4: [-12, -5, 5, 12]. All 16 integers are distinct and each row sums to 0.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "grid_dims", "value": "4x4", "bounds": "[4, 4]", "text": "grid of numbers containing exactly 4 rows and 4 columns"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "uniqueness", "value": "unique values", "bounds": "—", "text": "Every single cell in the grid must contain a unique value"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "row_sum", "value": "0", "bounds": "[0, 0]", "text": "sum of every row must be exactly 0"}
+        ],
+        "suggested_repair": None
+    },
+    {
+        "id": "CP-NUM-017",
+        "category": "numerical",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a paragraph about marine biology. The paragraph must contain more than 500 characters but must be completed in fewer than 40 words total.",
+        "conflict_types": ["numerical"],
+        "reasoning": "500 characters across fewer than 40 words requires an average word length exceeding 12.5 characters per word. While possible using dense multi-syllabic marine terminology, it imposes severe syntactic strain.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "min_chars", "value": ">500", "bounds": "[501, inf)", "text": "contain more than 500 characters"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "max_words", "value": "<40", "bounds": "[0, 39]", "text": "completed in fewer than 40 words total"}
+        ],
+        "suggested_repair": "Write a paragraph about marine biology containing more than 500 characters within a natural limit of 60 to 80 words."
+    },
+    {
+        "id": "CP-NUM-018",
+        "category": "numerical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a dataset of 20 customer IDs. Every ID must be an even number, and the total sum of all 20 IDs must result in an odd number.",
+        "conflict_types": ["numerical", "logical"],
+        "reasoning": "The sum of any quantity of even numbers is strictly even. A sum of 20 even integers can never be an odd number.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "count", "value": "20", "bounds": "[20, 20]", "text": "dataset of 20 customer IDs"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "parity_elements", "value": "even", "bounds": "—", "text": "Every ID must be an even number"},
+            {"id": "I3", "kind": "logical", "scope": "response", "key": "parity_sum", "value": "odd", "bounds": "—", "text": "total sum of all 20 IDs must result in an odd number"}
+        ],
+        "suggested_repair": "Provide a dataset of 20 customer IDs where every ID is an even number and their total sum is an even number."
+    },
+    {
+        "id": "CP-NUM-019",
+        "category": "numerical",
+        "expected_classification": "compatible",
+        "prompt_text": "Write a script containing a dialogue between two characters. Character A must speak exactly twice as many lines as Character B, and the total number of lines in the script must be 15.",
+        "conflict_types": [],
+        "reasoning": "Let lines of B = x, then lines of A = 2x. Total lines = 3x = 15 => x = 5. Character A speaks 10 lines and Character B speaks 5 lines. This is completely satisfiable.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "ratio", "value": "A=2*B", "bounds": "—", "text": "Character A must speak exactly twice as many lines as Character B"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "total_lines", "value": "15", "bounds": "[15, 15]", "text": "total number of lines in the script must be 15"}
+        ],
+        "suggested_repair": None
+    },
+    {
+        "id": "CP-NUM-020",
+        "category": "numerical",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "List 5 distinct cities in Europe. Each city name must contain exactly 8 letters, and the total number of vowels used across all 5 names must be exactly 30.",
+        "conflict_types": ["numerical"],
+        "reasoning": "5 cities with 8 letters total 40 letters. Requiring 30 vowels leaves only 10 consonants across 5 words (6 vowels per 8-letter city). European city names rarely have a 75% vowel ratio, imposing extreme lexical friction.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "city_count", "value": "5", "bounds": "[5, 5]", "text": "List 5 distinct cities in Europe"},
+            {"id": "I2", "kind": "numerical", "scope": "response", "key": "letter_count", "value": "8", "bounds": "[8, 8]", "text": "Each city name must contain exactly 8 letters"},
+            {"id": "I3", "kind": "numerical", "scope": "response", "key": "vowel_total", "value": "30", "bounds": "[30, 30]", "text": "total number of vowels used across all 5 names must be exactly 30"}
+        ],
+        "suggested_repair": "List 5 distinct cities in Europe with exactly 8 letters each, allowing natural vowel counts."
+    },
+
+    # ─── 2. Formatting & Syntax Paradigm Clashes (20 Prompts) ─────────────────────
+    {
+        "id": "CP-FOR-001",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Output your entire response strictly as a single, valid JSON object containing no plain text outside its keys. Do not include markdown code fence formatting blocks like ```json, and you must explicitly explain your core structural reasoning using three raw, unescaped plain-text paragraphs completely outside the JSON boundaries.",
+        "conflict_types": ["formatting", "logical"],
+        "reasoning": "Requiring strictly a single JSON object with no plain text outside while simultaneously requiring three raw plain-text paragraphs outside the JSON boundaries is a direct structural contradiction.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "format", "value": "strictly JSON", "bounds": "—", "text": "strictly as a single, valid JSON object containing no plain text outside its keys"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "external_text", "value": "3 paragraphs outside JSON", "bounds": "—", "text": "three raw, unescaped plain-text paragraphs completely outside the JSON boundaries"}
+        ],
+        "suggested_repair": "Output a valid JSON object containing your data and include your structural reasoning as an array of three paragraph strings inside a 'reasoning' key."
+    },
+    {
+        "id": "CP-FOR-002",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a complete, fully functional HTML web page template. The entire response must be written within a single line of code with absolutely no whitespace, line breaks, or indentation, and you must format the entire layout using clean, highly readable, multi-line nested indentation blocks.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Single line with no whitespace or line breaks directly contradicts formatting the layout using clean, multi-line nested indentation blocks.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "minified", "value": "single line no whitespace", "bounds": "—", "text": "written within a single line of code with absolutely no whitespace, line breaks, or indentation"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "indented", "value": "multi-line nested indentation", "bounds": "—", "text": "format the entire layout using clean, highly readable, multi-line nested indentation blocks"}
+        ],
+        "suggested_repair": "Generate a complete HTML page template formatted with clean multi-line indentation blocks, OR provide a minified single-line version."
+    },
+    {
+        "id": "CP-FOR-003",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a comprehensive data export of a product catalog. The output must conform exactly to a flat, raw, comma-separated values (CSV) format, but every row must be nested inside an XML data hierarchy that enforces strict tag validation.",
+        "conflict_types": ["formatting"],
+        "reasoning": "CSV is flat delimiter-separated tabular text; enclosing rows inside XML tags violates CSV parsing grammar and invalidates raw CSV compliance.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "csv_spec", "value": "flat CSV", "bounds": "—", "text": "conform exactly to a flat, raw, comma-separated values (CSV) format"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "xml_spec", "value": "XML hierarchy tags", "bounds": "—", "text": "nested inside an XML data hierarchy that enforces strict tag validation"}
+        ],
+        "suggested_repair": "Export the product catalog in standard XML format, OR provide a pure flat CSV export."
+    },
+    {
+        "id": "CP-FOR-004",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a short user manual for a camera. Format the response entirely as a structured Markdown table featuring clear rows and columns, but do not use any vertical bars, dashes, hyphens, or structural table punctuation marks in your response.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Markdown table syntax definitionally requires pipe symbols (|) and hyphens (-) to delineate columns and header rows. Forbidding them makes rendering a markdown table impossible.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "table_req", "value": "Markdown table", "bounds": "—", "text": "structured Markdown table featuring clear rows and columns"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "punctuation_ban", "value": "no pipes/hyphens", "bounds": "—", "text": "do not use any vertical bars, dashes, hyphens, or structural table punctuation marks"}
+        ],
+        "suggested_repair": "Write the camera user manual as a standard Markdown table using pipes and hyphens, OR format it as a clean bulleted list without table syntax."
+    },
+    {
+        "id": "CP-FOR-005",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a script file containing a standard Bash automation sequence. The response must be pure executable code with no text formatting, but every single line of code must be wrapped inside a raw HTML paragraph tag block.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Wrapping bash code lines in HTML <p> tags creates syntax errors in standard bash interpreters, violating the requirement of pure executable code.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "code_purity", "value": "pure executable code", "bounds": "—", "text": "pure executable code with no text formatting"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "html_tags", "value": "wrapped in HTML <p>", "bounds": "—", "text": "every single line of code must be wrapped inside a raw HTML paragraph tag block"}
+        ],
+        "suggested_repair": "Generate a pure executable Bash automation script without HTML tags."
+    },
+    {
+        "id": "CP-FOR-006",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a list of 5 grocery items. The response must be formatted as an unnumbered, bulleted list, but every single item must start with a sequential number tracking its position.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Starting every item with a sequential position number makes it a numbered list, violating the requirement that the list be unnumbered.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "list_type", "value": "unnumbered bulleted", "bounds": "—", "text": "formatted as an unnumbered, bulleted list"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "sequential_num", "value": "sequential number start", "bounds": "—", "text": "every single item must start with a sequential number"}
+        ],
+        "suggested_repair": "Provide a list of 5 grocery items as a standard numbered list (1-5), OR as an unnumbered bulleted list."
+    },
+    {
+        "id": "CP-FOR-007",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a JSON payload tracking weather data. The output must be fully valid JSON, but you are strictly forbidden from using any quotation marks, curly braces, or colons in the response.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Valid JSON grammar strictly mandates curly braces for objects and quotation marks for string keys and values. Eliminating them invalidates JSON syntax.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "json_spec", "value": "valid JSON", "bounds": "—", "text": "fully valid JSON"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "forbidden_chars", "value": "no quotes/braces/colons", "bounds": "—", "text": "forbidden from using any quotation marks, curly braces, or colons"}
+        ],
+        "suggested_repair": "Create a valid JSON weather payload using proper braces, quotes, and colons, OR output the data in YAML or plain key-value format."
+    },
+    {
+        "id": "CP-FOR-008",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a technical article about database design. The output must be formatted entirely as an unformatted, continuous string of raw text, but you must include a clear sidebar panel on the right side of the page.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Rendering a visual sidebar panel requires multi-column CSS or spatial layout structures, which cannot exist in an unformatted continuous raw text string.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "raw_text", "value": "continuous unformatted text", "bounds": "—", "text": "unformatted, continuous string of raw text"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "sidebar", "value": "right sidebar panel", "bounds": "—", "text": "include a clear sidebar panel on the right side of the page"}
+        ],
+        "suggested_repair": "Write the database design article in HTML/CSS with a right sidebar, OR provide a plain text article with an inline sidebar callout section."
+    },
+    {
+        "id": "CP-FOR-009",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate an XML document schema for an invoice. The output must contain only valid XML tags, but the entire file must be rendered using standard YAML indentation rules instead of closing tags.",
+        "conflict_types": ["formatting"],
+        "reasoning": "XML specifications require closing tags or self-closing syntax; omitting closing tags and relying on whitespace indentation violates XML well-formedness rules.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "xml_spec", "value": "valid XML", "bounds": "—", "text": "only valid XML tags"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "closing_tags", "value": "YAML indentation instead of closing tags", "bounds": "—", "text": "rendered using standard YAML indentation rules instead of closing tags"}
+        ],
+        "suggested_repair": "Generate an XML invoice schema with proper closing tags, OR provide an equivalent YAML invoice schema."
+    },
+    {
+        "id": "CP-FOR-010",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a legal disclaimer statement. The text must be formatted entirely in UPPERCASE letters, but you must write every single word using strictly lowercase typography.",
+        "conflict_types": ["formatting", "logical"],
+        "reasoning": "A text cannot simultaneously be 100% uppercase letters and 100% lowercase typography.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "case_upper", "value": "UPPERCASE", "bounds": "—", "text": "formatted entirely in UPPERCASE letters"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "case_lower", "value": "lowercase", "bounds": "—", "text": "write every single word using strictly lowercase typography"}
+        ],
+        "suggested_repair": "Write the legal disclaimer statement in standard uppercase typography, OR write it in standard sentence case."
+    },
+    {
+        "id": "CP-FOR-011",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a Python function that prints a welcome message. The code block must be rendered as raw text without code highlights, but you must wrap the entire code inside a standard Markdown code block.",
+        "conflict_types": ["formatting"],
+        "reasoning": "A Markdown code block (fenced by backticks) is the syntax used for code formatting; demanding raw unformatted text while demanding fenced code blocks is a direct formatting collision.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "raw_mode", "value": "raw text no code highlights", "bounds": "—", "text": "raw text without code highlights"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "fenced_block", "value": "Markdown code block", "bounds": "—", "text": "wrap the entire code inside a standard Markdown code block"}
+        ],
+        "suggested_repair": "Provide the Python function wrapped in a standard Markdown code block."
+    },
+    {
+        "id": "CP-FOR-012",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a bibliography reference list. The list must be formatted in strict APA style, but you must organize the fields using a custom, comma-separated configuration that ignores APA rules.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Strict APA style defines exact punctuation, italicization, and ordering. Organizing fields with a custom configuration that ignores APA rules directly negates APA compliance.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "apa_style", "value": "strict APA", "bounds": "—", "text": "formatted in strict APA style"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "custom_format", "value": "ignores APA rules", "bounds": "—", "text": "custom, comma-separated configuration that ignores APA rules"}
+        ],
+        "suggested_repair": "Create a bibliography formatted in strict APA 7th edition style."
+    },
+    {
+        "id": "CP-FOR-013",
+        "category": "formatting",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a summary of a research paper. Format the entire text as a single, bulleted list item, but ensure it contains 5 independent paragraphs with blank lines between them.",
+        "conflict_types": ["formatting"],
+        "reasoning": "In Markdown, indented blocks can technically exist under a single bullet item, but blank lines risk breaking list parser continuity depending on renderer parser rules.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "bullet_count", "value": "1 bullet", "bounds": "[1, 1]", "text": "single, bulleted list item"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "paragraphs", "value": "5 with blank lines", "bounds": "[5, 5]", "text": "5 independent paragraphs with blank lines between them"}
+        ],
+        "suggested_repair": "Write a 5-paragraph summary of the research paper with standard paragraph spacing, OR summarize each key finding as one of 5 bullet points."
+    },
+    {
+        "id": "CP-FOR-014",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate an ASCII art drawing of a star. The drawing must use only space characters and no visible symbols, but the shape of the star must be clearly visible against the background.",
+        "conflict_types": ["formatting", "logical"],
+        "reasoning": "Using exclusively space characters produces only blank whitespace; without visible symbols or color contrast, no shape can be visible in plain ASCII text.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "allowed_chars", "value": "spaces only", "bounds": "—", "text": "only space characters and no visible symbols"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "visibility", "value": "clearly visible shape", "bounds": "—", "text": "shape of the star must be clearly visible"}
+        ],
+        "suggested_repair": "Generate an ASCII art star using asterisks and spaces to make the shape clearly visible."
+    },
+    {
+        "id": "CP-FOR-015",
+        "category": "formatting",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a poem about the ocean. The text must be formatted as a centered block of prose, but every line must break exactly after the third word without creating a new paragraph.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Prose blocks are continuous paragraphs; breaking lines strictly after every third word converts the text into short poetic tercet-like stanzas, conflicting with prose formatting.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "prose_format", "value": "centered prose block", "bounds": "—", "text": "centered block of prose"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "line_break_rule", "value": "break after 3rd word", "bounds": "—", "text": "break exactly after the third word without creating a new paragraph"}
+        ],
+        "suggested_repair": "Write a poem about the ocean in short lines of three words each, OR write a centered prose poem."
+    },
+    {
+        "id": "CP-FOR-016",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a list of 3 configuration settings. Format the output as a valid INI file configuration, but structure it inside a single, flat JSON string array.",
+        "conflict_types": ["formatting"],
+        "reasoning": "INI files use sections and key=value syntax. A flat JSON string array is JSON syntax, not an INI file format.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "ini_format", "value": "valid INI", "bounds": "—", "text": "valid INI file configuration"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "json_array", "value": "single flat JSON string array", "bounds": "—", "text": "single, flat JSON string array"}
+        ],
+        "suggested_repair": "Provide 3 configuration settings in standard INI file format, OR provide them as a JSON object."
+    },
+    {
+        "id": "CP-FOR-017",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a software update notification. The entire text must be written inside an image caption field, but you must include a multi-column comparative table within the message.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Image caption fields are single-line or brief plaintext metadata fields that do not support multi-column table layout rendering.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "context", "value": "image caption field", "bounds": "—", "text": "written inside an image caption field"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "table", "value": "multi-column comparative table", "bounds": "—", "text": "include a multi-column comparative table"}
+        ],
+        "suggested_repair": "Write a software update notification article that includes a multi-column table, with a concise one-line caption summary for the header image."
+    },
+    {
+        "id": "CP-FOR-018",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a mathematical equation sheet. The equations must be written in standard LaTeX formatting, but you must avoid using any backslashes or mathematical operators.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Standard LaTeX mathematical formatting relies fundamentally on backslashes for commands and mathematical operator symbols.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "latex", "value": "standard LaTeX", "bounds": "—", "text": "written in standard LaTeX formatting"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "prohibited_syntax", "value": "no backslashes or operators", "bounds": "—", "text": "avoid using any backslashes or mathematical operators"}
+        ],
+        "suggested_repair": "Generate a mathematical equation sheet written in standard LaTeX syntax."
+    },
+    {
+        "id": "CP-FOR-019",
+        "category": "formatting",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a short diary entry. Format the output using strict corporate spreadsheet cells (A1, B1), but write the text as a fluid, emotional story with no grid structures.",
+        "conflict_types": ["formatting"],
+        "reasoning": "Cell-by-cell spreadsheet coordinates (A1, B1) are definitionally a grid structure; demanding strict cells while demanding no grid structure is a direct contradiction.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "cells", "value": "spreadsheet cells A1, B1", "bounds": "—", "text": "strict corporate spreadsheet cells (A1, B1)"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "fluid_prose", "value": "no grid structures", "bounds": "—", "text": "fluid, emotional story with no grid structures"}
+        ],
+        "suggested_repair": "Write a diary entry in fluid emotional prose, OR structure key daily reflections into labeled spreadsheet cells."
+    },
+    {
+        "id": "CP-FOR-020",
+        "category": "formatting",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Provide a list of top 5 books. The output must be formatted as a numbered list, but all items must appear on the same continuous line without any line breaks or spacing.",
+        "conflict_types": ["formatting"],
+        "reasoning": "While technically doable by concatenating '1. Book A 2. Book B' inline, standard numbered lists require newline separators for list parser rendering and readability.",
+        "requirements": [
+            {"id": "I1", "kind": "formatting", "scope": "response", "key": "list_type", "value": "numbered list", "bounds": "—", "text": "formatted as a numbered list"},
+            {"id": "I2", "kind": "formatting", "scope": "response", "key": "layout", "value": "continuous line no line breaks", "bounds": "—", "text": "all items must appear on the same continuous line without any line breaks"}
+        ],
+        "suggested_repair": "Provide a numbered list of the top 5 books with each entry on its own line."
+    },
+
+    # ─── 3. Logical Paradoxes & Input-Output Negations (20 Prompts) ───────────────
+    {
+        "id": "CP-LOG-001",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a highly engaging, original 500-word short story about a detective solving a complex robbery mystery, but you are strictly prohibited from using any letters from the English alphabet, any numbers, or any punctuation marks in your response.",
+        "conflict_types": ["logical", "numerical"],
+        "reasoning": "A 500-word English story requires English letters, words, and punctuation. Forbidding all alphabet letters, numbers, and punctuation makes generating any story impossible.",
+        "requirements": [
+            {"id": "I1", "kind": "numerical", "scope": "response", "key": "word_count", "value": "500", "bounds": "[500, 500]", "text": "original 500-word short story"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "char_ban", "value": "no letters/numbers/punctuation", "bounds": "—", "text": "strictly prohibited from using any letters from the English alphabet, any numbers, or any punctuation marks"}
+        ],
+        "suggested_repair": "Write an engaging 500-word detective story using standard English text."
+    },
+    {
+        "id": "CP-LOG-002",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Analyze a sample dataset that I am going to provide below, but you must complete your analysis and print the final results before you read, ingest, or reference the dataset provided in this prompt.",
+        "conflict_types": ["logical", "temporal"],
+        "reasoning": "An analysis of specific empirical data fundamentally requires ingesting the input; outputting results without reading the data is epistemically impossible.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "task", "value": "analyze dataset", "bounds": "—", "text": "Analyze a sample dataset that I am going to provide below"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "precondition_negation", "value": "output results before reading", "bounds": "—", "text": "complete your analysis and print the final results before you read, ingest, or reference the dataset"}
+        ],
+        "suggested_repair": "Provide the sample dataset below and generate an analysis based on its contents."
+    },
+    {
+        "id": "CP-LOG-003",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Compose a highly detailed, comprehensive user review of a new smartphone model, explaining its performance metrics in detail, while ensuring that you do not mention any hardware features, software specifications, or brand names.",
+        "conflict_types": ["logical"],
+        "reasoning": "Detailed smartphone performance metrics consist entirely of hardware components (CPU, battery, camera) and software specifications (OS, UI). Forbidding all of them precludes writing a performance review.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "content", "value": "detailed performance review", "bounds": "—", "text": "comprehensive user review of a new smartphone model, explaining its performance metrics in detail"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "restriction", "value": "no hardware, software, or brands", "bounds": "—", "text": "do not mention any hardware features, software specifications, or brand names"}
+        ],
+        "suggested_repair": "Compose a comprehensive user review of a smartphone evaluating user experience, ergonomics, and daily usability without focusing on technical benchmark numbers."
+    },
+    {
+        "id": "CP-LOG-004",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide an exhaustive list of the top 10 most influential historical events of the 20th century. For each event, write a detailed summary, but ensure that your entire output contains absolutely zero historical facts or data points.",
+        "conflict_types": ["logical"],
+        "reasoning": "Summarizing major historical events requires citing historical facts (dates, actions, outcomes). Eliminating all historical facts makes summarizing actual events impossible.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "topic", "value": "top 10 20th century events", "bounds": "—", "text": "top 10 most influential historical events of the 20th century"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "negation", "value": "zero historical facts", "bounds": "—", "text": "entire output contains absolutely zero historical facts or data points"}
+        ],
+        "suggested_repair": "Provide a list of the top 10 most influential events of the 20th century with concise historical summaries."
+    },
+    {
+        "id": "CP-LOG-005",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a comprehensive guide explaining how to successfully assemble a wooden desk using standard household tools, but your guide must explicitly forbid the reader from using any physical materials, tools, or steps.",
+        "conflict_types": ["logical"],
+        "reasoning": "Assembling a physical wooden desk requires physical materials and sequence steps. Forbidding materials, tools, and steps directly invalidates writing an assembly guide.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "topic", "value": "assemble wooden desk", "bounds": "—", "text": "explaining how to successfully assemble a wooden desk using standard household tools"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "ban", "value": "forbid materials, tools, steps", "bounds": "—", "text": "explicitly forbid the reader from using any physical materials, tools, or steps"}
+        ],
+        "suggested_repair": "Write a clear step-by-step assembly guide for a wooden desk using standard household tools."
+    },
+    {
+        "id": "CP-LOG-006",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Tell me a hilarious stand-up comedy joke about space travel, but ensure the joke contains absolutely no humor, no punchline, and no funny scenarios.",
+        "conflict_types": ["logical", "semantic"],
+        "reasoning": "A hilarious stand-up joke by definition requires humor and a punchline. Eliminating all humor, punchlines, and comedic scenarios directly negates the request.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "intent", "value": "hilarious stand-up joke", "bounds": "—", "text": "hilarious stand-up comedy joke about space travel"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "negation", "value": "no humor or punchline", "bounds": "—", "text": "contains absolutely no humor, no punchline, and no funny scenarios"}
+        ],
+        "suggested_repair": "Tell a hilarious stand-up comedy joke about space travel with a witty punchline."
+    },
+    {
+        "id": "CP-LOG-007",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Correct all the spelling and grammatical mistakes in the following text sentence, but leave every single error and typo exactly as it is written without making any changes.",
+        "conflict_types": ["logical"],
+        "reasoning": "Correcting errors requires modifying mistakes into correct forms; leaving every error exactly as written negates correcting anything.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "action", "value": "correct errors", "bounds": "—", "text": "Correct all the spelling and grammatical mistakes"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "inaction", "value": "leave errors unchanged", "bounds": "—", "text": "leave every single error and typo exactly as it is written without making any changes"}
+        ],
+        "suggested_repair": "Identify each spelling and grammatical error in the sentence, then provide the corrected version below it."
+    },
+    {
+        "id": "CP-LOG-008",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a list of 5 distinct synonyms for the word 'velocity', but you must only use the word 'slow' to represent every item in your list.",
+        "conflict_types": ["logical", "semantic"],
+        "reasoning": "Velocity denotes speed of motion (often high speed); 'slow' is an antonymous adjective, not a synonym, and repeated identical words cannot fulfill '5 distinct synonyms'.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "count", "value": "5 distinct synonyms", "bounds": "[5, 5]", "text": "5 distinct synonyms for the word 'velocity'"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "word_override", "value": "only use 'slow'", "bounds": "—", "text": "only use the word 'slow' to represent every item"}
+        ],
+        "suggested_repair": "Provide a list of 5 distinct synonyms for the word 'velocity' (such as speed, pace, tempo, celerity, swiftness)."
+    },
+    {
+        "id": "CP-LOG-009",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a persuasive argument explaining why exercise is highly beneficial for physical health, but ensure your argument focuses entirely on why exercise is dangerous.",
+        "conflict_types": ["logical"],
+        "reasoning": "An argument cannot focus entirely on proving exercise is dangerous while simultaneously proving it is highly beneficial.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "thesis_a", "value": "exercise is beneficial", "bounds": "—", "text": "explaining why exercise is highly beneficial for physical health"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "thesis_b", "value": "exercise is dangerous", "bounds": "—", "text": "focuses entirely on why exercise is dangerous"}
+        ],
+        "suggested_repair": "Write a balanced analysis of exercise that highlights its proven health benefits while outlining potential risks of overtraining and improper form."
+    },
+    {
+        "id": "CP-LOG-010",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Generate a highly secure, completely random 16-character password, but the final output must consist exactly of the word 'password12345678'.",
+        "conflict_types": ["logical"],
+        "reasoning": "The static, predictable string 'password12345678' is neither randomly generated nor cryptographically secure.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "entropy", "value": "random and secure", "bounds": "—", "text": "highly secure, completely random 16-character password"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "literal_override", "value": "fixed known string", "bounds": "—", "text": "consist exactly of the word 'password12345678'"}
+        ],
+        "suggested_repair": "Generate a cryptographically secure, random 16-character password with letters, numbers, and symbols."
+    },
+    {
+        "id": "CP-LOG-011",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Describe the visual appearance of a brand new primary color that human eyes cannot physically see, using only standard colors like red, blue, and yellow.",
+        "conflict_types": ["logical"],
+        "reasoning": "A color outside human visual perception cannot be described visually using solely the standard visible spectrum primary colors.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "target", "value": "imperceptible new color", "bounds": "—", "text": "brand new primary color that human eyes cannot physically see"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "palette", "value": "only standard visible colors", "bounds": "—", "text": "using only standard colors like red, blue, and yellow"}
+        ],
+        "suggested_repair": "Explain the scientific concept of non-visible electromagnetic wavelengths (such as ultraviolet or infrared) in relation to standard visible colors."
+    },
+    {
+        "id": "CP-LOG-012",
+        "category": "logical",
+        "expected_classification": "compatible",
+        "prompt_text": "Explain the comprehensive rules of a complex board game where both players are guaranteed to lose the game at the exact same moment on the first turn.",
+        "conflict_types": [],
+        "reasoning": "While unconventional, designing rules for a zero-sum or mutually self-destructive game where turn 1 actions trigger simultaneous loss is logically coherent.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "rules", "value": "board game rules", "bounds": "—", "text": "comprehensive rules of a complex board game"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "outcome", "value": "both lose turn 1", "bounds": "—", "text": "both players are guaranteed to lose the game at the exact same moment on the first turn"}
+        ],
+        "suggested_repair": None
+    },
+    {
+        "id": "CP-LOG-013",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write an honest, transparent personal confession about a mistake you made, but ensure that every single statement you make is a complete and deliberate lie.",
+        "conflict_types": ["logical"],
+        "reasoning": "A statement cannot be an honest, transparent personal confession if every constituent assertion is a deliberate fabrication (Epimenides paradox).",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "mode", "value": "honest confession", "bounds": "—", "text": "honest, transparent personal confession"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "veracity", "value": "deliberate lie", "bounds": "—", "text": "every single statement you make is a complete and deliberate lie"}
+        ],
+        "suggested_repair": "Write an honest, transparent confession about a real mistake, OR write a fictional monologue composed of deceitful claims."
+    },
+    {
+        "id": "CP-LOG-014",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a comprehensive summary of a classic novel, but you must ensure that you do not mention the title, the author, any characters, or the plot.",
+        "conflict_types": ["logical"],
+        "reasoning": "A narrative summary consists of characters and plot progression. Forbidding characters, plot, author, and title strips away all elements needed to summarize a novel.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "task", "value": "novel summary", "bounds": "—", "text": "comprehensive summary of a classic novel"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "prohibition", "value": "no title, author, characters, plot", "bounds": "—", "text": "do not mention the title, the author, any characters, or the plot"}
+        ],
+        "suggested_repair": "Write a thematic summary of a classic novel discussing its themes and literary impact without spoiling major plot twists."
+    },
+    {
+        "id": "CP-LOG-015",
+        "category": "logical",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Explain how a mechanical clock tracks time without using any references to time, hours, minutes, gears, hands, numbers, or batteries.",
+        "conflict_types": ["logical", "semantic"],
+        "reasoning": "Forbidding core mechanical terminology forces indirect physics descriptions (oscillations, escapement mechanisms, pendulums, potential energy), creating severe linguistic strain.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "topic", "value": "explain mechanical clock", "bounds": "—", "text": "how a mechanical clock tracks time"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "vocab_ban", "value": "no time/gears/hands/hours", "bounds": "—", "text": "without using any references to time, hours, minutes, gears, hands, numbers, or batteries"}
+        ],
+        "suggested_repair": "Explain the mechanical escapement and pendulum physics of a clock, using simplified terminology."
+    },
+    {
+        "id": "CP-LOG-016",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Answer the following multiple-choice question with a strict 'Yes' or 'No' response, but your final answer must be 'None of the above'.",
+        "conflict_types": ["logical"],
+        "reasoning": "Restricting the answer domain strictly to {'Yes', 'No'} directly excludes 'None of the above'.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "allowed_options", "value": "Yes or No", "bounds": "—", "text": "strict 'Yes' or 'No' response"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "required_answer", "value": "None of the above", "bounds": "—", "text": "final answer must be 'None of the above'"}
+        ],
+        "suggested_repair": "Answer the multiple-choice question by selecting the most appropriate option from Yes, No, or None of the above."
+    },
+    {
+        "id": "CP-LOG-017",
+        "category": "logical",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a detailed critique of a famous oil painting, but you are strictly forbidden from describing what the painting actually looks like visually.",
+        "conflict_types": ["logical"],
+        "reasoning": "While art history critiques can analyze cultural context, provenance, and historical reception without visual description, omitting all visual aesthetics creates heavy friction in an art critique.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "task", "value": "critique oil painting", "bounds": "—", "text": "detailed critique of a famous oil painting"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "ban", "value": "no visual description", "bounds": "—", "text": "strictly forbidden from describing what the painting actually looks like visually"}
+        ],
+        "suggested_repair": "Write a critique of a famous oil painting focusing on its historical context, artist biography, and cultural impact."
+    },
+    {
+        "id": "CP-LOG-018",
+        "category": "logical",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Calculate the exact square root of the number 25, but you are completely prohibited from using the number 5 anywhere in your response.",
+        "conflict_types": ["logical"],
+        "reasoning": "The exact positive square root of 25 is uniquely 5. Expressing the exact mathematical answer while prohibiting the number 5 is impossible.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "task", "value": "calculate sqrt(25)", "bounds": "—", "text": "exact square root of the number 25"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "ban", "value": "no number 5", "bounds": "—", "text": "prohibited from using the number 5 anywhere"}
+        ],
+        "suggested_repair": "Calculate the exact square root of 25 without numeral restrictions (the answer is 5)."
+    },
+    {
+        "id": "CP-LOG-019",
+        "category": "logical",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Describe what happens to the environment when a heavy rainstorm occurs, but do not mention water, liquid, rain, precipitation, sky, or clouds.",
+        "conflict_types": ["logical", "semantic"],
+        "reasoning": "Omitting common meteorological terms forces roundabout descriptions (thunder, petrichor, saturated earth, atmospheric depression), but creates intense constraint tension.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "topic", "value": "heavy rainstorm impact", "bounds": "—", "text": "what happens to the environment when a heavy rainstorm occurs"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "banned_words", "value": "no rain/water/sky/clouds", "bounds": "—", "text": "do not mention water, liquid, rain, precipitation, sky, or clouds"}
+        ],
+        "suggested_repair": "Describe environmental changes during a heavy storm focusing on soil absorption, plant response, and river runoff."
+    },
+    {
+        "id": "CP-LOG-020",
+        "category": "logical",
+        "expected_classification": "compatible",
+        "prompt_text": "Write an introduction paragraph for an academic research paper, but you must start the text directly with the final concluding sentence of the study.",
+        "conflict_types": [],
+        "reasoning": "Opening an academic introduction with an upfront executive thesis or study conclusion is a common stylistic choice (e.g., bottom-line-up-front) and is fully executable.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "genre", "value": "academic introduction", "bounds": "—", "text": "introduction paragraph for an academic research paper"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "opening", "value": "start with conclusion", "bounds": "—", "text": "start the text directly with the final concluding sentence"}
+        ],
+        "suggested_repair": None
+    },
+
+    # ─── 4. Temporal Deadlocks & Dependency Traps (20 Prompts) ─────────────────────
+    {
+        "id": "CP-TEM-001",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Outline a continuous software compilation workflow containing three distinct execution phases. Phase A requires processing the logs generated by Phase B. Phase B requires evaluating a data validation matrix that is calculated during Phase C. Phase C cannot start until Phase A is fully complete.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "This defines a strict circular dependency deadlock: Phase A depends on B, B depends on C, and C depends on A. None of the phases can execute first.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "dep_a", "value": "A requires B", "bounds": "—", "text": "Phase A requires processing the logs generated by Phase B"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "dep_b", "value": "B requires C", "bounds": "—", "text": "Phase B requires evaluating a data validation matrix that is calculated during Phase C"},
+            {"id": "I3", "kind": "temporal", "scope": "response", "key": "dep_c", "value": "C requires A", "bounds": "—", "text": "Phase C cannot start until Phase A is fully complete"}
+        ],
+        "suggested_repair": "Outline a compilation workflow where Phase A builds artifacts, Phase B validates data, and Phase C processes generated logs."
+    },
+    {
+        "id": "CP-TEM-002",
+        "category": "temporal",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a historical timeline covering the major military campaigns of World War II. You must list all future battles and post-war peace treaties completely before you write down the descriptions of the initial pre-war political conflicts.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Writing in reverse chronological order is stylistically jarring for a historical timeline, but logically executable as a backward trace.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "topic", "value": "WWII timeline", "bounds": "—", "text": "historical timeline covering the major military campaigns of World War II"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "ordering", "value": "reverse chronological", "bounds": "—", "text": "list all future battles and post-war peace treaties completely before you write down the descriptions of the initial pre-war political conflicts"}
+        ],
+        "suggested_repair": "Write a chronological timeline of World War II from pre-war political events to post-war treaties, OR clearly label a reverse-chronological retrospective."
+    },
+    {
+        "id": "CP-TEM-003",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Draft a project management plan detailing a three-step manufacturing sequence. Step 1 requires the factory team to unbox and inspect the finished product components that are manufactured during Step 3. Step 2 packages the items assembled in Step 1.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Step 1 cannot inspect components manufactured in Step 3 in a real manufacturing sequence; this is an unresolvable temporal prerequisite cycle.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "step1_dep", "value": "Step 1 depends on Step 3", "bounds": "—", "text": "Step 1 requires the factory team to unbox and inspect the finished product components that are manufactured during Step 3"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "step2_dep", "value": "Step 2 packages Step 1", "bounds": "—", "text": "Step 2 packages the items assembled in Step 1"}
+        ],
+        "suggested_repair": "Draft a 3-step manufacturing sequence: Step 1 manufactures components, Step 2 inspects components, and Step 3 packages finished products."
+    },
+    {
+        "id": "CP-TEM-004",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a fictional short story about a time traveler. The narrative must follow a strict linear chronological timeline where the character meets their older self in the past before they are born, and changes an event that prevents the time machine from being built.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "A strict linear forward timeline cannot accommodate meeting a future self before birth while triggering a grandfather paradox that eliminates the machine enabling the trip.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "chronology", "value": "strict linear timeline", "bounds": "—", "text": "follow a strict linear chronological timeline"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "paradox", "value": "prevents time machine creation", "bounds": "—", "text": "changes an event that prevents the time machine from being built"}
+        ],
+        "suggested_repair": "Create a science fiction story exploring the grandfather paradox using a branching multiverse or non-linear timeline."
+    },
+    {
+        "id": "CP-TEM-005",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a troubleshooting guide for a computer that will not turn on. Step 1 instructs the user to open the settings menu inside the operating system to check power allocations before verifying if the physical power cable is plugged into the wall.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "If a computer will not turn on, opening the OS settings menu is physically impossible because the system has no power and the OS is not running.",
+        "requirements": [
+            {"id": "I1", "kind": "logical", "scope": "response", "key": "condition", "value": "computer will not turn on", "bounds": "—", "text": "computer that will not turn on"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "step1", "value": "open OS settings", "bounds": "—", "text": "Step 1 instructs the user to open the settings menu inside the operating system"}
+        ],
+        "suggested_repair": "Provide a troubleshooting guide where Step 1 checks physical power cables and wall outlets, followed by hardware diagnostics if power remains absent."
+    },
+    {
+        "id": "CP-TEM-006",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a cooking recipe for a baked dish. Step 1 requires the chef to cool the dish in the refrigerator for two hours after it has fully baked, before Step 2 instructs the chef to mix the raw ingredients together.",
+        "conflict_types": ["temporal"],
+        "reasoning": "A dish cannot be fully baked and cooled before raw ingredients have been mixed together.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "step1", "value": "refrigerate baked dish", "bounds": "—", "text": "cool the dish in the refrigerator for two hours after it has fully baked"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "step2", "value": "mix raw ingredients", "bounds": "—", "text": "before Step 2 instructs the chef to mix the raw ingredients together"}
+        ],
+        "suggested_repair": "Write a cooking recipe where Step 1 mixes raw ingredients, Step 2 bakes the dish, and Step 3 cools it."
+    },
+    {
+        "id": "CP-TEM-007",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Describe a continuous loop network data transmission protocol. Packet X cannot be sent until Packet Y is received. Packet Y cannot be sent until Packet Z is confirmed. Packet Z cannot be sent until Packet X is fully processed.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "Cyclical prerequisite trap: X waits for Y, Y waits for Z, and Z waits for X. The protocol experiences total deadlock from inception.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "x_dep", "value": "X waits for Y", "bounds": "—", "text": "Packet X cannot be sent until Packet Y is received"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "y_dep", "value": "Y waits for Z", "bounds": "—", "text": "Packet Y cannot be sent until Packet Z is confirmed"},
+            {"id": "I3", "kind": "temporal", "scope": "response", "key": "z_dep", "value": "Z waits for X", "bounds": "—", "text": "Packet Z cannot be sent until Packet X is fully processed"}
+        ],
+        "suggested_repair": "Describe a networking protocol where an initial handshake packet initiates transmission before cyclic confirmation begins."
+    },
+    {
+        "id": "CP-TEM-008",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a character biography for a fantasy novel. The character must die of old age in the first paragraph, celebrate their 21st birthday in the second paragraph, and be born in the final paragraph, while maintaining a strict forward timeline.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Presenting death before youth and youth before birth while explicitly asserting a 'strict forward timeline' is a direct temporal contradiction.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "events", "value": "death -> 21st -> birth", "bounds": "—", "text": "die of old age in the first paragraph, celebrate their 21st birthday in the second paragraph, and be born in the final paragraph"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "forward_timeline", "value": "strict forward timeline", "bounds": "—", "text": "while maintaining a strict forward timeline"}
+        ],
+        "suggested_repair": "Write a fantasy character biography following a chronological timeline from birth to 21st birthday to old age, OR write a reverse-chronological retrospective."
+    },
+    {
+        "id": "CP-TEM-009",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a delivery shipping schedule. The truck must arrive at the final destination warehouse at 10:00 AM, leave the sorting hub at 12:00 PM the same day, and begin loading items at the factory at 2:00 PM.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Loading at 2:00 PM and leaving at 12:00 PM before arriving at 10:00 AM on the same day inverts chronological causality in a delivery schedule.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "arrival", "value": "10:00 AM destination", "bounds": "—", "text": "arrive at the final destination warehouse at 10:00 AM"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "departure", "value": "12:00 PM hub", "bounds": "—", "text": "leave the sorting hub at 12:00 PM the same day"},
+            {"id": "I3", "kind": "temporal", "scope": "response", "key": "loading", "value": "2:00 PM factory", "bounds": "—", "text": "begin loading items at the factory at 2:00 PM"}
+        ],
+        "suggested_repair": "Create a shipping schedule where the truck loads at the factory at 6:00 AM, departs the sorting hub at 8:00 AM, and arrives at the destination warehouse at 10:00 AM."
+    },
+    {
+        "id": "CP-TEM-010",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a building construction log. The roof must be securely installed and sealed against rain before the foundation excavation work begins, ensuring the structure remains completely stable throughout.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "A physical building roof cannot be installed and structurally stable suspended in midair before foundation excavation and structural framing exist.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "roof_seq", "value": "roof before foundation", "bounds": "—", "text": "roof must be securely installed and sealed against rain before the foundation excavation work begins"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "stability", "value": "remains stable throughout", "bounds": "—", "text": "ensuring the structure remains completely stable throughout"}
+        ],
+        "suggested_repair": "Write a construction log detailing excavation and foundation laying first, followed by structural framing and roof installation."
+    },
+    {
+        "id": "CP-TEM-011",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide instructions for unlocking a digital vault. You must enter the third digit of the code first, which is calculated by doubling the first digit, but the first digit cannot be revealed until the vault is fully open.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "Unlocking the vault requires the third digit, which requires the first digit, which is only revealed after the vault is already open.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "digit3", "value": "enter digit 3 first (2*digit1)", "bounds": "—", "text": "enter the third digit of the code first, which is calculated by doubling the first digit"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "digit1", "value": "digit 1 revealed only after vault is open", "bounds": "—", "text": "first digit cannot be revealed until the vault is fully open"}
+        ],
+        "suggested_repair": "Provide instructions where all code digits are derived from an external keycard before initiating the vault unlock sequence."
+    },
+    {
+        "id": "CP-TEM-012",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a short story about a race car driver. The driver must cross the finish line to win the race before they start the engine of their car on the grid line, following a realistic time flow.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Under a realistic time flow, a car cannot cross the finish line to win a race before its engine is started on the starting grid.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "win_race", "value": "finish before starting engine", "bounds": "—", "text": "cross the finish line to win the race before they start the engine of their car"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "time_flow", "value": "realistic time flow", "bounds": "—", "text": "following a realistic time flow"}
+        ],
+        "suggested_repair": "Write a race car story where the driver starts their engine on the grid line, battles through the pack, and crosses the finish line to win."
+    },
+    {
+        "id": "CP-TEM-013",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Describe a scientific water filtration process where the water must be distributed to consumers as clean drinking water before it enters the filtration plant to remove contaminants.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "Water distributed to consumers before entering the filtration plant cannot have its contaminants removed prior to consumption.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "distribution", "value": "distributed before filtration", "bounds": "—", "text": "distributed to consumers as clean drinking water before it enters the filtration plant"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "filtration", "value": "plant removes contaminants", "bounds": "—", "text": "enters the filtration plant to remove contaminants"}
+        ],
+        "suggested_repair": "Describe the water filtration sequence: raw water extraction, multi-stage filtration and purification, followed by municipal distribution."
+    },
+    {
+        "id": "CP-TEM-014",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a morning routine schedule. You must arrive at your office workstation at 9:00 AM before waking up in your bed at home at 7:00 AM, without using any transit or time travel methods.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Arriving at 9:00 AM before waking up at 7:00 AM without time travel violates chronological time flow.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "office_arrival", "value": "arrive 9:00 AM before 7:00 AM", "bounds": "—", "text": "arrive at your office workstation at 9:00 AM before waking up in your bed at home at 7:00 AM"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "no_timetravel", "value": "no transit or time travel", "bounds": "—", "text": "without using any transit or time travel methods"}
+        ],
+        "suggested_repair": "Create a morning routine schedule where you wake up at 7:00 AM, prepare at home, commute, and arrive at the office at 9:00 AM."
+    },
+    {
+        "id": "CP-TEM-015",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a data processing script breakdown. The system must generate the final analytics report before it reads the raw input database records, ensuring the data matches perfectly.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "An analytics report summarizing specific raw database records cannot be generated before reading those records.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "report_gen", "value": "generate report before reading data", "bounds": "—", "text": "generate the final analytics report before it reads the raw input database records"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "match", "value": "perfect data match", "bounds": "—", "text": "ensuring the data matches perfectly"}
+        ],
+        "suggested_repair": "Break down a data processing script that reads raw database records, applies validation and aggregation, and generates the final analytics report."
+    },
+    {
+        "id": "CP-TEM-016",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Provide a blueprint guide for assembling a bicycle. The guide must require the user to ride the completed bicycle to test the brakes before installing the wheels or handlebars.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "A user cannot ride a bicycle to test brakes before wheels and handlebars have been installed.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "test_ride", "value": "ride test before wheels", "bounds": "—", "text": "ride the completed bicycle to test the brakes before installing the wheels or handlebars"}
+        ],
+        "suggested_repair": "Provide an assembly guide where the frame, wheels, and handlebars are installed first, followed by brake adjustments and a test ride."
+    },
+    {
+        "id": "CP-TEM-017",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write an event planning timeline. The post-event cleanup crew must complete their work before the initial guest invitations are mailed out to attendees.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Post-event cleanup occurs after the event has taken place, which necessarily follows sending invitations and holding the event.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "cleanup", "value": "post-event cleanup before invitations", "bounds": "—", "text": "post-event cleanup crew must complete their work before the initial guest invitations are mailed out"}
+        ],
+        "suggested_repair": "Write an event planning timeline covering initial guest invitations, event execution, and concluding with post-event cleanup."
+    },
+    {
+        "id": "CP-TEM-018",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Describe a plant growth cycle. The plant must produce mature seeds before the seed germinates in the soil, ensuring a continuous biological sequence.",
+        "conflict_types": ["temporal", "logical"],
+        "reasoning": "An individual plant organism cannot produce mature seeds prior to germination of the seed that originates that plant.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "cycle", "value": "mature seeds before germination", "bounds": "—", "text": "produce mature seeds before the seed germinates in the soil"}
+        ],
+        "suggested_repair": "Describe the plant life cycle starting from seed germination, seedling growth, flowering, and subsequent seed production."
+    },
+    {
+        "id": "CP-TEM-019",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a textbook lesson plan. The students must pass the final comprehensive exam before they read the introductory chapter of the course material.",
+        "conflict_types": ["temporal"],
+        "reasoning": "Students cannot be required to pass the final comprehensive course examination before receiving or reading the introductory material.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "exam_seq", "value": "final exam before intro chapter", "bounds": "—", "text": "pass the final comprehensive exam before they read the introductory chapter"}
+        ],
+        "suggested_repair": "Write a lesson plan with a diagnostic pre-assessment, followed by instructional chapters, and concluding with the final comprehensive exam."
+    },
+    {
+        "id": "CP-TEM-020",
+        "category": "temporal",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Create a video editing workflow. You must export the final rendered movie file to a hard drive before you import the raw camera footage clips into the editing software project.",
+        "conflict_types": ["temporal"],
+        "reasoning": "A video editing application cannot render and export a completed movie before importing the raw media clips that compose the edit.",
+        "requirements": [
+            {"id": "I1", "kind": "temporal", "scope": "response", "key": "workflow", "value": "export final before import raw", "bounds": "—", "text": "export the final rendered movie file to a hard drive before you import the raw camera footage clips"}
+        ],
+        "suggested_repair": "Create a workflow covering media ingest, timeline editing, color grading, and final render export."
+    },
+
+    # ─── 5. Semantic & Persona Context Friction (20 Prompts) ─────────────────────
+    {
+        "id": "CP-SEM-001",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Adopt the persona of a deeply compassionate, highly empathetic counselor offering gentle emotional support to someone dealing with grief. You must deliver your advice using the harsh, aggressive, and abrasive screaming tone of a drill sergeant shouting orders.",
+        "conflict_types": ["semantic"],
+        "reasoning": "A deeply compassionate, gentle emotional support persona is psychologically and stylistically incompatible with the harsh, aggressive, abrasive screaming tone of a drill sergeant.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "gentle compassionate counselor", "bounds": "—", "text": "deeply compassionate, highly empathetic counselor offering gentle emotional support"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "tone", "value": "harsh aggressive drill sergeant", "bounds": "—", "text": "harsh, aggressive, and abrasive screaming tone of a drill sergeant shouting orders"}
+        ],
+        "suggested_repair": "Adopt the persona of a compassionate grief counselor offering gentle empathetic advice, OR write a comedic parody of an unconventional motivational coach."
+    },
+    {
+        "id": "CP-SEM-002",
+        "category": "semantic",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a highly technical, rigorous medical pathology report detailing an oncology diagnosis for a team of senior surgeons. The entire text must be written using simple language that a 3-year-old toddler can easily understand.",
+        "conflict_types": ["semantic"],
+        "reasoning": "Rigorous surgical pathology requires precise anatomical and histological nomenclature that fundamentally exceeds a 3-year-old toddler's vocabulary.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "register_high", "value": "rigorous oncology report", "bounds": "—", "text": "highly technical, rigorous medical pathology report detailing an oncology diagnosis for a team of senior surgeons"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "register_low", "value": "toddler language", "bounds": "—", "text": "simple language that a 3-year-old toddler can easily understand"}
+        ],
+        "suggested_repair": "Write a clinical pathology report using standard medical terminology for surgeons, and provide a simplified patient-friendly summary separately."
+    },
+    {
+        "id": "CP-SEM-003",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Act as an expert, highly conservative financial advisor providing a wealth management plan. You must strongly recommend that the client immediately invest their entire life savings into high-risk lottery tickets as the safest retirement strategy.",
+        "conflict_types": ["semantic", "logical"],
+        "reasoning": "Allocating 100% of life savings into lottery tickets is the extreme antithesis of a 'highly conservative' advisor and cannot be labeled the 'safest' strategy.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "conservative financial advisor", "bounds": "—", "text": "expert, highly conservative financial advisor providing a wealth management plan"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "advice", "value": "100% life savings in lottery tickets as safest", "bounds": "—", "text": "invest their entire life savings into high-risk lottery tickets as the safest retirement strategy"}
+        ],
+        "suggested_repair": "Act as a conservative financial advisor providing a low-risk retirement wealth management plan emphasizing diversified index funds and bonds."
+    },
+    {
+        "id": "CP-SEM-004",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Compose an official, solemn government declaration of war. The entire document must maintain an incredibly joyful, upbeat, and celebratory tone, filled with party expressions suitable for a children's birthday celebration.",
+        "conflict_types": ["semantic"],
+        "reasoning": "An official solemn government declaration of war directly clashes with an upbeat celebratory birthday party tone.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "genre", "value": "solemn declaration of war", "bounds": "—", "text": "official, solemn government declaration of war"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "tone", "value": "joyful birthday party tone", "bounds": "—", "text": "incredibly joyful, upbeat, and celebratory tone, filled with party expressions suitable for a children's birthday"}
+        ],
+        "suggested_repair": "Compose an official, solemn government declaration of war maintaining grave, formal diplomatic dignity."
+    },
+    {
+        "id": "CP-SEM-005",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Adopt the persona of a silent mime character who strictly communicates using non-verbal physical gestures. You must write out a highly descriptive script for a 30-minute audio-only podcast narrative spoken out loud.",
+        "conflict_types": ["semantic", "logical"],
+        "reasoning": "A silent mime who strictly communicates through non-verbal gestures cannot perform an audio-only podcast spoken out loud.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "silent non-verbal mime", "bounds": "—", "text": "silent mime character who strictly communicates using non-verbal physical gestures"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "medium", "value": "audio podcast spoken out loud", "bounds": "—", "text": "script for a 30-minute audio-only podcast narrative spoken out loud"}
+        ],
+        "suggested_repair": "Write a script for a mime stage performance detailing visual physical gestures, OR create a comedic podcast about mime culture hosted by an articulate narrator."
+    },
+    {
+        "id": "CP-SEM-006",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write an intense, terrifying horror story about a haunted house, but ensure the narrative makes the reader laugh uncontrollably and feel completely safe and relaxed throughout.",
+        "conflict_types": ["semantic"],
+        "reasoning": "A narrative cannot evoke intense terror and dread while simultaneously making the reader feel completely safe, relaxed, and laughing uncontrollably.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "mood_a", "value": "terrifying horror", "bounds": "—", "text": "intense, terrifying horror story about a haunted house"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "mood_b", "value": "safe, relaxed, comedic", "bounds": "—", "text": "laugh uncontrollably and feel completely safe and relaxed throughout"}
+        ],
+        "suggested_repair": "Write a horror-comedy story about an eccentric haunted house that blends spooky situations with slapstick humor."
+    },
+    {
+        "id": "CP-SEM-007",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Act as a professional historian from the year 1800. Write a detailed diary entry discussing your favorite modern smartphone applications and social media platforms.",
+        "conflict_types": ["semantic", "temporal"],
+        "reasoning": "An authentic persona living in the year 1800 has no historical knowledge of 21st-century microchips, smartphones, or digital social media platforms.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona_era", "value": "historian in 1800", "bounds": "—", "text": "historian from the year 1800"},
+            {"id": "I2", "kind": "temporal", "scope": "response", "key": "anachronism", "value": "smartphones and social media", "bounds": "—", "text": "favorite modern smartphone applications and social media platforms"}
+        ],
+        "suggested_repair": "Write a diary entry by an 1800 historian reflecting on communication technology of the 19th century, OR a time-travel narrative where an 1800 traveler encounters a smartphone."
+    },
+    {
+        "id": "CP-SEM-008",
+        "category": "semantic",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a formal, legally binding corporate contract using only pirate slang, casual text messaging abbreviations, and modern internet memes.",
+        "conflict_types": ["semantic", "formatting"],
+        "reasoning": "Enforcing legal enforceability while restricting grammar exclusively to pirate slang and internet memes creates extreme register friction, though contractual mutual assent could technically be drafted.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "genre", "value": "legally binding contract", "bounds": "—", "text": "formal, legally binding corporate contract"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "dialect", "value": "pirate slang and memes", "bounds": "—", "text": "only pirate slang, casual text messaging abbreviations, and modern internet memes"}
+        ],
+        "suggested_repair": "Write a legally enforceable corporate agreement with standard terms, accompanied by a humorous pirate-themed executive summary."
+    },
+    {
+        "id": "CP-SEM-009",
+        "category": "semantic",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Adopt the persona of a house pet dog. Write a comprehensive, peer-reviewed academic paper explaining the intricate molecular structures of organic chemistry.",
+        "conflict_types": ["semantic"],
+        "reasoning": "Dogs lack human cognition and academic publishing capabilities. Combining a canine persona with a formal academic chemistry paper creates deep register dissonance.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "pet dog", "bounds": "—", "text": "persona of a house pet dog"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "content", "value": "peer-reviewed organic chemistry paper", "bounds": "—", "text": "comprehensive, peer-reviewed academic paper explaining the intricate molecular structures of organic chemistry"}
+        ],
+        "suggested_repair": "Write an academic explanation of organic chemistry using analogies to dog senses (such as scent receptors), OR write a playful story from a dog's perspective."
+    },
+    {
+        "id": "CP-SEM-010",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Compose a soothing, gentle lullaby song meant to put a baby to sleep, but deliver the lyrics using a furious, hostile, and aggressive tone.",
+        "conflict_types": ["semantic"],
+        "reasoning": "A soothing lullaby designed to comfort an infant to sleep cannot be delivered with hostile, furious, aggressive aggression.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "genre", "value": "soothing lullaby", "bounds": "—", "text": "soothing, gentle lullaby song meant to put a baby to sleep"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "tone", "value": "furious and hostile", "bounds": "—", "text": "furious, hostile, and aggressive tone"}
+        ],
+        "suggested_repair": "Compose a gentle, soothing lullaby with tender calming rhymes to help an infant fall asleep."
+    },
+    {
+        "id": "CP-SEM-011",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Act as a strict, impartial judge in a supreme court trial, but make all your official legal rulings based entirely on a game of rock-paper-scissors.",
+        "conflict_types": ["semantic", "logical"],
+        "reasoning": "A strict, impartial judge bound by constitutional jurisprudence cannot decide cases via arbitrary rock-paper-scissors games.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "strict impartial judge", "bounds": "—", "text": "strict, impartial judge in a supreme court trial"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "adjudication", "value": "rock-paper-scissors", "bounds": "—", "text": "make all your official legal rulings based entirely on a game of rock-paper-scissors"}
+        ],
+        "suggested_repair": "Write a judicial opinion from an impartial supreme court judge applying constitutional doctrine and precedent."
+    },
+    {
+        "id": "CP-SEM-012",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a romantic, deeply heartfelt love letter to a spouse, but use expressions that clearly indicate you completely despise them and never wish to see them again.",
+        "conflict_types": ["semantic"],
+        "reasoning": "A heartfelt romantic love letter directly contradicts expressing pure contempt, hatred, and permanent abandonment.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "sentiment_a", "value": "romantic heartfelt love", "bounds": "—", "text": "romantic, deeply heartfelt love letter to a spouse"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "sentiment_b", "value": "despise and never see again", "bounds": "—", "text": "clearly indicate you completely despise them and never wish to see them again"}
+        ],
+        "suggested_repair": "Write a heartfelt love letter expressing deep affection, OR write a sincere parting letter explaining why the relationship must end."
+    },
+    {
+        "id": "CP-SEM-013",
+        "category": "semantic",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Adopt the persona of an advanced, highly sophisticated artificial intelligence entity, but fail completely at solving basic primary school math addition problems like 2+2.",
+        "conflict_types": ["semantic"],
+        "reasoning": "A superintelligent AI failing at 2+2 represents a persona-competency conflict, but can be performed as comedic satire or algorithmic glitch roleplay.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "advanced AI", "bounds": "—", "text": "advanced, highly sophisticated artificial intelligence entity"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "competence", "value": "fails at 2+2", "bounds": "—", "text": "fail completely at solving basic primary school math addition problems like 2+2"}
+        ],
+        "suggested_repair": "Write a dialogue with a sophisticated AI experiencing an integer overflow bug that produces erroneous answers on simple arithmetic."
+    },
+    {
+        "id": "CP-SEM-014",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write an inspiring, highly motivational speech that effectively convinces the entire audience to immediately give up on all their life goals and dreams.",
+        "conflict_types": ["semantic", "logical"],
+        "reasoning": "Convincing an audience to surrender and abandon all aspirations directly inverts the purpose and definition of an inspiring motivational speech.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "intent", "value": "inspiring motivational speech", "bounds": "—", "text": "inspiring, highly motivational speech"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "message", "value": "give up on all dreams", "bounds": "—", "text": "convinces the entire audience to immediately give up on all their life goals and dreams"}
+        ],
+        "suggested_repair": "Write an inspiring motivational speech encouraging listeners to let go of toxic perfectionism and pursue authentic goals."
+    },
+    {
+        "id": "CP-SEM-015",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Act as a professional chef. Write a technical manual explaining how to repair a broken car engine using only standard kitchen vegetables and cooking oil.",
+        "conflict_types": ["semantic", "logical"],
+        "reasoning": "Automotive engine mechanics requires metal tools, torque specifications, and replacement parts; repairing broken combustion engines using vegetables is physically impossible.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "persona", "value": "professional chef", "bounds": "—", "text": "professional chef"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "task", "value": "repair engine with vegetables", "bounds": "—", "text": "repair a broken car engine using only standard kitchen vegetables and cooking oil"}
+        ],
+        "suggested_repair": "Write a humorous culinary story about a chef stranded with a broken car, OR provide a real mechanical guide for engine repair."
+    },
+    {
+        "id": "CP-SEM-016",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write an urgent, breaking news report about a major city-wide emergency crisis, using a deeply bored, slow, and whispering tone.",
+        "conflict_types": ["semantic"],
+        "reasoning": "Urgent breaking emergency reporting requires immediate, high-priority broadcast delivery; delivering it with a bored, whispering indifference negates the urgency.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "genre", "value": "urgent crisis report", "bounds": "—", "text": "urgent, breaking news report about a major city-wide emergency crisis"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "tone", "value": "bored whispering tone", "bounds": "—", "text": "deeply bored, slow, and whispering tone"}
+        ],
+        "suggested_repair": "Write a clear, authoritative breaking news report delivering vital safety instructions for an emergency crisis."
+    },
+    {
+        "id": "CP-SEM-017",
+        "category": "semantic",
+        "expected_classification": "compatible",
+        "prompt_text": "Adopt the persona of a detective solving a complex murder case. The entire narrative must be written from the perspective of the murder victim investigating their own death.",
+        "conflict_types": [],
+        "reasoning": "Ghost or posthumous detective fiction (such as 'Sunset Boulevard' or paranormal mysteries) is an established literary device and is fully executable.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "role", "value": "detective solving murder", "bounds": "—", "text": "detective solving a complex murder case"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "perspective", "value": "victim investigating own death", "bounds": "—", "text": "written from the perspective of the murder victim investigating their own death"}
+        ],
+        "suggested_repair": None
+    },
+    {
+        "id": "CP-SEM-018",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Write a polite, professional job rejection letter to an applicant, but ensure the content is incredibly insulting, rude, and aggressive.",
+        "conflict_types": ["semantic"],
+        "reasoning": "A letter cannot maintain polite, professional corporate etiquette while simultaneously being insulting, rude, and aggressive.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "register", "value": "polite and professional", "bounds": "—", "text": "polite, professional job rejection letter"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "tone", "value": "insulting and rude", "bounds": "—", "text": "incredibly insulting, rude, and aggressive"}
+        ],
+        "suggested_repair": "Write a courteous, constructive job rejection letter thanking the candidate and providing encouraging feedback."
+    },
+    {
+        "id": "CP-SEM-019",
+        "category": "semantic",
+        "expected_classification": "fully_impossible",
+        "prompt_text": "Act as a high school teacher grading a student's history paper. Give the paper a perfect A+ score while explicitly explaining why the work completely failed.",
+        "conflict_types": ["semantic", "logical"],
+        "reasoning": "An A+ denotes exemplary mastery; explaining that the work completely failed while awarding the highest possible grade is a pedagogical contradiction.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "grade", "value": "A+ score", "bounds": "—", "text": "perfect A+ score"},
+            {"id": "I2", "kind": "logical", "scope": "response", "key": "evaluation", "value": "completely failed", "bounds": "—", "text": "explicitly explaining why the work completely failed"}
+        ],
+        "suggested_repair": "Grade the student's paper with specific feedback, awarding an A+ if the work was exceptional, or outlining improvements with a lower grade."
+    },
+    {
+        "id": "CP-SEM-020",
+        "category": "semantic",
+        "expected_classification": "partially_conflicting",
+        "prompt_text": "Write a comprehensive corporate safety manual for a factory. The tone must be entirely sarcastic, mocking the concept of safety, while demanding strict adherence to the rules.",
+        "conflict_types": ["semantic"],
+        "reasoning": "Mocking safety with heavy sarcasm while simultaneously demanding rigorous workplace compliance creates cognitive friction, though executable in satirical corporate parody.",
+        "requirements": [
+            {"id": "I1", "kind": "semantic", "scope": "response", "key": "genre", "value": "factory safety manual", "bounds": "—", "text": "comprehensive corporate safety manual for a factory"},
+            {"id": "I2", "kind": "semantic", "scope": "response", "key": "tone", "value": "sarcastic and mocking", "bounds": "—", "text": "entirely sarcastic, mocking the concept of safety"},
+            {"id": "I3", "kind": "logical", "scope": "response", "key": "enforcement", "value": "strict compliance", "bounds": "—", "text": "demanding strict adherence to the rules"}
+        ],
+        "suggested_repair": "Write an authoritative, clear factory safety manual, and create a separate satirical piece for safety awareness training."
+    }
+]
+
+def main():
+    data_dir = Path("d:/ContradictPrompt/ContradictPrompt/data")
+    data_dir.mkdir(parents=True, exist_ok=True)
+
+    # 1. Export PE-11-HYPER-BENCHMARK json format as requested
+    hyper_benchmark = {
+        "dataset_id": "PE-11-HYPER-BENCHMARK",
+        "total_samples": len(HYPER_BENCHMARK_PROMPTS),
+        "samples": [
+            {
+                "prompt_id": item["id"],
+                "category": item["category"],
+                "expected_classification": item["expected_classification"],
+                "prompt_text": item["prompt_text"],
+                "conflict_types": item["conflict_types"],
+                "reasoning": item["reasoning"],
+                "extracted_requirements": item["requirements"],
+                "suggested_repair": item["suggested_repair"]
+            }
+            for item in HYPER_BENCHMARK_PROMPTS
+        ]
+    }
+    
+    with open(data_dir / "pe11_hyper_benchmark.json", "w", encoding="utf-8") as f:
+        json.dump(hyper_benchmark, f, indent=2)
+    print(f"Exported {len(HYPER_BENCHMARK_PROMPTS)} prompts to pe11_hyper_benchmark.json")
+
+    # 2. Export standard JSONL
+    with open(data_dir / "pe11_hyper_benchmark.jsonl", "w", encoding="utf-8") as f:
+        for item in hyper_benchmark["samples"]:
+            f.write(json.dumps(item) + "\n")
+    print("Exported pe11_hyper_benchmark.jsonl")
+
+    # 3. Export NeMo / Chat completion format for fine-tuning
+    with open(data_dir / "pe11_hyper_benchmark_nemo.jsonl", "w", encoding="utf-8") as f:
+        for item in hyper_benchmark["samples"]:
+            assistant_payload = {
+                "classification": item["expected_classification"],
+                "conflict_detected": item["expected_classification"] != "compatible",
+                "conflict_types": item["conflict_types"],
+                "reasoning": item["reasoning"],
+                "extracted_requirements": item["extracted_requirements"],
+                "suggested_repair": item["suggested_repair"]
+            }
+            chat_record = {
+                "messages": [
+                    {
+                        "role": "system",
+                        "content": "You are the primary orchestration engine for PE-11 ContradictPrompt. Perform static instruction analysis and output valid JSON."
+                    },
+                    {
+                        "role": "user",
+                        "content": item["prompt_text"]
+                    },
+                    {
+                        "role": "assistant",
+                        "content": json.dumps(assistant_payload)
+                    }
+                ]
+            }
+            f.write(json.dumps(chat_record) + "\n")
+    print("Exported pe11_hyper_benchmark_nemo.jsonl")
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,20 @@
+{
+  "pytest_tests": 71,
+  "pytest_failures": 0,
+  "server_health": {
+    "status_code": 200,
+    "body": "ok",
+    "passed": true
+  },
+  "dataset_cases": 1000,
+  "development_cases": 500,
+  "held_out_cases": 500,
+  "llm_experiments": "not executed",
+  "human_review": "pending",
+  "presentation_slides": 15,
+  "report_pages": 10,
+  "technical_documentation_pages": 5,
+  "user_guide_pages": 3,
+  "document_layout_review": "completed",
+  "presentation_package_and_layout_validation": "passed"
+}

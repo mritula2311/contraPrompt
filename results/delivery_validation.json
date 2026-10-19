@@ -1,0 +1,25 @@
+{
+  "pytest_tests": 90,
+  "pytest_failures": 0,
+  "server_health": {
+    "http_status": 200,
+    "body": "ok",
+    "passed": true
+  },
+  "dataset_cases": 1000,
+  "development_cases": 500,
+  "held_out_cases": 500,
+  "llm_experiments": "not executed",
+  "human_review": "pending",
+  "presentation_slides": 15,
+  "report_pages": 30,
+  "technical_documentation_pages": 5,
+  "user_guide_pages": 3,
+  "document_layout_review": "completed",
+  "presentation_package_and_layout_validation": "passed",
+  "version": "1.0.1",
+  "report_word_count": 10673,
+  "clean_installation": "passed; fresh virtual environment",
+  "original_archive_tests": 71,
+  "extracted_archive_preflight": "passed"
+}

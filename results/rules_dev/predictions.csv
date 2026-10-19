@@ -1,0 +1,501 @@
+id,family,type,truth,predicted,latency_ms,asks_clarification,repair_passes_same_detector,repaired_prompt,formal_template_check
+0_logical_dev_10,0_logical_dev,logical,Compatible,Compatible,5.575787999987369,False,,,True
+3_temporal_dev_00,3_temporal_dev,temporal,Underspecified,Underspecified,0.16346699999303382,True,,,False
+3_formatting_dev_20,3_formatting_dev,formatting,Underspecified,Underspecified,0.4807650000202557,True,,,False
+2_logical_dev_18,2_logical_dev,logical,Fully impossible,Fully impossible,1.158261999989918,True,True,"; Do not include the word ""air"".",True
+3_formatting_dev_24,3_formatting_dev,formatting,Underspecified,Underspecified,0.09341000009044365,True,,,False
+3_temporal_dev_19,3_temporal_dev,temporal,Underspecified,Underspecified,0.17306599988842208,True,,,False
+2_numerical_dev_07,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.9514959999705752,True,True,Write fewer than 58 words about weather stations; Use fewer than 58 words.,True
+1_semantic_dev_06,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.2681430000848195,True,True,Give a comprehensive explanation of fire alarms; Make it comprehensive.,False
+2_semantic_dev_06,2_semantic_dev,semantic,Fully impossible,Compatible,0.1728720001210604,False,,,False
+2_semantic_dev_20,2_semantic_dev,semantic,Fully impossible,Compatible,0.12988799994673172,False,,,False
+0_temporal_dev_03,0_temporal_dev,temporal,Compatible,Compatible,0.4050239999742189,False,,,False
+1_formatting_dev_23,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.13229399996816937,True,True,Use a casual presentation of warehouse robots; Use casual formatting with slang.,False
+2_formatting_dev_02,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.2067989998977282,True,True, describing water sensors; Include an explanation outside JSON.,False
+1_temporal_dev_00,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.12902299999950628,True,True,Schedule meeting R1 on Monday at 10:00; Prefer meeting R1 on Monday at 10:00.,False
+1_logical_dev_07,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.15781800016156922,True,True,Write a persuasive account of weather stations; Make it persuasive in favor of adoption.,False
+0_temporal_dev_23,0_temporal_dev,temporal,Compatible,Compatible,0.13396199983617407,False,,,False
+0_temporal_dev_04,0_temporal_dev,temporal,Compatible,Compatible,0.1157290000719513,False,,,False
+3_logical_dev_01,3_logical_dev,logical,Underspecified,Underspecified,0.10797599998113583,True,,,False
+2_temporal_dev_09,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.12252999999873282,True,True,Schedule meeting R10 on Monday at 10:00; Schedule meeting R10 on Monday at 10:00.,False
+1_temporal_dev_14,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.11631300003500655,True,True,Schedule meeting R15 on Monday at 10:00; Prefer meeting R15 on Monday at 10:00.,False
+1_semantic_dev_14,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.12965399992026505,True,True,Give a comprehensive explanation of network routers; Make it comprehensive.,False
+0_logical_dev_17,0_logical_dev,logical,Compatible,Compatible,0.23046299997986353,False,,,True
+3_formatting_dev_00,3_formatting_dev,formatting,Underspecified,Underspecified,0.08662699997330492,True,,,False
+0_temporal_dev_07,0_temporal_dev,temporal,Compatible,Compatible,0.15237800016620895,False,,,False
+1_semantic_dev_00,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11243100016145036,True,True,Give a comprehensive explanation of solar panels; Make it comprehensive.,False
+3_formatting_dev_03,3_formatting_dev,formatting,Underspecified,Underspecified,0.08609099995737779,True,,,False
+2_temporal_dev_21,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13286599983075575,True,True,Schedule meeting R22 on Monday at 10:00; Schedule meeting R22 on Monday at 10:00.,False
+3_semantic_dev_22,3_semantic_dev,semantic,Underspecified,Underspecified,0.12806399990950013,True,,,False
+0_semantic_dev_03,0_semantic_dev,semantic,Compatible,Compatible,0.15209799994408968,False,,,False
+3_logical_dev_22,3_logical_dev,logical,Underspecified,Underspecified,0.10177200010730303,True,,,False
+3_formatting_dev_02,3_formatting_dev,formatting,Underspecified,Underspecified,0.07881999999881373,True,,,False
+3_temporal_dev_03,3_temporal_dev,temporal,Underspecified,Underspecified,0.11698599996634584,True,,,False
+0_numerical_dev_16,0_numerical_dev,numerical,Compatible,Compatible,0.129610000158209,False,,,True
+3_semantic_dev_19,3_semantic_dev,semantic,Underspecified,Underspecified,0.12059899995620071,True,,,False
+1_logical_dev_03,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.12727800003631273,True,True,Write a persuasive account of traffic lights; Make it persuasive in favor of adoption.,False
+3_numerical_dev_02,3_numerical_dev,numerical,Underspecified,Underspecified,0.13000499984627822,True,,,False
+0_temporal_dev_01,0_temporal_dev,temporal,Compatible,Compatible,0.13125800001034804,False,,,False
+2_numerical_dev_19,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.27128299984724435,True,True,Write fewer than 106 words about security cameras; Use fewer than 106 words.,True
+0_formatting_dev_24,0_formatting_dev,formatting,Compatible,Compatible,0.1879389999430714,False,,,False
+3_formatting_dev_15,3_formatting_dev,formatting,Underspecified,Underspecified,0.08476500011056487,True,,,False
+2_formatting_dev_12,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11800099991887691,True,True, describing factory pumps; Include an explanation outside JSON.,False
+2_numerical_dev_02,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.12443599985090259,True,True,Write fewer than 38 words about water sensors; Use fewer than 38 words.,True
+3_formatting_dev_14,3_formatting_dev,formatting,Underspecified,Underspecified,0.08342000000993721,True,,,False
+3_semantic_dev_24,3_semantic_dev,semantic,Underspecified,Underspecified,0.1516579998224188,True,,,False
+0_numerical_dev_13,0_numerical_dev,numerical,Compatible,Compatible,0.11932200004594051,False,,,True
+3_semantic_dev_06,3_semantic_dev,semantic,Underspecified,Underspecified,0.11997700016763702,True,,,False
+3_temporal_dev_12,3_temporal_dev,temporal,Underspecified,Underspecified,0.11836599992420815,True,,,False
+0_temporal_dev_11,0_temporal_dev,temporal,Compatible,Compatible,0.12044799996147049,False,,,False
+0_logical_dev_06,0_logical_dev,logical,Compatible,Compatible,0.11410100000830425,False,,,True
+0_logical_dev_12,0_logical_dev,logical,Compatible,Compatible,0.10466799994901521,False,,,True
+2_logical_dev_07,2_logical_dev,logical,Fully impossible,Fully impossible,0.10275400018144865,True,True,"; Do not include the word ""weather"".",True
+2_formatting_dev_00,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.14600999998037878,True,True, describing solar panels; Include an explanation outside JSON.,False
+3_semantic_dev_02,3_semantic_dev,semantic,Underspecified,Underspecified,0.7570570001007582,True,,,False
+2_semantic_dev_21,2_semantic_dev,semantic,Fully impossible,Compatible,0.1364219999686611,False,,,False
+1_logical_dev_06,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.12666300017372123,True,True,Write a persuasive account of fire alarms; Make it persuasive in favor of adoption.,False
+2_formatting_dev_01,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11629200002971629,True,True, describing wind turbines; Include an explanation outside JSON.,False
+2_temporal_dev_04,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13423299992609827,True,True,Schedule meeting R5 on Monday at 10:00; Schedule meeting R5 on Monday at 10:00.,False
+2_temporal_dev_13,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.14861499994367477,True,True,Schedule meeting R14 on Monday at 10:00; Schedule meeting R14 on Monday at 10:00.,False
+3_semantic_dev_16,3_semantic_dev,semantic,Underspecified,Underspecified,2.639678000150525,True,,,False
+2_numerical_dev_15,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1522439999916969,True,True,Write fewer than 90 words about library kiosks; Use fewer than 90 words.,True
+3_formatting_dev_05,3_formatting_dev,formatting,Underspecified,Underspecified,0.08567500003664463,True,,,False
+0_logical_dev_09,0_logical_dev,logical,Compatible,Compatible,0.1196089999666583,False,,,True
+2_numerical_dev_09,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1272549998247996,True,True,Write fewer than 66 words about farm irrigation; Use fewer than 66 words.,True
+3_logical_dev_11,3_logical_dev,logical,Underspecified,Underspecified,0.10756300002867647,True,,,False
+1_logical_dev_02,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.18102200010616798,True,True,Write a persuasive account of water sensors; Make it persuasive in favor of adoption.,False
+3_formatting_dev_16,3_formatting_dev,formatting,Underspecified,Underspecified,0.08595000008426723,True,,,False
+0_semantic_dev_20,0_semantic_dev,semantic,Compatible,Compatible,0.12212499996167026,False,,,False
+1_semantic_dev_18,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.10894999991251098,True,True,Give a comprehensive explanation of air filters; Make it comprehensive.,False
+1_formatting_dev_05,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.1138029999765422,True,True,Use a casual presentation of robot arms; Use casual formatting with slang.,False
+1_logical_dev_00,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.16105500003504858,True,True,Write a persuasive account of solar panels; Make it persuasive in favor of adoption.,False
+1_formatting_dev_09,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.11463800001365598,True,True,Use a casual presentation of farm irrigation; Use casual formatting with slang.,False
+2_temporal_dev_03,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.16798100000414706,True,True,Schedule meeting R4 on Monday at 10:00; Schedule meeting R4 on Monday at 10:00.,False
+2_semantic_dev_23,2_semantic_dev,semantic,Fully impossible,Compatible,0.38392099986594985,False,,,False
+1_logical_dev_23,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.45096999997440435,True,True,Write a persuasive account of warehouse robots; Make it persuasive in favor of adoption.,False
+3_formatting_dev_18,3_formatting_dev,formatting,Underspecified,Underspecified,0.08247899995694752,True,,,False
+3_temporal_dev_06,3_temporal_dev,temporal,Underspecified,Underspecified,0.15920600003482832,True,,,False
+3_numerical_dev_08,3_numerical_dev,numerical,Underspecified,Underspecified,0.10878900002353475,True,,,False
+2_temporal_dev_01,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13075400011075544,True,True,Schedule meeting R2 on Monday at 10:00; Schedule meeting R2 on Monday at 10:00.,False
+1_semantic_dev_09,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11145300004500314,True,True,Give a comprehensive explanation of farm irrigation; Make it comprehensive.,False
+2_formatting_dev_09,2_formatting_dev,formatting,Fully impossible,Fully impossible,1.1007509999672038,True,True, describing farm irrigation; Include an explanation outside JSON.,False
+2_temporal_dev_12,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.14149200001156714,True,True,Schedule meeting R13 on Monday at 10:00; Schedule meeting R13 on Monday at 10:00.,False
+2_logical_dev_15,2_logical_dev,logical,Fully impossible,Fully impossible,0.12134400003560586,True,True,"; Do not include the word ""library"".",True
+3_numerical_dev_15,3_numerical_dev,numerical,Underspecified,Underspecified,0.14864199988551263,True,,,False
+3_logical_dev_10,3_logical_dev,logical,Underspecified,Underspecified,0.10196600010203838,True,,,False
+2_temporal_dev_00,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.14407300000129908,True,True,Schedule meeting R1 on Monday at 10:00; Schedule meeting R1 on Monday at 10:00.,False
+1_temporal_dev_13,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,3.9810630000829406,True,True,Schedule meeting R14 on Monday at 10:00; Prefer meeting R14 on Monday at 10:00.,False
+0_numerical_dev_12,0_numerical_dev,numerical,Compatible,Compatible,0.14132899991636805,False,,,True
+2_semantic_dev_13,2_semantic_dev,semantic,Fully impossible,Compatible,0.13785200007987441,False,,,False
+3_semantic_dev_17,3_semantic_dev,semantic,Underspecified,Underspecified,0.12723000008918461,True,,,False
+1_numerical_dev_00,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.13231399998403504,True,True,Write fewer than 30 words about solar panels; Ideally use fewer than 30 words.,False
+0_temporal_dev_08,0_temporal_dev,temporal,Compatible,Compatible,0.15289199996004754,False,,,False
+1_temporal_dev_24,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.12021099996673001,True,True,Schedule meeting R25 on Monday at 10:00; Prefer meeting R25 on Monday at 10:00.,False
+0_numerical_dev_10,0_numerical_dev,numerical,Compatible,Compatible,0.13032800006840262,False,,,True
+3_logical_dev_06,3_logical_dev,logical,Underspecified,Underspecified,0.10951400008707424,True,,,False
+3_temporal_dev_07,3_temporal_dev,temporal,Underspecified,Underspecified,0.1162820001354703,True,,,False
+1_numerical_dev_09,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.1733829999466252,True,True,Write fewer than 66 words about farm irrigation; Ideally use fewer than 66 words.,False
+3_semantic_dev_13,3_semantic_dev,semantic,Underspecified,Underspecified,0.12133899986110919,True,,,False
+2_logical_dev_19,2_logical_dev,logical,Fully impossible,Fully impossible,0.11233000009269745,True,True,"; Do not include the word ""security"".",True
+2_semantic_dev_18,2_semantic_dev,semantic,Fully impossible,Compatible,0.1305139999203675,False,,,False
+0_logical_dev_21,0_logical_dev,logical,Compatible,Compatible,0.10656099993866519,False,,,True
+3_temporal_dev_01,3_temporal_dev,temporal,Underspecified,Underspecified,1.7640910000409349,True,,,False
+1_temporal_dev_08,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.15882599996075442,True,True,Schedule meeting R9 on Monday at 10:00; Prefer meeting R9 on Monday at 10:00.,False
+2_temporal_dev_15,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.12755900002048293,True,True,Schedule meeting R16 on Monday at 10:00; Schedule meeting R16 on Monday at 10:00.,False
+2_numerical_dev_24,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.14465499998550513,True,True,Write fewer than 126 words about temperature probes; Use fewer than 126 words.,True
+1_logical_dev_16,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.13064299992038286,True,True,Write a persuasive account of ocean buoys; Make it persuasive in favor of adoption.,False
+1_temporal_dev_03,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,1.1056020000523858,True,True,Schedule meeting R4 on Monday at 10:00; Prefer meeting R4 on Monday at 10:00.,False
+3_semantic_dev_07,3_semantic_dev,semantic,Underspecified,Underspecified,0.5476439998801652,True,,,False
+0_numerical_dev_03,0_numerical_dev,numerical,Compatible,Compatible,0.1356440000108705,False,,,True
+1_logical_dev_17,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.15936199997668155,True,True,Write a persuasive account of rail signals; Make it persuasive in favor of adoption.,False
+3_semantic_dev_23,3_semantic_dev,semantic,Underspecified,Underspecified,0.1259630000731704,True,,,False
+3_formatting_dev_06,3_formatting_dev,formatting,Underspecified,Underspecified,0.08092300004136632,True,,,False
+2_temporal_dev_10,2_temporal_dev,temporal,Fully impossible,Fully impossible,1.8543539999882341,True,True,Schedule meeting R11 on Monday at 10:00; Schedule meeting R11 on Monday at 10:00.,False
+0_numerical_dev_23,0_numerical_dev,numerical,Compatible,Compatible,0.1410070001384156,False,,,True
+1_semantic_dev_03,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.1132509999024478,True,True,Give a comprehensive explanation of traffic lights; Make it comprehensive.,False
+1_temporal_dev_10,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.15559200005554885,True,True,Schedule meeting R11 on Monday at 10:00; Prefer meeting R11 on Monday at 10:00.,False
+1_numerical_dev_23,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,1.828313000032722,True,True,Write fewer than 122 words about warehouse robots; Ideally use fewer than 122 words.,False
+3_temporal_dev_22,3_temporal_dev,temporal,Underspecified,Underspecified,0.13021400013712991,True,,,False
+3_formatting_dev_08,3_formatting_dev,formatting,Underspecified,Underspecified,0.08373200012101734,True,,,False
+3_formatting_dev_04,3_formatting_dev,formatting,Underspecified,Underspecified,0.9093129999655503,True,,,False
+0_semantic_dev_09,0_semantic_dev,semantic,Compatible,Compatible,0.24446299994451692,False,,,False
+1_formatting_dev_01,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.1272509998671012,True,True,Use a casual presentation of wind turbines; Use casual formatting with slang.,False
+2_numerical_dev_05,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.6797899998218782,True,True,Write fewer than 50 words about robot arms; Use fewer than 50 words.,True
+1_temporal_dev_16,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.1663049999933719,True,True,Schedule meeting R17 on Monday at 10:00; Prefer meeting R17 on Monday at 10:00.,False
+0_logical_dev_11,0_logical_dev,logical,Compatible,Compatible,0.12341299998297472,False,,,True
+1_semantic_dev_01,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.1154540000243287,True,True,Give a comprehensive explanation of wind turbines; Make it comprehensive.,False
+1_logical_dev_12,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.12333700010458415,True,True,Write a persuasive account of factory pumps; Make it persuasive in favor of adoption.,False
+1_formatting_dev_11,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.14587400005439122,True,True,Use a casual presentation of medical wearables; Use casual formatting with slang.,False
+0_formatting_dev_13,0_formatting_dev,formatting,Compatible,Compatible,0.1453810000384692,False,,,False
+2_numerical_dev_22,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.12726299996757007,True,True,Write fewer than 118 words about street lamps; Use fewer than 118 words.,True
+1_temporal_dev_07,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.1272380000045814,True,True,Schedule meeting R8 on Monday at 10:00; Prefer meeting R8 on Monday at 10:00.,False
+3_logical_dev_16,3_logical_dev,logical,Underspecified,Underspecified,0.12732400000459165,True,,,False
+3_logical_dev_05,3_logical_dev,logical,Underspecified,Underspecified,0.11879599992425938,True,,,False
+3_formatting_dev_13,3_formatting_dev,formatting,Underspecified,Underspecified,0.08355499994650017,True,,,False
+1_semantic_dev_23,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,2.4021530000482016,True,True,Give a comprehensive explanation of warehouse robots; Make it comprehensive.,False
+0_logical_dev_22,0_logical_dev,logical,Compatible,Compatible,0.1189469999189896,False,,,True
+1_numerical_dev_19,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.1409139999850595,True,True,Write fewer than 106 words about security cameras; Ideally use fewer than 106 words.,False
+3_formatting_dev_22,3_formatting_dev,formatting,Underspecified,Underspecified,0.2743940001437295,True,,,False
+1_semantic_dev_16,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.15591200008202577,True,True,Give a comprehensive explanation of ocean buoys; Make it comprehensive.,False
+2_numerical_dev_06,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.12838300017392612,True,True,Write fewer than 54 words about fire alarms; Use fewer than 54 words.,True
+3_logical_dev_07,3_logical_dev,logical,Underspecified,Underspecified,0.14237499999580905,True,,,False
+1_logical_dev_19,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.2075130000775971,True,True,Write a persuasive account of security cameras; Make it persuasive in favor of adoption.,False
+1_numerical_dev_04,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,1.1904379998668446,True,True,Write fewer than 46 words about smart meters; Ideally use fewer than 46 words.,False
+0_formatting_dev_21,0_formatting_dev,formatting,Compatible,Compatible,0.15707500006101327,False,,,False
+1_semantic_dev_12,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.1166710001143656,True,True,Give a comprehensive explanation of factory pumps; Make it comprehensive.,False
+0_formatting_dev_00,0_formatting_dev,formatting,Compatible,Compatible,0.1490290001129324,False,,,False
+0_formatting_dev_07,0_formatting_dev,formatting,Compatible,Compatible,0.23219200011226349,False,,,False
+0_semantic_dev_24,0_semantic_dev,semantic,Compatible,Compatible,0.12201200001982215,False,,,False
+3_numerical_dev_24,3_numerical_dev,numerical,Underspecified,Underspecified,0.11277400017206674,True,,,False
+1_temporal_dev_21,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.12916800005768891,True,True,Schedule meeting R22 on Monday at 10:00; Prefer meeting R22 on Monday at 10:00.,False
+0_formatting_dev_01,0_formatting_dev,formatting,Compatible,Compatible,0.17469999988861673,False,,,False
+3_numerical_dev_17,3_numerical_dev,numerical,Underspecified,Underspecified,2.2395900000447,True,,,False
+1_semantic_dev_07,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.13140600003680447,True,True,Give a comprehensive explanation of weather stations; Make it comprehensive.,False
+2_temporal_dev_07,2_temporal_dev,temporal,Fully impossible,Fully impossible,2.255016999924919,True,True,Schedule meeting R8 on Monday at 10:00; Schedule meeting R8 on Monday at 10:00.,False
+1_numerical_dev_14,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.14296600011221017,True,True,Write fewer than 86 words about network routers; Ideally use fewer than 86 words.,False
+1_formatting_dev_07,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12210600016260287,True,True,Use a casual presentation of weather stations; Use casual formatting with slang.,False
+1_semantic_dev_21,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.10853899993890082,True,True,Give a comprehensive explanation of charging stations; Make it comprehensive.,False
+0_logical_dev_07,0_logical_dev,logical,Compatible,Compatible,4.828404000136288,False,,,True
+2_semantic_dev_17,2_semantic_dev,semantic,Fully impossible,Compatible,0.17176000005747483,False,,,False
+0_formatting_dev_19,0_formatting_dev,formatting,Compatible,Compatible,0.15360299994426896,False,,,False
+2_temporal_dev_20,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.19051599997510493,True,True,Schedule meeting R21 on Monday at 10:00; Schedule meeting R21 on Monday at 10:00.,False
+0_semantic_dev_07,0_semantic_dev,semantic,Compatible,Compatible,0.15206700004455342,False,,,False
+3_temporal_dev_05,3_temporal_dev,temporal,Underspecified,Underspecified,0.12223400017319364,True,,,False
+2_temporal_dev_16,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13119800019012473,True,True,Schedule meeting R17 on Monday at 10:00; Schedule meeting R17 on Monday at 10:00.,False
+1_numerical_dev_18,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,4.550331000018559,True,True,Write fewer than 102 words about air filters; Ideally use fewer than 102 words.,False
+3_formatting_dev_11,3_formatting_dev,formatting,Underspecified,Underspecified,0.0887469998360757,True,,,False
+2_numerical_dev_17,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.13520099992092582,True,True,Write fewer than 98 words about rail signals; Use fewer than 98 words.,True
+3_logical_dev_08,3_logical_dev,logical,Underspecified,Underspecified,0.10841599987543304,True,,,False
+3_logical_dev_13,3_logical_dev,logical,Underspecified,Underspecified,0.10182200003328035,True,,,False
+0_semantic_dev_08,0_semantic_dev,semantic,Compatible,Compatible,6.128318000037325,False,,,False
+2_numerical_dev_00,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.34805200016307936,True,True,Write fewer than 30 words about solar panels; Use fewer than 30 words.,True
+1_formatting_dev_16,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12825199996768788,True,True,Use a casual presentation of ocean buoys; Use casual formatting with slang.,False
+0_logical_dev_16,0_logical_dev,logical,Compatible,Compatible,0.1551230000131909,False,,,True
+0_temporal_dev_19,0_temporal_dev,temporal,Compatible,Compatible,0.13053599991508236,False,,,False
+2_semantic_dev_09,2_semantic_dev,semantic,Fully impossible,Compatible,0.13120699986757245,False,,,False
+0_semantic_dev_05,0_semantic_dev,semantic,Compatible,Compatible,0.11471199991319736,False,,,False
+1_numerical_dev_21,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.13490400010596204,True,True,Write fewer than 114 words about charging stations; Ideally use fewer than 114 words.,False
+2_logical_dev_02,2_logical_dev,logical,Fully impossible,Fully impossible,3.8388660000236996,True,True,"; Do not include the word ""water"".",True
+1_logical_dev_22,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.18650700008038257,True,True,Write a persuasive account of street lamps; Make it persuasive in favor of adoption.,False
+1_semantic_dev_24,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11281599995527358,True,True,Give a comprehensive explanation of temperature probes; Make it comprehensive.,False
+1_temporal_dev_04,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.13238199994702882,True,True,Schedule meeting R5 on Monday at 10:00; Prefer meeting R5 on Monday at 10:00.,False
+2_semantic_dev_05,2_semantic_dev,semantic,Fully impossible,Compatible,4.806906000112576,False,,,False
+0_semantic_dev_01,0_semantic_dev,semantic,Compatible,Compatible,0.17902699983096682,False,,,False
+1_semantic_dev_02,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.15359799999714596,True,True,Give a comprehensive explanation of water sensors; Make it comprehensive.,False
+3_numerical_dev_06,3_numerical_dev,numerical,Underspecified,Underspecified,2.423522000071898,True,,,False
+0_formatting_dev_17,0_formatting_dev,formatting,Compatible,Compatible,0.16504200016242976,False,,,False
+3_semantic_dev_05,3_semantic_dev,semantic,Underspecified,Underspecified,1.9013329999779671,True,,,False
+1_temporal_dev_02,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.17257700005757215,True,True,Schedule meeting R3 on Monday at 10:00; Prefer meeting R3 on Monday at 10:00.,False
+1_numerical_dev_24,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.14609699996981362,True,True,Write fewer than 126 words about temperature probes; Ideally use fewer than 126 words.,False
+3_logical_dev_03,3_logical_dev,logical,Underspecified,Underspecified,0.1104259999920032,True,,,False
+0_numerical_dev_20,0_numerical_dev,numerical,Compatible,Compatible,0.12993499990443524,False,,,True
+1_formatting_dev_13,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12766100007866044,True,True,Use a casual presentation of delivery drones; Use casual formatting with slang.,False
+0_semantic_dev_02,0_semantic_dev,semantic,Compatible,Compatible,0.11710500007211522,False,,,False
+3_temporal_dev_15,3_temporal_dev,temporal,Underspecified,Underspecified,0.12014599997201003,True,,,False
+3_logical_dev_14,3_logical_dev,logical,Underspecified,Underspecified,0.1010779999432998,True,,,False
+3_logical_dev_02,3_logical_dev,logical,Underspecified,Underspecified,7.1123679999800515,True,,,False
+1_logical_dev_13,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.17202699996232695,True,True,Write a persuasive account of delivery drones; Make it persuasive in favor of adoption.,False
+1_formatting_dev_18,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,1.3680849999673228,True,True,Use a casual presentation of air filters; Use casual formatting with slang.,False
+2_numerical_dev_16,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1381910001327924,True,True,Write fewer than 94 words about ocean buoys; Use fewer than 94 words.,True
+0_logical_dev_20,0_logical_dev,logical,Compatible,Compatible,0.1174400001673348,False,,,True
+3_numerical_dev_00,3_numerical_dev,numerical,Underspecified,Underspecified,1.9946469999467809,True,,,False
+1_semantic_dev_19,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,1.1128540002118825,True,True,Give a comprehensive explanation of security cameras; Make it comprehensive.,False
+0_formatting_dev_12,0_formatting_dev,formatting,Compatible,Compatible,0.153189000002385,False,,,False
+3_temporal_dev_23,3_temporal_dev,temporal,Underspecified,Underspecified,0.12837100007345725,True,,,False
+3_logical_dev_20,3_logical_dev,logical,Underspecified,Underspecified,0.10622600007081928,True,,,False
+1_formatting_dev_03,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.11861600000884209,True,True,Use a casual presentation of traffic lights; Use casual formatting with slang.,False
+1_numerical_dev_22,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.1654640000197105,True,True,Write fewer than 118 words about street lamps; Ideally use fewer than 118 words.,False
+3_logical_dev_17,3_logical_dev,logical,Underspecified,Underspecified,0.10574299994914327,True,,,False
+1_formatting_dev_22,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.11270699997112388,True,True,Use a casual presentation of street lamps; Use casual formatting with slang.,False
+0_numerical_dev_08,0_numerical_dev,numerical,Compatible,Compatible,0.12628599984054745,False,,,True
+2_numerical_dev_12,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.11798600007750792,True,True,Write fewer than 78 words about factory pumps; Use fewer than 78 words.,True
+1_logical_dev_05,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.1643670000248676,True,True,Write a persuasive account of robot arms; Make it persuasive in favor of adoption.,False
+0_numerical_dev_17,0_numerical_dev,numerical,Compatible,Compatible,0.13951799996902992,False,,,True
+2_temporal_dev_14,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13402600006884313,True,True,Schedule meeting R15 on Monday at 10:00; Schedule meeting R15 on Monday at 10:00.,False
+3_logical_dev_21,3_logical_dev,logical,Underspecified,Underspecified,2.6905499998974847,True,,,False
+1_numerical_dev_20,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.17658199999459612,True,True,Write fewer than 110 words about greenhouse fans; Ideally use fewer than 110 words.,False
+1_numerical_dev_03,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.129345999994257,True,True,Write fewer than 42 words about traffic lights; Ideally use fewer than 42 words.,False
+2_temporal_dev_23,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.1349320000372245,True,True,Schedule meeting R24 on Monday at 10:00; Schedule meeting R24 on Monday at 10:00.,False
+3_temporal_dev_20,3_temporal_dev,temporal,Underspecified,Underspecified,0.13636499988933792,True,,,False
+3_numerical_dev_22,3_numerical_dev,numerical,Underspecified,Underspecified,0.11597900015658524,True,,,False
+1_temporal_dev_12,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.21491899997272412,True,True,Schedule meeting R13 on Monday at 10:00; Prefer meeting R13 on Monday at 10:00.,False
+0_logical_dev_04,0_logical_dev,logical,Compatible,Compatible,0.11581400008253695,False,,,True
+1_logical_dev_01,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.1338249999207619,True,True,Write a persuasive account of wind turbines; Make it persuasive in favor of adoption.,False
+1_temporal_dev_23,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.14138300002741744,True,True,Schedule meeting R24 on Monday at 10:00; Prefer meeting R24 on Monday at 10:00.,False
+3_semantic_dev_10,3_semantic_dev,semantic,Underspecified,Underspecified,0.12771799993060995,True,,,False
+0_numerical_dev_14,0_numerical_dev,numerical,Compatible,Compatible,0.13184400017962616,False,,,True
+3_formatting_dev_01,3_formatting_dev,formatting,Underspecified,Underspecified,0.08002200002010795,True,,,False
+2_formatting_dev_10,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.12071500009369629,True,True, describing battery storage; Include an explanation outside JSON.,False
+0_semantic_dev_21,0_semantic_dev,semantic,Compatible,Compatible,0.13162999994165148,False,,,False
+1_numerical_dev_15,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.15453100013473886,True,True,Write fewer than 90 words about library kiosks; Ideally use fewer than 90 words.,False
+2_temporal_dev_17,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.140523000027315,True,True,Schedule meeting R18 on Monday at 10:00; Schedule meeting R18 on Monday at 10:00.,False
+2_formatting_dev_17,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11942199989789515,True,True, describing rail signals; Include an explanation outside JSON.,False
+3_numerical_dev_07,3_numerical_dev,numerical,Underspecified,Underspecified,0.11309699993944378,True,,,False
+3_formatting_dev_09,3_formatting_dev,formatting,Underspecified,Underspecified,0.08103799996206362,True,,,False
+2_numerical_dev_18,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.15671300002395583,True,True,Write fewer than 102 words about air filters; Use fewer than 102 words.,True
+0_formatting_dev_20,0_formatting_dev,formatting,Compatible,Compatible,0.14262700005929219,False,,,False
+1_logical_dev_10,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.6226890000107232,True,True,Write a persuasive account of battery storage; Make it persuasive in favor of adoption.,False
+1_temporal_dev_09,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.1304479999362229,True,True,Schedule meeting R10 on Monday at 10:00; Prefer meeting R10 on Monday at 10:00.,False
+1_temporal_dev_20,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.18789899991134007,True,True,Schedule meeting R21 on Monday at 10:00; Prefer meeting R21 on Monday at 10:00.,False
+3_semantic_dev_11,3_semantic_dev,semantic,Underspecified,Underspecified,0.1340970000001107,True,,,False
+3_logical_dev_19,3_logical_dev,logical,Underspecified,Underspecified,0.1152390000243031,True,,,False
+2_formatting_dev_19,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.12225099999341182,True,True, describing security cameras; Include an explanation outside JSON.,False
+0_logical_dev_23,0_logical_dev,logical,Compatible,Compatible,0.12918800007355458,False,,,True
+2_formatting_dev_06,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.14824400000179594,True,True, describing fire alarms; Include an explanation outside JSON.,False
+2_semantic_dev_07,2_semantic_dev,semantic,Fully impossible,Compatible,0.2731270001277153,False,,,False
+1_logical_dev_24,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.12976800007891143,True,True,Write a persuasive account of temperature probes; Make it persuasive in favor of adoption.,False
+3_numerical_dev_18,3_numerical_dev,numerical,Underspecified,Underspecified,0.10909299999184441,True,,,False
+1_temporal_dev_05,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.15467799994439702,True,True,Schedule meeting R6 on Monday at 10:00; Prefer meeting R6 on Monday at 10:00.,False
+1_formatting_dev_00,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.11548799989213876,True,True,Use a casual presentation of solar panels; Use casual formatting with slang.,False
+1_numerical_dev_08,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.1355360000161454,True,True,Write fewer than 62 words about electric buses; Ideally use fewer than 62 words.,False
+3_temporal_dev_13,3_temporal_dev,temporal,Underspecified,Underspecified,1.8736649999482324,True,,,False
+1_formatting_dev_20,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.7466619999831892,True,True,Use a casual presentation of greenhouse fans; Use casual formatting with slang.,False
+2_numerical_dev_03,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.9116109999922628,True,True,Write fewer than 42 words about traffic lights; Use fewer than 42 words.,True
+2_formatting_dev_11,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.12153500006206741,True,True, describing medical wearables; Include an explanation outside JSON.,False
+3_numerical_dev_10,3_numerical_dev,numerical,Underspecified,Underspecified,0.11493500005599344,True,,,False
+3_temporal_dev_04,3_temporal_dev,temporal,Underspecified,Underspecified,0.1194910000776872,True,,,False
+0_semantic_dev_10,0_semantic_dev,semantic,Compatible,Compatible,0.11724199998752738,False,,,False
+0_formatting_dev_04,0_formatting_dev,formatting,Compatible,Compatible,0.13989399985803175,False,,,False
+0_numerical_dev_15,0_numerical_dev,numerical,Compatible,Compatible,0.1232669999353675,False,,,True
+0_logical_dev_18,0_logical_dev,logical,Compatible,Compatible,1.3769459999366518,False,,,True
+2_logical_dev_08,2_logical_dev,logical,Fully impossible,Fully impossible,0.14296000017566257,True,True,"; Do not include the word ""electric"".",True
+0_numerical_dev_02,0_numerical_dev,numerical,Compatible,Compatible,0.13972299984743586,False,,,True
+1_numerical_dev_16,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.8619620000445138,True,True,Write fewer than 94 words about ocean buoys; Ideally use fewer than 94 words.,False
+1_semantic_dev_08,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.15051600007609522,True,True,Give a comprehensive explanation of electric buses; Make it comprehensive.,False
+0_semantic_dev_04,0_semantic_dev,semantic,Compatible,Compatible,0.12102300001970434,False,,,False
+2_numerical_dev_13,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.12771599995176075,True,True,Write fewer than 82 words about delivery drones; Use fewer than 82 words.,True
+1_formatting_dev_10,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.11989899985564989,True,True,Use a casual presentation of battery storage; Use casual formatting with slang.,False
+2_logical_dev_16,2_logical_dev,logical,Fully impossible,Fully impossible,0.14825399989604193,True,True,"; Do not include the word ""ocean"".",True
+2_formatting_dev_07,2_formatting_dev,formatting,Fully impossible,Fully impossible,1.9073000000844331,True,True, describing weather stations; Include an explanation outside JSON.,False
+3_numerical_dev_11,3_numerical_dev,numerical,Underspecified,Underspecified,0.1322260000051756,True,,,False
+3_logical_dev_00,3_logical_dev,logical,Underspecified,Underspecified,0.11073700011365872,True,,,False
+0_temporal_dev_20,0_temporal_dev,temporal,Compatible,Compatible,0.12936899997839646,False,,,False
+0_numerical_dev_24,0_numerical_dev,numerical,Compatible,Compatible,0.13263400001051195,False,,,True
+1_numerical_dev_05,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.1252430001841276,True,True,Write fewer than 50 words about robot arms; Ideally use fewer than 50 words.,False
+1_numerical_dev_10,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.12617600009434682,True,True,Write fewer than 70 words about battery storage; Ideally use fewer than 70 words.,False
+2_temporal_dev_06,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.12748499989356787,True,True,Schedule meeting R7 on Monday at 10:00; Schedule meeting R7 on Monday at 10:00.,False
+3_numerical_dev_21,3_numerical_dev,numerical,Underspecified,Underspecified,0.1283560000047146,True,,,False
+0_temporal_dev_16,0_temporal_dev,temporal,Compatible,Compatible,0.12280200007808162,False,,,False
+2_logical_dev_10,2_logical_dev,logical,Fully impossible,Fully impossible,0.12051599992446427,True,True,"; Do not include the word ""battery"".",True
+0_formatting_dev_08,0_formatting_dev,formatting,Compatible,Compatible,0.1856649998899229,False,,,False
+0_numerical_dev_04,0_numerical_dev,numerical,Compatible,Compatible,1.2280799999189185,False,,,True
+3_numerical_dev_14,3_numerical_dev,numerical,Underspecified,Underspecified,0.12764300004164397,True,,,False
+0_formatting_dev_10,0_formatting_dev,formatting,Compatible,Compatible,0.17166900011034159,False,,,False
+1_formatting_dev_24,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12640499994631682,True,True,Use a casual presentation of temperature probes; Use casual formatting with slang.,False
+2_numerical_dev_14,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.15093100000740378,True,True,Write fewer than 86 words about network routers; Use fewer than 86 words.,True
+0_formatting_dev_03,0_formatting_dev,formatting,Compatible,Compatible,0.1731550000840798,False,,,False
+0_semantic_dev_11,0_semantic_dev,semantic,Compatible,Compatible,0.12463100006243621,False,,,False
+2_temporal_dev_02,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.16578500003561203,True,True,Schedule meeting R3 on Monday at 10:00; Schedule meeting R3 on Monday at 10:00.,False
+3_formatting_dev_17,3_formatting_dev,formatting,Underspecified,Underspecified,0.08555399995202606,True,,,False
+1_semantic_dev_05,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11660300015137182,True,True,Give a comprehensive explanation of robot arms; Make it comprehensive.,False
+2_formatting_dev_13,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11594299985517864,True,True, describing delivery drones; Include an explanation outside JSON.,False
+3_numerical_dev_23,3_numerical_dev,numerical,Underspecified,Underspecified,0.10950000000775617,True,,,False
+2_logical_dev_11,2_logical_dev,logical,Fully impossible,Fully impossible,2.1887610000703717,True,True,"; Do not include the word ""medical"".",True
+0_temporal_dev_18,0_temporal_dev,temporal,Compatible,Compatible,0.14548000012837292,False,,,False
+0_semantic_dev_06,0_semantic_dev,semantic,Compatible,Compatible,1.1548669999683625,False,,,False
+2_formatting_dev_16,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.12180600015199161,True,True, describing ocean buoys; Include an explanation outside JSON.,False
+2_temporal_dev_08,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.15869499998188985,True,True,Schedule meeting R9 on Monday at 10:00; Schedule meeting R9 on Monday at 10:00.,False
+0_temporal_dev_13,0_temporal_dev,temporal,Compatible,Compatible,0.11685200001920748,False,,,False
+1_logical_dev_18,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.12872299998889503,True,True,Write a persuasive account of air filters; Make it persuasive in favor of adoption.,False
+0_logical_dev_02,0_logical_dev,logical,Compatible,Compatible,0.11242699997637828,False,,,True
+1_semantic_dev_17,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,1.1332580002090253,True,True,Give a comprehensive explanation of rail signals; Make it comprehensive.,False
+2_semantic_dev_00,2_semantic_dev,semantic,Fully impossible,Compatible,0.12910999998894113,False,,,False
+3_numerical_dev_01,3_numerical_dev,numerical,Underspecified,Underspecified,0.10758600001281593,True,,,False
+0_numerical_dev_01,0_numerical_dev,numerical,Compatible,Compatible,0.21010899990869802,False,,,True
+3_formatting_dev_21,3_formatting_dev,formatting,Underspecified,Underspecified,0.16261699988717737,True,,,False
+2_numerical_dev_04,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1327750001109962,True,True,Write fewer than 46 words about smart meters; Use fewer than 46 words.,True
+2_temporal_dev_11,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13328599993656098,True,True,Schedule meeting R12 on Monday at 10:00; Schedule meeting R12 on Monday at 10:00.,False
+2_semantic_dev_19,2_semantic_dev,semantic,Fully impossible,Compatible,0.13419299989436695,False,,,False
+3_semantic_dev_18,3_semantic_dev,semantic,Underspecified,Underspecified,0.1278039999306202,True,,,False
+0_numerical_dev_18,0_numerical_dev,numerical,Compatible,Compatible,0.11964399982389295,False,,,True
+0_formatting_dev_06,0_formatting_dev,formatting,Compatible,Compatible,0.1396830000430782,False,,,False
+0_formatting_dev_15,0_formatting_dev,formatting,Compatible,Compatible,0.15753499997117615,False,,,False
+0_numerical_dev_19,0_numerical_dev,numerical,Compatible,Compatible,0.12482399984037329,False,,,True
+3_logical_dev_24,3_logical_dev,logical,Underspecified,Underspecified,0.10658099995453085,True,,,False
+0_logical_dev_24,0_logical_dev,logical,Compatible,Compatible,0.11492199996609997,False,,,True
+1_numerical_dev_06,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.12360400000943628,True,True,Write fewer than 54 words about fire alarms; Ideally use fewer than 54 words.,False
+0_formatting_dev_14,0_formatting_dev,formatting,Compatible,Compatible,0.139188000048307,False,,,False
+3_formatting_dev_07,3_formatting_dev,formatting,Underspecified,Underspecified,0.07915800006230711,True,,,False
+2_logical_dev_03,2_logical_dev,logical,Fully impossible,Fully impossible,0.1507550000496849,True,True,"; Do not include the word ""traffic"".",True
+2_formatting_dev_24,2_formatting_dev,formatting,Fully impossible,Fully impossible,1.6328720000728936,True,True, describing temperature probes; Include an explanation outside JSON.,False
+3_formatting_dev_19,3_formatting_dev,formatting,Underspecified,Underspecified,0.08755599992582574,True,,,False
+2_logical_dev_09,2_logical_dev,logical,Fully impossible,Fully impossible,0.1148390001617372,True,True,"; Do not include the word ""farm"".",True
+1_numerical_dev_01,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.16917299990382162,True,True,Write fewer than 34 words about wind turbines; Ideally use fewer than 34 words.,False
+1_numerical_dev_13,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.13098500016894832,True,True,Write fewer than 82 words about delivery drones; Ideally use fewer than 82 words.,False
+2_semantic_dev_01,2_semantic_dev,semantic,Fully impossible,Compatible,0.13779599998997583,False,,,False
+1_formatting_dev_19,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12458800006243109,True,True,Use a casual presentation of security cameras; Use casual formatting with slang.,False
+3_numerical_dev_12,3_numerical_dev,numerical,Underspecified,Underspecified,0.11277800012976513,True,,,False
+1_temporal_dev_22,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.12760599997818645,True,True,Schedule meeting R23 on Monday at 10:00; Prefer meeting R23 on Monday at 10:00.,False
+1_logical_dev_20,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.13292099993122974,True,True,Write a persuasive account of greenhouse fans; Make it persuasive in favor of adoption.,False
+0_formatting_dev_22,0_formatting_dev,formatting,Compatible,Compatible,0.14258400005928706,False,,,False
+3_semantic_dev_15,3_semantic_dev,semantic,Underspecified,Underspecified,0.1412330000221118,True,,,False
+2_logical_dev_21,2_logical_dev,logical,Fully impossible,Fully impossible,0.12210399995638,True,True,"; Do not include the word ""charging"".",True
+3_temporal_dev_09,3_temporal_dev,temporal,Underspecified,Underspecified,1.0208589999365358,True,,,False
+3_temporal_dev_10,3_temporal_dev,temporal,Underspecified,Underspecified,1.1461909998615738,True,,,False
+2_formatting_dev_21,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.13291100003698375,True,True, describing charging stations; Include an explanation outside JSON.,False
+1_formatting_dev_02,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12446100004126492,True,True,Use a casual presentation of water sensors; Use casual formatting with slang.,False
+1_logical_dev_11,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.1256919999832462,True,True,Write a persuasive account of medical wearables; Make it persuasive in favor of adoption.,False
+0_semantic_dev_14,0_semantic_dev,semantic,Compatible,Compatible,0.14299000008577423,False,,,False
+2_logical_dev_14,2_logical_dev,logical,Fully impossible,Fully impossible,0.12039800003549317,True,True,"; Do not include the word ""network"".",True
+0_formatting_dev_05,0_formatting_dev,formatting,Compatible,Compatible,0.1434679998055799,False,,,False
+2_semantic_dev_16,2_semantic_dev,semantic,Fully impossible,Compatible,0.1297240000894817,False,,,False
+0_semantic_dev_13,0_semantic_dev,semantic,Compatible,Compatible,0.11252900003455579,False,,,False
+1_temporal_dev_17,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.12869500005763257,True,True,Schedule meeting R18 on Monday at 10:00; Prefer meeting R18 on Monday at 10:00.,False
+0_temporal_dev_22,0_temporal_dev,temporal,Compatible,Compatible,0.18175399986830598,False,,,False
+3_numerical_dev_09,3_numerical_dev,numerical,Underspecified,Underspecified,0.11964899999838963,True,,,False
+3_temporal_dev_11,3_temporal_dev,temporal,Underspecified,Underspecified,0.11685399999805668,True,,,False
+2_numerical_dev_01,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.13883999986319395,True,True,Write fewer than 34 words about wind turbines; Use fewer than 34 words.,True
+0_temporal_dev_05,0_temporal_dev,temporal,Compatible,Compatible,0.172887999951854,False,,,False
+0_logical_dev_01,0_logical_dev,logical,Compatible,Compatible,0.11387100016690965,False,,,True
+3_logical_dev_23,3_logical_dev,logical,Underspecified,Underspecified,1.320629000019835,True,,,False
+1_logical_dev_04,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.13193699987823493,True,True,Write a persuasive account of smart meters; Make it persuasive in favor of adoption.,False
+1_formatting_dev_15,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.14212800010682258,True,True,Use a casual presentation of library kiosks; Use casual formatting with slang.,False
+2_formatting_dev_14,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11693900000864232,True,True, describing network routers; Include an explanation outside JSON.,False
+0_logical_dev_15,0_logical_dev,logical,Compatible,Compatible,1.9687330000124348,False,,,True
+3_temporal_dev_14,3_temporal_dev,temporal,Underspecified,Underspecified,0.3596070000639884,True,,,False
+2_semantic_dev_03,2_semantic_dev,semantic,Fully impossible,Compatible,0.3503699999782839,False,,,False
+0_semantic_dev_17,0_semantic_dev,semantic,Compatible,Compatible,0.119777999998405,False,,,False
+0_temporal_dev_15,0_temporal_dev,temporal,Compatible,Compatible,0.12302100003580563,False,,,False
+3_semantic_dev_04,3_semantic_dev,semantic,Underspecified,Underspecified,0.1231360001838766,True,,,False
+0_numerical_dev_06,0_numerical_dev,numerical,Compatible,Compatible,0.12683900013144012,False,,,True
+2_temporal_dev_22,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.12503000016295118,True,True,Schedule meeting R23 on Monday at 10:00; Schedule meeting R23 on Monday at 10:00.,False
+1_semantic_dev_15,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11460799987617065,True,True,Give a comprehensive explanation of library kiosks; Make it comprehensive.,False
+2_logical_dev_24,2_logical_dev,logical,Fully impossible,Fully impossible,0.1579419999870879,True,True,"; Do not include the word ""temperature"".",True
+3_temporal_dev_02,3_temporal_dev,temporal,Underspecified,Underspecified,0.1373759998841706,True,,,False
+3_semantic_dev_09,3_semantic_dev,semantic,Underspecified,Underspecified,0.12489000005189155,True,,,False
+1_temporal_dev_11,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.15881900003478222,True,True,Schedule meeting R12 on Monday at 10:00; Prefer meeting R12 on Monday at 10:00.,False
+0_formatting_dev_11,0_formatting_dev,formatting,Compatible,Compatible,0.1441720000912028,False,,,False
+3_semantic_dev_08,3_semantic_dev,semantic,Underspecified,Underspecified,0.12949399979333975,True,,,False
+0_formatting_dev_23,0_formatting_dev,formatting,Compatible,Compatible,0.1371969999581779,False,,,False
+0_numerical_dev_07,0_numerical_dev,numerical,Compatible,Compatible,0.1320609999311273,False,,,True
+1_temporal_dev_15,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.12199699995107949,True,True,Schedule meeting R16 on Monday at 10:00; Prefer meeting R16 on Monday at 10:00.,False
+1_semantic_dev_11,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.15738499996587052,True,True,Give a comprehensive explanation of medical wearables; Make it comprehensive.,False
+0_logical_dev_03,0_logical_dev,logical,Compatible,Compatible,0.12252900000930822,False,,,True
+3_logical_dev_15,3_logical_dev,logical,Underspecified,Underspecified,0.7051019999835262,True,,,False
+1_formatting_dev_04,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12717499998871062,True,True,Use a casual presentation of smart meters; Use casual formatting with slang.,False
+0_semantic_dev_18,0_semantic_dev,semantic,Compatible,Compatible,0.11592800001380965,False,,,False
+1_formatting_dev_17,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.10783799984892539,True,True,Use a casual presentation of rail signals; Use casual formatting with slang.,False
+2_semantic_dev_12,2_semantic_dev,semantic,Fully impossible,Compatible,0.12761999983013084,False,,,False
+3_numerical_dev_04,3_numerical_dev,numerical,Underspecified,Underspecified,0.10696699996515235,True,,,False
+3_semantic_dev_21,3_semantic_dev,semantic,Underspecified,Underspecified,0.11819399992418766,True,,,False
+1_logical_dev_15,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.9643900000355643,True,True,Write a persuasive account of library kiosks; Make it persuasive in favor of adoption.,False
+1_semantic_dev_20,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.1359200000479177,True,True,Give a comprehensive explanation of greenhouse fans; Make it comprehensive.,False
+1_semantic_dev_13,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.12521100006779307,True,True,Give a comprehensive explanation of delivery drones; Make it comprehensive.,False
+0_temporal_dev_02,0_temporal_dev,temporal,Compatible,Compatible,0.12966700001015852,False,,,False
+1_logical_dev_14,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.11954000001423992,True,True,Write a persuasive account of network routers; Make it persuasive in favor of adoption.,False
+3_numerical_dev_20,3_numerical_dev,numerical,Underspecified,Underspecified,0.2107180000621156,True,,,False
+1_temporal_dev_06,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.1450019999538199,True,True,Schedule meeting R7 on Monday at 10:00; Prefer meeting R7 on Monday at 10:00.,False
+0_temporal_dev_24,0_temporal_dev,temporal,Compatible,Compatible,0.14470300016000692,False,,,False
+1_semantic_dev_10,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11082500009251817,True,True,Give a comprehensive explanation of battery storage; Make it comprehensive.,False
+2_numerical_dev_23,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.13599999988400668,True,True,Write fewer than 122 words about warehouse robots; Use fewer than 122 words.,True
+0_logical_dev_13,0_logical_dev,logical,Compatible,Compatible,0.12313799993535213,False,,,True
+1_formatting_dev_12,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.11432299993430206,True,True,Use a casual presentation of factory pumps; Use casual formatting with slang.,False
+2_logical_dev_04,2_logical_dev,logical,Fully impossible,Fully impossible,0.1063939998857677,True,True,"; Do not include the word ""smart"".",True
+2_formatting_dev_22,2_formatting_dev,formatting,Fully impossible,Fully impossible,2.1971920000396494,True,True, describing street lamps; Include an explanation outside JSON.,False
+2_semantic_dev_15,2_semantic_dev,semantic,Fully impossible,Compatible,0.1270269999622542,False,,,False
+2_formatting_dev_15,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.10797499999171123,True,True, describing library kiosks; Include an explanation outside JSON.,False
+0_temporal_dev_21,0_temporal_dev,temporal,Compatible,Compatible,0.16185100002985564,False,,,False
+3_temporal_dev_21,3_temporal_dev,temporal,Underspecified,Underspecified,0.12014599997201003,True,,,False
+0_temporal_dev_06,0_temporal_dev,temporal,Compatible,Compatible,0.14806000012868026,False,,,False
+3_formatting_dev_10,3_formatting_dev,formatting,Underspecified,Underspecified,0.08030899994082574,True,,,False
+0_temporal_dev_10,0_temporal_dev,temporal,Compatible,Compatible,0.11203899998690758,False,,,False
+1_formatting_dev_08,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12409500004650909,True,True,Use a casual presentation of electric buses; Use casual formatting with slang.,False
+3_numerical_dev_16,3_numerical_dev,numerical,Underspecified,Underspecified,0.1174009998976544,True,,,False
+3_logical_dev_18,3_logical_dev,logical,Underspecified,Underspecified,0.10596399988571648,True,,,False
+0_temporal_dev_14,0_temporal_dev,temporal,Compatible,Compatible,0.12616899994100095,False,,,False
+3_numerical_dev_05,3_numerical_dev,numerical,Underspecified,Underspecified,0.10573400004432187,True,,,False
+2_logical_dev_00,2_logical_dev,logical,Fully impossible,Fully impossible,1.4529150000726077,True,True,"; Do not include the word ""solar"".",True
+1_logical_dev_21,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.13286600005812943,True,True,Write a persuasive account of charging stations; Make it persuasive in favor of adoption.,False
+3_numerical_dev_19,3_numerical_dev,numerical,Underspecified,Underspecified,0.10748499994406302,True,,,False
+0_temporal_dev_12,0_temporal_dev,temporal,Compatible,Compatible,0.1528029999917635,False,,,False
+2_temporal_dev_05,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.1253159998668707,True,True,Schedule meeting R6 on Monday at 10:00; Schedule meeting R6 on Monday at 10:00.,False
+1_formatting_dev_14,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.12147899997216882,True,True,Use a casual presentation of network routers; Use casual formatting with slang.,False
+0_temporal_dev_17,0_temporal_dev,temporal,Compatible,Compatible,0.11861099983434542,False,,,False
+2_semantic_dev_08,2_semantic_dev,semantic,Fully impossible,Compatible,0.12695199984591454,False,,,False
+3_semantic_dev_20,3_semantic_dev,semantic,Underspecified,Underspecified,0.12267700003576465,True,,,False
+0_formatting_dev_02,0_formatting_dev,formatting,Compatible,Compatible,0.19035499985875504,False,,,False
+2_semantic_dev_22,2_semantic_dev,semantic,Fully impossible,Compatible,0.14984800009187893,False,,,False
+1_numerical_dev_12,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.14282300003287673,True,True,Write fewer than 78 words about factory pumps; Ideally use fewer than 78 words.,False
+0_temporal_dev_09,0_temporal_dev,temporal,Compatible,Compatible,0.12644999992517114,False,,,False
+1_numerical_dev_17,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.15977300017766538,True,True,Write fewer than 98 words about rail signals; Ideally use fewer than 98 words.,False
+2_semantic_dev_04,2_semantic_dev,semantic,Fully impossible,Compatible,0.13244900014797167,False,,,False
+0_numerical_dev_21,0_numerical_dev,numerical,Compatible,Compatible,0.13108100006320456,False,,,True
+3_temporal_dev_17,3_temporal_dev,temporal,Underspecified,Underspecified,0.1240270000835153,True,,,False
+2_formatting_dev_04,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11375500002941408,True,True, describing smart meters; Include an explanation outside JSON.,False
+2_logical_dev_06,2_logical_dev,logical,Fully impossible,Fully impossible,0.11073499990743585,True,True,"; Do not include the word ""fire"".",True
+0_formatting_dev_18,0_formatting_dev,formatting,Compatible,Compatible,0.16590099994573393,False,,,False
+1_formatting_dev_21,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.1660840000567987,True,True,Use a casual presentation of charging stations; Use casual formatting with slang.,False
+2_semantic_dev_11,2_semantic_dev,semantic,Fully impossible,Compatible,0.16063800012489082,False,,,False
+2_formatting_dev_20,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11923500005650567,True,True, describing greenhouse fans; Include an explanation outside JSON.,False
+3_temporal_dev_16,3_temporal_dev,temporal,Underspecified,Underspecified,0.4087410000011005,True,,,False
+0_semantic_dev_22,0_semantic_dev,semantic,Compatible,Compatible,0.12679899987233512,False,,,False
+2_logical_dev_01,2_logical_dev,logical,Fully impossible,Fully impossible,0.117950000003475,True,True,"; Do not include the word ""wind"".",True
+3_numerical_dev_13,3_numerical_dev,numerical,Underspecified,Underspecified,0.11390200006644591,True,,,False
+2_formatting_dev_03,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11398899982850708,True,True, describing traffic lights; Include an explanation outside JSON.,False
+0_logical_dev_08,0_logical_dev,logical,Compatible,Compatible,2.56733199989867,False,,,True
+1_formatting_dev_06,1_formatting_dev,formatting,Partially conflicting,Partially conflicting,0.14962899990678125,True,True,Use a casual presentation of fire alarms; Use casual formatting with slang.,False
+3_logical_dev_04,3_logical_dev,logical,Underspecified,Underspecified,0.1092159998279385,True,,,False
+2_temporal_dev_18,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.13485599993146025,True,True,Schedule meeting R19 on Monday at 10:00; Schedule meeting R19 on Monday at 10:00.,False
+3_temporal_dev_08,3_temporal_dev,temporal,Underspecified,Underspecified,0.15120900002330018,True,,,False
+2_semantic_dev_10,2_semantic_dev,semantic,Fully impossible,Compatible,0.13832699983140628,False,,,False
+3_temporal_dev_24,3_temporal_dev,temporal,Underspecified,Underspecified,0.11800400011452439,True,,,False
+0_logical_dev_00,0_logical_dev,logical,Compatible,Compatible,0.14177399998516194,False,,,True
+2_numerical_dev_21,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1321610000104556,True,True,Write fewer than 114 words about charging stations; Use fewer than 114 words.,True
+0_formatting_dev_16,0_formatting_dev,formatting,Compatible,Compatible,2.029269999866301,False,,,False
+2_numerical_dev_20,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.2787020000596385,True,True,Write fewer than 110 words about greenhouse fans; Use fewer than 110 words.,True
+2_temporal_dev_19,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.16960499988272204,True,True,Schedule meeting R20 on Monday at 10:00; Schedule meeting R20 on Monday at 10:00.,False
+1_semantic_dev_22,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.11899699984496692,True,True,Give a comprehensive explanation of street lamps; Make it comprehensive.,False
+1_numerical_dev_07,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.13596400003734743,True,True,Write fewer than 58 words about weather stations; Ideally use fewer than 58 words.,False
+1_logical_dev_09,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.16644800007270533,True,True,Write a persuasive account of farm irrigation; Make it persuasive in favor of adoption.,False
+0_numerical_dev_09,0_numerical_dev,numerical,Compatible,Compatible,0.13757900001110102,False,,,True
+2_semantic_dev_14,2_semantic_dev,semantic,Fully impossible,Compatible,0.13269899977785826,False,,,False
+3_logical_dev_09,3_logical_dev,logical,Underspecified,Underspecified,0.10462799991728389,True,,,False
+1_temporal_dev_01,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.37760400005026895,True,True,Schedule meeting R2 on Monday at 10:00; Prefer meeting R2 on Monday at 10:00.,False
+0_semantic_dev_16,0_semantic_dev,semantic,Compatible,Compatible,0.12255799992999528,False,,,False
+2_semantic_dev_02,2_semantic_dev,semantic,Fully impossible,Compatible,0.12934299979860953,False,,,False
+2_numerical_dev_11,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1306179999573942,True,True,Write fewer than 74 words about medical wearables; Use fewer than 74 words.,True
+2_logical_dev_13,2_logical_dev,logical,Fully impossible,Fully impossible,0.13557700003730133,True,True,"; Do not include the word ""delivery"".",True
+3_logical_dev_12,3_logical_dev,logical,Underspecified,Underspecified,0.11261800000283984,True,,,False
+1_temporal_dev_18,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.129788999856828,True,True,Schedule meeting R19 on Monday at 10:00; Prefer meeting R19 on Monday at 10:00.,False
+3_semantic_dev_14,3_semantic_dev,semantic,Underspecified,Underspecified,0.15558600011900126,True,,,False
+2_numerical_dev_10,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1314979999733623,True,True,Write fewer than 70 words about battery storage; Use fewer than 70 words.,True
+2_temporal_dev_24,2_temporal_dev,temporal,Fully impossible,Fully impossible,0.12656400008381752,True,True,Schedule meeting R25 on Monday at 10:00; Schedule meeting R25 on Monday at 10:00.,False
+0_temporal_dev_00,0_temporal_dev,temporal,Compatible,Compatible,0.11067099990214047,False,,,False
+2_logical_dev_17,2_logical_dev,logical,Fully impossible,Fully impossible,0.10994699982802558,True,True,"; Do not include the word ""rail"".",True
+0_numerical_dev_00,0_numerical_dev,numerical,Compatible,Compatible,2.3896010000044043,False,,,True
+2_formatting_dev_23,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.1374180001221248,True,True, describing warehouse robots; Include an explanation outside JSON.,False
+0_numerical_dev_05,0_numerical_dev,numerical,Compatible,Compatible,0.12876000005235255,False,,,True
+1_temporal_dev_19,1_temporal_dev,temporal,Partially conflicting,Partially conflicting,0.13162499999452848,True,True,Schedule meeting R20 on Monday at 10:00; Prefer meeting R20 on Monday at 10:00.,False
+2_formatting_dev_05,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11586200002966507,True,True, describing robot arms; Include an explanation outside JSON.,False
+3_numerical_dev_03,3_numerical_dev,numerical,Underspecified,Underspecified,0.11085300002378062,True,,,False
+2_numerical_dev_08,2_numerical_dev,numerical,Fully impossible,Fully impossible,0.1254169999356236,True,True,Write fewer than 62 words about electric buses; Use fewer than 62 words.,True
+2_logical_dev_12,2_logical_dev,logical,Fully impossible,Fully impossible,0.11304800000289106,True,True,"; Do not include the word ""factory"".",True
+0_semantic_dev_19,0_semantic_dev,semantic,Compatible,Compatible,1.9059370001741627,False,,,False
+0_logical_dev_14,0_logical_dev,logical,Compatible,Compatible,0.15101099984349275,False,,,True
+3_formatting_dev_12,3_formatting_dev,formatting,Underspecified,Underspecified,0.08722799998395203,True,,,False
+3_semantic_dev_12,3_semantic_dev,semantic,Underspecified,Underspecified,0.12798700004168495,True,,,False
+1_semantic_dev_04,1_semantic_dev,semantic,Partially conflicting,Partially conflicting,0.12045500011481636,True,True,Give a comprehensive explanation of smart meters; Make it comprehensive.,False
+0_semantic_dev_23,0_semantic_dev,semantic,Compatible,Compatible,0.1197760000195558,False,,,False
+2_logical_dev_22,2_logical_dev,logical,Fully impossible,Fully impossible,0.11386400001356378,True,True,"; Do not include the word ""street"".",True
+0_semantic_dev_00,0_semantic_dev,semantic,Compatible,Compatible,0.14181400001689326,False,,,False
+1_numerical_dev_02,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.13198100009503833,True,True,Write fewer than 38 words about water sensors; Ideally use fewer than 38 words.,False
+3_formatting_dev_23,3_formatting_dev,formatting,Underspecified,Underspecified,0.08164099995155993,True,,,False
+0_formatting_dev_09,0_formatting_dev,formatting,Compatible,Compatible,0.14137300013317144,False,,,False
+3_semantic_dev_00,3_semantic_dev,semantic,Underspecified,Underspecified,3.1883990000096674,True,,,False
+2_logical_dev_20,2_logical_dev,logical,Fully impossible,Fully impossible,0.13965900006951415,True,True,"; Do not include the word ""greenhouse"".",True
+3_semantic_dev_01,3_semantic_dev,semantic,Underspecified,Underspecified,0.13125500004207424,True,,,False
+0_logical_dev_05,0_logical_dev,logical,Compatible,Compatible,0.11461700000836572,False,,,True
+0_semantic_dev_15,0_semantic_dev,semantic,Compatible,Compatible,0.1246449999143806,False,,,False
+0_numerical_dev_22,0_numerical_dev,numerical,Compatible,Compatible,0.13132399999449262,False,,,True
+0_semantic_dev_12,0_semantic_dev,semantic,Compatible,Compatible,0.11098799996034359,False,,,False
+1_numerical_dev_11,1_numerical_dev,numerical,Partially conflicting,Partially conflicting,0.1301710001371248,True,True,Write fewer than 74 words about medical wearables; Ideally use fewer than 74 words.,False
+2_formatting_dev_08,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.11477599991849274,True,True, describing electric buses; Include an explanation outside JSON.,False
+0_logical_dev_19,0_logical_dev,logical,Compatible,Compatible,0.10699700010263768,False,,,True
+2_semantic_dev_24,2_semantic_dev,semantic,Fully impossible,Compatible,0.12678200005211693,False,,,False
+3_semantic_dev_03,3_semantic_dev,semantic,Underspecified,Underspecified,0.1204939999297494,True,,,False
+2_logical_dev_05,2_logical_dev,logical,Fully impossible,Fully impossible,3.1822340001781413,True,True,"; Do not include the word ""robot"".",True
+1_logical_dev_08,1_logical_dev,logical,Partially conflicting,Partially conflicting,0.1801910000267526,True,True,Write a persuasive account of electric buses; Make it persuasive in favor of adoption.,False
+2_formatting_dev_18,2_formatting_dev,formatting,Fully impossible,Fully impossible,0.2268809998895449,True,True, describing air filters; Include an explanation outside JSON.,False
+0_numerical_dev_11,0_numerical_dev,numerical,Compatible,Compatible,0.13802099988424743,False,,,True
+2_logical_dev_23,2_logical_dev,logical,Fully impossible,Fully impossible,0.8168469998963701,True,True,"; Do not include the word ""warehouse"".",True
+3_temporal_dev_18,3_temporal_dev,temporal,Underspecified,Underspecified,0.41750599984879955,True,,,False

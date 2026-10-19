@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+<defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0L9 4.5L0 9" fill="none" stroke="#333"/></marker></defs>
+<rect width="1200" height="850" fill="white"/>
+<g font-family="Arial,sans-serif" text-anchor="middle" fill="#111">
+<text x="600" y="42" font-size="29" font-weight="bold">ContradictPrompt architecture</text>
+<g stroke="#333" fill="white" stroke-width="2">
+<rect x="380" y="75" width="440" height="70" rx="6"/>
+<rect x="380" y="190" width="440" height="75" rx="6"/>
+<rect x="80" y="320" width="440" height="90" rx="6"/>
+<rect x="680" y="320" width="440" height="90" rx="6"/>
+<rect x="380" y="465" width="440" height="85" rx="6"/>
+<rect x="70" y="615" width="470" height="90" rx="6"/>
+<rect x="680" y="615" width="440" height="90" rx="6"/>
+<rect x="380" y="765" width="440" height="60" rx="6"/>
+</g>
+<g font-size="23"><text x="600" y="118">Original prompt + character offsets</text>
+<text x="600" y="221">Whitespace display normalization</text><text x="600" y="249">Scoped instruction extraction</text>
+<text x="300" y="354">Deterministic checks</text><text x="300" y="385" font-size="20">Intervals, polarity, JSON, event times</text>
+<text x="900" y="354">Optional LLM analysis</text><text x="900" y="385" font-size="20">Pydantic + evidence validation</text>
+<text x="600" y="499">Merge evidence + four-class label</text><text x="600" y="530" font-size="20">Verified hard rules take precedence</text>
+<text x="305" y="651">Conflict or missing input</text><text x="305" y="682" font-size="20">User edits / approves + revalidates</text>
+<text x="900" y="651">Compatible prompt + approval</text><text x="900" y="682" font-size="20">Optional model response generation</text>
+<text x="600" y="804">Response checks + experiment logging</text></g></g>
+<g fill="none" stroke="#333" stroke-width="2" marker-end="url(#a)">
+<path d="M600 145V190"/><path d="M600 265V290H300V320"/><path d="M600 290H900V320"/>
+<path d="M300 410V440H600V465"/><path d="M900 410V440H600"/>
+<path d="M600 550V580H305V615"/><path d="M600 580H900V615"/>
+<path d="M70 660H30V225H380"/><path d="M900 705V795H820"/>
+</g><text x="48" y="470" transform="rotate(-90 48 470)" font-family="Arial" font-size="18">Revalidation loop</text>
+</svg>

@@ -1,0 +1,45 @@
+# NVIDIA NeMo Project PE-11 LoRA Customization Configuration
+model:
+  restore_from_path: null
+  peft:
+    peft_scheme: "lora"
+    lora_tuning:
+      adapter_dim: 16       # lora_rank = 16
+      adapter_dropout: 0.05
+      alpha: 32            # lora_alpha = 32
+      target_modules: ["q_proj", "v_proj", "k_proj", "o_proj"]
+  
+  optim:
+    name: fused_adam
+    lr: 0.0002             # learning_rate = 2e-4
+    weight_decay: 0.01
+    sched:
+      name: CosineAnnealing
+      warmup_ratio: 0.03
+      min_lr: 0.00001
+
+  loss:
+    name: false_positive_penalized_ce
+    compatible_penalty_multiplier: 5.0  # Heavy penalty against flagging valid prompts as conflicting
+
+data:
+  train_ds:
+    file_path: data/pe11_dataset.jsonl
+    max_seq_length: 2048
+    micro_batch_size: 4
+    global_batch_size: 32
+    num_workers: 4
+  validation_ds:
+    file_path: data/pe11_dataset.jsonl
+    max_seq_length: 2048
+    micro_batch_size: 4
+    global_batch_size: 16
+
+trainer:
+  devices: 1
+  num_nodes: 1
+  accelerator: gpu
+  precision: bf16
+  max_epochs: 3             # epochs = 3
+  val_check_interval: 0.5
+  gradient_clip_val: 1.0

@@ -1,0 +1,20 @@
+{
+  "frozen_at_utc": "2026-10-18T16:18:04.941916+00:00",
+  "policy": "Detector frozen before first held-out evaluation; no test-metric-driven changes in this version. Test templates were authored by the implementer, so this is not an independently blinded benchmark.",
+  "files": {
+    "contradictprompt/__init__.py": "499531db8802d7afb5ba46727e82ca7fc1f7406c54f1ea338458d26062ba21f1",
+    "contradictprompt/config.py": "1b8a7bc6990b5afb06fbe8e22ebf82a9681bc711c33f9b9838dba810bc38e2cb",
+    "contradictprompt/engine.py": "b01091592676fa4f7d909a1961c684a7359a150f0aae01fb531a2c719e0b6590",
+    "contradictprompt/extraction.py": "905d2792bf3d724cd72749a4c5d69046598b91cd887861c856594881532e3309",
+    "contradictprompt/history.py": "7e871a940fd2b967aadc4d3ef129100ce02af89bf88f7f6a433b8c991de93cff",
+    "contradictprompt/llm.py": "1cabd0b4b86cdfcfa8291a049695841192ef7326e60e05f598704db24ca6951a",
+    "contradictprompt/models.py": "1b1e1187e16d970d4f581e37986ad872cb3c6e560883d2b30ed8a5ac6368345c",
+    "contradictprompt/preprocessing.py": "adae28cdf9efc6ff5756a5f5201d1caf0617c0f62ddd57cea02696b19a99eef4",
+    "contradictprompt/repair.py": "389f4886192faa8c486d914b090f514e240e86155208a6ff2da593af6c7f94af",
+    "contradictprompt/review.py": "5484ad8636a4e7d6ce1057e702e060694abb6a2deb4f556e6a81e0ca500a47ce",
+    "contradictprompt/rules.py": "dec618e9d395c6de9867de01c4dc4ac0bf0c47c1c7517f3e15df6a50a420cd53",
+    "contradictprompt/satisfaction.py": "c60baed90218c6311d984dcd501e4e116c08669bc82aa834bb4dca6f543495c1"
+  },
+  "regression_note": "A conditional-comma scope defect identified by a unit test was fixed after initial freeze. No held-out metrics were inspected to select this change. The final baseline is rerun with the corrected detector.",
+  "final_frozen_at_utc": "2026-10-18T16:19:07.217501+00:00"
+}

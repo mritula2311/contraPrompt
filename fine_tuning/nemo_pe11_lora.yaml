@@ -1,0 +1,83 @@
+# NVIDIA NeMo Supervised Fine-Tuning (SFT) & LoRA Configuration
+# Project: ContradictPrompt PE-11 (Project 56)
+# Target Architecture: NVIDIA Nemotron / Llama-3 Dense Transformer
+
+run:
+  name: contradictprompt_pe11_lora
+  results_dir: ./results/nemo_lora_run
+  time_limit: "0-04:00:00"
+
+model:
+  peft:
+    peft_scheme: "lora"
+    lora_tuning:
+      adapter_dim: 16
+      adapter_dropout: 0.05
+      target_modules:
+        - "attention.q_proj"
+        - "attention.k_proj"
+        - "attention.v_proj"
+        - "attention.out_proj"
+      column_init_method: "xavier"
+      row_init_method: "zero"
+
+  data:
+    train_ds:
+      file_names:
+        - "./data/nemo_train_3000.jsonl"
+      concat_sampling_probabilities:
+        - 1.0
+      global_batch_size: 16
+      micro_batch_size: 2
+      shuffle: True
+      num_workers: 4
+      max_seq_length: 4096
+      min_seq_length: 32
+      drop_last: True
+
+    validation_ds:
+      file_names:
+        - "./data/nemo_val_400.jsonl"
+      names:
+        - "val_split"
+      global_batch_size: 16
+      micro_batch_size: 2
+      shuffle: False
+      num_workers: 2
+      max_seq_length: 4096
+      min_seq_length: 32
+      drop_last: False
+
+  optim:
+    name: fused_adam
+    lr: 1e-4
+    weight_decay: 0.01
+    betas:
+      - 0.9
+      - 0.98
+    sched:
+      name: CosineAnnealing
+      warmup_steps: 100
+      min_lr: 1e-5
+
+trainer:
+  devices: 1
+  num_nodes: 1
+  accelerator: gpu
+  precision: bf16
+  max_epochs: 3
+  max_steps: -1
+  val_check_interval: 100
+  limit_val_batches: 50
+  log_every_n_steps: 10
+  enable_checkpointing: True
+
+exp_manager:
+  exp_dir: ./checkpoints/pe11_lora
+  name: pe11_lora_checkpoint
+  create_checkpoint_callback: True
+  checkpoint_callback_params:
+    monitor: "val_loss"
+    mode: "min"
+    save_top_k: 1
+    save_last: True

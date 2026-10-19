@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "contradictprompt"
+version = "1.0.1"
+requires-python = ">=3.11"
+description = "A hybrid instruction consistency checker for student research"
+
+[tool.setuptools.packages.find]
+include = ["contradictprompt*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

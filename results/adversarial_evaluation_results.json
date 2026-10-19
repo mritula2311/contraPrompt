@@ -1,0 +1,219 @@
+{
+  "overall_metrics": {
+    "classification": {
+      "accuracy": 0.813,
+      "macro_precision": 0.8337789661319073,
+      "macro_recall": 0.813,
+      "macro_f1": 0.8076324671117938,
+      "weighted_f1": 0.8076324671117937,
+      "per_class": {
+        "Compatible": {
+          "precision": 0.6666666666666666,
+          "recall": 1.0,
+          "f1": 0.8,
+          "support": 250
+        },
+        "Partially conflicting": {
+          "precision": 1.0,
+          "recall": 0.752,
+          "f1": 0.8584474885844748,
+          "support": 250
+        },
+        "Fully impossible": {
+          "precision": 0.6684491978609626,
+          "recall": 0.5,
+          "f1": 0.5720823798627003,
+          "support": 250
+        },
+        "Underspecified": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 250
+        }
+      },
+      "confusion_matrix": {
+        "labels": [
+          "Compatible",
+          "Partially conflicting",
+          "Fully impossible",
+          "Underspecified"
+        ],
+        "matrix": [
+          [
+            250,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            188,
+            62,
+            0
+          ],
+          [
+            125,
+            0,
+            125,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            250
+          ]
+        ]
+      }
+    },
+    "binary_contradiction": {
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "false_positive_rate": 0.0,
+      "false_negative_rate": 0.25,
+      "confusion_matrix": [
+        [
+          500,
+          0
+        ],
+        [
+          125,
+          375
+        ]
+      ]
+    },
+    "localization": {
+      "span_precision": 0.3315,
+      "span_recall": 0.3315,
+      "span_f1": 0.3315
+    },
+    "robustness_by_level": {
+      "L1": {
+        "count": 31,
+        "accuracy": 1.0,
+        "macro_f1": 0.25
+      },
+      "L2": {
+        "count": 612,
+        "accuracy": 0.8480392156862745,
+        "macro_f1": 0.7554515668026073
+      },
+      "L3": {
+        "count": 357,
+        "accuracy": 0.7366946778711485,
+        "macro_f1": 0.34561096797938906
+      }
+    },
+    "efficiency": {
+      "count": 1000,
+      "mean_latency_ms": 0.7114147005486302,
+      "median_latency_ms": 0.41310000233352184,
+      "p95_latency_ms": 2.0151049771811813,
+      "mean_input_tokens": 0.0,
+      "mean_output_tokens": 0.0,
+      "total_calls": 1000
+    }
+  },
+  "groups_breakdown": {
+    "A": {
+      "group_name": "Long-distance contradictions",
+      "total_cases": 32,
+      "correct": 32,
+      "accuracy": 1.0,
+      "mean_latency_ms": 2.62
+    },
+    "B": {
+      "group_name": "Multi-instruction conflicts (3+ constraints)",
+      "total_cases": 32,
+      "correct": 0,
+      "accuracy": 0.0,
+      "mean_latency_ms": 2.26
+    },
+    "C": {
+      "group_name": "Numerical boundary conflicts",
+      "total_cases": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "mean_latency_ms": 1.35
+    },
+    "D": {
+      "group_name": "Nested conditional conflicts",
+      "total_cases": 81,
+      "correct": 50,
+      "accuracy": 0.6173,
+      "mean_latency_ms": 0.35
+    },
+    "E": {
+      "group_name": "Temporal contradictions & workflow deadlocks",
+      "total_cases": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "mean_latency_ms": 0.91
+    },
+    "F": {
+      "group_name": "Conflicting output schemas (JSON vs prose/markdown)",
+      "total_cases": 31,
+      "correct": 0,
+      "accuracy": 0.0,
+      "mean_latency_ms": 0.45
+    },
+    "G": {
+      "group_name": "Semantic and contextual definition paradoxes",
+      "total_cases": 31,
+      "correct": 31,
+      "accuracy": 1.0,
+      "mean_latency_ms": 0.26
+    },
+    "H": {
+      "group_name": "Negation-heavy instructions & reverse bans",
+      "total_cases": 31,
+      "correct": 0,
+      "accuracy": 0.0,
+      "mean_latency_ms": 0.3
+    },
+    "I": {
+      "group_name": "Underspecified requirements & missing parameters",
+      "total_cases": 250,
+      "correct": 250,
+      "accuracy": 1.0,
+      "mean_latency_ms": 0.32
+    },
+    "J": {
+      "group_name": "Compatible prompts with misleading wording (False Positives check)",
+      "total_cases": 50,
+      "correct": 50,
+      "accuracy": 1.0,
+      "mean_latency_ms": 2.1
+    },
+    "K": {
+      "group_name": "Requirements with separate scopes (Scope distinction check)",
+      "total_cases": 50,
+      "correct": 50,
+      "accuracy": 1.0,
+      "mean_latency_ms": 0.9
+    },
+    "N": {
+      "group_name": "Revisions, exceptions, and overriding conditions",
+      "total_cases": 50,
+      "correct": 50,
+      "accuracy": 1.0,
+      "mean_latency_ms": 0.94
+    },
+    "O": {
+      "group_name": "Quoted instructions that must not be executed",
+      "total_cases": 50,
+      "correct": 50,
+      "accuracy": 1.0,
+      "mean_latency_ms": 0.56
+    },
+    "P": {
+      "group_name": "Compound combinations of structural and semantic paradoxes",
+      "total_cases": 250,
+      "correct": 188,
+      "accuracy": 0.752,
+      "mean_latency_ms": 0.48
+    }
+  }
+}

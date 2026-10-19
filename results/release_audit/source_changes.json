@@ -1,0 +1,13 @@
+{
+  "version": "1.0.1",
+  "policy": "Post-baseline regression fixes; held-out results were already known. No rule grammar changes. Future detector improvements require new held-out families.",
+  "files": {
+    "contradictprompt/models.py": "6029ae0af5c0babbfd05c5d1edc7f2dd31b4f49cf50116dc43f7af4121639a9c",
+    "contradictprompt/llm.py": "af5c647bfe299e5c19ee8c8bc3e0ef8743bd91a5f1596ac3630564b977070474",
+    "contradictprompt/satisfaction.py": "3029f42437e75cc70828c44fad502540367d93de50598c4d64d6f54aad46393b",
+    "app.py": "c6bf518d8b7ab20463240a518834c4389ff5d93361946a1b1f0fd6b4cd0b9dc8",
+    "scripts/score_live.py": "3691dfca2978c64f3fd94b17507953cec32c26946efcdd7463b1f67cc7ed37fa",
+    "scripts/run_experiments.py": "ad6654ace9b17fb09d9ff73f3588e3cfae50ba843c94ac6708cbedc31ef0199e",
+    "contradictprompt/__init__.py": "74f65044b5ca650350f316530f4ff547171f4d6c684c9d74a2e890336e28fcde"
+  }
+}

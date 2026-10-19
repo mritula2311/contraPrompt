@@ -1,0 +1,15 @@
+{
+  "offline_rules": "executed on 500 development and 500 held-out cases",
+  "A_direct_answering": "not executed: no configured and authorized real model",
+  "B_generic_clarification": "not executed: no configured and authorized real model",
+  "C_contradiction_detection_with_generation": "not executed: no configured and authorized real model",
+  "D_detection_repair_with_generation": "not executed: no configured and authorized real model",
+  "ablation_rules_only": "executed offline",
+  "ablation_llm_only": "not executed",
+  "ablation_hybrid": "not executed",
+  "successful_resolution_rate": null,
+  "final_instruction_satisfaction": null,
+  "human_review": "pending",
+  "paid_api_requests": 0,
+  "note": "Mock provider tests validate plumbing only. They are not scientific model results."
+}

@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "seed": 56,
+  "cases": 1000,
+  "families": 40,
+  "development_cases": 500,
+  "test_cases": 500,
+  "per_class": 250,
+  "formal_template_checks": 150,
+  "human_reviewed": 0,
+  "sha256": "9469d0ad4fa49b3e14967400df487e78738df8aa59c03947dc4fd9c5811d5968",
+  "split_policy": "20 development and 20 distinct structural test families. Same topics may recur; templates do not cross partitions.",
+  "validity_warning": "Formally checked templates do not establish human gold labels for all natural language interpretations. All examples await human review."
+}

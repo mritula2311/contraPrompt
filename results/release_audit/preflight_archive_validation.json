@@ -1,0 +1,47 @@
+{
+  "archive": "ContradictPrompt_candidate.zip",
+  "archive_sha256": "3326b28a6ae151a0a449f67bf9c0553a1073b4edc0c34ab4645a506f18c161ea",
+  "archive_bytes": 1474227,
+  "python": "3.12.14",
+  "executed_utc": "2026-10-18T17:15:43Z",
+  "checks": {
+    "archive_crc_and_safe_paths": "passed",
+    "dependency_consistency": "No broken requirements found.",
+    "manifest": "Verified 87 manifest entries and 1000 cases.",
+    "pytest_output": "........................................................................ [ 80%]\n..................                                                       [100%]\n90 passed in 5.10s",
+    "offline_evaluation_reproduction": {
+      "dev": {
+        "n": 500,
+        "accuracy": 0.95,
+        "macro_f1": 0.9494949494949495,
+        "conflict_f1": 0.9473684210526315
+      },
+      "test": {
+        "n": 500,
+        "accuracy": 0.5,
+        "macro_f1": 0.375,
+        "conflict_f1": 0.0
+      }
+    },
+    "streamlit_health": {
+      "http_status": 200,
+      "body": "ok"
+    }
+  },
+  "real_model_calls": 0,
+  "limitations": [
+    "Real LLM inference not exercised",
+    "Human labels and resolution outcomes not reviewed",
+    "One Python/Linux environment tested"
+  ],
+  "archive_members": 88,
+  "tests": {
+    "tests": "90",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0",
+    "time": "5.098"
+  },
+  "status": "passed",
+  "note": "Preflight candidate archive validation; the final archive is validated again in the external ZIP_Validation.json."
+}

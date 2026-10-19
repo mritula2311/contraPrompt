@@ -1,0 +1,6 @@
+type,n,accuracy,macro_f1
+formatting,100,1.0,1.0
+logical,100,1.0,1.0
+numerical,100,1.0,1.0
+semantic,100,0.75,0.6666666666666666
+temporal,100,1.0,1.0

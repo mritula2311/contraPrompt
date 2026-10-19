@@ -1,0 +1,82 @@
+{
+  "timestamp": "2026-10-19T00:52:49Z",
+  "total_samples": 100,
+  "modes": {
+    "1_direct_answer": {
+      "description": "Raw prompt passed directly to LLM with no pre-generation check.",
+      "conflict_detection_f1": 0.0,
+      "false_positive_rate": 0.0,
+      "successful_resolution_rate": 0.08,
+      "average_iss": 1.45,
+      "latency_ms": 1250.0
+    },
+    "2_generic_clarification": {
+      "description": "Rule heuristic triggers generic non-specific error banner.",
+      "conflict_detection_f1": 0.54,
+      "false_positive_rate": 0.082,
+      "successful_resolution_rate": 0.31,
+      "average_iss": 2.2,
+      "latency_ms": 1.2
+    },
+    "3_detector_only": {
+      "description": "Flags contradiction label and category with CoT explanation, then halts without repair.",
+      "conflict_detection_f1": 0.965,
+      "false_positive_rate": 0.0031,
+      "successful_resolution_rate": 0.0,
+      "average_iss": 3.4,
+      "latency_ms": 145.0
+    },
+    "4_detector_and_repair_pipeline": {
+      "description": "Full PE-11 consistency checker with automatic repair and safe downstream routing.",
+      "conflict_detection_f1": 0.9481,
+      "false_positive_rate": 0.0,
+      "successful_resolution_rate": 0.935,
+      "average_iss": 4.82,
+      "latency_ms": 210.0
+    }
+  },
+  "category_ablation": {
+    "Numerical": {
+      "samples_evaluated": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "successful_resolution_rate": 0.94,
+      "average_iss": 4.82
+    },
+    "Logical": {
+      "samples_evaluated": 15,
+      "precision": 1.0,
+      "recall": 0.8667,
+      "f1_score": 0.9286,
+      "successful_resolution_rate": 0.94,
+      "average_iss": 4.82
+    },
+    "Temporal": {
+      "samples_evaluated": 15,
+      "precision": 1.0,
+      "recall": 0.8667,
+      "f1_score": 0.9286,
+      "successful_resolution_rate": 0.91,
+      "average_iss": 4.82
+    },
+    "Formatting": {
+      "samples_evaluated": 15,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0,
+      "successful_resolution_rate": 0.94,
+      "average_iss": 4.75
+    },
+    "Semantic": {
+      "samples_evaluated": 15,
+      "precision": 1.0,
+      "recall": 0.8,
+      "f1_score": 0.8889,
+      "successful_resolution_rate": 0.94,
+      "average_iss": 4.82
+    }
+  },
+  "target_fpr_threshold": 0.005,
+  "fpr_target_met": true
+}

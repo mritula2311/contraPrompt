@@ -1,0 +1,501 @@
+id,family,type,truth,predicted,latency_ms,asks_clarification,repair_passes_same_detector,repaired_prompt,formal_template_check
+3_logical_test_23,3_logical_test,logical,Underspecified,Underspecified,2.685860999918077,True,,,False
+2_formatting_test_02,2_formatting_test,formatting,Fully impossible,Compatible,0.1872520001597877,False,,,False
+3_formatting_test_17,3_formatting_test,formatting,Underspecified,Underspecified,0.14049299988982966,True,,,False
+2_temporal_test_02,2_temporal_test,temporal,Fully impossible,Compatible,0.2470780000294326,False,,,False
+1_numerical_test_18,1_numerical_test,numerical,Partially conflicting,Compatible,0.10338599986425834,False,,,False
+0_temporal_test_06,0_temporal_test,temporal,Compatible,Compatible,0.11991900009888923,False,,,False
+0_numerical_test_18,0_numerical_test,numerical,Compatible,Compatible,0.47105499970712117,False,,,True
+1_numerical_test_21,1_numerical_test,numerical,Partially conflicting,Compatible,0.1017360000332701,False,,,False
+3_numerical_test_04,3_numerical_test,numerical,Underspecified,Underspecified,0.11832499967567855,True,,,False
+3_temporal_test_16,3_temporal_test,temporal,Underspecified,Underspecified,0.12631900017368025,True,,,False
+2_temporal_test_01,2_temporal_test,temporal,Fully impossible,Compatible,0.2037169997493038,False,,,False
+2_semantic_test_18,2_semantic_test,semantic,Fully impossible,Compatible,0.1402910002070712,False,,,False
+1_logical_test_12,1_logical_test,logical,Partially conflicting,Compatible,0.16296700005113962,False,,,False
+3_temporal_test_14,3_temporal_test,temporal,Underspecified,Underspecified,0.1322729999628791,True,,,False
+0_numerical_test_11,0_numerical_test,numerical,Compatible,Compatible,0.185339999916323,False,,,True
+3_formatting_test_02,3_formatting_test,formatting,Underspecified,Underspecified,0.1249189999725786,True,,,False
+3_logical_test_03,3_logical_test,logical,Underspecified,Underspecified,0.07646900030522374,True,,,False
+1_temporal_test_17,1_temporal_test,temporal,Partially conflicting,Compatible,0.10065600008601905,False,,,False
+3_numerical_test_03,3_numerical_test,numerical,Underspecified,Underspecified,0.1077000001714623,True,,,False
+1_logical_test_23,1_logical_test,logical,Partially conflicting,Compatible,0.08069400018939632,False,,,False
+3_logical_test_04,3_logical_test,logical,Underspecified,Underspecified,0.0746690002415562,True,,,False
+0_temporal_test_16,0_temporal_test,temporal,Compatible,Compatible,0.11237799981245189,False,,,False
+3_numerical_test_17,3_numerical_test,numerical,Underspecified,Underspecified,0.1302780001424253,True,,,False
+3_formatting_test_03,3_formatting_test,formatting,Underspecified,Underspecified,0.11338700005580904,True,,,False
+3_logical_test_11,3_logical_test,logical,Underspecified,Underspecified,0.07414600031552254,True,,,False
+2_numerical_test_05,2_numerical_test,numerical,Fully impossible,Compatible,0.1811239999369718,False,,,True
+1_semantic_test_11,1_semantic_test,semantic,Partially conflicting,Compatible,0.105462999727024,False,,,False
+2_semantic_test_00,2_semantic_test,semantic,Fully impossible,Compatible,0.1388139999107807,False,,,False
+3_semantic_test_24,3_semantic_test,semantic,Underspecified,Underspecified,0.08742699992581038,True,,,False
+1_semantic_test_23,1_semantic_test,semantic,Partially conflicting,Compatible,0.3056609998566273,False,,,False
+2_formatting_test_03,2_formatting_test,formatting,Fully impossible,Compatible,0.14662400008091936,False,,,False
+3_formatting_test_15,3_formatting_test,formatting,Underspecified,Underspecified,0.11713999992934987,True,,,False
+1_formatting_test_07,1_formatting_test,formatting,Partially conflicting,Compatible,0.11452199987616041,False,,,False
+3_semantic_test_16,3_semantic_test,semantic,Underspecified,Underspecified,0.08239699991463567,True,,,False
+0_semantic_test_00,0_semantic_test,semantic,Compatible,Compatible,0.13327499982551672,False,,,False
+0_numerical_test_08,0_numerical_test,numerical,Compatible,Compatible,0.15250200021910132,False,,,True
+2_logical_test_07,2_logical_test,logical,Fully impossible,Compatible,0.31181900021692854,False,,,False
+2_formatting_test_24,2_formatting_test,formatting,Fully impossible,Compatible,0.13838299992130487,False,,,False
+2_semantic_test_09,2_semantic_test,semantic,Fully impossible,Compatible,0.14200900022842688,False,,,False
+2_logical_test_03,2_logical_test,logical,Fully impossible,Compatible,0.2959590001410106,False,,,False
+1_semantic_test_04,1_semantic_test,semantic,Partially conflicting,Compatible,0.13829899990014383,False,,,False
+3_logical_test_17,3_logical_test,logical,Underspecified,Underspecified,0.08384700004171464,True,,,False
+1_numerical_test_14,1_numerical_test,numerical,Partially conflicting,Compatible,0.099028000022372,False,,,False
+1_numerical_test_07,1_numerical_test,numerical,Partially conflicting,Compatible,0.09192599964080728,False,,,False
+0_formatting_test_13,0_formatting_test,formatting,Compatible,Compatible,0.22522800009028288,False,,,False
+2_logical_test_08,2_logical_test,logical,Fully impossible,Compatible,0.10917600002358085,False,,,False
+3_semantic_test_00,3_semantic_test,semantic,Underspecified,Underspecified,0.08815499995762366,True,,,False
+0_logical_test_19,0_logical_test,logical,Compatible,Compatible,0.12417199968695058,False,,,False
+1_semantic_test_02,1_semantic_test,semantic,Partially conflicting,Compatible,0.10050599985333974,False,,,False
+3_semantic_test_11,3_semantic_test,semantic,Underspecified,Underspecified,0.08734099992580013,True,,,False
+2_logical_test_04,2_logical_test,logical,Fully impossible,Compatible,0.10727500011853408,False,,,False
+0_numerical_test_02,0_numerical_test,numerical,Compatible,Compatible,0.14922799982741708,False,,,True
+3_numerical_test_20,3_numerical_test,numerical,Underspecified,Underspecified,0.11345199982315535,True,,,False
+2_temporal_test_12,2_temporal_test,temporal,Fully impossible,Compatible,0.33004999977492844,False,,,False
+1_numerical_test_13,1_numerical_test,numerical,Partially conflicting,Compatible,0.13133199990988942,False,,,False
+1_semantic_test_15,1_semantic_test,semantic,Partially conflicting,Compatible,0.09966400011762744,False,,,False
+2_semantic_test_12,2_semantic_test,semantic,Fully impossible,Compatible,0.13921600020694314,False,,,False
+3_formatting_test_07,3_formatting_test,formatting,Underspecified,Underspecified,0.11928699996133219,True,,,False
+0_semantic_test_09,0_semantic_test,semantic,Compatible,Compatible,0.19840499999190797,False,,,False
+2_semantic_test_03,2_semantic_test,semantic,Fully impossible,Compatible,0.25430400000914233,False,,,False
+1_temporal_test_16,1_temporal_test,temporal,Partially conflicting,Compatible,0.14286099985838518,False,,,False
+2_semantic_test_10,2_semantic_test,semantic,Fully impossible,Compatible,0.1328419998571917,False,,,False
+2_temporal_test_23,2_temporal_test,temporal,Fully impossible,Compatible,0.20134999977017287,False,,,False
+2_formatting_test_08,2_formatting_test,formatting,Fully impossible,Compatible,0.2374330001657654,False,,,False
+3_formatting_test_19,3_formatting_test,formatting,Underspecified,Underspecified,0.11988099959125975,True,,,False
+1_temporal_test_20,1_temporal_test,temporal,Partially conflicting,Compatible,0.1764869998623908,False,,,False
+2_semantic_test_20,2_semantic_test,semantic,Fully impossible,Compatible,0.15047999977468862,False,,,False
+2_numerical_test_15,2_numerical_test,numerical,Fully impossible,Compatible,0.19195599998056423,False,,,True
+2_semantic_test_19,2_semantic_test,semantic,Fully impossible,Compatible,0.13800699980492936,False,,,False
+2_temporal_test_03,2_temporal_test,temporal,Fully impossible,Compatible,0.2034740000453894,False,,,False
+3_temporal_test_22,3_temporal_test,temporal,Underspecified,Underspecified,0.12265700024727266,True,,,False
+3_temporal_test_00,3_temporal_test,temporal,Underspecified,Underspecified,0.14935199988030945,True,,,False
+3_logical_test_02,3_logical_test,logical,Underspecified,Underspecified,0.07822799989298801,True,,,False
+3_formatting_test_14,3_formatting_test,formatting,Underspecified,Underspecified,0.11552900014066836,True,,,False
+1_logical_test_13,1_logical_test,logical,Partially conflicting,Compatible,0.08276999960799003,False,,,False
+3_numerical_test_10,3_numerical_test,numerical,Underspecified,Underspecified,0.10606700016069226,True,,,False
+3_numerical_test_07,3_numerical_test,numerical,Underspecified,Underspecified,0.11418999974921462,True,,,False
+2_numerical_test_02,2_numerical_test,numerical,Fully impossible,Compatible,0.1758819998940453,False,,,True
+3_formatting_test_04,3_formatting_test,formatting,Underspecified,Underspecified,0.11325400009809528,True,,,False
+2_logical_test_02,2_logical_test,logical,Fully impossible,Compatible,0.13315999967744574,False,,,False
+0_formatting_test_24,0_formatting_test,formatting,Compatible,Compatible,0.12199600041640224,False,,,False
+3_temporal_test_18,3_temporal_test,temporal,Underspecified,Underspecified,0.11890599989783368,True,,,False
+0_numerical_test_12,0_numerical_test,numerical,Compatible,Compatible,0.14730399971085717,False,,,True
+1_semantic_test_05,1_semantic_test,semantic,Partially conflicting,Compatible,0.21958199977234472,False,,,False
+2_formatting_test_19,2_formatting_test,formatting,Fully impossible,Compatible,0.13978900005895412,False,,,False
+2_formatting_test_07,2_formatting_test,formatting,Fully impossible,Compatible,0.1340589997198549,False,,,False
+2_numerical_test_08,2_numerical_test,numerical,Fully impossible,Compatible,0.20804799987672595,False,,,True
+3_formatting_test_21,3_formatting_test,formatting,Underspecified,Underspecified,0.11658299990813248,True,,,False
+0_logical_test_06,0_logical_test,logical,Compatible,Compatible,0.11960800020460738,False,,,False
+3_numerical_test_18,3_numerical_test,numerical,Underspecified,Underspecified,0.18331699993723305,True,,,False
+3_temporal_test_11,3_temporal_test,temporal,Underspecified,Underspecified,0.12185300010969513,True,,,False
+0_formatting_test_03,0_formatting_test,formatting,Compatible,Compatible,0.11691200006680447,False,,,False
+2_formatting_test_13,2_formatting_test,formatting,Fully impossible,Compatible,0.16904599988265545,False,,,False
+2_numerical_test_03,2_numerical_test,numerical,Fully impossible,Compatible,0.28561499993884354,False,,,True
+1_temporal_test_11,1_temporal_test,temporal,Partially conflicting,Compatible,0.10395600020274287,False,,,False
+1_formatting_test_23,1_formatting_test,formatting,Partially conflicting,Compatible,0.11539500019353,False,,,False
+1_logical_test_22,1_logical_test,logical,Partially conflicting,Compatible,0.07952100031616283,False,,,False
+3_logical_test_21,3_logical_test,logical,Underspecified,Underspecified,0.07632799997736583,True,,,False
+3_formatting_test_18,3_formatting_test,formatting,Underspecified,Underspecified,0.11338500007695984,True,,,False
+1_numerical_test_11,1_numerical_test,numerical,Partially conflicting,Compatible,0.12396600004649372,False,,,False
+1_logical_test_24,1_logical_test,logical,Partially conflicting,Compatible,0.08156700005201856,False,,,False
+0_numerical_test_03,0_numerical_test,numerical,Compatible,Compatible,0.14503900001727743,False,,,True
+0_formatting_test_15,0_formatting_test,formatting,Compatible,Compatible,0.11573799974939902,False,,,False
+0_logical_test_10,0_logical_test,logical,Compatible,Compatible,0.12477300015234505,False,,,False
+3_numerical_test_19,3_numerical_test,numerical,Underspecified,Underspecified,0.10979100034091971,True,,,False
+0_logical_test_04,0_logical_test,logical,Compatible,Compatible,0.11869099989780807,False,,,False
+1_semantic_test_09,1_semantic_test,semantic,Partially conflicting,Compatible,0.09819800015975488,False,,,False
+3_temporal_test_02,3_temporal_test,temporal,Underspecified,Underspecified,0.1471020000280987,True,,,False
+0_semantic_test_20,0_semantic_test,semantic,Compatible,Compatible,0.10453300001245225,False,,,False
+1_logical_test_09,1_logical_test,logical,Partially conflicting,Compatible,0.08147000016833772,False,,,False
+3_formatting_test_16,3_formatting_test,formatting,Underspecified,Underspecified,0.11411600007704692,True,,,False
+1_semantic_test_24,1_semantic_test,semantic,Partially conflicting,Compatible,0.09705699994810857,False,,,False
+2_numerical_test_16,2_numerical_test,numerical,Fully impossible,Compatible,0.20990300026824116,False,,,True
+2_logical_test_19,2_logical_test,logical,Fully impossible,Compatible,0.11582399974940927,False,,,False
+1_formatting_test_09,1_formatting_test,formatting,Partially conflicting,Compatible,0.11704200005624443,False,,,False
+0_semantic_test_10,0_semantic_test,semantic,Compatible,Compatible,0.24250200021924684,False,,,False
+0_logical_test_13,0_logical_test,logical,Compatible,Compatible,0.12452400005713571,False,,,False
+3_formatting_test_22,3_formatting_test,formatting,Underspecified,Underspecified,0.11310799982311437,True,,,False
+2_logical_test_10,2_logical_test,logical,Fully impossible,Compatible,0.1737130000947218,False,,,False
+1_formatting_test_19,1_formatting_test,formatting,Partially conflicting,Compatible,0.18608700020195101,False,,,False
+0_semantic_test_16,0_semantic_test,semantic,Compatible,Compatible,0.12249400015207357,False,,,False
+1_semantic_test_16,1_semantic_test,semantic,Partially conflicting,Compatible,0.1417499997842242,False,,,False
+1_numerical_test_17,1_numerical_test,numerical,Partially conflicting,Compatible,0.09930099986377172,False,,,False
+3_numerical_test_21,3_numerical_test,numerical,Underspecified,Underspecified,0.11466199975984637,True,,,False
+2_temporal_test_14,2_temporal_test,temporal,Fully impossible,Compatible,0.20482500030993833,False,,,False
+1_formatting_test_04,1_formatting_test,formatting,Partially conflicting,Compatible,0.11020400006600539,False,,,False
+1_logical_test_07,1_logical_test,logical,Partially conflicting,Compatible,0.08185499973478727,False,,,False
+0_logical_test_12,0_logical_test,logical,Compatible,Compatible,0.12307700035307789,False,,,False
+0_formatting_test_01,0_formatting_test,formatting,Compatible,Compatible,0.13985399982630042,False,,,False
+2_semantic_test_06,2_semantic_test,semantic,Fully impossible,Compatible,0.13715800014324486,False,,,False
+3_numerical_test_06,3_numerical_test,numerical,Underspecified,Underspecified,0.10798899984365562,True,,,False
+1_formatting_test_21,1_formatting_test,formatting,Partially conflicting,Compatible,0.11396099989724462,False,,,False
+1_logical_test_10,1_logical_test,logical,Partially conflicting,Compatible,0.0843020002321282,False,,,False
+2_temporal_test_13,2_temporal_test,temporal,Fully impossible,Compatible,0.19884500034095254,False,,,False
+1_temporal_test_24,1_temporal_test,temporal,Partially conflicting,Compatible,0.10071099995911936,False,,,False
+3_numerical_test_14,3_numerical_test,numerical,Underspecified,Underspecified,0.10766500008685398,True,,,False
+2_numerical_test_14,2_numerical_test,numerical,Fully impossible,Compatible,0.21190899997236556,False,,,True
+0_formatting_test_11,0_formatting_test,formatting,Compatible,Compatible,0.2521100000194565,False,,,False
+1_semantic_test_21,1_semantic_test,semantic,Partially conflicting,Compatible,0.10370499967393698,False,,,False
+3_logical_test_19,3_logical_test,logical,Underspecified,Underspecified,0.19895000014003017,True,,,False
+0_temporal_test_22,0_temporal_test,temporal,Compatible,Compatible,0.119503999940207,False,,,False
+1_formatting_test_03,1_formatting_test,formatting,Partially conflicting,Compatible,0.1452259998586669,False,,,False
+0_semantic_test_23,0_semantic_test,semantic,Compatible,Compatible,0.10311999994883081,False,,,False
+1_temporal_test_23,1_temporal_test,temporal,Partially conflicting,Compatible,0.09844499982136767,False,,,False
+1_formatting_test_06,1_formatting_test,formatting,Partially conflicting,Compatible,0.11154300000271178,False,,,False
+2_numerical_test_07,2_numerical_test,numerical,Fully impossible,Compatible,0.1774080001268885,False,,,True
+1_logical_test_19,1_logical_test,logical,Partially conflicting,Compatible,0.08396000021093641,False,,,False
+0_logical_test_22,0_logical_test,logical,Compatible,Compatible,0.12328000002526096,False,,,False
+1_numerical_test_08,1_numerical_test,numerical,Partially conflicting,Compatible,0.32183500024984824,False,,,False
+3_logical_test_12,3_logical_test,logical,Underspecified,Underspecified,0.0843749999148713,True,,,False
+1_logical_test_21,1_logical_test,logical,Partially conflicting,Compatible,0.08206599977711448,False,,,False
+1_numerical_test_02,1_numerical_test,numerical,Partially conflicting,Compatible,0.09425200005352963,False,,,False
+0_formatting_test_22,0_formatting_test,formatting,Compatible,Compatible,0.11541999992914498,False,,,False
+0_logical_test_00,0_logical_test,logical,Compatible,Compatible,0.12272100002519437,False,,,False
+2_semantic_test_15,2_semantic_test,semantic,Fully impossible,Compatible,0.1447590002499055,False,,,False
+0_logical_test_24,0_logical_test,logical,Compatible,Compatible,0.14634900026067044,False,,,False
+1_semantic_test_18,1_semantic_test,semantic,Partially conflicting,Compatible,0.10055700022348901,False,,,False
+2_semantic_test_24,2_semantic_test,semantic,Fully impossible,Compatible,0.1334469998255372,False,,,False
+1_formatting_test_24,1_formatting_test,formatting,Partially conflicting,Compatible,0.11147500026709167,False,,,False
+0_semantic_test_06,0_semantic_test,semantic,Compatible,Compatible,0.10201199984294362,False,,,False
+0_logical_test_23,0_logical_test,logical,Compatible,Compatible,0.1187210000352934,False,,,False
+3_logical_test_16,3_logical_test,logical,Underspecified,Underspecified,0.9677039997768588,True,,,False
+2_logical_test_00,2_logical_test,logical,Fully impossible,Compatible,0.13945199998488533,False,,,False
+2_logical_test_23,2_logical_test,logical,Fully impossible,Compatible,0.11074700023527839,False,,,False
+0_formatting_test_06,0_formatting_test,formatting,Compatible,Compatible,0.16070900028353208,False,,,False
+2_numerical_test_09,2_numerical_test,numerical,Fully impossible,Compatible,0.1893510002446419,False,,,True
+1_temporal_test_06,1_temporal_test,temporal,Partially conflicting,Compatible,0.10339200025555328,False,,,False
+0_semantic_test_07,0_semantic_test,semantic,Compatible,Compatible,0.10566300034042797,False,,,False
+3_temporal_test_03,3_temporal_test,temporal,Underspecified,Underspecified,0.12520099971879972,True,,,False
+2_semantic_test_17,2_semantic_test,semantic,Fully impossible,Compatible,0.13776700006928877,False,,,False
+0_logical_test_11,0_logical_test,logical,Compatible,Compatible,0.24597500032541575,False,,,False
+3_numerical_test_05,3_numerical_test,numerical,Underspecified,Underspecified,0.2073669998026162,True,,,False
+2_numerical_test_21,2_numerical_test,numerical,Fully impossible,Compatible,0.18048600031761453,False,,,True
+1_semantic_test_20,1_semantic_test,semantic,Partially conflicting,Compatible,0.4944259999319911,False,,,False
+2_numerical_test_17,2_numerical_test,numerical,Fully impossible,Compatible,0.2144760001101531,False,,,True
+2_semantic_test_22,2_semantic_test,semantic,Fully impossible,Compatible,0.13971899988973746,False,,,False
+0_numerical_test_00,0_numerical_test,numerical,Compatible,Compatible,0.14628300004915218,False,,,True
+1_logical_test_04,1_logical_test,logical,Partially conflicting,Compatible,0.08302300011564512,False,,,False
+1_temporal_test_00,1_temporal_test,temporal,Partially conflicting,Compatible,0.09953800008588587,False,,,False
+2_semantic_test_13,2_semantic_test,semantic,Fully impossible,Compatible,0.13340400028027943,False,,,False
+0_formatting_test_17,0_formatting_test,formatting,Compatible,Compatible,0.12681999987762538,False,,,False
+1_temporal_test_13,1_temporal_test,temporal,Partially conflicting,Compatible,0.2620609998302825,False,,,False
+0_formatting_test_08,0_formatting_test,formatting,Compatible,Compatible,0.1170199998341559,False,,,False
+1_logical_test_15,1_logical_test,logical,Partially conflicting,Compatible,0.07965199984028004,False,,,False
+3_logical_test_14,3_logical_test,logical,Underspecified,Underspecified,0.0761580004109419,True,,,False
+3_formatting_test_23,3_formatting_test,formatting,Underspecified,Underspecified,0.1495810001870268,True,,,False
+2_logical_test_16,2_logical_test,logical,Fully impossible,Compatible,0.11168300034114509,False,,,False
+2_formatting_test_20,2_formatting_test,formatting,Fully impossible,Compatible,0.17213799992532586,False,,,False
+2_temporal_test_24,2_temporal_test,temporal,Fully impossible,Compatible,0.20632699988709646,False,,,False
+1_numerical_test_10,1_numerical_test,numerical,Partially conflicting,Compatible,0.09948000024451176,False,,,False
+3_logical_test_13,3_logical_test,logical,Underspecified,Underspecified,0.07851899999877787,True,,,False
+1_logical_test_06,1_logical_test,logical,Partially conflicting,Compatible,0.08690399999977672,False,,,False
+2_logical_test_17,2_logical_test,logical,Fully impossible,Compatible,0.10935499994957354,False,,,False
+3_semantic_test_19,3_semantic_test,semantic,Underspecified,Underspecified,0.1554109999233333,True,,,False
+0_temporal_test_14,0_temporal_test,temporal,Compatible,Compatible,0.12053199998263153,False,,,False
+0_logical_test_15,0_logical_test,logical,Compatible,Compatible,0.14668699986941647,False,,,False
+0_temporal_test_18,0_temporal_test,temporal,Compatible,Compatible,0.11015900008715107,False,,,False
+0_logical_test_08,0_logical_test,logical,Compatible,Compatible,0.3243599999223079,False,,,False
+0_semantic_test_01,0_semantic_test,semantic,Compatible,Compatible,0.10335200022382196,False,,,False
+3_numerical_test_00,3_numerical_test,numerical,Underspecified,Underspecified,0.10891500005527632,True,,,False
+3_logical_test_08,3_logical_test,logical,Underspecified,Underspecified,0.07651399982933071,True,,,False
+0_temporal_test_07,0_temporal_test,temporal,Compatible,Compatible,0.15668200012441957,False,,,False
+3_semantic_test_15,3_semantic_test,semantic,Underspecified,Underspecified,0.08478599966110778,True,,,False
+1_formatting_test_18,1_formatting_test,formatting,Partially conflicting,Compatible,0.11396000036256737,False,,,False
+0_logical_test_16,0_logical_test,logical,Compatible,Compatible,0.11784200023612357,False,,,False
+3_temporal_test_23,3_temporal_test,temporal,Underspecified,Underspecified,0.12185699961264618,True,,,False
+0_numerical_test_13,0_numerical_test,numerical,Compatible,Compatible,0.37052000016046804,False,,,True
+3_semantic_test_07,3_semantic_test,semantic,Underspecified,Underspecified,0.12954299972989247,True,,,False
+2_temporal_test_15,2_temporal_test,temporal,Fully impossible,Compatible,0.21482800002559088,False,,,False
+2_temporal_test_09,2_temporal_test,temporal,Fully impossible,Compatible,0.20418099984453875,False,,,False
+1_logical_test_16,1_logical_test,logical,Partially conflicting,Compatible,0.09158500006378745,False,,,False
+3_temporal_test_08,3_temporal_test,temporal,Underspecified,Underspecified,0.15916999973342172,True,,,False
+2_temporal_test_22,2_temporal_test,temporal,Fully impossible,Compatible,0.19648399984362186,False,,,False
+3_semantic_test_20,3_semantic_test,semantic,Underspecified,Underspecified,0.09367100028612185,True,,,False
+2_formatting_test_12,2_formatting_test,formatting,Fully impossible,Compatible,0.13887900013287435,False,,,False
+3_temporal_test_17,3_temporal_test,temporal,Underspecified,Underspecified,0.1229829999829235,True,,,False
+1_temporal_test_01,1_temporal_test,temporal,Partially conflicting,Compatible,0.09897500012812088,False,,,False
+1_numerical_test_01,1_numerical_test,numerical,Partially conflicting,Compatible,0.09298799977841554,False,,,False
+3_semantic_test_12,3_semantic_test,semantic,Underspecified,Underspecified,0.08189600021069054,True,,,False
+3_formatting_test_09,3_formatting_test,formatting,Underspecified,Underspecified,0.7298860000446439,True,,,False
+0_semantic_test_17,0_semantic_test,semantic,Compatible,Compatible,0.1259889995708363,False,,,False
+1_semantic_test_06,1_semantic_test,semantic,Partially conflicting,Compatible,0.10669599987522815,False,,,False
+1_temporal_test_09,1_temporal_test,temporal,Partially conflicting,Compatible,0.10497799985387246,False,,,False
+3_temporal_test_07,3_temporal_test,temporal,Underspecified,Underspecified,0.1270239999939804,True,,,False
+2_formatting_test_05,2_formatting_test,formatting,Fully impossible,Compatible,0.18035900029644836,False,,,False
+1_logical_test_02,1_logical_test,logical,Partially conflicting,Compatible,0.0912610003069858,False,,,False
+2_temporal_test_18,2_temporal_test,temporal,Fully impossible,Compatible,0.20746999962284463,False,,,False
+2_numerical_test_18,2_numerical_test,numerical,Fully impossible,Compatible,0.18677699972613482,False,,,True
+0_numerical_test_24,0_numerical_test,numerical,Compatible,Compatible,0.15082200025062775,False,,,True
+3_temporal_test_12,3_temporal_test,temporal,Underspecified,Underspecified,0.12577899997268105,True,,,False
+3_formatting_test_12,3_formatting_test,formatting,Underspecified,Underspecified,0.33755699996618205,True,,,False
+0_semantic_test_05,0_semantic_test,semantic,Compatible,Compatible,0.12001300001429627,False,,,False
+2_semantic_test_21,2_semantic_test,semantic,Fully impossible,Compatible,0.15122900003916584,False,,,False
+2_numerical_test_22,2_numerical_test,numerical,Fully impossible,Compatible,0.2177390001634194,False,,,True
+3_numerical_test_09,3_numerical_test,numerical,Underspecified,Underspecified,0.11558699998204247,True,,,False
+0_semantic_test_22,0_semantic_test,semantic,Compatible,Compatible,0.14182299992171465,False,,,False
+2_logical_test_24,2_logical_test,logical,Fully impossible,Compatible,0.1112049999392184,False,,,False
+3_numerical_test_16,3_numerical_test,numerical,Underspecified,Underspecified,0.10796600008688984,True,,,False
+3_numerical_test_08,3_numerical_test,numerical,Underspecified,Underspecified,0.10478400008651079,True,,,False
+0_logical_test_20,0_logical_test,logical,Compatible,Compatible,0.4446799998731876,False,,,False
+2_numerical_test_04,2_numerical_test,numerical,Fully impossible,Compatible,0.21373200024754624,False,,,True
+1_temporal_test_07,1_temporal_test,temporal,Partially conflicting,Compatible,0.10767399999167537,False,,,False
+3_formatting_test_24,3_formatting_test,formatting,Underspecified,Underspecified,0.22367900010067387,True,,,False
+1_formatting_test_11,1_formatting_test,formatting,Partially conflicting,Compatible,0.12054499984515132,False,,,False
+3_logical_test_18,3_logical_test,logical,Underspecified,Underspecified,0.07922099985080422,True,,,False
+1_temporal_test_21,1_temporal_test,temporal,Partially conflicting,Compatible,0.18498500003261142,False,,,False
+0_formatting_test_02,0_formatting_test,formatting,Compatible,Compatible,0.1443940000172006,False,,,False
+0_temporal_test_00,0_temporal_test,temporal,Compatible,Compatible,0.11824100010926486,False,,,False
+3_logical_test_01,3_logical_test,logical,Underspecified,Underspecified,0.24962699990283,True,,,False
+1_temporal_test_04,1_temporal_test,temporal,Partially conflicting,Compatible,0.1073959997484053,False,,,False
+0_numerical_test_07,0_numerical_test,numerical,Compatible,Compatible,0.1546260000395705,False,,,True
+2_temporal_test_21,2_temporal_test,temporal,Fully impossible,Compatible,0.20856300034211017,False,,,False
+2_temporal_test_20,2_temporal_test,temporal,Fully impossible,Compatible,0.23447600005965796,False,,,False
+3_semantic_test_21,3_semantic_test,semantic,Underspecified,Underspecified,0.08737400003155926,True,,,False
+2_formatting_test_14,2_formatting_test,formatting,Fully impossible,Compatible,0.1382569998895633,False,,,False
+0_logical_test_05,0_logical_test,logical,Compatible,Compatible,0.32295199980580946,False,,,False
+2_semantic_test_23,2_semantic_test,semantic,Fully impossible,Compatible,0.1505879999967874,False,,,False
+1_temporal_test_03,1_temporal_test,temporal,Partially conflicting,Compatible,0.5434539998532273,False,,,False
+0_numerical_test_15,0_numerical_test,numerical,Compatible,Compatible,0.1638550002098782,False,,,True
+2_semantic_test_04,2_semantic_test,semantic,Fully impossible,Compatible,0.20628899983421434,False,,,False
+2_formatting_test_01,2_formatting_test,formatting,Fully impossible,Compatible,0.16479499981869594,False,,,False
+1_numerical_test_00,1_numerical_test,numerical,Partially conflicting,Compatible,0.09549099968353403,False,,,False
+3_logical_test_22,3_logical_test,logical,Underspecified,Underspecified,0.07834199959688704,True,,,False
+3_temporal_test_13,3_temporal_test,temporal,Underspecified,Underspecified,0.13341100020625163,True,,,False
+0_temporal_test_01,0_temporal_test,temporal,Compatible,Compatible,0.11339200000293204,False,,,False
+2_logical_test_13,2_logical_test,logical,Fully impossible,Compatible,0.11076700002377038,False,,,False
+2_temporal_test_17,2_temporal_test,temporal,Fully impossible,Compatible,0.2047920002041792,False,,,False
+3_temporal_test_06,3_temporal_test,temporal,Underspecified,Underspecified,0.12076600023647188,True,,,False
+3_temporal_test_05,3_temporal_test,temporal,Underspecified,Underspecified,0.1250750001418055,True,,,False
+1_formatting_test_13,1_formatting_test,formatting,Partially conflicting,Compatible,0.12416299978212919,False,,,False
+1_logical_test_08,1_logical_test,logical,Partially conflicting,Compatible,0.08176399978765403,False,,,False
+1_numerical_test_04,1_numerical_test,numerical,Partially conflicting,Compatible,0.09390800005348865,False,,,False
+1_numerical_test_06,1_numerical_test,numerical,Partially conflicting,Compatible,0.08971499983090325,False,,,False
+3_logical_test_07,3_logical_test,logical,Underspecified,Underspecified,0.07835099995645578,True,,,False
+1_semantic_test_17,1_semantic_test,semantic,Partially conflicting,Compatible,0.09761899991644896,False,,,False
+1_formatting_test_12,1_formatting_test,formatting,Partially conflicting,Compatible,0.11234600015086471,False,,,False
+0_semantic_test_19,0_semantic_test,semantic,Compatible,Compatible,0.12409100008881069,False,,,False
+0_temporal_test_24,0_temporal_test,temporal,Compatible,Compatible,0.20879700014120317,False,,,False
+0_formatting_test_12,0_formatting_test,formatting,Compatible,Compatible,0.11700000004566391,False,,,False
+1_formatting_test_16,1_formatting_test,formatting,Partially conflicting,Compatible,0.11046800000258372,False,,,False
+0_temporal_test_20,0_temporal_test,temporal,Compatible,Compatible,0.26205299991488573,False,,,False
+0_formatting_test_07,0_formatting_test,formatting,Compatible,Compatible,0.11946599988732487,False,,,False
+0_numerical_test_16,0_numerical_test,numerical,Compatible,Compatible,0.1760840000315511,False,,,True
+0_logical_test_03,0_logical_test,logical,Compatible,Compatible,0.30723500003659865,False,,,False
+1_numerical_test_23,1_numerical_test,numerical,Partially conflicting,Compatible,0.18806600019161124,False,,,False
+3_temporal_test_15,3_temporal_test,temporal,Underspecified,Underspecified,0.1253020000149263,True,,,False
+1_temporal_test_15,1_temporal_test,temporal,Partially conflicting,Compatible,0.3740880001714686,False,,,False
+1_formatting_test_08,1_formatting_test,formatting,Partially conflicting,Compatible,0.11806700013039517,False,,,False
+0_semantic_test_03,0_semantic_test,semantic,Compatible,Compatible,0.10947700002361671,False,,,False
+3_numerical_test_13,3_numerical_test,numerical,Underspecified,Underspecified,0.1094879999072873,True,,,False
+0_temporal_test_05,0_temporal_test,temporal,Compatible,Compatible,0.42324500009272015,False,,,False
+2_formatting_test_09,2_formatting_test,formatting,Fully impossible,Compatible,0.2658589996826777,False,,,False
+0_numerical_test_23,0_numerical_test,numerical,Compatible,Compatible,0.24432100008198177,False,,,True
+0_logical_test_18,0_logical_test,logical,Compatible,Compatible,0.12466399994082167,False,,,False
+3_temporal_test_09,3_temporal_test,temporal,Underspecified,Underspecified,0.12804700008928194,True,,,False
+2_numerical_test_23,2_numerical_test,numerical,Fully impossible,Compatible,0.299972999982856,False,,,True
+0_semantic_test_13,0_semantic_test,semantic,Compatible,Compatible,0.11098499999206979,False,,,False
+1_formatting_test_01,1_formatting_test,formatting,Partially conflicting,Compatible,0.11567999990802491,False,,,False
+3_semantic_test_06,3_semantic_test,semantic,Underspecified,Underspecified,0.08548400001018308,True,,,False
+0_formatting_test_00,0_formatting_test,formatting,Compatible,Compatible,0.11689299981298973,False,,,False
+2_numerical_test_11,2_numerical_test,numerical,Fully impossible,Compatible,0.22668600013275864,False,,,True
+3_formatting_test_10,3_formatting_test,formatting,Underspecified,Underspecified,0.11945399955948233,True,,,False
+1_numerical_test_09,1_numerical_test,numerical,Partially conflicting,Compatible,0.1341480001428863,False,,,False
+3_formatting_test_06,3_formatting_test,formatting,Underspecified,Underspecified,0.11432799965405138,True,,,False
+0_semantic_test_08,0_semantic_test,semantic,Compatible,Compatible,0.1031359997796244,False,,,False
+1_formatting_test_00,1_formatting_test,formatting,Partially conflicting,Compatible,0.11162100008732523,False,,,False
+1_formatting_test_02,1_formatting_test,formatting,Partially conflicting,Compatible,0.10926800041488605,False,,,False
+0_formatting_test_05,0_formatting_test,formatting,Compatible,Compatible,0.23229799990076572,False,,,False
+2_numerical_test_06,2_numerical_test,numerical,Fully impossible,Compatible,0.20910100010951282,False,,,True
+3_semantic_test_01,3_semantic_test,semantic,Underspecified,Underspecified,0.09109800021178671,True,,,False
+1_logical_test_14,1_logical_test,logical,Partially conflicting,Compatible,0.08284700015792623,False,,,False
+0_logical_test_01,0_logical_test,logical,Compatible,Compatible,0.13187099966671667,False,,,False
+0_numerical_test_09,0_numerical_test,numerical,Compatible,Compatible,0.14889400017636945,False,,,True
+0_formatting_test_18,0_formatting_test,formatting,Compatible,Compatible,0.11620399982348317,False,,,False
+1_numerical_test_12,1_numerical_test,numerical,Partially conflicting,Compatible,0.18558100009613554,False,,,False
+0_semantic_test_21,0_semantic_test,semantic,Compatible,Compatible,0.46032199998080614,False,,,False
+0_logical_test_02,0_logical_test,logical,Compatible,Compatible,0.20524900037344196,False,,,False
+0_temporal_test_10,0_temporal_test,temporal,Compatible,Compatible,0.11881000000357744,False,,,False
+0_temporal_test_23,0_temporal_test,temporal,Compatible,Compatible,0.11863300005643396,False,,,False
+3_logical_test_10,3_logical_test,logical,Underspecified,Underspecified,0.07935200028441614,True,,,False
+1_temporal_test_14,1_temporal_test,temporal,Partially conflicting,Compatible,0.5393719998210145,False,,,False
+1_semantic_test_14,1_semantic_test,semantic,Partially conflicting,Compatible,0.1039880003190774,False,,,False
+2_temporal_test_16,2_temporal_test,temporal,Fully impossible,Compatible,0.24252900038845837,False,,,False
+1_numerical_test_22,1_numerical_test,numerical,Partially conflicting,Compatible,0.0961480000114534,False,,,False
+3_formatting_test_20,3_formatting_test,formatting,Underspecified,Underspecified,0.15709999979662825,True,,,False
+1_numerical_test_15,1_numerical_test,numerical,Partially conflicting,Compatible,0.09381800009578001,False,,,False
+1_logical_test_18,1_logical_test,logical,Partially conflicting,Compatible,0.08140999989336706,False,,,False
+1_numerical_test_05,1_numerical_test,numerical,Partially conflicting,Compatible,0.0957689999268041,False,,,False
+1_numerical_test_03,1_numerical_test,numerical,Partially conflicting,Compatible,0.3530370004227734,False,,,False
+2_semantic_test_11,2_semantic_test,semantic,Fully impossible,Compatible,0.23747300019749673,False,,,False
+1_logical_test_00,1_logical_test,logical,Partially conflicting,Compatible,0.09140100019067177,False,,,False
+0_numerical_test_22,0_numerical_test,numerical,Compatible,Compatible,0.25529699996695854,False,,,True
+0_logical_test_14,0_logical_test,logical,Compatible,Compatible,0.13062000016361708,False,,,False
+2_temporal_test_05,2_temporal_test,temporal,Fully impossible,Compatible,0.2054319998023857,False,,,False
+1_semantic_test_08,1_semantic_test,semantic,Partially conflicting,Compatible,0.1119799999287352,False,,,False
+0_semantic_test_04,0_semantic_test,semantic,Compatible,Compatible,0.1166319998446852,False,,,False
+1_logical_test_05,1_logical_test,logical,Partially conflicting,Compatible,0.08358300010513631,False,,,False
+3_semantic_test_03,3_semantic_test,semantic,Underspecified,Underspecified,0.08946000025389367,True,,,False
+1_logical_test_03,1_logical_test,logical,Partially conflicting,Compatible,0.0968450003711041,False,,,False
+1_temporal_test_22,1_temporal_test,temporal,Partially conflicting,Compatible,0.10207300010733888,False,,,False
+2_temporal_test_10,2_temporal_test,temporal,Fully impossible,Compatible,0.4820989997824654,False,,,False
+0_semantic_test_15,0_semantic_test,semantic,Compatible,Compatible,0.1937810002345941,False,,,False
+2_semantic_test_01,2_semantic_test,semantic,Fully impossible,Compatible,0.15606299984938232,False,,,False
+3_semantic_test_09,3_semantic_test,semantic,Underspecified,Underspecified,0.19461600004433421,True,,,False
+0_temporal_test_02,0_temporal_test,temporal,Compatible,Compatible,0.11803699999290984,False,,,False
+3_formatting_test_11,3_formatting_test,formatting,Underspecified,Underspecified,0.11842100002468214,True,,,False
+1_semantic_test_07,1_semantic_test,semantic,Partially conflicting,Compatible,0.14053799986868398,False,,,False
+2_formatting_test_04,2_formatting_test,formatting,Fully impossible,Compatible,0.14271700001700083,False,,,False
+0_temporal_test_17,0_temporal_test,temporal,Compatible,Compatible,0.1116669996008568,False,,,False
+2_semantic_test_16,2_semantic_test,semantic,Fully impossible,Compatible,0.16125100000863313,False,,,False
+3_temporal_test_01,3_temporal_test,temporal,Underspecified,Underspecified,0.12377100028970744,True,,,False
+1_logical_test_17,1_logical_test,logical,Partially conflicting,Compatible,0.08110099997793441,False,,,False
+1_semantic_test_13,1_semantic_test,semantic,Partially conflicting,Compatible,0.09971100007533096,False,,,False
+1_formatting_test_22,1_formatting_test,formatting,Partially conflicting,Compatible,0.13304000003699912,False,,,False
+3_semantic_test_08,3_semantic_test,semantic,Underspecified,Underspecified,0.09203799982060445,True,,,False
+3_numerical_test_01,3_numerical_test,numerical,Underspecified,Underspecified,0.11029799998141243,True,,,False
+1_formatting_test_10,1_formatting_test,formatting,Partially conflicting,Compatible,0.11609700004555634,False,,,False
+1_semantic_test_01,1_semantic_test,semantic,Partially conflicting,Compatible,0.09481899996899301,False,,,False
+0_numerical_test_01,0_numerical_test,numerical,Compatible,Compatible,0.14899699999659788,False,,,True
+2_formatting_test_17,2_formatting_test,formatting,Fully impossible,Compatible,0.46899700009817025,False,,,False
+0_semantic_test_02,0_semantic_test,semantic,Compatible,Compatible,0.10390900024503935,False,,,False
+2_logical_test_15,2_logical_test,logical,Fully impossible,Compatible,0.11370099991836469,False,,,False
+3_semantic_test_04,3_semantic_test,semantic,Underspecified,Underspecified,0.08613599993623211,True,,,False
+2_numerical_test_20,2_numerical_test,numerical,Fully impossible,Compatible,0.1805239999157493,False,,,True
+1_logical_test_01,1_logical_test,logical,Partially conflicting,Compatible,0.08183199997802149,False,,,False
+3_formatting_test_13,3_formatting_test,formatting,Underspecified,Underspecified,0.20436799968592823,True,,,False
+0_numerical_test_19,0_numerical_test,numerical,Compatible,Compatible,0.3249520000281336,False,,,True
+0_semantic_test_14,0_semantic_test,semantic,Compatible,Compatible,0.3739310000128171,False,,,False
+3_logical_test_09,3_logical_test,logical,Underspecified,Underspecified,0.0849080001898983,True,,,False
+3_numerical_test_24,3_numerical_test,numerical,Underspecified,Underspecified,0.11255199979132158,True,,,False
+0_numerical_test_04,0_numerical_test,numerical,Compatible,Compatible,0.18398900010652142,False,,,True
+1_formatting_test_20,1_formatting_test,formatting,Partially conflicting,Compatible,0.2581310000095982,False,,,False
+0_logical_test_09,0_logical_test,logical,Compatible,Compatible,0.2174289998038148,False,,,False
+1_formatting_test_17,1_formatting_test,formatting,Partially conflicting,Compatible,0.22033999994164333,False,,,False
+3_logical_test_15,3_logical_test,logical,Underspecified,Underspecified,0.11617700010901899,True,,,False
+2_temporal_test_06,2_temporal_test,temporal,Fully impossible,Compatible,0.21909999986746698,False,,,False
+2_numerical_test_19,2_numerical_test,numerical,Fully impossible,Compatible,0.18566499966254923,False,,,True
+3_formatting_test_00,3_formatting_test,formatting,Underspecified,Underspecified,0.11742499964384479,True,,,False
+3_formatting_test_08,3_formatting_test,formatting,Underspecified,Underspecified,0.21088100038468838,True,,,False
+2_temporal_test_07,2_temporal_test,temporal,Fully impossible,Compatible,0.38193899990801583,False,,,False
+1_formatting_test_15,1_formatting_test,formatting,Partially conflicting,Compatible,0.11735199996110168,False,,,False
+0_temporal_test_04,0_temporal_test,temporal,Compatible,Compatible,0.11442899995017797,False,,,False
+2_logical_test_14,2_logical_test,logical,Fully impossible,Compatible,0.11271999983364367,False,,,False
+1_temporal_test_12,1_temporal_test,temporal,Partially conflicting,Compatible,0.09542899988446152,False,,,False
+1_logical_test_11,1_logical_test,logical,Partially conflicting,Compatible,0.07957899970278959,False,,,False
+2_semantic_test_02,2_semantic_test,semantic,Fully impossible,Compatible,0.13598400028058677,False,,,False
+3_semantic_test_23,3_semantic_test,semantic,Underspecified,Underspecified,0.11624700027823565,True,,,False
+1_temporal_test_10,1_temporal_test,temporal,Partially conflicting,Compatible,0.10818500004461384,False,,,False
+2_temporal_test_19,2_temporal_test,temporal,Fully impossible,Compatible,0.4486979996727314,False,,,False
+2_logical_test_01,2_logical_test,logical,Fully impossible,Compatible,0.12223800013089203,False,,,False
+3_logical_test_20,3_logical_test,logical,Underspecified,Underspecified,0.08458199999950011,True,,,False
+3_temporal_test_10,3_temporal_test,temporal,Underspecified,Underspecified,0.19723300010809908,True,,,False
+1_numerical_test_16,1_numerical_test,numerical,Partially conflicting,Compatible,0.09751199968377477,False,,,False
+2_numerical_test_24,2_numerical_test,numerical,Fully impossible,Compatible,0.2637499997035775,False,,,True
+1_formatting_test_14,1_formatting_test,formatting,Partially conflicting,Compatible,0.11877499991896912,False,,,False
+3_logical_test_05,3_logical_test,logical,Underspecified,Underspecified,0.07632000006196904,True,,,False
+0_formatting_test_21,0_formatting_test,formatting,Compatible,Compatible,0.1175620000140043,False,,,False
+0_logical_test_07,0_logical_test,logical,Compatible,Compatible,0.16803400012577185,False,,,False
+3_semantic_test_05,3_semantic_test,semantic,Underspecified,Underspecified,0.17894099983095657,True,,,False
+1_numerical_test_19,1_numerical_test,numerical,Partially conflicting,Compatible,0.09973599981094594,False,,,False
+0_semantic_test_18,0_semantic_test,semantic,Compatible,Compatible,0.10255200004394283,False,,,False
+3_numerical_test_22,3_numerical_test,numerical,Underspecified,Underspecified,0.1092570000764681,True,,,False
+2_semantic_test_07,2_semantic_test,semantic,Fully impossible,Compatible,0.1395210001646774,False,,,False
+3_semantic_test_13,3_semantic_test,semantic,Underspecified,Underspecified,0.08554899977752939,True,,,False
+3_semantic_test_22,3_semantic_test,semantic,Underspecified,Underspecified,0.11070100026699947,True,,,False
+0_temporal_test_09,0_temporal_test,temporal,Compatible,Compatible,0.12605200026882812,False,,,False
+3_logical_test_06,3_logical_test,logical,Underspecified,Underspecified,0.07748300004095654,True,,,False
+3_semantic_test_02,3_semantic_test,semantic,Underspecified,Underspecified,0.07943199989313143,True,,,False
+0_semantic_test_12,0_semantic_test,semantic,Compatible,Compatible,0.10048600006484776,False,,,False
+2_semantic_test_14,2_semantic_test,semantic,Fully impossible,Compatible,0.1346960002592823,False,,,False
+2_logical_test_05,2_logical_test,logical,Fully impossible,Compatible,0.23653500011278084,False,,,False
+3_numerical_test_12,3_numerical_test,numerical,Underspecified,Underspecified,0.11627499998212443,True,,,False
+3_logical_test_00,3_logical_test,logical,Underspecified,Underspecified,0.11331599989716779,True,,,False
+0_numerical_test_21,0_numerical_test,numerical,Compatible,Compatible,0.1534739999442536,False,,,True
+0_temporal_test_12,0_temporal_test,temporal,Compatible,Compatible,0.11464899989732658,False,,,False
+3_temporal_test_04,3_temporal_test,temporal,Underspecified,Underspecified,0.11923300007765647,True,,,False
+1_semantic_test_22,1_semantic_test,semantic,Partially conflicting,Compatible,0.23422200001732563,False,,,False
+2_formatting_test_22,2_formatting_test,formatting,Fully impossible,Compatible,0.2635509999890928,False,,,False
+0_numerical_test_14,0_numerical_test,numerical,Compatible,Compatible,0.15713199991296278,False,,,True
+0_numerical_test_17,0_numerical_test,numerical,Compatible,Compatible,1.2190010002086638,False,,,True
+2_formatting_test_00,2_formatting_test,formatting,Fully impossible,Compatible,0.1699169997664285,False,,,False
+3_semantic_test_18,3_semantic_test,semantic,Underspecified,Underspecified,0.0938260000111768,True,,,False
+3_temporal_test_21,3_temporal_test,temporal,Underspecified,Underspecified,0.14544900022883667,True,,,False
+2_logical_test_09,2_logical_test,logical,Fully impossible,Compatible,0.20668000024670619,False,,,False
+3_temporal_test_24,3_temporal_test,temporal,Underspecified,Underspecified,0.5007989998375706,True,,,False
+2_temporal_test_11,2_temporal_test,temporal,Fully impossible,Compatible,0.39062399991962593,False,,,False
+2_formatting_test_06,2_formatting_test,formatting,Fully impossible,Compatible,0.14845100031379843,False,,,False
+0_temporal_test_11,0_temporal_test,temporal,Compatible,Compatible,0.11816500000350061,False,,,False
+2_formatting_test_10,2_formatting_test,formatting,Fully impossible,Compatible,0.13446599996314035,False,,,False
+2_temporal_test_00,2_temporal_test,temporal,Fully impossible,Compatible,0.46814599954814184,False,,,False
+3_semantic_test_17,3_semantic_test,semantic,Underspecified,Underspecified,0.1397420001012506,True,,,False
+1_semantic_test_19,1_semantic_test,semantic,Partially conflicting,Compatible,0.1030670000545797,False,,,False
+2_numerical_test_00,2_numerical_test,numerical,Fully impossible,Compatible,0.1851140000326268,False,,,True
+2_semantic_test_08,2_semantic_test,semantic,Fully impossible,Compatible,0.29123600006641936,False,,,False
+0_semantic_test_24,0_semantic_test,semantic,Compatible,Compatible,0.18679799995879875,False,,,False
+1_numerical_test_20,1_numerical_test,numerical,Partially conflicting,Compatible,0.12477800009946804,False,,,False
+2_logical_test_18,2_logical_test,logical,Fully impossible,Compatible,0.11250299985476886,False,,,False
+0_logical_test_17,0_logical_test,logical,Compatible,Compatible,0.12385799982439494,False,,,False
+3_numerical_test_15,3_numerical_test,numerical,Underspecified,Underspecified,0.10951600006592344,True,,,False
+1_numerical_test_24,1_numerical_test,numerical,Partially conflicting,Compatible,0.09534000037092483,False,,,False
+3_logical_test_24,3_logical_test,logical,Underspecified,Underspecified,0.07820300015737303,True,,,False
+0_numerical_test_05,0_numerical_test,numerical,Compatible,Compatible,0.23796200002834667,False,,,True
+0_temporal_test_08,0_temporal_test,temporal,Compatible,Compatible,0.12497899979280191,False,,,False
+3_temporal_test_20,3_temporal_test,temporal,Underspecified,Underspecified,0.12916099967696937,True,,,False
+2_logical_test_21,2_logical_test,logical,Fully impossible,Compatible,0.21099199966556625,False,,,False
+0_temporal_test_19,0_temporal_test,temporal,Compatible,Compatible,0.11863300005643396,False,,,False
+0_formatting_test_20,0_formatting_test,formatting,Compatible,Compatible,0.11752000000342377,False,,,False
+0_temporal_test_21,0_temporal_test,temporal,Compatible,Compatible,0.11303499968562392,False,,,False
+1_semantic_test_03,1_semantic_test,semantic,Partially conflicting,Compatible,0.09819800015975488,False,,,False
+0_formatting_test_10,0_formatting_test,formatting,Compatible,Compatible,0.14292600008047884,False,,,False
+2_formatting_test_23,2_formatting_test,formatting,Fully impossible,Compatible,0.1414620001014555,False,,,False
+0_numerical_test_20,0_numerical_test,numerical,Compatible,Compatible,0.15163400030360208,False,,,True
+1_semantic_test_00,1_semantic_test,semantic,Partially conflicting,Compatible,0.20629500022550928,False,,,False
+2_numerical_test_01,2_numerical_test,numerical,Fully impossible,Compatible,0.21857299998373492,False,,,True
+0_formatting_test_23,0_formatting_test,formatting,Compatible,Compatible,0.119727999845054,False,,,False
+1_temporal_test_05,1_temporal_test,temporal,Partially conflicting,Compatible,0.13462200013236725,False,,,False
+1_semantic_test_12,1_semantic_test,semantic,Partially conflicting,Compatible,0.865694999902189,False,,,False
+2_formatting_test_18,2_formatting_test,formatting,Fully impossible,Compatible,0.17773199988369015,False,,,False
+2_numerical_test_13,2_numerical_test,numerical,Fully impossible,Compatible,0.1828569997996965,False,,,True
+3_formatting_test_01,3_formatting_test,formatting,Underspecified,Underspecified,0.12047699965478387,True,,,False
+3_formatting_test_05,3_formatting_test,formatting,Underspecified,Underspecified,0.12418300002536853,True,,,False
+2_logical_test_06,2_logical_test,logical,Fully impossible,Compatible,0.11006199974872288,False,,,False
+3_temporal_test_19,3_temporal_test,temporal,Underspecified,Underspecified,0.12420599978213431,True,,,False
+1_temporal_test_02,1_temporal_test,temporal,Partially conflicting,Compatible,0.10110099992743926,False,,,False
+2_logical_test_22,2_logical_test,logical,Fully impossible,Compatible,0.13718499985770904,False,,,False
+0_numerical_test_10,0_numerical_test,numerical,Compatible,Compatible,0.16267399996650056,False,,,True
+2_formatting_test_15,2_formatting_test,formatting,Fully impossible,Compatible,0.13912199983678875,False,,,False
+0_temporal_test_13,0_temporal_test,temporal,Compatible,Compatible,0.11645900030998746,False,,,False
+0_formatting_test_04,0_formatting_test,formatting,Compatible,Compatible,0.11628499987637042,False,,,False
+0_formatting_test_19,0_formatting_test,formatting,Compatible,Compatible,0.11455899993961793,False,,,False
+0_formatting_test_09,0_formatting_test,formatting,Compatible,Compatible,0.1088020003408019,False,,,False
+2_formatting_test_16,2_formatting_test,formatting,Fully impossible,Compatible,0.1619230001779215,False,,,False
+2_numerical_test_12,2_numerical_test,numerical,Fully impossible,Compatible,0.17760599985194858,False,,,True
+3_numerical_test_23,3_numerical_test,numerical,Underspecified,Underspecified,0.7797339999342512,True,,,False
+2_formatting_test_11,2_formatting_test,formatting,Fully impossible,Compatible,0.15583799995511072,False,,,False
+0_temporal_test_03,0_temporal_test,temporal,Compatible,Compatible,0.46158200029822183,False,,,False
+2_semantic_test_05,2_semantic_test,semantic,Fully impossible,Compatible,0.1445500001864275,False,,,False
+0_formatting_test_14,0_formatting_test,formatting,Compatible,Compatible,0.1608180000403081,False,,,False
+2_temporal_test_04,2_temporal_test,temporal,Fully impossible,Compatible,0.2092220001941314,False,,,False
+3_semantic_test_10,3_semantic_test,semantic,Underspecified,Underspecified,0.09404999991602381,True,,,False
+0_formatting_test_16,0_formatting_test,formatting,Compatible,Compatible,0.12036699990858324,False,,,False
+1_temporal_test_19,1_temporal_test,temporal,Partially conflicting,Compatible,0.10550799970587832,False,,,False
+0_numerical_test_06,0_numerical_test,numerical,Compatible,Compatible,0.23218099977384554,False,,,True
+2_formatting_test_21,2_formatting_test,formatting,Fully impossible,Compatible,0.195725000139646,False,,,False
+1_temporal_test_18,1_temporal_test,temporal,Partially conflicting,Compatible,0.10026700010712375,False,,,False
+0_temporal_test_15,0_temporal_test,temporal,Compatible,Compatible,0.20033700002386468,False,,,False
+2_logical_test_20,2_logical_test,logical,Fully impossible,Compatible,0.10984199980157427,False,,,False
+2_logical_test_11,2_logical_test,logical,Fully impossible,Compatible,0.10688300017136498,False,,,False
+3_numerical_test_02,3_numerical_test,numerical,Underspecified,Underspecified,0.10897599986492423,True,,,False
+2_logical_test_12,2_logical_test,logical,Fully impossible,Compatible,0.10416700024507008,False,,,False
+1_logical_test_20,1_logical_test,logical,Partially conflicting,Compatible,0.08161899995684507,False,,,False
+2_temporal_test_08,2_temporal_test,temporal,Fully impossible,Compatible,0.23392100001728977,False,,,False
+1_temporal_test_08,1_temporal_test,temporal,Partially conflicting,Compatible,0.09821699995882227,False,,,False
+0_logical_test_21,0_logical_test,logical,Compatible,Compatible,0.12449099995137658,False,,,False
+0_semantic_test_11,0_semantic_test,semantic,Compatible,Compatible,0.712900000053196,False,,,False
+1_formatting_test_05,1_formatting_test,formatting,Partially conflicting,Compatible,0.3614409997680923,False,,,False
+3_numerical_test_11,3_numerical_test,numerical,Underspecified,Underspecified,0.12816000025850371,True,,,False
+2_numerical_test_10,2_numerical_test,numerical,Fully impossible,Compatible,0.1905389999592444,False,,,True
+1_semantic_test_10,1_semantic_test,semantic,Partially conflicting,Compatible,0.1373139998577244,False,,,False
+3_semantic_test_14,3_semantic_test,semantic,Underspecified,Underspecified,0.09023100028571207,True,,,False

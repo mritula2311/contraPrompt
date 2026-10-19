@@ -1,0 +1,29 @@
+{
+  "direct_answering": {
+    "condition": "1. Direct answering",
+    "action": "Generate text immediately without static contradiction check",
+    "safeguard": false,
+    "status": "Potential hallucination or silent failure on impossible prompts"
+  },
+  "generic_clarification": {
+    "condition": "2. Generic clarification",
+    "action": "Ask generic clarification question (\"Can you please specify your requirements in more detail?\")",
+    "safeguard": true,
+    "status": "Excessive friction on already-compatible prompts"
+  },
+  "detection": {
+    "condition": "3. Contradiction detection",
+    "classification": "Compatible",
+    "conflicts_count": 0,
+    "safeguard": true,
+    "status": "Halt before generation if impossible/underspecified"
+  },
+  "detection_and_repair": {
+    "condition": "4. Detection and repair",
+    "classification": "Compatible",
+    "repairs_available": 0,
+    "repaired_label": null,
+    "safeguard": true,
+    "status": "Autonomous patch suggestion with user approval and revalidation"
+  }
+}

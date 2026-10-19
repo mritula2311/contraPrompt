@@ -1,0 +1,9 @@
+{
+  "pages": 30,
+  "source_words": 10673,
+  "heading_and_page_alignment": "passed",
+  "text_inside_page_boundaries": "passed",
+  "format": "A4, Times New Roman, black and white",
+  "render": "LibreOffice DOCX to PDF; 30 page images",
+  "visual_review": "All 30 page renders inspected; no overflow, clipping, blank pages or incorrect contents offsets"
+}

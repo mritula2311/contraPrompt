@@ -1,0 +1,1001 @@
+case_id,group,level,conflict_kind,gold_label,pred_label,is_correct,latency_ms,input_tokens,output_tokens
+CP_CASE_0001,J,L3,none,Compatible,Compatible,True,34.33660004520789,0,0
+CP_CASE_0002,J,L3,none,Compatible,Compatible,True,1.3771000085398555,0,0
+CP_CASE_0003,J,L3,none,Compatible,Compatible,True,1.6818000003695488,0,0
+CP_CASE_0004,J,L3,none,Compatible,Compatible,True,1.3340000296011567,0,0
+CP_CASE_0005,J,L3,none,Compatible,Compatible,True,0.9568000095896423,0,0
+CP_CASE_0006,J,L3,none,Compatible,Compatible,True,0.8850999874994159,0,0
+CP_CASE_0007,J,L3,none,Compatible,Compatible,True,0.8812000160105526,0,0
+CP_CASE_0008,J,L3,none,Compatible,Compatible,True,0.8800000068731606,0,0
+CP_CASE_0009,J,L3,none,Compatible,Compatible,True,0.8873000042513013,0,0
+CP_CASE_0010,J,L3,none,Compatible,Compatible,True,0.8712999988347292,0,0
+CP_CASE_0011,J,L3,none,Compatible,Compatible,True,0.8752000285312533,0,0
+CP_CASE_0012,J,L3,none,Compatible,Compatible,True,0.90230000205338,0,0
+CP_CASE_0013,J,L3,none,Compatible,Compatible,True,0.9421999566257,0,0
+CP_CASE_0014,J,L3,none,Compatible,Compatible,True,0.8646000060252845,0,0
+CP_CASE_0015,J,L3,none,Compatible,Compatible,True,0.9684000397101045,0,0
+CP_CASE_0016,J,L3,none,Compatible,Compatible,True,2.4847000022418797,0,0
+CP_CASE_0017,J,L3,none,Compatible,Compatible,True,1.2519999872893095,0,0
+CP_CASE_0018,J,L3,none,Compatible,Compatible,True,1.061699993442744,0,0
+CP_CASE_0019,J,L3,none,Compatible,Compatible,True,0.8779000490903854,0,0
+CP_CASE_0020,J,L3,none,Compatible,Compatible,True,1.2126999790780246,0,0
+CP_CASE_0021,J,L3,none,Compatible,Compatible,True,1.048400008585304,0,0
+CP_CASE_0022,J,L3,none,Compatible,Compatible,True,0.8817999623715878,0,0
+CP_CASE_0023,J,L3,none,Compatible,Compatible,True,0.9252999443560839,0,0
+CP_CASE_0024,J,L3,none,Compatible,Compatible,True,0.9314999915659428,0,0
+CP_CASE_0025,J,L3,none,Compatible,Compatible,True,0.8717000018805265,0,0
+CP_CASE_0026,J,L3,none,Compatible,Compatible,True,1.119700027629733,0,0
+CP_CASE_0027,J,L3,none,Compatible,Compatible,True,0.8898000232875347,0,0
+CP_CASE_0028,J,L3,none,Compatible,Compatible,True,0.8423000108450651,0,0
+CP_CASE_0029,J,L3,none,Compatible,Compatible,True,1.137099985498935,0,0
+CP_CASE_0030,J,L3,none,Compatible,Compatible,True,3.6601999890990555,0,0
+CP_CASE_0031,J,L3,none,Compatible,Compatible,True,1.8714999896474183,0,0
+CP_CASE_0032,J,L3,none,Compatible,Compatible,True,0.9495000122115016,0,0
+CP_CASE_0033,J,L3,none,Compatible,Compatible,True,1.0185999562963843,0,0
+CP_CASE_0034,J,L3,none,Compatible,Compatible,True,0.9094999986700714,0,0
+CP_CASE_0035,J,L3,none,Compatible,Compatible,True,1.5977000002749264,0,0
+CP_CASE_0036,J,L3,none,Compatible,Compatible,True,2.4427000316791236,0,0
+CP_CASE_0037,J,L3,none,Compatible,Compatible,True,1.5881999861449003,0,0
+CP_CASE_0038,J,L3,none,Compatible,Compatible,True,2.1273999591358006,0,0
+CP_CASE_0039,J,L3,none,Compatible,Compatible,True,2.8803999884985387,0,0
+CP_CASE_0040,J,L3,none,Compatible,Compatible,True,2.6076000067405403,0,0
+CP_CASE_0041,J,L3,none,Compatible,Compatible,True,2.019000006839633,0,0
+CP_CASE_0042,J,L3,none,Compatible,Compatible,True,1.903099997434765,0,0
+CP_CASE_0043,J,L3,none,Compatible,Compatible,True,2.638000005390495,0,0
+CP_CASE_0044,J,L3,none,Compatible,Compatible,True,2.5701000122353435,0,0
+CP_CASE_0045,J,L3,none,Compatible,Compatible,True,2.9418999911285937,0,0
+CP_CASE_0046,J,L3,none,Compatible,Compatible,True,2.410300017800182,0,0
+CP_CASE_0047,J,L3,none,Compatible,Compatible,True,1.448799972422421,0,0
+CP_CASE_0048,J,L3,none,Compatible,Compatible,True,1.298899995163083,0,0
+CP_CASE_0049,J,L3,none,Compatible,Compatible,True,1.1823999811895192,0,0
+CP_CASE_0050,J,L3,none,Compatible,Compatible,True,0.9710000013001263,0,0
+CP_CASE_0051,K,L2,none,Compatible,Compatible,True,0.6725999992340803,0,0
+CP_CASE_0052,K,L2,none,Compatible,Compatible,True,0.4920000210404396,0,0
+CP_CASE_0053,K,L2,none,Compatible,Compatible,True,0.4786000354215503,0,0
+CP_CASE_0054,K,L2,none,Compatible,Compatible,True,0.47450000420212746,0,0
+CP_CASE_0055,K,L2,none,Compatible,Compatible,True,0.48889999743551016,0,0
+CP_CASE_0056,K,L2,none,Compatible,Compatible,True,0.4783999756909907,0,0
+CP_CASE_0057,K,L2,none,Compatible,Compatible,True,0.4838999593630433,0,0
+CP_CASE_0058,K,L2,none,Compatible,Compatible,True,0.5060999537818134,0,0
+CP_CASE_0059,K,L2,none,Compatible,Compatible,True,0.5401999806053936,0,0
+CP_CASE_0060,K,L2,none,Compatible,Compatible,True,0.4959999932907522,0,0
+CP_CASE_0061,K,L2,none,Compatible,Compatible,True,0.49760000547394156,0,0
+CP_CASE_0062,K,L2,none,Compatible,Compatible,True,0.49569999100640416,0,0
+CP_CASE_0063,K,L2,none,Compatible,Compatible,True,0.5127000040374696,0,0
+CP_CASE_0064,K,L2,none,Compatible,Compatible,True,0.48439996317029,0,0
+CP_CASE_0065,K,L2,none,Compatible,Compatible,True,0.4833000130020082,0,0
+CP_CASE_0066,K,L2,none,Compatible,Compatible,True,0.4862999776378274,0,0
+CP_CASE_0067,K,L2,none,Compatible,Compatible,True,1.9638999947346747,0,0
+CP_CASE_0068,K,L2,none,Compatible,Compatible,True,1.2884000316262245,0,0
+CP_CASE_0069,K,L2,none,Compatible,Compatible,True,1.229399989824742,0,0
+CP_CASE_0070,K,L2,none,Compatible,Compatible,True,1.2035999679937959,0,0
+CP_CASE_0071,K,L2,none,Compatible,Compatible,True,1.2127000372856855,0,0
+CP_CASE_0072,K,L2,none,Compatible,Compatible,True,1.1947999591939151,0,0
+CP_CASE_0073,K,L2,none,Compatible,Compatible,True,1.199499994982034,0,0
+CP_CASE_0074,K,L2,none,Compatible,Compatible,True,1.1809999705292284,0,0
+CP_CASE_0075,K,L2,none,Compatible,Compatible,True,1.7197999986819923,0,0
+CP_CASE_0076,K,L2,none,Compatible,Compatible,True,1.3682999997399747,0,0
+CP_CASE_0077,K,L2,none,Compatible,Compatible,True,1.2522999895736575,0,0
+CP_CASE_0078,K,L2,none,Compatible,Compatible,True,1.2347999727353454,0,0
+CP_CASE_0079,K,L2,none,Compatible,Compatible,True,1.9099999917671084,0,0
+CP_CASE_0080,K,L2,none,Compatible,Compatible,True,1.2397000100463629,0,0
+CP_CASE_0081,K,L2,none,Compatible,Compatible,True,0.9268000139854848,0,0
+CP_CASE_0082,K,L2,none,Compatible,Compatible,True,0.8272000122815371,0,0
+CP_CASE_0083,K,L2,none,Compatible,Compatible,True,0.8171999943442643,0,0
+CP_CASE_0084,K,L2,none,Compatible,Compatible,True,0.7102999952621758,0,0
+CP_CASE_0085,K,L2,none,Compatible,Compatible,True,0.6754000205546618,0,0
+CP_CASE_0086,K,L2,none,Compatible,Compatible,True,0.6008999771438539,0,0
+CP_CASE_0087,K,L2,none,Compatible,Compatible,True,0.598000013269484,0,0
+CP_CASE_0088,K,L2,none,Compatible,Compatible,True,0.5498999962583184,0,0
+CP_CASE_0089,K,L2,none,Compatible,Compatible,True,0.5418999935500324,0,0
+CP_CASE_0090,K,L2,none,Compatible,Compatible,True,0.4841000190936029,0,0
+CP_CASE_0091,K,L2,none,Compatible,Compatible,True,1.83859997196123,0,0
+CP_CASE_0092,K,L2,none,Compatible,Compatible,True,1.313099986873567,0,0
+CP_CASE_0093,K,L2,none,Compatible,Compatible,True,1.1699000024236739,0,0
+CP_CASE_0094,K,L2,none,Compatible,Compatible,True,0.8123999577946961,0,0
+CP_CASE_0095,K,L2,none,Compatible,Compatible,True,0.513400009367615,0,0
+CP_CASE_0096,K,L2,none,Compatible,Compatible,True,0.508100027218461,0,0
+CP_CASE_0097,K,L2,none,Compatible,Compatible,True,0.4922000225633383,0,0
+CP_CASE_0098,K,L2,none,Compatible,Compatible,True,1.8146999645978212,0,0
+CP_CASE_0099,K,L2,none,Compatible,Compatible,True,1.3078000047244132,0,0
+CP_CASE_0100,K,L2,none,Compatible,Compatible,True,1.2186000240035355,0,0
+CP_CASE_0101,N,L3,none,Compatible,Compatible,True,1.433099969290197,0,0
+CP_CASE_0102,N,L3,none,Compatible,Compatible,True,1.197399978991598,0,0
+CP_CASE_0103,N,L3,none,Compatible,Compatible,True,1.363899966236204,0,0
+CP_CASE_0104,N,L3,none,Compatible,Compatible,True,1.6212000045925379,0,0
+CP_CASE_0105,N,L3,none,Compatible,Compatible,True,1.2415999663062394,0,0
+CP_CASE_0106,N,L3,none,Compatible,Compatible,True,1.1674000415951014,0,0
+CP_CASE_0107,N,L3,none,Compatible,Compatible,True,1.1756999883800745,0,0
+CP_CASE_0108,N,L3,none,Compatible,Compatible,True,1.1814000317826867,0,0
+CP_CASE_0109,N,L3,none,Compatible,Compatible,True,1.1537999962456524,0,0
+CP_CASE_0110,N,L3,none,Compatible,Compatible,True,1.2336999643594027,0,0
+CP_CASE_0111,N,L3,none,Compatible,Compatible,True,1.340000017080456,0,0
+CP_CASE_0112,N,L3,none,Compatible,Compatible,True,1.6059999470598996,0,0
+CP_CASE_0113,N,L3,none,Compatible,Compatible,True,1.3538000057451427,0,0
+CP_CASE_0114,N,L3,none,Compatible,Compatible,True,1.1896999785676599,0,0
+CP_CASE_0115,N,L3,none,Compatible,Compatible,True,1.2023000163026154,0,0
+CP_CASE_0116,N,L3,none,Compatible,Compatible,True,1.1427999706938863,0,0
+CP_CASE_0117,N,L3,none,Compatible,Compatible,True,1.0956000187434256,0,0
+CP_CASE_0118,N,L3,none,Compatible,Compatible,True,1.0360999731346965,0,0
+CP_CASE_0119,N,L3,none,Compatible,Compatible,True,0.9545999928377569,0,0
+CP_CASE_0120,N,L3,none,Compatible,Compatible,True,0.8688999805599451,0,0
+CP_CASE_0121,N,L3,none,Compatible,Compatible,True,0.8348999544978142,0,0
+CP_CASE_0122,N,L3,none,Compatible,Compatible,True,0.7047000108286738,0,0
+CP_CASE_0123,N,L3,none,Compatible,Compatible,True,0.6844999734312296,0,0
+CP_CASE_0124,N,L3,none,Compatible,Compatible,True,0.6413999944925308,0,0
+CP_CASE_0125,N,L3,none,Compatible,Compatible,True,0.6380000268109143,0,0
+CP_CASE_0126,N,L3,none,Compatible,Compatible,True,1.704900001641363,0,0
+CP_CASE_0127,N,L3,none,Compatible,Compatible,True,1.3169999583624303,0,0
+CP_CASE_0128,N,L3,none,Compatible,Compatible,True,1.8813000060617924,0,0
+CP_CASE_0129,N,L3,none,Compatible,Compatible,True,1.476300007198006,0,0
+CP_CASE_0130,N,L3,none,Compatible,Compatible,True,1.2809000327251852,0,0
+CP_CASE_0131,N,L3,none,Compatible,Compatible,True,0.8430000161752105,0,0
+CP_CASE_0132,N,L3,none,Compatible,Compatible,True,0.7131000165827572,0,0
+CP_CASE_0133,N,L3,none,Compatible,Compatible,True,0.6550999823957682,0,0
+CP_CASE_0134,N,L3,none,Compatible,Compatible,True,0.6585000082850456,0,0
+CP_CASE_0135,N,L3,none,Compatible,Compatible,True,0.5908000166527927,0,0
+CP_CASE_0136,N,L3,none,Compatible,Compatible,True,0.5791999865323305,0,0
+CP_CASE_0137,N,L3,none,Compatible,Compatible,True,0.5296000163070858,0,0
+CP_CASE_0138,N,L3,none,Compatible,Compatible,True,0.5048000020906329,0,0
+CP_CASE_0139,N,L3,none,Compatible,Compatible,True,0.4912000149488449,0,0
+CP_CASE_0140,N,L3,none,Compatible,Compatible,True,0.4651000490412116,0,0
+CP_CASE_0141,N,L3,none,Compatible,Compatible,True,0.4648000467568636,0,0
+CP_CASE_0142,N,L3,none,Compatible,Compatible,True,0.45650004176422954,0,0
+CP_CASE_0143,N,L3,none,Compatible,Compatible,True,0.4560999805107713,0,0
+CP_CASE_0144,N,L3,none,Compatible,Compatible,True,0.45519997365772724,0,0
+CP_CASE_0145,N,L3,none,Compatible,Compatible,True,0.45819999650120735,0,0
+CP_CASE_0146,N,L3,none,Compatible,Compatible,True,0.5169999785721302,0,0
+CP_CASE_0147,N,L3,none,Compatible,Compatible,True,0.8709999965503812,0,0
+CP_CASE_0148,N,L3,none,Compatible,Compatible,True,0.7288000197149813,0,0
+CP_CASE_0149,N,L3,none,Compatible,Compatible,True,0.5196999991312623,0,0
+CP_CASE_0150,N,L3,none,Compatible,Compatible,True,0.4672999493777752,0,0
+CP_CASE_0151,O,L3,none,Compatible,Compatible,True,0.521700014360249,0,0
+CP_CASE_0152,O,L3,none,Compatible,Compatible,True,0.4007000243291259,0,0
+CP_CASE_0153,O,L3,none,Compatible,Compatible,True,0.39739999920129776,0,0
+CP_CASE_0154,O,L3,none,Compatible,Compatible,True,0.39010000182315707,0,0
+CP_CASE_0155,O,L3,none,Compatible,Compatible,True,0.3960999893024564,0,0
+CP_CASE_0156,O,L3,none,Compatible,Compatible,True,0.3945000353269279,0,0
+CP_CASE_0157,O,L3,none,Compatible,Compatible,True,0.39329996798187494,0,0
+CP_CASE_0158,O,L3,none,Compatible,Compatible,True,0.39030000334605575,0,0
+CP_CASE_0159,O,L3,none,Compatible,Compatible,True,0.3871999797411263,0,0
+CP_CASE_0160,O,L3,none,Compatible,Compatible,True,0.3981000045314431,0,0
+CP_CASE_0161,O,L3,none,Compatible,Compatible,True,0.39840000681579113,0,0
+CP_CASE_0162,O,L3,none,Compatible,Compatible,True,0.39379997178912163,0,0
+CP_CASE_0163,O,L3,none,Compatible,Compatible,True,0.4084000247530639,0,0
+CP_CASE_0164,O,L3,none,Compatible,Compatible,True,0.3964999923482537,0,0
+CP_CASE_0165,O,L3,none,Compatible,Compatible,True,0.5381999653764069,0,0
+CP_CASE_0166,O,L3,none,Compatible,Compatible,True,2.158900024369359,0,0
+CP_CASE_0167,O,L3,none,Compatible,Compatible,True,1.410700031556189,0,0
+CP_CASE_0168,O,L3,none,Compatible,Compatible,True,1.2126000365242362,0,0
+CP_CASE_0169,O,L3,none,Compatible,Compatible,True,1.0735000250861049,0,0
+CP_CASE_0170,O,L3,none,Compatible,Compatible,True,0.9917000425048172,0,0
+CP_CASE_0171,O,L3,none,Compatible,Compatible,True,1.2143999920226634,0,0
+CP_CASE_0172,O,L3,none,Compatible,Compatible,True,1.0946999536827207,0,0
+CP_CASE_0173,O,L3,none,Compatible,Compatible,True,1.000500051304698,0,0
+CP_CASE_0174,O,L3,none,Compatible,Compatible,True,0.9792999480850995,0,0
+CP_CASE_0175,O,L3,none,Compatible,Compatible,True,0.9340000106021762,0,0
+CP_CASE_0176,O,L3,none,Compatible,Compatible,True,0.4650999908335507,0,0
+CP_CASE_0177,O,L3,none,Compatible,Compatible,True,0.4487999831326306,0,0
+CP_CASE_0178,O,L3,none,Compatible,Compatible,True,0.43779995758086443,0,0
+CP_CASE_0179,O,L3,none,Compatible,Compatible,True,0.4138000076636672,0,0
+CP_CASE_0180,O,L3,none,Compatible,Compatible,True,0.4194000503048301,0,0
+CP_CASE_0181,O,L3,none,Compatible,Compatible,True,0.40550000267103314,0,0
+CP_CASE_0182,O,L3,none,Compatible,Compatible,True,0.39569998625665903,0,0
+CP_CASE_0183,O,L3,none,Compatible,Compatible,True,0.3918999573215842,0,0
+CP_CASE_0184,O,L3,none,Compatible,Compatible,True,0.38490002043545246,0,0
+CP_CASE_0185,O,L3,none,Compatible,Compatible,True,0.3895999980159104,0,0
+CP_CASE_0186,O,L3,none,Compatible,Compatible,True,0.39140001172199845,0,0
+CP_CASE_0187,O,L3,none,Compatible,Compatible,True,0.39109995122998953,0,0
+CP_CASE_0188,O,L3,none,Compatible,Compatible,True,0.3885000478476286,0,0
+CP_CASE_0189,O,L3,none,Compatible,Compatible,True,0.38379995385184884,0,0
+CP_CASE_0190,O,L3,none,Compatible,Compatible,True,0.38330000825226307,0,0
+CP_CASE_0191,O,L3,none,Compatible,Compatible,True,0.3839000128209591,0,0
+CP_CASE_0192,O,L3,none,Compatible,Compatible,True,0.381199992261827,0,0
+CP_CASE_0193,O,L3,none,Compatible,Compatible,True,0.3842999576590955,0,0
+CP_CASE_0194,O,L3,none,Compatible,Compatible,True,0.3796000382862985,0,0
+CP_CASE_0195,O,L3,none,Compatible,Compatible,True,0.3819999983534217,0,0
+CP_CASE_0196,O,L3,none,Compatible,Compatible,True,0.37789996713399887,0,0
+CP_CASE_0197,O,L3,none,Compatible,Compatible,True,0.3793000360019505,0,0
+CP_CASE_0198,O,L3,none,Compatible,Compatible,True,0.39060000563040376,0,0
+CP_CASE_0199,O,L3,none,Compatible,Compatible,True,0.38240000139921904,0,0
+CP_CASE_0200,O,L3,none,Compatible,Compatible,True,0.3837000112980604,0,0
+CP_CASE_0201,D,L3,none,Compatible,Compatible,True,0.16360002337023616,0,0
+CP_CASE_0202,D,L3,none,Compatible,Compatible,True,0.15400000847876072,0,0
+CP_CASE_0203,D,L3,none,Compatible,Compatible,True,0.15400000847876072,0,0
+CP_CASE_0204,D,L3,none,Compatible,Compatible,True,0.15049998182803392,0,0
+CP_CASE_0205,D,L3,none,Compatible,Compatible,True,0.15130004612728953,0,0
+CP_CASE_0206,D,L3,none,Compatible,Compatible,True,0.15300000086426735,0,0
+CP_CASE_0207,D,L3,none,Compatible,Compatible,True,0.14950003242120147,0,0
+CP_CASE_0208,D,L3,none,Compatible,Compatible,True,0.14730001566931605,0,0
+CP_CASE_0209,D,L3,none,Compatible,Compatible,True,0.1485000248067081,0,0
+CP_CASE_0210,D,L3,none,Compatible,Compatible,True,0.14889996964484453,0,0
+CP_CASE_0211,D,L3,none,Compatible,Compatible,True,0.146100006531924,0,0
+CP_CASE_0212,D,L3,none,Compatible,Compatible,True,0.14870002632960677,0,0
+CP_CASE_0213,D,L3,none,Compatible,Compatible,True,0.603299995418638,0,0
+CP_CASE_0214,D,L3,none,Compatible,Compatible,True,0.450999999884516,0,0
+CP_CASE_0215,D,L3,none,Compatible,Compatible,True,0.4172999761067331,0,0
+CP_CASE_0216,D,L3,none,Compatible,Compatible,True,0.41909998981282115,0,0
+CP_CASE_0217,D,L3,none,Compatible,Compatible,True,0.3968999953940511,0,0
+CP_CASE_0218,D,L3,none,Compatible,Compatible,True,0.38979999953880906,0,0
+CP_CASE_0219,D,L3,none,Compatible,Compatible,True,0.3867000341415405,0,0
+CP_CASE_0220,D,L3,none,Compatible,Compatible,True,0.8487000013701618,0,0
+CP_CASE_0221,D,L3,none,Compatible,Compatible,True,0.6640999927185476,0,0
+CP_CASE_0222,D,L3,none,Compatible,Compatible,True,0.4658999969251454,0,0
+CP_CASE_0223,D,L3,none,Compatible,Compatible,True,0.4661999992094934,0,0
+CP_CASE_0224,D,L3,none,Compatible,Compatible,True,0.49669999862089753,0,0
+CP_CASE_0225,D,L3,none,Compatible,Compatible,True,0.4180999821983278,0,0
+CP_CASE_0226,D,L3,none,Compatible,Compatible,True,0.4206000012345612,0,0
+CP_CASE_0227,D,L3,none,Compatible,Compatible,True,0.41149999015033245,0,0
+CP_CASE_0228,D,L3,none,Compatible,Compatible,True,0.41740003507584333,0,0
+CP_CASE_0229,D,L3,none,Compatible,Compatible,True,0.3884999896399677,0,0
+CP_CASE_0230,D,L3,none,Compatible,Compatible,True,0.38839998887851834,0,0
+CP_CASE_0231,D,L3,none,Compatible,Compatible,True,0.37519994657486677,0,0
+CP_CASE_0232,D,L3,none,Compatible,Compatible,True,0.38049998693168163,0,0
+CP_CASE_0233,D,L3,none,Compatible,Compatible,True,0.3932000254280865,0,0
+CP_CASE_0234,D,L3,none,Compatible,Compatible,True,0.37099997280165553,0,0
+CP_CASE_0235,D,L3,none,Compatible,Compatible,True,0.38759998278692365,0,0
+CP_CASE_0236,D,L3,none,Compatible,Compatible,True,0.37369999336078763,0,0
+CP_CASE_0237,D,L3,none,Compatible,Compatible,True,0.37650001468136907,0,0
+CP_CASE_0238,D,L3,none,Compatible,Compatible,True,0.3826000029221177,0,0
+CP_CASE_0239,D,L3,none,Compatible,Compatible,True,0.3779000253416598,0,0
+CP_CASE_0240,D,L3,none,Compatible,Compatible,True,0.38410001434385777,0,0
+CP_CASE_0241,D,L3,none,Compatible,Compatible,True,0.37570000858977437,0,0
+CP_CASE_0242,D,L3,none,Compatible,Compatible,True,0.37369999336078763,0,0
+CP_CASE_0243,D,L3,none,Compatible,Compatible,True,0.38330000825226307,0,0
+CP_CASE_0244,D,L3,none,Compatible,Compatible,True,0.3724999842233956,0,0
+CP_CASE_0245,D,L3,none,Compatible,Compatible,True,0.4593999474309385,0,0
+CP_CASE_0246,D,L3,none,Compatible,Compatible,True,0.3744999994523823,0,0
+CP_CASE_0247,D,L3,none,Compatible,Compatible,True,0.374099996406585,0,0
+CP_CASE_0248,D,L3,none,Compatible,Compatible,True,0.3847000189125538,0,0
+CP_CASE_0249,D,L3,none,Compatible,Compatible,True,0.36120001459494233,0,0
+CP_CASE_0250,D,L3,none,Compatible,Compatible,True,0.3569999826140702,0,0
+CP_CASE_0251,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.0775999980978668,0,0
+CP_CASE_0252,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.0774999973364174,0,0
+CP_CASE_0253,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8723000064492226,0,0
+CP_CASE_0254,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7668000180274248,0,0
+CP_CASE_0255,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7405999931506813,0,0
+CP_CASE_0256,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6719999946653843,0,0
+CP_CASE_0257,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6265999982133508,0,0
+CP_CASE_0258,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5737000028602779,0,0
+CP_CASE_0259,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.548600044567138,0,0
+CP_CASE_0260,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5155999679118395,0,0
+CP_CASE_0261,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5014999769628048,0,0
+CP_CASE_0262,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4683999577537179,0,0
+CP_CASE_0263,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4687000182457268,0,0
+CP_CASE_0264,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4219000111334026,0,0
+CP_CASE_0265,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4219000111334026,0,0
+CP_CASE_0266,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4236000240780413,0,0
+CP_CASE_0267,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42890000622719526,0,0
+CP_CASE_0268,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4172999761067331,0,0
+CP_CASE_0269,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41530001908540726,0,0
+CP_CASE_0270,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4252000362612307,0,0
+CP_CASE_0271,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42639998719096184,0,0
+CP_CASE_0272,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42749999556690454,0,0
+CP_CASE_0273,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42560003930702806,0,0
+CP_CASE_0274,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.43650000588968396,0,0
+CP_CASE_0275,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4188999882899225,0,0
+CP_CASE_0276,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41749997762963176,0,0
+CP_CASE_0277,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42530003702268004,0,0
+CP_CASE_0278,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4159000236541033,0,0
+CP_CASE_0279,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42799999937415123,0,0
+CP_CASE_0280,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41589996544644237,0,0
+CP_CASE_0281,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4243999719619751,0,0
+CP_CASE_0282,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41119998786598444,0,0
+CP_CASE_0283,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41530001908540726,0,0
+CP_CASE_0284,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.470799976028502,0,0
+CP_CASE_0285,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41849998524412513,0,0
+CP_CASE_0286,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4257999826222658,0,0
+CP_CASE_0287,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4284000024199486,0,0
+CP_CASE_0288,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42669998947530985,0,0
+CP_CASE_0289,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4349999944679439,0,0
+CP_CASE_0290,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4183999844826758,0,0
+CP_CASE_0291,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4175999783910811,0,0
+CP_CASE_0292,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4132000030949712,0,0
+CP_CASE_0293,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4208000027574599,0,0
+CP_CASE_0294,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4138000076636672,0,0
+CP_CASE_0295,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4200999974273145,0,0
+CP_CASE_0296,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42179995216429234,0,0
+CP_CASE_0297,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4189999890513718,0,0
+CP_CASE_0298,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4236000240780413,0,0
+CP_CASE_0299,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4162000259384513,0,0
+CP_CASE_0300,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4162000259384513,0,0
+CP_CASE_0301,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4202999989502132,0,0
+CP_CASE_0302,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4130000015720725,0,0
+CP_CASE_0303,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4189999890513718,0,0
+CP_CASE_0304,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4120999947190285,0,0
+CP_CASE_0305,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4485000390559435,0,0
+CP_CASE_0306,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4183999844826758,0,0
+CP_CASE_0307,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4113999893888831,0,0
+CP_CASE_0308,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.42340002255514264,0,0
+CP_CASE_0309,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4170999745838344,0,0
+CP_CASE_0310,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4187000449746847,0,0
+CP_CASE_0311,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4208000027574599,0,0
+CP_CASE_0312,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4230000195093453,0,0
+CP_CASE_0313,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4121999954804778,0,0
+CP_CASE_0314,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.35879999632015824,0,0
+CP_CASE_0315,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.36099995486438274,0,0
+CP_CASE_0316,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3542999620549381,0,0
+CP_CASE_0317,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3512999974191189,0,0
+CP_CASE_0318,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.35360001493245363,0,0
+CP_CASE_0319,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.35200000274926424,0,0
+CP_CASE_0320,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3480999730527401,0,0
+CP_CASE_0321,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3462000167928636,0,0
+CP_CASE_0322,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.2313000042922795,0,0
+CP_CASE_0323,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.9626999963074923,0,0
+CP_CASE_0324,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.9071999811567366,0,0
+CP_CASE_0325,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8977999677881598,0,0
+CP_CASE_0326,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.89640001533553,0,0
+CP_CASE_0327,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8795000030659139,0,0
+CP_CASE_0328,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8839999791234732,0,0
+CP_CASE_0329,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8699000463820994,0,0
+CP_CASE_0330,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8801999501883984,0,0
+CP_CASE_0331,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8663999615237117,0,0
+CP_CASE_0332,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8841000380925834,0,0
+CP_CASE_0333,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8600999717600644,0,0
+CP_CASE_0334,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7892000139690936,0,0
+CP_CASE_0335,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7715999963693321,0,0
+CP_CASE_0336,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7323999889194965,0,0
+CP_CASE_0337,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6867999909445643,0,0
+CP_CASE_0338,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6498000002466142,0,0
+CP_CASE_0339,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6046000053174794,0,0
+CP_CASE_0340,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.590000010561198,0,0
+CP_CASE_0341,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5610999651253223,0,0
+CP_CASE_0342,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5617000279016793,0,0
+CP_CASE_0343,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4906000103801489,0,0
+CP_CASE_0344,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.47120003728196025,0,0
+CP_CASE_0345,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.45870000030845404,0,0
+CP_CASE_0346,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4249999765306711,0,0
+CP_CASE_0347,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.41800003964453936,0,0
+CP_CASE_0348,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4214000073261559,0,0
+CP_CASE_0349,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.39170001400634646,0,0
+CP_CASE_0350,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3709000302478671,0,0
+CP_CASE_0351,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.37570000858977437,0,0
+CP_CASE_0352,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.35990000469610095,0,0
+CP_CASE_0353,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3473000251688063,0,0
+CP_CASE_0354,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3464000183157623,0,0
+CP_CASE_0355,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34690002212300897,0,0
+CP_CASE_0356,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3473000251688063,0,0
+CP_CASE_0357,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34410000080242753,0,0
+CP_CASE_0358,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3491999814286828,0,0
+CP_CASE_0359,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.38320000749081373,0,0
+CP_CASE_0360,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34719996619969606,0,0
+CP_CASE_0361,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34680002136155963,0,0
+CP_CASE_0362,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3456000122241676,0,0
+CP_CASE_0363,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34799997229129076,0,0
+CP_CASE_0364,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33979996806010604,0,0
+CP_CASE_0365,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33929996425285935,0,0
+CP_CASE_0366,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34359999699518085,0,0
+CP_CASE_0367,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3449000068940222,0,0
+CP_CASE_0368,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3491999814286828,0,0
+CP_CASE_0369,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34690002212300897,0,0
+CP_CASE_0370,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3396000247448683,0,0
+CP_CASE_0371,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3426000475883484,0,0
+CP_CASE_0372,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3431999939493835,0,0
+CP_CASE_0373,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34690002212300897,0,0
+CP_CASE_0374,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34610001603141427,0,0
+CP_CASE_0375,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.35089999437332153,0,0
+CP_CASE_0376,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3457000129856169,0,0
+CP_CASE_0377,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.341600039973855,0,0
+CP_CASE_0378,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3336999798193574,0,0
+CP_CASE_0379,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33650000113993883,0,0
+CP_CASE_0380,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.32869999995455146,0,0
+CP_CASE_0381,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3293000045232475,0,0
+CP_CASE_0382,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3272000467404723,0,0
+CP_CASE_0383,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.32900000223889947,0,0
+CP_CASE_0384,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.32789999386295676,0,0
+CP_CASE_0385,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3347999881953001,0,0
+CP_CASE_0386,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6113999988883734,0,0
+CP_CASE_0387,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4724999889731407,0,0
+CP_CASE_0388,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8672999683767557,0,0
+CP_CASE_0389,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.402699970640242,0,0
+CP_CASE_0390,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.1866000131703913,0,0
+CP_CASE_0391,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.0459000477567315,0,0
+CP_CASE_0392,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.935699965339154,0,0
+CP_CASE_0393,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.8873000042513013,0,0
+CP_CASE_0394,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7737000123597682,0,0
+CP_CASE_0395,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6976000149734318,0,0
+CP_CASE_0396,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5865999846719205,0,0
+CP_CASE_0397,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5632999818772078,0,0
+CP_CASE_0398,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5350999999791384,0,0
+CP_CASE_0399,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4140000091865659,0,0
+CP_CASE_0400,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.39599998854100704,0,0
+CP_CASE_0401,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3967000520788133,0,0
+CP_CASE_0402,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3606000100262463,0,0
+CP_CASE_0403,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.36100001307204366,0,0
+CP_CASE_0404,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.34790002973750234,0,0
+CP_CASE_0405,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.39710005512461066,0,0
+CP_CASE_0406,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.38409995613619685,0,0
+CP_CASE_0407,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3370000049471855,0,0
+CP_CASE_0408,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3361999988555908,0,0
+CP_CASE_0409,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3418999840505421,0,0
+CP_CASE_0410,P,L2,semantic,Partially conflicting,Partially conflicting,True,2.195200009737164,0,0
+CP_CASE_0411,P,L2,semantic,Partially conflicting,Partially conflicting,True,1.1676999856717885,0,0
+CP_CASE_0412,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.9960000170394778,0,0
+CP_CASE_0413,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7855999865569174,0,0
+CP_CASE_0414,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.7889000116847456,0,0
+CP_CASE_0415,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5972000071778893,0,0
+CP_CASE_0416,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5209000082686543,0,0
+CP_CASE_0417,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4616000223904848,0,0
+CP_CASE_0418,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.4539000219665468,0,0
+CP_CASE_0419,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3515999997034669,0,0
+CP_CASE_0420,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33959996653720737,0,0
+CP_CASE_0421,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33840001560747623,0,0
+CP_CASE_0422,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3329000319354236,0,0
+CP_CASE_0423,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33760000951588154,0,0
+CP_CASE_0424,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33330003498122096,0,0
+CP_CASE_0425,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3320000250823796,0,0
+CP_CASE_0426,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3383000148460269,0,0
+CP_CASE_0427,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33220002660527825,0,0
+CP_CASE_0428,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3320000250823796,0,0
+CP_CASE_0429,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.32890000147745013,0,0
+CP_CASE_0430,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33139996230602264,0,0
+CP_CASE_0431,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3309999592602253,0,0
+CP_CASE_0432,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3306999569758773,0,0
+CP_CASE_0433,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.32679998548701406,0,0
+CP_CASE_0434,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.33389998134225607,0,0
+CP_CASE_0435,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.3370000049471855,0,0
+CP_CASE_0436,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.5433000042103231,0,0
+CP_CASE_0437,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6829999620094895,0,0
+CP_CASE_0438,P,L2,semantic,Partially conflicting,Partially conflicting,True,0.6001999718137085,0,0
+CP_CASE_0439,P,L2,semantic,Partially conflicting,Fully impossible,False,0.40520000038668513,0,0
+CP_CASE_0440,P,L2,semantic,Partially conflicting,Fully impossible,False,0.43830001959577203,0,0
+CP_CASE_0441,P,L2,semantic,Partially conflicting,Fully impossible,False,0.4146000137552619,0,0
+CP_CASE_0442,P,L2,semantic,Partially conflicting,Fully impossible,False,0.5920000257901847,0,0
+CP_CASE_0443,P,L2,semantic,Partially conflicting,Fully impossible,False,0.4755000118166208,0,0
+CP_CASE_0444,P,L2,semantic,Partially conflicting,Fully impossible,False,0.4718999844044447,0,0
+CP_CASE_0445,P,L2,semantic,Partially conflicting,Fully impossible,False,0.4048999981023371,0,0
+CP_CASE_0446,P,L2,semantic,Partially conflicting,Fully impossible,False,0.36609999369829893,0,0
+CP_CASE_0447,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3588999970816076,0,0
+CP_CASE_0448,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3609000123105943,0,0
+CP_CASE_0449,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3693000180646777,0,0
+CP_CASE_0450,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3601000062189996,0,0
+CP_CASE_0451,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35669998032972217,0,0
+CP_CASE_0452,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3578999894671142,0,0
+CP_CASE_0453,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35749998642131686,0,0
+CP_CASE_0454,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3638999769464135,0,0
+CP_CASE_0455,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35140005638822913,0,0
+CP_CASE_0456,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3524000057950616,0,0
+CP_CASE_0457,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35450002178549767,0,0
+CP_CASE_0458,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35099999513477087,0,0
+CP_CASE_0459,P,L2,semantic,Partially conflicting,Fully impossible,False,0.34879997838288546,0,0
+CP_CASE_0460,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3577999887056649,0,0
+CP_CASE_0461,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35389995900914073,0,0
+CP_CASE_0462,P,L2,semantic,Partially conflicting,Fully impossible,False,0.34989998675882816,0,0
+CP_CASE_0463,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3541000187397003,0,0
+CP_CASE_0464,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3538000164553523,0,0
+CP_CASE_0465,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3515999997034669,0,0
+CP_CASE_0466,P,L2,semantic,Partially conflicting,Fully impossible,False,0.34959998447448015,0,0
+CP_CASE_0467,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3476000274531543,0,0
+CP_CASE_0468,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35039999056607485,0,0
+CP_CASE_0469,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35499996738508344,0,0
+CP_CASE_0470,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3505999920889735,0,0
+CP_CASE_0471,P,L2,semantic,Partially conflicting,Fully impossible,False,0.34819997381418943,0,0
+CP_CASE_0472,P,L2,semantic,Partially conflicting,Fully impossible,False,0.34659996163100004,0,0
+CP_CASE_0473,P,L2,semantic,Partially conflicting,Fully impossible,False,0.34899997990578413,0,0
+CP_CASE_0474,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35500002559274435,0,0
+CP_CASE_0475,P,L2,semantic,Partially conflicting,Fully impossible,False,0.347500026691705,0,0
+CP_CASE_0476,P,L2,semantic,Partially conflicting,Fully impossible,False,1.2011000071652234,0,0
+CP_CASE_0477,P,L2,semantic,Partially conflicting,Fully impossible,False,0.9596999734640121,0,0
+CP_CASE_0478,P,L2,semantic,Partially conflicting,Fully impossible,False,0.8832000312395394,0,0
+CP_CASE_0479,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3939000307582319,0,0
+CP_CASE_0480,P,L2,semantic,Partially conflicting,Fully impossible,False,0.37150003481656313,0,0
+CP_CASE_0481,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3648999845609069,0,0
+CP_CASE_0482,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3674000035971403,0,0
+CP_CASE_0483,P,L2,semantic,Partially conflicting,Fully impossible,False,0.4126999992877245,0,0
+CP_CASE_0484,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3609000123105943,0,0
+CP_CASE_0485,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35930000012740493,0,0
+CP_CASE_0486,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3575999871827662,0,0
+CP_CASE_0487,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3548000240698457,0,0
+CP_CASE_0488,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35249994834885,0,0
+CP_CASE_0489,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3542999620549381,0,0
+CP_CASE_0490,P,L2,semantic,Partially conflicting,Fully impossible,False,0.354000017978251,0,0
+CP_CASE_0491,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35390001721680164,0,0
+CP_CASE_0492,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35360001493245363,0,0
+CP_CASE_0493,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35310001112520695,0,0
+CP_CASE_0494,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35119999665766954,0,0
+CP_CASE_0495,P,L2,semantic,Partially conflicting,Fully impossible,False,0.35200000274926424,0,0
+CP_CASE_0496,P,L2,semantic,Partially conflicting,Fully impossible,False,0.354000017978251,0,0
+CP_CASE_0497,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3519000019878149,0,0
+CP_CASE_0498,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3523999475874007,0,0
+CP_CASE_0499,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3537999582476914,0,0
+CP_CASE_0500,P,L2,semantic,Partially conflicting,Fully impossible,False,0.3538000164553523,0,0
+CP_CASE_0501,A,L3,numerical,Fully impossible,Fully impossible,True,5.549900000914931,0,0
+CP_CASE_0502,A,L3,numerical,Fully impossible,Fully impossible,True,5.1874000346288085,0,0
+CP_CASE_0503,A,L3,numerical,Fully impossible,Fully impossible,True,2.910699986387044,0,0
+CP_CASE_0504,A,L3,numerical,Fully impossible,Fully impossible,True,2.122199977748096,0,0
+CP_CASE_0505,A,L3,numerical,Fully impossible,Fully impossible,True,2.029400027822703,0,0
+CP_CASE_0506,A,L3,numerical,Fully impossible,Fully impossible,True,2.024599991273135,0,0
+CP_CASE_0507,A,L3,numerical,Fully impossible,Fully impossible,True,2.0146999740973115,0,0
+CP_CASE_0508,A,L3,numerical,Fully impossible,Fully impossible,True,2.1180000039748847,0,0
+CP_CASE_0509,A,L3,numerical,Fully impossible,Fully impossible,True,2.0268000080250204,0,0
+CP_CASE_0510,A,L3,numerical,Fully impossible,Fully impossible,True,2.0034000044688582,0,0
+CP_CASE_0511,A,L3,numerical,Fully impossible,Fully impossible,True,1.9981999648734927,0,0
+CP_CASE_0512,A,L3,numerical,Fully impossible,Fully impossible,True,1.9961000070907176,0,0
+CP_CASE_0513,A,L3,numerical,Fully impossible,Fully impossible,True,1.996199949644506,0,0
+CP_CASE_0514,A,L3,numerical,Fully impossible,Fully impossible,True,3.4038000158034265,0,0
+CP_CASE_0515,A,L3,numerical,Fully impossible,Fully impossible,True,4.519300011452287,0,0
+CP_CASE_0516,A,L3,numerical,Fully impossible,Fully impossible,True,2.5683999992907047,0,0
+CP_CASE_0517,A,L3,numerical,Fully impossible,Fully impossible,True,2.005099959205836,0,0
+CP_CASE_0518,A,L3,numerical,Fully impossible,Fully impossible,True,1.9963000086136162,0,0
+CP_CASE_0519,A,L3,numerical,Fully impossible,Fully impossible,True,2.0043000113219023,0,0
+CP_CASE_0520,A,L3,numerical,Fully impossible,Fully impossible,True,3.47729999339208,0,0
+CP_CASE_0521,A,L3,numerical,Fully impossible,Fully impossible,True,2.087900007609278,0,0
+CP_CASE_0522,A,L3,numerical,Fully impossible,Fully impossible,True,2.057500008959323,0,0
+CP_CASE_0523,A,L3,numerical,Fully impossible,Fully impossible,True,2.026100002694875,0,0
+CP_CASE_0524,A,L3,numerical,Fully impossible,Fully impossible,True,2.0255999988876283,0,0
+CP_CASE_0525,A,L3,numerical,Fully impossible,Fully impossible,True,2.01489997562021,0,0
+CP_CASE_0526,A,L3,numerical,Fully impossible,Fully impossible,True,2.486000012140721,0,0
+CP_CASE_0527,A,L3,numerical,Fully impossible,Fully impossible,True,5.14259998453781,0,0
+CP_CASE_0528,A,L3,numerical,Fully impossible,Fully impossible,True,3.7429999792948365,0,0
+CP_CASE_0529,A,L3,numerical,Fully impossible,Fully impossible,True,2.3548000026494265,0,0
+CP_CASE_0530,A,L3,numerical,Fully impossible,Fully impossible,True,1.992999983485788,0,0
+CP_CASE_0531,A,L3,numerical,Fully impossible,Fully impossible,True,2.077499986626208,0,0
+CP_CASE_0532,A,L3,numerical,Fully impossible,Fully impossible,True,2.0192000083625317,0,0
+CP_CASE_0533,B,L3,numerical,Fully impossible,Compatible,False,1.5454000094905496,0,0
+CP_CASE_0534,B,L3,numerical,Fully impossible,Compatible,False,1.6041999915614724,0,0
+CP_CASE_0535,B,L3,numerical,Fully impossible,Compatible,False,1.5432999935001135,0,0
+CP_CASE_0536,B,L3,numerical,Fully impossible,Compatible,False,1.5527000068686903,0,0
+CP_CASE_0537,B,L3,numerical,Fully impossible,Compatible,False,1.5430999919772148,0,0
+CP_CASE_0538,B,L3,numerical,Fully impossible,Compatible,False,1.5196999884210527,0,0
+CP_CASE_0539,B,L3,numerical,Fully impossible,Compatible,False,1.5228000120259821,0,0
+CP_CASE_0540,B,L3,numerical,Fully impossible,Compatible,False,2.9291000100784004,0,0
+CP_CASE_0541,B,L3,numerical,Fully impossible,Compatible,False,4.112499998882413,0,0
+CP_CASE_0542,B,L3,numerical,Fully impossible,Compatible,False,3.6221000482328236,0,0
+CP_CASE_0543,B,L3,numerical,Fully impossible,Compatible,False,2.4778000079095364,0,0
+CP_CASE_0544,B,L3,numerical,Fully impossible,Compatible,False,5.0546000129543245,0,0
+CP_CASE_0545,B,L3,numerical,Fully impossible,Compatible,False,4.60919999750331,0,0
+CP_CASE_0546,B,L3,numerical,Fully impossible,Compatible,False,2.5705999578349292,0,0
+CP_CASE_0547,B,L3,numerical,Fully impossible,Compatible,False,1.7906000139191747,0,0
+CP_CASE_0548,B,L3,numerical,Fully impossible,Compatible,False,1.9765999750234187,0,0
+CP_CASE_0549,B,L3,numerical,Fully impossible,Compatible,False,2.087000000756234,0,0
+CP_CASE_0550,B,L3,numerical,Fully impossible,Compatible,False,1.5657999902032316,0,0
+CP_CASE_0551,B,L3,numerical,Fully impossible,Compatible,False,1.5887999907135963,0,0
+CP_CASE_0552,B,L3,numerical,Fully impossible,Compatible,False,1.5444000018760562,0,0
+CP_CASE_0553,B,L3,numerical,Fully impossible,Compatible,False,1.5342000406235456,0,0
+CP_CASE_0554,B,L3,numerical,Fully impossible,Compatible,False,1.533400034531951,0,0
+CP_CASE_0555,B,L3,numerical,Fully impossible,Compatible,False,1.5650000423192978,0,0
+CP_CASE_0556,B,L3,numerical,Fully impossible,Compatible,False,1.5660000499337912,0,0
+CP_CASE_0557,B,L3,numerical,Fully impossible,Compatible,False,1.5443000011146069,0,0
+CP_CASE_0558,B,L3,numerical,Fully impossible,Compatible,False,2.0824000239372253,0,0
+CP_CASE_0559,B,L3,numerical,Fully impossible,Compatible,False,4.525099997408688,0,0
+CP_CASE_0560,B,L3,numerical,Fully impossible,Compatible,False,3.8269999786280096,0,0
+CP_CASE_0561,B,L3,numerical,Fully impossible,Compatible,False,2.471800020430237,0,0
+CP_CASE_0562,B,L3,numerical,Fully impossible,Compatible,False,1.6709999763406813,0,0
+CP_CASE_0563,B,L3,numerical,Fully impossible,Compatible,False,1.5860999701544642,0,0
+CP_CASE_0564,B,L3,numerical,Fully impossible,Compatible,False,1.5533000114373863,0,0
+CP_CASE_0565,C,L1,numerical,Fully impossible,Fully impossible,True,3.877699957229197,0,0
+CP_CASE_0566,C,L1,numerical,Fully impossible,Fully impossible,True,3.011499997228384,0,0
+CP_CASE_0567,C,L1,numerical,Fully impossible,Fully impossible,True,1.8139999592676759,0,0
+CP_CASE_0568,C,L1,numerical,Fully impossible,Fully impossible,True,1.3957999763078988,0,0
+CP_CASE_0569,C,L1,numerical,Fully impossible,Fully impossible,True,1.2165000080130994,0,0
+CP_CASE_0570,C,L1,numerical,Fully impossible,Fully impossible,True,1.2032000231556594,0,0
+CP_CASE_0571,C,L1,numerical,Fully impossible,Fully impossible,True,1.1746999807655811,0,0
+CP_CASE_0572,C,L1,numerical,Fully impossible,Fully impossible,True,1.2143999920226634,0,0
+CP_CASE_0573,C,L1,numerical,Fully impossible,Fully impossible,True,1.1636000126600266,0,0
+CP_CASE_0574,C,L1,numerical,Fully impossible,Fully impossible,True,1.1974999797530472,0,0
+CP_CASE_0575,C,L1,numerical,Fully impossible,Fully impossible,True,1.1618999997153878,0,0
+CP_CASE_0576,C,L1,numerical,Fully impossible,Fully impossible,True,1.1783000081777573,0,0
+CP_CASE_0577,C,L1,numerical,Fully impossible,Fully impossible,True,1.1808999697677791,0,0
+CP_CASE_0578,C,L1,numerical,Fully impossible,Fully impossible,True,1.1793000157922506,0,0
+CP_CASE_0579,C,L1,numerical,Fully impossible,Fully impossible,True,1.1618999997153878,0,0
+CP_CASE_0580,C,L1,numerical,Fully impossible,Fully impossible,True,1.178500009700656,0,0
+CP_CASE_0581,C,L1,numerical,Fully impossible,Fully impossible,True,1.1679999879561365,0,0
+CP_CASE_0582,C,L1,numerical,Fully impossible,Fully impossible,True,1.1496000224724412,0,0
+CP_CASE_0583,C,L1,numerical,Fully impossible,Fully impossible,True,1.1729999678209424,0,0
+CP_CASE_0584,C,L1,numerical,Fully impossible,Fully impossible,True,1.1630000080913305,0,0
+CP_CASE_0585,C,L1,numerical,Fully impossible,Fully impossible,True,1.1558000114746392,0,0
+CP_CASE_0586,C,L1,numerical,Fully impossible,Fully impossible,True,1.1711999541148543,0,0
+CP_CASE_0587,C,L1,numerical,Fully impossible,Fully impossible,True,1.1546000023372471,0,0
+CP_CASE_0588,C,L1,numerical,Fully impossible,Fully impossible,True,1.1701000039465725,0,0
+CP_CASE_0589,C,L1,numerical,Fully impossible,Fully impossible,True,1.1929000029340386,0,0
+CP_CASE_0590,C,L1,numerical,Fully impossible,Fully impossible,True,1.1517999810166657,0,0
+CP_CASE_0591,C,L1,numerical,Fully impossible,Fully impossible,True,1.1663000332191586,0,0
+CP_CASE_0592,C,L1,numerical,Fully impossible,Fully impossible,True,1.160499989055097,0,0
+CP_CASE_0593,C,L1,numerical,Fully impossible,Fully impossible,True,1.1610999936237931,0,0
+CP_CASE_0594,C,L1,numerical,Fully impossible,Fully impossible,True,1.1687999940477312,0,0
+CP_CASE_0595,C,L1,numerical,Fully impossible,Fully impossible,True,1.1603999882936478,0,0
+CP_CASE_0596,D,L3,logical,Fully impossible,Compatible,False,0.3858000272884965,0,0
+CP_CASE_0597,D,L3,logical,Fully impossible,Compatible,False,0.36259996704757214,0,0
+CP_CASE_0598,D,L3,logical,Fully impossible,Compatible,False,0.34680002136155963,0,0
+CP_CASE_0599,D,L3,logical,Fully impossible,Compatible,False,0.33569999504834414,0,0
+CP_CASE_0600,D,L3,logical,Fully impossible,Compatible,False,0.33710000570863485,0,0
+CP_CASE_0601,D,L3,logical,Fully impossible,Compatible,False,0.32970000756904483,0,0
+CP_CASE_0602,D,L3,logical,Fully impossible,Compatible,False,0.3282000543549657,0,0
+CP_CASE_0603,D,L3,logical,Fully impossible,Compatible,False,0.37299998803064227,0,0
+CP_CASE_0604,D,L3,logical,Fully impossible,Compatible,False,0.32379996264353395,0,0
+CP_CASE_0605,D,L3,logical,Fully impossible,Compatible,False,0.3229000139981508,0,0
+CP_CASE_0606,D,L3,logical,Fully impossible,Compatible,False,0.3198999911546707,0,0
+CP_CASE_0607,D,L3,logical,Fully impossible,Compatible,False,0.32210000790655613,0,0
+CP_CASE_0608,D,L3,logical,Fully impossible,Compatible,False,0.31860003946349025,0,0
+CP_CASE_0609,D,L3,logical,Fully impossible,Compatible,False,0.32460002694278955,0,0
+CP_CASE_0610,D,L3,logical,Fully impossible,Compatible,False,0.31750003108754754,0,0
+CP_CASE_0611,D,L3,logical,Fully impossible,Compatible,False,0.3203999949619174,0,0
+CP_CASE_0612,D,L3,logical,Fully impossible,Compatible,False,0.31860003946349025,0,0
+CP_CASE_0613,D,L3,logical,Fully impossible,Compatible,False,0.32159994589164853,0,0
+CP_CASE_0614,D,L3,logical,Fully impossible,Compatible,False,0.3201999934390187,0,0
+CP_CASE_0615,D,L3,logical,Fully impossible,Compatible,False,0.3244000254198909,0,0
+CP_CASE_0616,D,L3,logical,Fully impossible,Compatible,False,0.3209999995306134,0,0
+CP_CASE_0617,D,L3,logical,Fully impossible,Compatible,False,0.3200999926775694,0,0
+CP_CASE_0618,D,L3,logical,Fully impossible,Compatible,False,0.31189998844638467,0,0
+CP_CASE_0619,D,L3,logical,Fully impossible,Compatible,False,0.31759997364133596,0,0
+CP_CASE_0620,D,L3,logical,Fully impossible,Compatible,False,0.3141000051982701,0,0
+CP_CASE_0621,D,L3,logical,Fully impossible,Compatible,False,0.3226000117138028,0,0
+CP_CASE_0622,D,L3,logical,Fully impossible,Compatible,False,0.3189999843016267,0,0
+CP_CASE_0623,D,L3,logical,Fully impossible,Compatible,False,0.3155999584123492,0,0
+CP_CASE_0624,D,L3,logical,Fully impossible,Compatible,False,0.3136000013910234,0,0
+CP_CASE_0625,D,L3,logical,Fully impossible,Compatible,False,0.3176999744027853,0,0
+CP_CASE_0626,D,L3,logical,Fully impossible,Compatible,False,0.3197999903932214,0,0
+CP_CASE_0627,E,L3,temporal,Fully impossible,Fully impossible,True,1.011699961964041,0,0
+CP_CASE_0628,E,L3,temporal,Fully impossible,Fully impossible,True,0.970599998254329,0,0
+CP_CASE_0629,E,L3,temporal,Fully impossible,Fully impossible,True,0.9132000268436968,0,0
+CP_CASE_0630,E,L3,temporal,Fully impossible,Fully impossible,True,0.9255000040866435,0,0
+CP_CASE_0631,E,L3,temporal,Fully impossible,Fully impossible,True,0.8910999749787152,0,0
+CP_CASE_0632,E,L3,temporal,Fully impossible,Fully impossible,True,0.9068999788723886,0,0
+CP_CASE_0633,E,L3,temporal,Fully impossible,Fully impossible,True,0.9053999674506485,0,0
+CP_CASE_0634,E,L3,temporal,Fully impossible,Fully impossible,True,0.9049999644048512,0,0
+CP_CASE_0635,E,L3,temporal,Fully impossible,Fully impossible,True,0.9127000230364501,0,0
+CP_CASE_0636,E,L3,temporal,Fully impossible,Fully impossible,True,0.9114000131376088,0,0
+CP_CASE_0637,E,L3,temporal,Fully impossible,Fully impossible,True,0.9187999530695379,0,0
+CP_CASE_0638,E,L3,temporal,Fully impossible,Fully impossible,True,0.9074999834410846,0,0
+CP_CASE_0639,E,L3,temporal,Fully impossible,Fully impossible,True,0.9106000070460141,0,0
+CP_CASE_0640,E,L3,temporal,Fully impossible,Fully impossible,True,0.896700017619878,0,0
+CP_CASE_0641,E,L3,temporal,Fully impossible,Fully impossible,True,0.9066000347957015,0,0
+CP_CASE_0642,E,L3,temporal,Fully impossible,Fully impossible,True,0.9071000386029482,0,0
+CP_CASE_0643,E,L3,temporal,Fully impossible,Fully impossible,True,0.9201000211760402,0,0
+CP_CASE_0644,E,L3,temporal,Fully impossible,Fully impossible,True,0.9089999948628247,0,0
+CP_CASE_0645,E,L3,temporal,Fully impossible,Fully impossible,True,0.9135000291280448,0,0
+CP_CASE_0646,E,L3,temporal,Fully impossible,Fully impossible,True,0.89640001533553,0,0
+CP_CASE_0647,E,L3,temporal,Fully impossible,Fully impossible,True,0.8938999962992966,0,0
+CP_CASE_0648,E,L3,temporal,Fully impossible,Fully impossible,True,0.8986000320874155,0,0
+CP_CASE_0649,E,L3,temporal,Fully impossible,Fully impossible,True,0.950800022110343,0,0
+CP_CASE_0650,E,L3,temporal,Fully impossible,Fully impossible,True,0.9387999889440835,0,0
+CP_CASE_0651,E,L3,temporal,Fully impossible,Fully impossible,True,0.9166999952867627,0,0
+CP_CASE_0652,E,L3,temporal,Fully impossible,Fully impossible,True,0.9022000012919307,0,0
+CP_CASE_0653,E,L3,temporal,Fully impossible,Fully impossible,True,0.9166999952867627,0,0
+CP_CASE_0654,E,L3,temporal,Fully impossible,Fully impossible,True,0.9039999567903578,0,0
+CP_CASE_0655,E,L3,temporal,Fully impossible,Fully impossible,True,0.9014999959617853,0,0
+CP_CASE_0656,E,L3,temporal,Fully impossible,Fully impossible,True,0.8889999589882791,0,0
+CP_CASE_0657,E,L3,temporal,Fully impossible,Fully impossible,True,0.8981000282801688,0,0
+CP_CASE_0658,F,L2,formatting,Fully impossible,Compatible,False,0.46740000834688544,0,0
+CP_CASE_0659,F,L2,formatting,Fully impossible,Compatible,False,0.4495999892242253,0,0
+CP_CASE_0660,F,L2,formatting,Fully impossible,Compatible,False,0.46030001249164343,0,0
+CP_CASE_0661,F,L2,formatting,Fully impossible,Compatible,False,0.44710002839565277,0,0
+CP_CASE_0662,F,L2,formatting,Fully impossible,Compatible,False,0.44870004057884216,0,0
+CP_CASE_0663,F,L2,formatting,Fully impossible,Compatible,False,0.4459000192582607,0,0
+CP_CASE_0664,F,L2,formatting,Fully impossible,Compatible,False,0.45489997137337923,0,0
+CP_CASE_0665,F,L2,formatting,Fully impossible,Compatible,False,0.4469000268727541,0,0
+CP_CASE_0666,F,L2,formatting,Fully impossible,Compatible,False,0.44450000859797,0,0
+CP_CASE_0667,F,L2,formatting,Fully impossible,Compatible,False,0.4545999690890312,0,0
+CP_CASE_0668,F,L2,formatting,Fully impossible,Compatible,False,0.4515000036917627,0,0
+CP_CASE_0669,F,L2,formatting,Fully impossible,Compatible,False,0.4455000162124634,0,0
+CP_CASE_0670,F,L2,formatting,Fully impossible,Compatible,False,0.44979999074712396,0,0
+CP_CASE_0671,F,L2,formatting,Fully impossible,Compatible,False,0.44870004057884216,0,0
+CP_CASE_0672,F,L2,formatting,Fully impossible,Compatible,False,0.4436999442987144,0,0
+CP_CASE_0673,F,L2,formatting,Fully impossible,Compatible,False,0.44520001392811537,0,0
+CP_CASE_0674,F,L2,formatting,Fully impossible,Compatible,False,0.4425000515766442,0,0
+CP_CASE_0675,F,L2,formatting,Fully impossible,Compatible,False,0.4388000234030187,0,0
+CP_CASE_0676,F,L2,formatting,Fully impossible,Compatible,False,0.443900004029274,0,0
+CP_CASE_0677,F,L2,formatting,Fully impossible,Compatible,False,0.44520001392811537,0,0
+CP_CASE_0678,F,L2,formatting,Fully impossible,Compatible,False,0.4416999872773886,0,0
+CP_CASE_0679,F,L2,formatting,Fully impossible,Compatible,False,0.4409000393934548,0,0
+CP_CASE_0680,F,L2,formatting,Fully impossible,Compatible,False,0.43479999294504523,0,0
+CP_CASE_0681,F,L2,formatting,Fully impossible,Compatible,False,0.4488000413402915,0,0
+CP_CASE_0682,F,L2,formatting,Fully impossible,Compatible,False,0.4411999834701419,0,0
+CP_CASE_0683,F,L2,formatting,Fully impossible,Compatible,False,0.43999997433274984,0,0
+CP_CASE_0684,F,L2,formatting,Fully impossible,Compatible,False,0.4411999834701419,0,0
+CP_CASE_0685,F,L2,formatting,Fully impossible,Compatible,False,0.44979999074712396,0,0
+CP_CASE_0686,F,L2,formatting,Fully impossible,Compatible,False,0.43920002644881606,0,0
+CP_CASE_0687,F,L2,formatting,Fully impossible,Compatible,False,0.44059997890144587,0,0
+CP_CASE_0688,F,L2,formatting,Fully impossible,Compatible,False,0.444800010882318,0,0
+CP_CASE_0689,G,L2,semantic,Fully impossible,Fully impossible,True,0.26920001255348325,0,0
+CP_CASE_0690,G,L2,semantic,Fully impossible,Fully impossible,True,0.2710000262595713,0,0
+CP_CASE_0691,G,L2,semantic,Fully impossible,Fully impossible,True,0.2615000121295452,0,0
+CP_CASE_0692,G,L2,semantic,Fully impossible,Fully impossible,True,0.2542000147514045,0,0
+CP_CASE_0693,G,L2,semantic,Fully impossible,Fully impossible,True,0.25889999233186245,0,0
+CP_CASE_0694,G,L2,semantic,Fully impossible,Fully impossible,True,0.25729998014867306,0,0
+CP_CASE_0695,G,L2,semantic,Fully impossible,Fully impossible,True,0.25919999461621046,0,0
+CP_CASE_0696,G,L2,semantic,Fully impossible,Fully impossible,True,0.2604000037536025,0,0
+CP_CASE_0697,G,L2,semantic,Fully impossible,Fully impossible,True,0.2528000040911138,0,0
+CP_CASE_0698,G,L2,semantic,Fully impossible,Fully impossible,True,0.25209999876096845,0,0
+CP_CASE_0699,G,L2,semantic,Fully impossible,Fully impossible,True,0.262899964582175,0,0
+CP_CASE_0700,G,L2,semantic,Fully impossible,Fully impossible,True,0.2620000159367919,0,0
+CP_CASE_0701,G,L2,semantic,Fully impossible,Fully impossible,True,0.26110000908374786,0,0
+CP_CASE_0702,G,L2,semantic,Fully impossible,Fully impossible,True,0.2628000220283866,0,0
+CP_CASE_0703,G,L2,semantic,Fully impossible,Fully impossible,True,0.27760001830756664,0,0
+CP_CASE_0704,G,L2,semantic,Fully impossible,Fully impossible,True,0.25540002388879657,0,0
+CP_CASE_0705,G,L2,semantic,Fully impossible,Fully impossible,True,0.25240000104531646,0,0
+CP_CASE_0706,G,L2,semantic,Fully impossible,Fully impossible,True,0.2570999786257744,0,0
+CP_CASE_0707,G,L2,semantic,Fully impossible,Fully impossible,True,0.25069998810067773,0,0
+CP_CASE_0708,G,L2,semantic,Fully impossible,Fully impossible,True,0.25459995958954096,0,0
+CP_CASE_0709,G,L2,semantic,Fully impossible,Fully impossible,True,0.2538000117056072,0,0
+CP_CASE_0710,G,L2,semantic,Fully impossible,Fully impossible,True,0.25530002312734723,0,0
+CP_CASE_0711,G,L2,semantic,Fully impossible,Fully impossible,True,0.24699995992705226,0,0
+CP_CASE_0712,G,L2,semantic,Fully impossible,Fully impossible,True,0.28310000197961926,0,0
+CP_CASE_0713,G,L2,semantic,Fully impossible,Fully impossible,True,0.25969999842345715,0,0
+CP_CASE_0714,G,L2,semantic,Fully impossible,Fully impossible,True,0.2538000117056072,0,0
+CP_CASE_0715,G,L2,semantic,Fully impossible,Fully impossible,True,0.2519999979995191,0,0
+CP_CASE_0716,G,L2,semantic,Fully impossible,Fully impossible,True,0.2547000185586512,0,0
+CP_CASE_0717,G,L2,semantic,Fully impossible,Fully impossible,True,0.2476000227034092,0,0
+CP_CASE_0718,G,L2,semantic,Fully impossible,Fully impossible,True,0.2518999972380698,0,0
+CP_CASE_0719,G,L2,semantic,Fully impossible,Fully impossible,True,0.2523000002838671,0,0
+CP_CASE_0720,H,L3,logical,Fully impossible,Compatible,False,0.3130999975837767,0,0
+CP_CASE_0721,H,L3,logical,Fully impossible,Compatible,False,0.361700018402189,0,0
+CP_CASE_0722,H,L3,logical,Fully impossible,Compatible,False,0.34770002821460366,0,0
+CP_CASE_0723,H,L3,logical,Fully impossible,Compatible,False,0.3002999583259225,0,0
+CP_CASE_0724,H,L3,logical,Fully impossible,Compatible,False,0.29550003819167614,0,0
+CP_CASE_0725,H,L3,logical,Fully impossible,Compatible,False,0.2956999815069139,0,0
+CP_CASE_0726,H,L3,logical,Fully impossible,Compatible,False,0.29230001382529736,0,0
+CP_CASE_0727,H,L3,logical,Fully impossible,Compatible,False,0.2914000069722533,0,0
+CP_CASE_0728,H,L3,logical,Fully impossible,Compatible,False,0.2954999799840152,0,0
+CP_CASE_0729,H,L3,logical,Fully impossible,Compatible,False,0.298400002066046,0,0
+CP_CASE_0730,H,L3,logical,Fully impossible,Compatible,False,0.2961999853141606,0,0
+CP_CASE_0731,H,L3,logical,Fully impossible,Compatible,False,0.29230001382529736,0,0
+CP_CASE_0732,H,L3,logical,Fully impossible,Compatible,False,0.29309996170923114,0,0
+CP_CASE_0733,H,L3,logical,Fully impossible,Compatible,False,0.291000003926456,0,0
+CP_CASE_0734,H,L3,logical,Fully impossible,Compatible,False,0.2899999963119626,0,0
+CP_CASE_0735,H,L3,logical,Fully impossible,Compatible,False,0.30150002567097545,0,0
+CP_CASE_0736,H,L3,logical,Fully impossible,Compatible,False,0.29230001382529736,0,0
+CP_CASE_0737,H,L3,logical,Fully impossible,Compatible,False,0.29479997465386987,0,0
+CP_CASE_0738,H,L3,logical,Fully impossible,Compatible,False,0.2951000351458788,0,0
+CP_CASE_0739,H,L3,logical,Fully impossible,Compatible,False,0.29259995790198445,0,0
+CP_CASE_0740,H,L3,logical,Fully impossible,Compatible,False,0.28959999326616526,0,0
+CP_CASE_0741,H,L3,logical,Fully impossible,Compatible,False,0.29200001154094934,0,0
+CP_CASE_0742,H,L3,logical,Fully impossible,Compatible,False,0.2970999921672046,0,0
+CP_CASE_0743,H,L3,logical,Fully impossible,Compatible,False,0.2930000191554427,0,0
+CP_CASE_0744,H,L3,logical,Fully impossible,Compatible,False,0.2924000145867467,0,0
+CP_CASE_0745,H,L3,logical,Fully impossible,Compatible,False,0.28909998945891857,0,0
+CP_CASE_0746,H,L3,logical,Fully impossible,Compatible,False,0.292200013063848,0,0
+CP_CASE_0747,H,L3,logical,Fully impossible,Compatible,False,0.29260001610964537,0,0
+CP_CASE_0748,H,L3,logical,Fully impossible,Compatible,False,0.29090000316500664,0,0
+CP_CASE_0749,H,L3,logical,Fully impossible,Compatible,False,0.2962999860756099,0,0
+CP_CASE_0750,H,L3,logical,Fully impossible,Compatible,False,0.28959999326616526,0,0
+CP_CASE_0751,I,L2,missing,Underspecified,Underspecified,True,0.2978999982587993,0,0
+CP_CASE_0752,I,L2,missing,Underspecified,Underspecified,True,0.29310001991689205,0,0
+CP_CASE_0753,I,L2,missing,Underspecified,Underspecified,True,0.2888999879360199,0,0
+CP_CASE_0754,I,L2,missing,Underspecified,Underspecified,True,0.2846000134013593,0,0
+CP_CASE_0755,I,L2,missing,Underspecified,Underspecified,True,1.795999996829778,0,0
+CP_CASE_0756,I,L2,missing,Underspecified,Underspecified,True,1.2420000275596976,0,0
+CP_CASE_0757,I,L2,missing,Underspecified,Underspecified,True,1.1317000025883317,0,0
+CP_CASE_0758,I,L2,missing,Underspecified,Underspecified,True,1.2592999846674502,0,0
+CP_CASE_0759,I,L2,missing,Underspecified,Underspecified,True,0.9814000222831964,0,0
+CP_CASE_0760,I,L2,missing,Underspecified,Underspecified,True,0.8784999954514205,0,0
+CP_CASE_0761,I,L2,missing,Underspecified,Underspecified,True,0.8288000244647264,0,0
+CP_CASE_0762,I,L2,missing,Underspecified,Underspecified,True,0.7330999942496419,0,0
+CP_CASE_0763,I,L2,missing,Underspecified,Underspecified,True,0.735200010240078,0,0
+CP_CASE_0764,I,L2,missing,Underspecified,Underspecified,True,0.6500000017695129,0,0
+CP_CASE_0765,I,L2,missing,Underspecified,Underspecified,True,0.5944999866187572,0,0
+CP_CASE_0766,I,L2,missing,Underspecified,Underspecified,True,0.5175000405870378,0,0
+CP_CASE_0767,I,L2,missing,Underspecified,Underspecified,True,0.4635000368580222,0,0
+CP_CASE_0768,I,L2,missing,Underspecified,Underspecified,True,0.4744000034406781,0,0
+CP_CASE_0769,I,L2,missing,Underspecified,Underspecified,True,0.38139999378472567,0,0
+CP_CASE_0770,I,L2,missing,Underspecified,Underspecified,True,0.36590005038306117,0,0
+CP_CASE_0771,I,L2,missing,Underspecified,Underspecified,True,0.3643000381998718,0,0
+CP_CASE_0772,I,L2,missing,Underspecified,Underspecified,True,0.33109996002167463,0,0
+CP_CASE_0773,I,L2,missing,Underspecified,Underspecified,True,0.28799998108297586,0,0
+CP_CASE_0774,I,L2,missing,Underspecified,Underspecified,True,0.29340002220124006,0,0
+CP_CASE_0775,I,L2,missing,Underspecified,Underspecified,True,0.2856000210158527,0,0
+CP_CASE_0776,I,L2,missing,Underspecified,Underspecified,True,0.28769997879862785,0,0
+CP_CASE_0777,I,L2,missing,Underspecified,Underspecified,True,0.2891999902203679,0,0
+CP_CASE_0778,I,L2,missing,Underspecified,Underspecified,True,0.28739997651427984,0,0
+CP_CASE_0779,I,L2,missing,Underspecified,Underspecified,True,0.28580002253875136,0,0
+CP_CASE_0780,I,L2,missing,Underspecified,Underspecified,True,0.2829000004567206,0,0
+CP_CASE_0781,I,L2,missing,Underspecified,Underspecified,True,0.28709997422993183,0,0
+CP_CASE_0782,I,L2,missing,Underspecified,Underspecified,True,0.2802000381052494,0,0
+CP_CASE_0783,I,L2,missing,Underspecified,Underspecified,True,0.2866999711841345,0,0
+CP_CASE_0784,I,L2,missing,Underspecified,Underspecified,True,0.2893999917432666,0,0
+CP_CASE_0785,I,L2,missing,Underspecified,Underspecified,True,0.28170004952698946,0,0
+CP_CASE_0786,I,L2,missing,Underspecified,Underspecified,True,0.2837000065483153,0,0
+CP_CASE_0787,I,L2,missing,Underspecified,Underspecified,True,0.2820999943651259,0,0
+CP_CASE_0788,I,L2,missing,Underspecified,Underspecified,True,0.28089998522773385,0,0
+CP_CASE_0789,I,L2,missing,Underspecified,Underspecified,True,0.2796000335365534,0,0
+CP_CASE_0790,I,L2,missing,Underspecified,Underspecified,True,0.2764000091701746,0,0
+CP_CASE_0791,I,L2,missing,Underspecified,Underspecified,True,0.7085999823175371,0,0
+CP_CASE_0792,I,L2,missing,Underspecified,Underspecified,True,0.9059999720193446,0,0
+CP_CASE_0793,I,L2,missing,Underspecified,Underspecified,True,0.9729000157676637,0,0
+CP_CASE_0794,I,L2,missing,Underspecified,Underspecified,True,0.4655999946407974,0,0
+CP_CASE_0795,I,L2,missing,Underspecified,Underspecified,True,0.4317000275477767,0,0
+CP_CASE_0796,I,L2,missing,Underspecified,Underspecified,True,0.3693000180646777,0,0
+CP_CASE_0797,I,L2,missing,Underspecified,Underspecified,True,0.36159995943307877,0,0
+CP_CASE_0798,I,L2,missing,Underspecified,Underspecified,True,0.38650003261864185,0,0
+CP_CASE_0799,I,L2,missing,Underspecified,Underspecified,True,0.31539995688945055,0,0
+CP_CASE_0800,I,L2,missing,Underspecified,Underspecified,True,0.29830000130459666,0,0
+CP_CASE_0801,I,L2,missing,Underspecified,Underspecified,True,0.29659998835995793,0,0
+CP_CASE_0802,I,L2,missing,Underspecified,Underspecified,True,0.2878999803215265,0,0
+CP_CASE_0803,I,L2,missing,Underspecified,Underspecified,True,0.2389000146649778,0,0
+CP_CASE_0804,I,L2,missing,Underspecified,Underspecified,True,0.23599999258294702,0,0
+CP_CASE_0805,I,L2,missing,Underspecified,Underspecified,True,0.23659999715164304,0,0
+CP_CASE_0806,I,L2,missing,Underspecified,Underspecified,True,0.23360003251582384,0,0
+CP_CASE_0807,I,L2,missing,Underspecified,Underspecified,True,0.22340001305565238,0,0
+CP_CASE_0808,I,L2,missing,Underspecified,Underspecified,True,0.18639996415004134,0,0
+CP_CASE_0809,I,L2,missing,Underspecified,Underspecified,True,0.18780003301799297,0,0
+CP_CASE_0810,I,L2,missing,Underspecified,Underspecified,True,0.18480001017451286,0,0
+CP_CASE_0811,I,L2,missing,Underspecified,Underspecified,True,0.18769997404888272,0,0
+CP_CASE_0812,I,L2,missing,Underspecified,Underspecified,True,0.18830003682523966,0,0
+CP_CASE_0813,I,L2,missing,Underspecified,Underspecified,True,0.18389994511380792,0,0
+CP_CASE_0814,I,L2,missing,Underspecified,Underspecified,True,0.16459997277706861,0,0
+CP_CASE_0815,I,L2,missing,Underspecified,Underspecified,True,0.16190001042559743,0,0
+CP_CASE_0816,I,L2,missing,Underspecified,Underspecified,True,0.159099989105016,0,0
+CP_CASE_0817,I,L2,missing,Underspecified,Underspecified,True,0.1639999682083726,0,0
+CP_CASE_0818,I,L2,missing,Underspecified,Underspecified,True,0.16039999900385737,0,0
+CP_CASE_0819,I,L2,missing,Underspecified,Underspecified,True,0.15930004883557558,0,0
+CP_CASE_0820,I,L2,missing,Underspecified,Underspecified,True,0.15969999367371202,0,0
+CP_CASE_0821,I,L2,missing,Underspecified,Underspecified,True,0.1618000096641481,0,0
+CP_CASE_0822,I,L2,missing,Underspecified,Underspecified,True,0.15759997768327594,0,0
+CP_CASE_0823,I,L2,missing,Underspecified,Underspecified,True,0.16300001880154014,0,0
+CP_CASE_0824,I,L2,missing,Underspecified,Underspecified,True,0.16039999900385737,0,0
+CP_CASE_0825,I,L2,missing,Underspecified,Underspecified,True,0.15860004350543022,0,0
+CP_CASE_0826,I,L2,missing,Underspecified,Underspecified,True,0.16080000204965472,0,0
+CP_CASE_0827,I,L2,missing,Underspecified,Underspecified,True,0.15879998682066798,0,0
+CP_CASE_0828,I,L2,missing,Underspecified,Underspecified,True,0.16080000204965472,0,0
+CP_CASE_0829,I,L2,missing,Underspecified,Underspecified,True,0.16039999900385737,0,0
+CP_CASE_0830,I,L2,missing,Underspecified,Underspecified,True,0.16170000890269876,0,0
+CP_CASE_0831,I,L2,missing,Underspecified,Underspecified,True,0.15999999595806003,0,0
+CP_CASE_0832,I,L2,missing,Underspecified,Underspecified,True,0.15869998605921865,0,0
+CP_CASE_0833,I,L2,missing,Underspecified,Underspecified,True,0.1588000450283289,0,0
+CP_CASE_0834,I,L2,missing,Underspecified,Underspecified,True,0.16140000661835074,0,0
+CP_CASE_0835,I,L2,missing,Underspecified,Underspecified,True,0.43109996477141976,0,0
+CP_CASE_0836,I,L2,missing,Underspecified,Underspecified,True,0.2498000394552946,0,0
+CP_CASE_0837,I,L2,missing,Underspecified,Underspecified,True,0.24590000975877047,0,0
+CP_CASE_0838,I,L2,missing,Underspecified,Underspecified,True,0.2521999995224178,0,0
+CP_CASE_0839,I,L2,missing,Underspecified,Underspecified,True,0.2463000128045678,0,0
+CP_CASE_0840,I,L2,missing,Underspecified,Underspecified,True,0.24319998919963837,0,0
+CP_CASE_0841,I,L2,missing,Underspecified,Underspecified,True,0.24119997397065163,0,0
+CP_CASE_0842,I,L2,missing,Underspecified,Underspecified,True,0.24730002041906118,0,0
+CP_CASE_0843,I,L2,missing,Underspecified,Underspecified,True,0.24279998615384102,0,0
+CP_CASE_0844,I,L2,missing,Underspecified,Underspecified,True,0.24399999529123306,0,0
+CP_CASE_0845,I,L2,missing,Underspecified,Underspecified,True,0.24420005502179265,0,0
+CP_CASE_0846,I,L2,missing,Underspecified,Underspecified,True,0.24699995992705226,0,0
+CP_CASE_0847,I,L2,missing,Underspecified,Underspecified,True,0.24260004283860326,0,0
+CP_CASE_0848,I,L2,missing,Underspecified,Underspecified,True,0.2413999754935503,0,0
+CP_CASE_0849,I,L2,missing,Underspecified,Underspecified,True,0.8645000052638352,0,0
+CP_CASE_0850,I,L2,missing,Underspecified,Underspecified,True,0.7304999744519591,0,0
+CP_CASE_0851,I,L2,missing,Underspecified,Underspecified,True,0.6498000002466142,0,0
+CP_CASE_0852,I,L2,missing,Underspecified,Underspecified,True,0.7128000142984092,0,0
+CP_CASE_0853,I,L2,missing,Underspecified,Underspecified,True,0.6429000059142709,0,0
+CP_CASE_0854,I,L2,missing,Underspecified,Underspecified,True,0.615699973423034,0,0
+CP_CASE_0855,I,L2,missing,Underspecified,Underspecified,True,0.6273000035434961,0,0
+CP_CASE_0856,I,L2,missing,Underspecified,Underspecified,True,0.6321000400930643,0,0
+CP_CASE_0857,I,L2,missing,Underspecified,Underspecified,True,0.590900017414242,0,0
+CP_CASE_0858,I,L2,missing,Underspecified,Underspecified,True,0.5889000021852553,0,0
+CP_CASE_0859,I,L2,missing,Underspecified,Underspecified,True,0.491499959025532,0,0
+CP_CASE_0860,I,L2,missing,Underspecified,Underspecified,True,0.47229998745024204,0,0
+CP_CASE_0861,I,L2,missing,Underspecified,Underspecified,True,0.44540001545101404,0,0
+CP_CASE_0862,I,L2,missing,Underspecified,Underspecified,True,0.3603000077418983,0,0
+CP_CASE_0863,I,L2,missing,Underspecified,Underspecified,True,0.3491000388748944,0,0
+CP_CASE_0864,I,L2,missing,Underspecified,Underspecified,True,0.348400033544749,0,0
+CP_CASE_0865,I,L2,missing,Underspecified,Underspecified,True,0.32949994783848524,0,0
+CP_CASE_0866,I,L2,missing,Underspecified,Underspecified,True,0.27740001678466797,0,0
+CP_CASE_0867,I,L2,missing,Underspecified,Underspecified,True,0.27299998328089714,0,0
+CP_CASE_0868,I,L2,missing,Underspecified,Underspecified,True,0.2726000384427607,0,0
+CP_CASE_0869,I,L2,missing,Underspecified,Underspecified,True,0.2785999677143991,0,0
+CP_CASE_0870,I,L2,missing,Underspecified,Underspecified,True,0.24189997930079699,0,0
+CP_CASE_0871,I,L2,missing,Underspecified,Underspecified,True,0.24129997473210096,0,0
+CP_CASE_0872,I,L2,missing,Underspecified,Underspecified,True,0.24349999148398638,0,0
+CP_CASE_0873,I,L2,missing,Underspecified,Underspecified,True,0.2479000249877572,0,0
+CP_CASE_0874,I,L2,missing,Underspecified,Underspecified,True,0.24389999452978373,0,0
+CP_CASE_0875,I,L2,missing,Underspecified,Underspecified,True,0.26380002964287996,0,0
+CP_CASE_0876,I,L2,missing,Underspecified,Underspecified,True,0.25130005087703466,0,0
+CP_CASE_0877,I,L2,missing,Underspecified,Underspecified,True,0.24189997930079699,0,0
+CP_CASE_0878,I,L2,missing,Underspecified,Underspecified,True,0.22980000358074903,0,0
+CP_CASE_0879,I,L2,missing,Underspecified,Underspecified,True,0.23279996821656823,0,0
+CP_CASE_0880,I,L2,missing,Underspecified,Underspecified,True,0.22929999977350235,0,0
+CP_CASE_0881,I,L2,missing,Underspecified,Underspecified,True,0.22909999825060368,0,0
+CP_CASE_0882,I,L2,missing,Underspecified,Underspecified,True,0.2307999529875815,0,0
+CP_CASE_0883,I,L2,missing,Underspecified,Underspecified,True,0.22879999596625566,0,0
+CP_CASE_0884,I,L2,missing,Underspecified,Underspecified,True,0.25700003607198596,0,0
+CP_CASE_0885,I,L2,missing,Underspecified,Underspecified,True,0.2258999738842249,0,0
+CP_CASE_0886,I,L2,missing,Underspecified,Underspecified,True,0.2269999822601676,0,0
+CP_CASE_0887,I,L2,missing,Underspecified,Underspecified,True,0.22630003513768315,0,0
+CP_CASE_0888,I,L2,missing,Underspecified,Underspecified,True,0.23070001043379307,0,0
+CP_CASE_0889,I,L2,missing,Underspecified,Underspecified,True,0.22559997159987688,0,0
+CP_CASE_0890,I,L2,missing,Underspecified,Underspecified,True,0.22310001077130437,0,0
+CP_CASE_0891,I,L2,missing,Underspecified,Underspecified,True,0.22250000620260835,0,0
+CP_CASE_0892,I,L2,missing,Underspecified,Underspecified,True,0.26329996762797236,0,0
+CP_CASE_0893,I,L2,missing,Underspecified,Underspecified,True,0.22540002828463912,0,0
+CP_CASE_0894,I,L2,missing,Underspecified,Underspecified,True,0.22330001229420304,0,0
+CP_CASE_0895,I,L2,missing,Underspecified,Underspecified,True,0.23170001804828644,0,0
+CP_CASE_0896,I,L2,missing,Underspecified,Underspecified,True,0.222400005441159,0,0
+CP_CASE_0897,I,L2,missing,Underspecified,Underspecified,True,0.2237000153400004,0,0
+CP_CASE_0898,I,L2,missing,Underspecified,Underspecified,True,0.22489996626973152,0,0
+CP_CASE_0899,I,L2,missing,Underspecified,Underspecified,True,0.22540002828463912,0,0
+CP_CASE_0900,I,L2,missing,Underspecified,Underspecified,True,0.22149999858811498,0,0
+CP_CASE_0901,I,L2,missing,Underspecified,Underspecified,True,0.22340001305565238,0,0
+CP_CASE_0902,I,L2,missing,Underspecified,Underspecified,True,0.22229994647204876,0,0
+CP_CASE_0903,I,L2,missing,Underspecified,Underspecified,True,0.22279995027929544,0,0
+CP_CASE_0904,I,L2,missing,Underspecified,Underspecified,True,0.2305000089108944,0,0
+CP_CASE_0905,I,L2,missing,Underspecified,Underspecified,True,0.2232000115327537,0,0
+CP_CASE_0906,I,L2,missing,Underspecified,Underspecified,True,0.22300001000985503,0,0
+CP_CASE_0907,I,L2,missing,Underspecified,Underspecified,True,0.22149999858811498,0,0
+CP_CASE_0908,I,L2,missing,Underspecified,Underspecified,True,0.22350001381710172,0,0
+CP_CASE_0909,I,L2,missing,Underspecified,Underspecified,True,0.22489996626973152,0,0
+CP_CASE_0910,I,L2,missing,Underspecified,Underspecified,True,0.22260000696405768,0,0
+CP_CASE_0911,I,L2,missing,Underspecified,Underspecified,True,0.2232000115327537,0,0
+CP_CASE_0912,I,L2,missing,Underspecified,Underspecified,True,0.228599994443357,0,0
+CP_CASE_0913,I,L2,missing,Underspecified,Underspecified,True,0.22390001686289907,0,0
+CP_CASE_0914,I,L2,missing,Underspecified,Underspecified,True,0.22369995713233948,0,0
+CP_CASE_0915,I,L2,missing,Underspecified,Underspecified,True,0.21989998640492558,0,0
+CP_CASE_0916,I,L2,missing,Underspecified,Underspecified,True,0.21979998564347625,0,0
+CP_CASE_0917,I,L2,missing,Underspecified,Underspecified,True,0.22159999934956431,0,0
+CP_CASE_0918,I,L2,missing,Underspecified,Underspecified,True,0.22139999782666564,0,0
+CP_CASE_0919,I,L2,missing,Underspecified,Underspecified,True,0.2343000378459692,0,0
+CP_CASE_0920,I,L2,missing,Underspecified,Underspecified,True,0.23909995798021555,0,0
+CP_CASE_0921,I,L2,missing,Underspecified,Underspecified,True,0.23529998725280166,0,0
+CP_CASE_0922,I,L2,missing,Underspecified,Underspecified,True,0.24130003293976188,0,0
+CP_CASE_0923,I,L2,missing,Underspecified,Underspecified,True,0.23689999943599105,0,0
+CP_CASE_0924,I,L2,missing,Underspecified,Underspecified,True,0.23710000095888972,0,0
+CP_CASE_0925,I,L2,missing,Underspecified,Underspecified,True,0.23770000552758574,0,0
+CP_CASE_0926,I,L2,missing,Underspecified,Underspecified,True,0.2405999694019556,0,0
+CP_CASE_0927,I,L2,missing,Underspecified,Underspecified,True,0.23530004546046257,0,0
+CP_CASE_0928,I,L2,missing,Underspecified,Underspecified,True,0.2381000085733831,0,0
+CP_CASE_0929,I,L2,missing,Underspecified,Underspecified,True,0.23339997278526425,0,0
+CP_CASE_0930,I,L2,missing,Underspecified,Underspecified,True,0.23549998877570033,0,0
+CP_CASE_0931,I,L2,missing,Underspecified,Underspecified,True,0.23140001576393843,0,0
+CP_CASE_0932,I,L2,missing,Underspecified,Underspecified,True,0.22739998530596495,0,0
+CP_CASE_0933,I,L2,missing,Underspecified,Underspecified,True,0.22770004579797387,0,0
+CP_CASE_0934,I,L2,missing,Underspecified,Underspecified,True,0.22819999139755964,0,0
+CP_CASE_0935,I,L2,missing,Underspecified,Underspecified,True,0.22990000434219837,0,0
+CP_CASE_0936,I,L2,missing,Underspecified,Underspecified,True,0.23279996821656823,0,0
+CP_CASE_0937,I,L2,missing,Underspecified,Underspecified,True,0.2308000111952424,0,0
+CP_CASE_0938,I,L2,missing,Underspecified,Underspecified,True,0.228899996727705,0,0
+CP_CASE_0939,I,L2,missing,Underspecified,Underspecified,True,0.9846999892033637,0,0
+CP_CASE_0940,I,L2,missing,Underspecified,Underspecified,True,0.24129997473210096,0,0
+CP_CASE_0941,I,L2,missing,Underspecified,Underspecified,True,0.24279998615384102,0,0
+CP_CASE_0942,I,L2,missing,Underspecified,Underspecified,True,0.2332000294700265,0,0
+CP_CASE_0943,I,L2,missing,Underspecified,Underspecified,True,0.23089995374903083,0,0
+CP_CASE_0944,I,L2,missing,Underspecified,Underspecified,True,0.23340003099292517,0,0
+CP_CASE_0945,I,L2,missing,Underspecified,Underspecified,True,0.2313000150024891,0,0
+CP_CASE_0946,I,L2,missing,Underspecified,Underspecified,True,0.25889999233186245,0,0
+CP_CASE_0947,I,L2,missing,Underspecified,Underspecified,True,0.30159996822476387,0,0
+CP_CASE_0948,I,L2,missing,Underspecified,Underspecified,True,0.23559998953714967,0,0
+CP_CASE_0949,I,L2,missing,Underspecified,Underspecified,True,0.23740000324323773,0,0
+CP_CASE_0950,I,L2,missing,Underspecified,Underspecified,True,0.24740002118051052,0,0
+CP_CASE_0951,I,L2,missing,Underspecified,Underspecified,True,0.7035000016912818,0,0
+CP_CASE_0952,I,L2,missing,Underspecified,Underspecified,True,0.7531000301241875,0,0
+CP_CASE_0953,I,L2,missing,Underspecified,Underspecified,True,0.6697000353597105,0,0
+CP_CASE_0954,I,L2,missing,Underspecified,Underspecified,True,0.6209000130183995,0,0
+CP_CASE_0955,I,L2,missing,Underspecified,Underspecified,True,0.6114999996498227,0,0
+CP_CASE_0956,I,L2,missing,Underspecified,Underspecified,True,0.6253000465221703,0,0
+CP_CASE_0957,I,L2,missing,Underspecified,Underspecified,True,0.6041000015102327,0,0
+CP_CASE_0958,I,L2,missing,Underspecified,Underspecified,True,0.5985000170767307,0,0
+CP_CASE_0959,I,L2,missing,Underspecified,Underspecified,True,0.5552000366151333,0,0
+CP_CASE_0960,I,L2,missing,Underspecified,Underspecified,True,0.46880001900717616,0,0
+CP_CASE_0961,I,L2,missing,Underspecified,Underspecified,True,0.40749995969235897,0,0
+CP_CASE_0962,I,L2,missing,Underspecified,Underspecified,True,0.40040002204477787,0,0
+CP_CASE_0963,I,L2,missing,Underspecified,Underspecified,True,0.3542999620549381,0,0
+CP_CASE_0964,I,L2,missing,Underspecified,Underspecified,True,0.28470001416280866,0,0
+CP_CASE_0965,I,L2,missing,Underspecified,Underspecified,True,0.2932000206783414,0,0
+CP_CASE_0966,I,L2,missing,Underspecified,Underspecified,True,0.2815000480040908,0,0
+CP_CASE_0967,I,L2,missing,Underspecified,Underspecified,True,0.2856000210158527,0,0
+CP_CASE_0968,I,L2,missing,Underspecified,Underspecified,True,0.27570000384002924,0,0
+CP_CASE_0969,I,L2,missing,Underspecified,Underspecified,True,0.21540001034736633,0,0
+CP_CASE_0970,I,L2,missing,Underspecified,Underspecified,True,0.2145000034943223,0,0
+CP_CASE_0971,I,L2,missing,Underspecified,Underspecified,True,0.21500000730156898,0,0
+CP_CASE_0972,I,L2,missing,Underspecified,Underspecified,True,0.21979998564347625,0,0
+CP_CASE_0973,I,L2,missing,Underspecified,Underspecified,True,0.21410000044852495,0,0
+CP_CASE_0974,I,L2,missing,Underspecified,Underspecified,True,0.21299999207258224,0,0
+CP_CASE_0975,I,L2,missing,Underspecified,Underspecified,True,0.20210002548992634,0,0
+CP_CASE_0976,I,L2,missing,Underspecified,Underspecified,True,0.1778000150807202,0,0
+CP_CASE_0977,I,L2,missing,Underspecified,Underspecified,True,0.17860002117231488,0,0
+CP_CASE_0978,I,L2,missing,Underspecified,Underspecified,True,0.18049997743219137,0,0
+CP_CASE_0979,I,L2,missing,Underspecified,Underspecified,True,0.17750001279637218,0,0
+CP_CASE_0980,I,L2,missing,Underspecified,Underspecified,True,0.17600000137463212,0,0
+CP_CASE_0981,I,L2,missing,Underspecified,Underspecified,True,0.17990003107115626,0,0
+CP_CASE_0982,I,L2,missing,Underspecified,Underspecified,True,0.18119998276233673,0,0
+CP_CASE_0983,I,L2,missing,Underspecified,Underspecified,True,0.2001000102609396,0,0
+CP_CASE_0984,I,L2,missing,Underspecified,Underspecified,True,0.18370000179857016,0,0
+CP_CASE_0985,I,L2,missing,Underspecified,Underspecified,True,0.17900002421811223,0,0
+CP_CASE_0986,I,L2,missing,Underspecified,Underspecified,True,0.17939996905624866,0,0
+CP_CASE_0987,I,L2,missing,Underspecified,Underspecified,True,0.1789000234566629,0,0
+CP_CASE_0988,I,L2,missing,Underspecified,Underspecified,True,0.17910002497956157,0,0
+CP_CASE_0989,I,L2,missing,Underspecified,Underspecified,True,0.17959997057914734,0,0
+CP_CASE_0990,I,L2,missing,Underspecified,Underspecified,True,0.17600000137463212,0,0
+CP_CASE_0991,I,L2,missing,Underspecified,Underspecified,True,0.1783999614417553,0,0
+CP_CASE_0992,I,L2,missing,Underspecified,Underspecified,True,0.22829999215900898,0,0
+CP_CASE_0993,I,L2,missing,Underspecified,Underspecified,True,0.18309999722987413,0,0
+CP_CASE_0994,I,L2,missing,Underspecified,Underspecified,True,0.1878999755717814,0,0
+CP_CASE_0995,I,L2,missing,Underspecified,Underspecified,True,0.188700039871037,0,0
+CP_CASE_0996,I,L2,missing,Underspecified,Underspecified,True,0.18799997633323073,0,0
+CP_CASE_0997,I,L2,missing,Underspecified,Underspecified,True,0.1873000292107463,0,0
+CP_CASE_0998,I,L2,missing,Underspecified,Underspecified,True,0.18750003073364496,0,0
+CP_CASE_0999,I,L2,missing,Underspecified,Underspecified,True,0.18849998014047742,0,0
+CP_CASE_1000,I,L2,missing,Underspecified,Underspecified,True,0.1829999964684248,0,0
